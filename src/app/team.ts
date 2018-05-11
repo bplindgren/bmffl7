@@ -14,7 +14,7 @@ export class Team {
   wins: number;
   winsRegSeason: number;
   losses: number;
-  lossesRegSeason:
+  lossesRegSeason: number;
   ties: number;
   divisionWinner: string;
   champion: string;
