@@ -7,17 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { GameService } from './game.service';
+import { AppRoutingModule } from './app-routing.module';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

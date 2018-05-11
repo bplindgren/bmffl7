@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Game } from '../game';
-import { GameService } from '../game.service';
+import { Game } from './game';
+import { GameService } from './game.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { GameService } from '../game.service';
 })
 export class AppComponent implements OnInit {
   title = 'bmffl6';
-  recentFive: Game[] = [];
+  recentFive: Game[] = [];  
 
   constructor(private gameService: GameService) { }
 
