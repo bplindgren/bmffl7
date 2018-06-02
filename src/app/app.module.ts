@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './home/home.component';
 import { OwnercardComponent } from './ownercard/ownercard.component';
+import { OwnerspageComponent } from './ownerspage/ownerspage.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OwnercardComponent } from './ownercard/ownercard.component';
     MenuComponent,
     MainNavComponent,
     HomeComponent,
-    OwnercardComponent
+    OwnercardComponent,
+    OwnerspageComponent
   ],
   imports: [
     BrowserModule,

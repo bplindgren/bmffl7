@@ -24,8 +24,10 @@
     </mat-menu>
 
     <mat-menu #upstairs="matMenu">
-      <button mat-menu-item *ngFor="let owner of upstairsOwners">
-        {{ owner.firstName + ' ' + owner.lastInitial}}</button>
+      <button mat-menu-item *ngFor="let owner of upstairsOwners"
+        routerLink='/owners/Brad-L'>
+        {{ owner.firstName + ' ' + owner.lastInitial }}
+      </button>
     </mat-menu>
 
     <mat-menu #downstairs="matMenu">
