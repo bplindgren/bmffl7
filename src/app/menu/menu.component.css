@@ -10,3 +10,7 @@ mat-card {
 .home-button {
   height: 36px;
 }
+
+mat-card-title {
+  color: white;
+}

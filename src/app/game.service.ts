@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Game } from './game';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class GameService {
   private baseURL = 'http://localhost:8080';
   private games: Game[] = [];

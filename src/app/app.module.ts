@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { GameService } from './game.service';
+import { OwnerService } from './owner.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TeamComponent } from './team/team.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -16,6 +17,8 @@ import { OwnersComponent } from './owners/owners.component';
 import { CardlistComponent } from './cardlist/cardlist.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { HomeComponent } from './home/home.component';
+import { OwnercardComponent } from './ownercard/ownercard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     OwnersComponent,
     CardlistComponent,
     MenuComponent,
-    MainNavComponent
+    MainNavComponent,
+    HomeComponent,
+    OwnercardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MatGridListModule,
     MatMenuModule
   ],
-  providers: [GameService],
+  providers: [GameService, OwnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

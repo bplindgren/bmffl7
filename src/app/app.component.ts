@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 
 import { Game } from './game';
 import { GameService } from './game.service';
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   getRecentFive() {
     this.gameService.getRecentFive().subscribe((games) => {
-      console.log(games)
+      // console.log(games)
       this.recentFive = games})
   }
 }
