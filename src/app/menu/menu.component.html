@@ -1,0 +1,52 @@
+<mat-card>
+
+  <mat-card-title>
+    BMFFL League and Stats Website
+  </mat-card-title>
+
+  <mat-card-content>
+    <button mat-raised-button color="primary" class="home-button">
+      <span><a routerLink="/" class="button-link">Home</a></span>
+    </button>
+    <button mat-raised-button color="primary" class="home-button">
+      <span><a routerLink="cardList" class="button-link">Scores</a></span>
+    </button>
+
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="menu1">
+      First Menu
+    </button>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span><a routerLink='/'>Home</a></span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>voicemail</mat-icon>
+        <span><a routerLink='/owners'>Owners</a></span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span><a routerLink='/teams'>Teams</a></span>
+      </button>
+    </mat-menu>
+
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="menu2">
+      Second Menu
+    </button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item >
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </mat-card-content>
+
+</mat-card>
