@@ -1,4 +1,3 @@
-<p>
-  owners component works!
-</p>
-<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
+<ul>
+  <li *ngFor="let owner of allOwners">{{ owner.firstName + " " + owner.lastInitial }}</li>
+</ul>

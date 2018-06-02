@@ -14,10 +14,7 @@
 
     <button mat-raised-button
       color="primary"
-      [matMenuTriggerFor]="ownersMenu"
-      #menuTrigger="matMenuTrigger"
-      (mouseenter)="menuTrigger.openMenu()"
-      (click)="goToRoute(owners)">
+      [matMenuTriggerFor]="ownersMenu">
       Owners
     </button>
     <mat-menu #ownersMenu="matMenu" overlapTrigger=false>
@@ -36,22 +33,14 @@
         {{ owner.firstName + ' ' + owner.lastInitial}}</button>
     </mat-menu>
 
-    <button mat-raised-button color="primary" [matMenuTriggerFor]="menu2">
-      Second Menu
+    <button mat-raised-button
+      color="primary"
+      [matMenuTriggerFor]="seasonsMenu">
+      Seasons
     </button>
-    <mat-menu #menu2="matMenu">
-      <button mat-menu-item>
-        <mat-icon>settings</mat-icon>
-        <span><a routerLink='/'>Home</a></span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>voicemail</mat-icon>
-        <span><a routerLink='/owners'>Owners</a></span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>notifications_off</mat-icon>
-        <span><a routerLink='/teams'>Teams</a></span>
-      </button>
+    <mat-menu #seasonsMenu="matMenu" overlapTrigger=false>
+      <button mat-menu-item *ngFor="let year of yearsEnum">
+        {{ year }}</button>
     </mat-menu>
   </mat-card-content>
 

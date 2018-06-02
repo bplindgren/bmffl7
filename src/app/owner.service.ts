@@ -11,9 +11,16 @@ export class OwnerService {
   constructor(private http: HttpClient) { }
 
   getOwnerNames(division: string): Observable<Owner[]> {
-    console.log(`${this.baseURL}` + '/owners/' + division))
-    return this.http.get<Owner[]>(`${this.baseURL}` + '/owners/' + division)
-    // .pipe(tap(_ +> console.log(division + ' owners received'))
-    );
+    console.log(`${this.baseURL}` + '/owners/' + division);
+    return this.http.get<Owner[]>(`${this.baseURL}` + '/owners/' + division).pipe(
+      tap(_ => console.log(division + ' owners received'))
+    )
+  }
+
+  getAllOwners(): Observable<Owner[]> {
+    console.log(`${this.baseURL}` + '/owners');
+    return this.http.get<Owner[]>(`${this.baseURL}` + '/owners').pipe(
+      tap(_ => console.log(' all owners received'))
+    )
   }
 }
