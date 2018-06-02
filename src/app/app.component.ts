@@ -10,18 +10,17 @@ import { GameService } from './game.service';
 })
 export class AppComponent implements OnInit {
   title = 'bmffl6';
-  recentFive: Game[] = [];  
+  recentFive: Game[] = [];
 
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
-    this.getRecentFive()
+    // this.getRecentFive()
   }
 
   getRecentFive() {
     this.gameService.getRecentFive().subscribe((games) => {
       console.log(games)
       this.recentFive = games})
-    console.log('hi')
   }
 }

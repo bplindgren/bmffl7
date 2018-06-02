@@ -1,0 +1,12 @@
+mat-card {
+  background-color: #673ab7;
+}
+
+.button-link {
+  text-decoration: none;
+  color: white;
+}
+
+.home-button {
+  height: 36px;
+}
