@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { GameService } from './game.service';
+import { OwnerService } from './owner.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TeamComponent } from './team/team.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -41,7 +42,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MatGridListModule,
     MatMenuModule
   ],
-  providers: [GameService],
+  providers: [GameService, OwnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

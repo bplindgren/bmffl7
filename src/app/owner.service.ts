@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Game } from './game';
+import { Owner } from './owner';
 
 @Injectable({ providedIn: 'root' })
-export class GameService {
+export class OwnerService {
   private baseURL = 'http://localhost:8080';
-  private games: Game[] = [];
 
   constructor(private http: HttpClient) { }
 
-  getRecentFive(): Observable<Game[]> {
-    return this.http.get<Game[]>(`${this.baseURL}` + '/games/recent').pipe(
-      tap(_ => console.log('games retreived'))
+  getOwnerNames(division: string): Observable<Owner[]> {
+    console.log(`${this.baseURL}` + '/owners/' + division))
+    return this.http.get<Owner[]>(`${this.baseURL}` + '/owners/' + division)
+    // .pipe(tap(_ +> console.log(division + ' owners received'))
     );
   }
 }
