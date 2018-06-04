@@ -4,7 +4,6 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner.service';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
-import { Years } from '../enums/years.enum';
 
 @Component({
   selector: 'app-menu',
@@ -14,8 +13,7 @@ import { Years } from '../enums/years.enum';
 export class MenuComponent implements OnInit, AfterViewInit {
   private upstairsOwners = [];
   private downstairsOwners = [];
-
-  yearsEnum = Object.keys(Years).filter(key => key.length > 1)
+  private years = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
@@ -33,7 +31,6 @@ export class MenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     let matMenuTriggers: MatMenuTrigger[] = this.menuChildren.toArray();
     console.log(matMenuTriggers)
-    console.log(this.yearsEnum)
   }
 
   // printEnum(private enum: Enum) {
