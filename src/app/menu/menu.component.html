@@ -25,13 +25,14 @@
 
     <mat-menu #upstairs="matMenu">
       <button mat-menu-item *ngFor="let owner of upstairsOwners"
-        routerLink='/owners/Brad-L'>
+        routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">
         {{ owner.firstName + ' ' + owner.lastInitial }}
       </button>
     </mat-menu>
 
     <mat-menu #downstairs="matMenu">
-      <button mat-menu-item *ngFor="let owner of downstairsOwners">
+      <button mat-menu-item *ngFor="let owner of downstairsOwners"
+        routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">
         {{ owner.firstName + ' ' + owner.lastInitial}}</button>
     </mat-menu>
 
@@ -41,7 +42,7 @@
       Seasons
     </button>
     <mat-menu #seasonsMenu="matMenu" overlapTrigger=false>
-      <button mat-menu-item *ngFor="let year of yearsEnum">
+      <button mat-menu-item *ngFor="let year of years">
         {{ year }}</button>
     </mat-menu>
   </mat-card-content>

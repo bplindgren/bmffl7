@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner.service';
+import { ActivatedRoute } from '@angular/router';
+import { Owner } from '../owner';
+
 
 @Component({
   selector: 'app-ownerspage',
@@ -8,14 +11,22 @@ import { OwnerService } from '../owner.service';
   styleUrls: ['./ownerspage.component.css']
 })
 export class OwnerspageComponent implements OnInit {
-  private owner = null;
+  private owner: Owner = null;
+  private name: String;
 
-  constructor(private ownerService: OwnerService) { }
+  constructor(private ownerService: OwnerService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
-    this.ownerService.getOwner(name)
-      .subscribe(o => { this.owner = o })
-    console.log(this.owner)
+    this.route.params.subscribe(params => {
+      this.name = params['name']
+      this.getOwner()
+    })
+  }
+
+  getOwner() {
+    console.log(this.name)
+    this.ownerService.getOwner(this.name).subscribe(o => { this.owner = o })
   }
 
 }
