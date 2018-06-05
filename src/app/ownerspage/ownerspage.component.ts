@@ -11,22 +11,17 @@ import { Owner } from '../owner';
   styleUrls: ['./ownerspage.component.css']
 })
 export class OwnerspageComponent implements OnInit {
-  private owner: Owner = null;
-  private name: String;
+  owner: Owner;
 
-  constructor(private ownerService: OwnerService, private route: ActivatedRoute) {
+  constructor(
+    private ownerService: OwnerService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.name = params['name']
-      this.getOwner()
+    this.route.data.subscribe(data => {
+      this.owner = data['owner'];
     })
-  }
-
-  getOwner() {
-    console.log(this.name)
-    this.ownerService.getOwner(this.name).subscribe(o => { this.owner = o })
   }
 
 }
