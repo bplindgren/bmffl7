@@ -28,8 +28,6 @@ export class OwnerService {
     console.log(`${this.baseURL}` + '/owners/' + name)
     return this.http.get<Owner>(`${this.baseURL}` + '/owners/' + name).pipe(
       tap(_ => console.log(' owner received'))
-    // console.log(owner)
-    // return owner
     )
   }
 }

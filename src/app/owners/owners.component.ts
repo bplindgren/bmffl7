@@ -14,7 +14,7 @@ export class OwnersComponent implements OnInit {
 
   ngOnInit() {
     this.ownerService.getAllOwners()
-      .subscribe((owners) => { this.allOwners = owners })
+      .subscribe(owners => { this.allOwners = owners })
     console.log(this.allOwners)
   }
 
