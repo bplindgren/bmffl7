@@ -6,11 +6,11 @@ import { GameService } from '../game.service';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'cardlist',
-  templateUrl: './cardlist.component.html',
-  styleUrls: ['./cardlist.component.css']
+  selector: 'app-week-scores',
+  templateUrl: './week-scores.component.html',
+  styleUrls: ['./week-scores.component.css']
 })
-export class CardlistComponent implements OnInit {
+export class WeekScoresComponent implements OnInit {
   recentFive: Game[] = [];
 
   constructor(private gameService: GameService) { }
@@ -20,10 +20,8 @@ export class CardlistComponent implements OnInit {
   }
 
   getRecentFive() {
-    this.gameService.getRecentFive().subscribe((games) => {
-      console.log(games)
-      this.recentFive = games
+    this.gameService.getRecentFive().subscribe(games => {
+      this.recentFive = games;
     })
   }
-
 }

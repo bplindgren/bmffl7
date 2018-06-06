@@ -15,13 +15,13 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
 import { OwnersComponent } from './owners/owners.component';
-import { OwnerspageResolver } from '/ownerspage.resolver';
 import { CardlistComponent } from './cardlist/cardlist.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './home/home.component';
 import { OwnercardComponent } from './ownercard/ownercard.component';
-import { OwnerspageComponent } from './ownerspage/ownerspage.component';
+import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
+import { WeekScoresComponent } from './week-scores/week-scores.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { OwnerspageComponent } from './ownerspage/ownerspage.component';
     MainNavComponent,
     HomeComponent,
     OwnercardComponent,
-    OwnerspageComponent
+    OwnerDetailComponent,
+    WeekScoresComponent
   ],
   imports: [
     BrowserModule,

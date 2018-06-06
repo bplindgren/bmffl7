@@ -4,13 +4,12 @@ import { OwnerService } from '../owner.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../owner';
 
-
 @Component({
-  selector: 'app-ownerspage',
-  templateUrl: './ownerspage.component.html',
-  styleUrls: ['./ownerspage.component.css']
+  selector: 'app-owner-detail',
+  templateUrl: './owner-detail.component.html',
+  styleUrls: ['./owner-detail.component.css']
 })
-export class OwnerspageComponent implements OnInit {
+export class OwnerDetailComponent implements OnInit {
   owner: Owner;
 
   constructor(
@@ -23,5 +22,4 @@ export class OwnerspageComponent implements OnInit {
       this.owner = data['owner'];
     })
   }
-
 }
