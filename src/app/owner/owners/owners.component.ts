@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OwnerService } from '../owner.service';
+import { OwnerService } from '../owner-service/owner.service';
 
 @Component({
   selector: 'app-owners',

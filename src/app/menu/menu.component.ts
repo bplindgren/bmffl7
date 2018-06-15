@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit,
          ViewChild, ViewChildren, QueryList, ElementRef, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { OwnerService } from '../owner.service';
+import { OwnerService } from '../owner/owner-service/owner.service';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 
 @Component({

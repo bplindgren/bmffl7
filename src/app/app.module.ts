@@ -1,37 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRouting } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { OwnerService } from './owner/owner-service/owner.service';
+
 import { GameService } from './game.service';
-import { Owner } from './owner';
-import { OwnerService } from './owner.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TeamComponent } from './team/team.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
-import { OwnersComponent } from './owners/owners.component';
 import { MenuComponent } from './menu/menu.component';
-import { MainNavComponent } from './main-nav/main-nav.component';
 import { HomeComponent } from './home/home.component';
-import { OwnercardComponent } from './ownercard/ownercard.component';
-import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
 import { WeekScoresComponent } from './week-scores/week-scores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamComponent,
-    OwnersComponent,
     MenuComponent,
-    MainNavComponent,
     HomeComponent,
-    OwnercardComponent,
-    OwnerDetailComponent,
     WeekScoresComponent
   ],
   imports: [
@@ -47,9 +40,10 @@ import { WeekScoresComponent } from './week-scores/week-scores.component';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    AppRouting
   ],
-  providers: [GameService, OwnerService, Owner],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

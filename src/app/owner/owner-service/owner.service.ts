@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Owner } from './owner';
+import { Owner } from '../../owner';
 
 @Injectable({ providedIn: 'root' })
 export class OwnerService {
