@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OwnerService } from '../owner.service';
+import { OwnerService } from '../owner-service/owner.service';
 import { ActivatedRoute } from '@angular/router';
-import { Owner } from '../owner';
+import { Owner } from '../../owner';
 
 @Component({
   selector: 'app-owner-detail',
@@ -18,7 +18,7 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
+    this.route.data.subscribe((data: { owner: Owner }) => {
       this.owner = data['owner'];
     })
   }
