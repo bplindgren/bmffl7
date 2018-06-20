@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Game } from '../game';
 import { GameService } from '../game.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card';
 
@@ -11,17 +12,16 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./week-scores.component.css']
 })
 export class WeekScoresComponent implements OnInit {
-  recentFive: Game[] = [];
+  games: Game[] = [];
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService,
+              private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.getRecentFive();
-  }
-
-  getRecentFive() {
-    this.gameService.getRecentFive().subscribe(games => {
-      this.recentFive = games;
+  ngOnInit(){
+    let params = this.route.snapshot.params
+    this.gameService.getRecentFive(params['seasonId'], params['weekId']).subscribe(res => {
+      this.games = res;
     })
   }
+  
 }

@@ -18,6 +18,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { WeekScoresComponent } from './week-scores/week-scores.component';
+import { MatchupComponent } from './matchup/matchup.component';
+import { RecordsComponent } from './records/records.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { WeekScoresComponent } from './week-scores/week-scores.component';
     TeamComponent,
     MenuComponent,
     HomeComponent,
-    WeekScoresComponent
+    WeekScoresComponent,
+    MatchupComponent,
+    RecordsComponent
   ],
   imports: [
     BrowserModule,
