@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit,
-         ViewChild, ViewChildren, QueryList, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input,
+         ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner/owner-service/owner.service';
@@ -35,6 +35,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     let matMenuTriggers: MatMenuTrigger[] = this.menuChildren.toArray();
+    console.log(`ngAfterViewInit - menuChildren is ${this.menuChildren}`);
   }
 
   getYear() {
@@ -45,9 +46,11 @@ export class MenuComponent implements OnInit, AfterViewInit {
   getWeek() {
     let now = new Date();
     let start = new Date(now.getFullYear(), 0, 0);
-    let diff = Math.abs(now - start) + Math.abs((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+    let left = (Math.abs(now.getTime() - start.getTime()));
+    let right = (Math.abs((start.getTimezoneOffset()- now.getTimezoneOffset()) * 60 * 1000));
+    let sum = left + right;
     let oneDay = 1000 * 60 * 60 * 24;
-    let day = Math.floor(diff / oneDay);
+    let day = Math.floor(sum / oneDay);
     let week = Math.floor(day / 7) - 36
     return (week < 0) ?  1 : week;
   }
