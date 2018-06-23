@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-owners',
@@ -10,7 +11,7 @@ import { OwnerService } from '../owner-service/owner.service';
 export class OwnersComponent implements OnInit {
   private allOwners = [];
 
-  constructor(private ownerService: OwnerService) { }
+  constructor(private ownerService: OwnerService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.ownerService.getAllOwners()

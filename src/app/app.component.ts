@@ -1,26 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Game } from './game';
-import { GameService } from './game.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'bmffl6';
-  recentFive: Game[] = [];
 
-  constructor(private gameService: GameService) { }
+  constructor() { }
 
-  ngOnInit() {
-    // this.getRecentFive()
-  }
-
-  getRecentFive() {
-    this.gameService.getRecentFive().subscribe((games) => {
-      // console.log(games)
-      this.recentFive = games})
-  }
 }

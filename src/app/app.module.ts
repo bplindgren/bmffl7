@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRouting } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,11 +12,15 @@ import { GameService } from './game.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TeamComponent } from './team/team.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule,
-  MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { WeekScoresComponent } from './week-scores/week-scores.component';
+import { MatchupComponent } from './matchup/matchup.component';
+import { RecordsComponent } from './records/records.component';
+
+
+import { MatToolbarModule, MatButtonModule, MatSidenavModule,
+  MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { WeekScoresComponent } from './week-scores/week-scores.component';
     TeamComponent,
     MenuComponent,
     HomeComponent,
-    WeekScoresComponent
+    WeekScoresComponent,
+    MatchupComponent,
+    RecordsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +45,7 @@ import { WeekScoresComponent } from './week-scores/week-scores.component';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatMenuModule,
-    AppRouting
+    MatMenuModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
