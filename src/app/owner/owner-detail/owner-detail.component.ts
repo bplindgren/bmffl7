@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { Owner } from '../../owner';
   styleUrls: ['./owner-detail.component.css']
 })
 export class OwnerDetailComponent implements OnInit {
-  owner: Owner;
+  @Input() owner: Owner
 
   constructor(
     private ownerService: OwnerService,
