@@ -1,0 +1,21 @@
+<div class="container" id="scores-form">
+  <h1>BMFFL Scoreboard</h1>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="form-group">
+      <label for="season" class="col-lg-1 mar-top">Season</label>
+      <select class="form-control" name="season" ngModel #season="ngModel" class="col-lg-1 mar-top">
+        <option *ngFor="let season of seasons" value=season>{{ season }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="week" class="col-lg-1 mar-top">Week</label>
+      <select class="form-control" name="week" ngModel #week="ngModel" class="col-lg-1 mar-top">
+        <option *ngFor="let week of weeks" value=week>{{ week }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class=" btn btn-success" routerLink="{{ '/scores/season/' + season.value + '/week/' + week.value }}" id="scores-submit-btn">View Scores</button>
+  </form>
+
+</div>

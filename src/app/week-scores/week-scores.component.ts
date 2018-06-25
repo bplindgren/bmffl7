@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Game } from '../game';
 import { GameService } from '../game.service';
+import { WeekScoresFormComponent } from '/week-scores-form/week-scores-form.ts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card';
@@ -17,11 +18,15 @@ export class WeekScoresComponent implements OnInit {
   constructor(private gameService: GameService,
               private route: ActivatedRoute) { }
 
-  ngOnInit(){
+  ngOnInit() {
     let params = this.route.snapshot.params
     this.gameService.getRecentFive(params['seasonId'], params['weekId']).subscribe(res => {
       this.games = res;
     })
   }
-  
+
+  openYearDropdown() {
+
+  }
+
 }
