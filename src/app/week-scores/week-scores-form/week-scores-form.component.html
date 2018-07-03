@@ -1,0 +1,22 @@
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="season" class="col-lg-1 mar-top">Season</label>
+    <select class="form-control" name="seasonInput" #seasonInput [(ngModel)]="this.season" class="col-lg-1 mar-top">
+      <option *ngFor="let season of seasons" value="{{ season }}">{{ season }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="week" class="col-lg-1 mar-top">Week</label>
+    <select class="form-control" name="weekInput" #weekInput [(ngModel)]="this.week" class="col-lg-1 mar-top">
+      <option *ngFor="let week of weeks" value="{{ week }}">{{ week }}</option>
+    </select>
+  </div>
+
+  <button
+    id="scores-submit-btn"
+    class="btn btn-success"
+    routerLink="{{ '/scores/season/' + seasonInput.value + '/week/' + weekInput.value }}">
+    View Scores
+  </button>
+</form>

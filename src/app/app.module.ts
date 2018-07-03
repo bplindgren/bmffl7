@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +22,9 @@ import { RecordsComponent } from './records/records.component';
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
+import { WeekScoresFormComponent } from './week-scores/week-scores-form/week-scores-form.component';
+import { FormDemoComponent } from './week-scores/form-demo/form-demo.component';
+import { ScoreboardComponent } from './week-scores/scoreboard/scoreboard.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +34,15 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     HomeComponent,
     WeekScoresComponent,
     MatchupComponent,
-    RecordsComponent
+    RecordsComponent,
+    WeekScoresFormComponent,
+    FormDemoComponent,
+    ScoreboardComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,

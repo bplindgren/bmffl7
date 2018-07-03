@@ -1,0 +1,10 @@
+<div class="cardList-div container">
+  <ul>
+    <li *ngFor="let game of games">
+      <mat-card>
+        <mat-card-subtitle>{{ game.awayTeam.name }} {{ game.awayScore }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ game.homeTeam.name }} {{ game.homeScore }}</mat-card-subtitle>
+      </mat-card>
+    </li>
+  </ul>
+</div>
