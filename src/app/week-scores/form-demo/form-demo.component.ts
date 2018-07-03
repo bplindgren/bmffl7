@@ -6,7 +6,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './form-demo.component.html',
   styleUrls: ['./form-demo.component.css']
 })
-export class FormDemoComponent implements OnInit {
+export class FormDemoComponent {
 
   onSubmit(f: NgForm) {
     console.log(f.value);  // { first: '', last: '' }

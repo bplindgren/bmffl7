@@ -10,11 +10,12 @@ import { Owner } from '../../owner';
   styleUrls: ['./owner-detail.component.css']
 })
 export class OwnerDetailComponent implements OnInit {
-  @Input() owner: Owner
+  @Input() owner: Owner;
 
   constructor(
     private ownerService: OwnerService,
     private route: ActivatedRoute) {
+      console.log("owner-detail constructed")
   }
 
   ngOnInit() {
