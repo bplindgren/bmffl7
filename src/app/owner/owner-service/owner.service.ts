@@ -20,14 +20,14 @@ export class OwnerService {
   getAllOwners(): Observable<Owner[]> {
     console.log(`${this.baseURL}` + '/owners');
     return this.http.get<Owner[]>(`${this.baseURL}` + '/owners').pipe(
-      tap(_ => console.log(' all owners received'))
+      tap(_ => console.log('all owners received'))
     )
   }
 
   getOwner(name: String): Observable<Owner> {
     console.log(`${this.baseURL}` + '/owners/' + name)
     return this.http.get<Owner>(`${this.baseURL}` + '/owners/' + name).pipe(
-      tap(_ => console.log(' owner received'))
+      tap(_ => console.log('owner received'))
     )
   }
 }

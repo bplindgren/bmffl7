@@ -1,15 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, Input, AfterContentInit } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { GameService } from '../../game.service';
 import { Game } from '../../game';
 
 @Component({
-  selector: 'week-scores-form',
+  selector: 'app-week-scores-form',
   templateUrl: './week-scores-form.component.html',
   styleUrls: ['./week-scores-form.component.css']
 })
-export class WeekScoresFormComponent implements OnInit {
+export class WeekScoresFormComponent implements AfterContentInit {
   @Input() season: String;
   @Input() week: String;
   private seasons = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
@@ -19,7 +19,7 @@ export class WeekScoresFormComponent implements OnInit {
     private gameService: GameService,
     private router: Router) { }
 
-  ngOnInit() {
+  ngAfterContentInit() {
     console.log(this)
   }
 }

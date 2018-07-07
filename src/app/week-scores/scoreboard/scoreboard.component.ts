@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterContentInit, Input} from '@angular/core';
+import { Game } from '../../game';
 
 @Component({
-  selector: 'scoreboard',
+  selector: 'app-scoreboard',
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.css']
 })
-export class ScoreboardComponent implements OnInit {
+export class ScoreboardComponent implements AfterContentInit {
+  @Input() games: Game[];
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterContentInit() {
+    console.log(this)
   }
 
 }
