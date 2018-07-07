@@ -11,12 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class OwnersComponent implements OnInit {
   private allOwners = [];
 
-  constructor(private ownerService: OwnerService, private route: ActivatedRoute ) { }
+  constructor(
+    private ownerService: OwnerService,
+    private route: ActivatedRoute ) {
+  }
 
   ngOnInit() {
     this.ownerService.getAllOwners()
       .subscribe(owners => { this.allOwners = owners })
-    console.log(this.allOwners)
   }
 
 }

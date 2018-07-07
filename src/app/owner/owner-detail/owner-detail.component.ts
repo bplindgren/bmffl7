@@ -15,7 +15,6 @@ export class OwnerDetailComponent implements OnInit {
   constructor(
     private ownerService: OwnerService,
     private route: ActivatedRoute) {
-      console.log("owner-detail constructed")
   }
 
   ngOnInit() {

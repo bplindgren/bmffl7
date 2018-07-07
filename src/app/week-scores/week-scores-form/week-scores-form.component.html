@@ -1,15 +1,15 @@
-<form #f="ngForm">
+<form #f="ngForm" id="scores-form" novalidate>
   <div class="form-group">
     <label for="season" class="col-lg-1 mar-top">Season</label>
-    <select class="form-control" name="seasonInput" #seasonInput [(ngModel)]="this.season" class="col-lg-1 mar-top">
-      <option *ngFor="let season of seasons" value="{{ season }}">{{ season }}</option>
+    <select class="form-control" #seasonInput [(ngModel)]="this.season" name="seasonInput" class="col-lg-1 mar-top">
+      <option *ngFor="let season of seasons" [value]="season">{{ season }}</option>
     </select>
   </div>
 
   <div class="form-group">
     <label for="week" class="col-lg-1 mar-top">Week</label>
-    <select class="form-control" name="weekInput" #weekInput [(ngModel)]="this.week" class="col-lg-1 mar-top">
-      <option *ngFor="let week of weeks" value="{{ week }}">{{ week }}</option>
+    <select class="form-control" #weekInput [(ngModel)]="this.week" name="weekInput" class="col-lg-1 mar-top">
+      <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
     </select>
   </div>
 

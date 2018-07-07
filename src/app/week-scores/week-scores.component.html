@@ -1,37 +1,5 @@
 <div class="container" id="scores-form">
   <h1>BMFFL Scoreboard</h1>
-  <form #f="ngForm" novalidate>
-    <div class="form-group">
-      <label for="season" class="col-lg-1 mar-top">Season</label>
-      <select class="form-control" name="season" ngModel #seasonInput="ngModel" class="col-lg-1 mar-top">
-        <option *ngFor="let season of seasons" value="{{ this.season }}">{{ season }}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="week" class="col-lg-1 mar-top">Week</label>
-      <select class="form-control" name="week" ngModel #weekInput="ngModel" class="col-lg-1 mar-top">
-        <option *ngFor="let week of weeks" value="{{ week }}">{{ week }}</option>
-      </select>
-    </div>
-
-    <button
-      id="scores-submit-btn"
-      (click)="setGames(seasonInput.value, weekInput.value)"
-      class="btn btn-success">
-      View Scores
-    </button>
-  </form>
-
+  <app-week-scores-form [season]="this.season" [week]="this.week"></app-week-scores-form>
 </div>
-
-<div class="cardList-div container">
-  <ul>
-    <li *ngFor="let game of games">
-      <mat-card>
-        <mat-card-subtitle>{{ game.awayTeam.name }} {{ game.awayScore }}</mat-card-subtitle>
-        <mat-card-subtitle>{{ game.homeTeam.name }} {{ game.homeScore }}</mat-card-subtitle>
-      </mat-card>
-    </li>
-  </ul>
-</div>
+<app-scoreboard [games]="this.games"></app-scoreboard>

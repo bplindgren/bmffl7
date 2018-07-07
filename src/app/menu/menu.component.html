@@ -7,14 +7,16 @@
   <mat-card-content>
     <button mat-raised-button
       color="primary"
-      class="resized-button">
-      <span><a routerLink="/" class="button-link">Home</a></span>
+      class="resized-button"
+      routerLink="/">
+      Home
     </button>
 
     <button mat-raised-button
       color="primary"
-      class="resized-button">
-      <span><a routerLink="{{ '/scores/season/' + this.year + '/week/' + this.week }}" class="button-link">Scores</a></span>
+      class="resized-button"
+      routerLink="{{ '/scores/season/' + this.year + '/week/' + this.week }}">
+      Scores
     </button>
 
     <button mat-raised-button
@@ -53,14 +55,15 @@
 
     <button mat-raised-button
       color="primary"
-      class="resized-button">
-      <span><a routerLink="/matchup" class="button-link">Matchups</a></span>
+      class="resized-button"
+      routerLink="/matchup">
+      Matchups
     </button>
 
     <button mat-raised-button
       color="primary"
-      class="resized-button">
-      <span><a routerLink="/records" class="button-link">Records</a></span>
+      class="resized-button"
+      routerLink="/records">Records
     </button>
   </mat-card-content>
 
