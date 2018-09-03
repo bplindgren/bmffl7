@@ -36,7 +36,7 @@ export class WeekScoresComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    console.log(this)
+    console.log("week scores conponent: ", this)
   }
 
 }

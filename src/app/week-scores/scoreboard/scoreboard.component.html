@@ -1,6 +1,6 @@
-<div class="cardList-div container">
-  <ul>
-    <li *ngFor="let game of games">
+<div id="scoreboard-div">
+  <ul fxLayout="row wrap">
+    <li *ngFor="let game of games" fxLayoutGap="20px" fxFlex.md="calc(50%-25px)" fxFlex.sm="75%" fxFlex.xs="95%">
       <mat-card>
         <mat-card-subtitle>{{ game.awayTeam.name }} {{ game.awayScore }}</mat-card-subtitle>
         <mat-card-subtitle>{{ game.homeTeam.name }} {{ game.homeScore }}</mat-card-subtitle>

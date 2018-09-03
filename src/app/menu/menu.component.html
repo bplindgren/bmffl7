@@ -1,70 +1,70 @@
 <mat-card>
+  <div class="header-div">
+    <mat-card-title>
+      BMFFL League and Stats Website
+    </mat-card-title>
 
-  <mat-card-title>
-    BMFFL League and Stats Website
-  </mat-card-title>
-
-  <mat-card-content>
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/">
-      Home
-    </button>
-
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="{{ '/scores/season/' + this.year + '/week/' + this.week }}">
-      Scores
-    </button>
-
-    <button mat-raised-button
-      color="primary"
-      [matMenuTriggerFor]="ownersMenu">
-      Owners
-    </button>
-    <mat-menu #ownersMenu="matMenu" overlapTrigger=false>
-      <button mat-menu-item routerLink='/owners'>View All Owners</button>
-      <button mat-menu-item [matMenuTriggerFor]="upstairs">Upstairs</button>
-      <button mat-menu-item [matMenuTriggerFor]="downstairs">Downstairs</button>
-    </mat-menu>
-
-    <mat-menu #upstairs="matMenu">
-      <button mat-menu-item *ngFor="let owner of upstairsOwners"
-        routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">
-        {{ owner.firstName + ' ' + owner.lastInitial }}
+    <mat-card-content>
+      <button mat-raised-button
+        color="primary"
+        class="resized-button"
+        routerLink="/">
+        Home
       </button>
-    </mat-menu>
 
-    <mat-menu #downstairs="matMenu">
-      <button mat-menu-item *ngFor="let owner of downstairsOwners"
-        routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">
-        {{ owner.firstName + ' ' + owner.lastInitial}}</button>
-    </mat-menu>
+      <button mat-raised-button
+        color="primary"
+        class="resized-button"
+        routerLink="{{ '/scores/season/' + this.year + '/week/' + this.week }}">
+        Scores
+      </button>
 
-    <button mat-raised-button
-      color="primary"
-      [matMenuTriggerFor]="seasonsMenu">
-      Seasons
-    </button>
-    <mat-menu #seasonsMenu="matMenu" overlapTrigger=false>
-      <button mat-menu-item *ngFor="let year of years">
-        {{ year }}</button>
-    </mat-menu>
+      <button mat-raised-button
+        color="primary"
+        [matMenuTriggerFor]="ownersMenu">
+        Owners
+      </button>
+      <mat-menu #ownersMenu="matMenu" overlapTrigger=false>
+        <button mat-menu-item routerLink='/owners'>View All Owners</button>
+        <button mat-menu-item [matMenuTriggerFor]="upstairs">Upstairs</button>
+        <button mat-menu-item [matMenuTriggerFor]="downstairs">Downstairs</button>
+      </mat-menu>
 
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/matchup">
-      Matchups
-    </button>
+      <mat-menu #upstairs="matMenu">
+        <button mat-menu-item *ngFor="let owner of upstairsOwners"
+          routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">
+          {{ owner.firstName + ' ' + owner.lastInitial }}
+        </button>
+      </mat-menu>
 
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/records">Records
-    </button>
-  </mat-card-content>
+      <mat-menu #downstairs="matMenu">
+        <button mat-menu-item *ngFor="let owner of downstairsOwners"
+          routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">
+          {{ owner.firstName + ' ' + owner.lastInitial}}</button>
+      </mat-menu>
 
+      <button mat-raised-button
+        color="primary"
+        [matMenuTriggerFor]="seasonsMenu">
+        Seasons
+      </button>
+      <mat-menu #seasonsMenu="matMenu" overlapTrigger=false>
+        <button mat-menu-item *ngFor="let year of years">
+          {{ year }}</button>
+      </mat-menu>
+
+      <button mat-raised-button
+        color="primary"
+        class="resized-button"
+        routerLink="/matchup">
+        Matchups
+      </button>
+
+      <button mat-raised-button
+        color="primary"
+        class="resized-button"
+        routerLink="/records">Records
+      </button>
+    </mat-card-content>
+  </div>
 </mat-card>

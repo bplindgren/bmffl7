@@ -13,7 +13,7 @@ import { OwnerService } from './owner/owner-service/owner.service';
 import { GameService } from './game.service';
 
 import { TeamComponent } from './team/team.component';
-import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { WeekScoresComponent } from './week-scores/week-scores.component';
@@ -46,7 +46,7 @@ import { ScoreboardComponent } from './week-scores/scoreboard/scoreboard.compone
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    LayoutModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
