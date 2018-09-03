@@ -36,6 +36,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     let matMenuTriggers: MatMenuTrigger[] = this.menuChildren.toArray();
     console.log(`ngAfterViewInit - menuChildren is ${this.menuChildren}`);
+    console.log(`ngAfterViewInit - ownersMenu is ${this.ownersMenu}`);
+    console.log(`ngAfterViewInit - seasonsMenu is ${this.seasonsMenu}`);
   }
 
   getYear() {

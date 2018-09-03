@@ -1,5 +1,12 @@
 mat-card {
-  background-color: #673ab7;
+  background-color: #006600;
+}
+
+.header-div {
+  min-width: 600px;
+  border: 2px solid white;
+  margin: auto;
+  text-align: center;
 }
 
 .button-link {
