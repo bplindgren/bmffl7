@@ -7,7 +7,7 @@ import { OwnerService } from '../owner-service/owner.service';
 
 @Injectable()
 export class OwnerDetailResolver implements Resolve<Owner> {
-  constructor(private ownerService: OwnerService, private router: Router) {}
+  constructor(private ownerService: OwnerService, private router: Router) { }
 
   resolve(
     route: ActivatedRouteSnapshot,

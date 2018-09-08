@@ -5,7 +5,7 @@ import { GameService } from '../../game.service';
 import { Game } from '../../game';
 
 @Component({
-  selector: 'app-week-scores-form',
+  selector: 'week-scores-form',
   templateUrl: './week-scores-form.component.html',
   styleUrls: ['./week-scores-form.component.css']
 })
