@@ -1,0 +1,18 @@
+<mat-card>
+  <div fxLayout="row wrap">
+    <div class="team-names" fxFlex="90%">
+      <mat-card-content>{{ game.awayTeam.name }} ({{ this.awayRecord }})
+        <p class="small-font">{{ game.awayTeam.owner.firstName }} {{ game.awayTeam.owner.lastInitial }}</p>
+      </mat-card-content>
+      <mat-card-content>{{ game.homeTeam.name }} ({{ this.homeRecord }})
+        <p class="small-font">{{ game.homeTeam.owner.firstName }} {{ game.homeTeam.owner.lastInitial }}</p>
+      </mat-card-content>
+    </div>
+
+    <div class="game-scores" fxFlex="10%">
+      <mat-card-content>{{ game.awayScore }}</mat-card-content>
+      <mat-card-content>{{ game.homeScore }}</mat-card-content>
+    </div>
+  </div>
+  <mat-card-subtitle>{{ game.gameType }}</mat-card-subtitle>
+</mat-card>
