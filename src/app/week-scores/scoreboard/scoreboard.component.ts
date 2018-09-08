@@ -2,7 +2,7 @@ import { Component, AfterContentInit, Input} from '@angular/core';
 import { Game } from '../../game';
 
 @Component({
-  selector: 'app-scoreboard',
+  selector: 'scoreboard',
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.css']
 })
@@ -12,7 +12,7 @@ export class ScoreboardComponent implements AfterContentInit {
   constructor() { }
 
   ngAfterContentInit() {
-    console.log(this)
+    console.log("scoreboard: ", this)
   }
 
 }
