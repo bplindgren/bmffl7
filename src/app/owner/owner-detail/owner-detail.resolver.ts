@@ -13,11 +13,10 @@ export class OwnerDetailResolver implements Resolve<Owner> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Owner> {
-    return this.ownerService.getOwner(route.params['name']);
+    return this.ownerService.getOwner(route.params['name'])
     // return this.ownerService.getOwner(route.params['name'])
     //   .subscribe(owner => {
     //     if (owner) {
-    //       console.log(owner);
     //       return owner
     //     } else {
     //       console.log(owner)

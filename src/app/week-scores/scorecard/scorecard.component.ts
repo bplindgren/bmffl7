@@ -7,7 +7,7 @@ import { TeamService } from '../../team/team-service/team.service';
   templateUrl: './scorecard.component.html',
   styleUrls: ['./scorecard.component.css']
 })
-export class ScorecardComponent implements ngOnInit {
+export class ScorecardComponent implements OnInit {
   @Input() game: Game;
   private awayRecord: number[];
   private homeRecord: number[];
