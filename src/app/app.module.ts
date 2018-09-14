@@ -21,6 +21,7 @@ import { WeekScoresComponent } from './week-scores/week-scores.component';
 import { MatchupComponent } from './matchup/matchup.component';
 import { RecordsComponent } from './records/records.component';
 import { WeekScoresResolver } from './week-scores/week-scores.resolver';
+import { ScorecardResolver } from './week-scores/scorecard/scorecard.resolver';
 
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
@@ -59,7 +60,7 @@ import { ScorecardComponent } from './week-scores/scorecard/scorecard.component'
     MatGridListModule,
     MatMenuModule
   ],
-  providers: [GameService, WeekScoresResolver, TeamService],
+  providers: [GameService, WeekScoresResolver, TeamService, ScorecardResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

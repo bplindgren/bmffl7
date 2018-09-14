@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, Input} from '@angular/core';
+import { Component, AfterContentInit, Input } from '@angular/core';
 import { Game } from '../../game';
 
 @Component({

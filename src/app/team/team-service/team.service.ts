@@ -15,4 +15,5 @@ export class TeamService {
     return this.http.get<number[]>(`${this.baseURL}` + '/teams/record/' + team + '/' + week)
       .pipe(tap(r => console.log(r)));
   }
+  
 }

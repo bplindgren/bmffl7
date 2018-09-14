@@ -13,13 +13,16 @@ import { OwnerDetailComponent } from './owner/owner-detail/owner-detail.componen
 import { OwnerDetailResolver } from './owner/owner-detail/owner-detail.resolver';
 import { WeekScoresComponent } from './week-scores/week-scores.component';
 import { WeekScoresResolver } from './week-scores/week-scores.resolver';
+import { ScorecardComponent } from './week-scores/scorecard/scorecard.component';
+import { ScorecardResolver } from './week-scores/scorecard/scorecard.resolver';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'scores/season/:seasonId/week/:weekId',
     component: WeekScoresComponent,
-    resolve: { games: WeekScoresResolver }},
+    resolve: { games: WeekScoresResolver }
+  },
   { path: 'owners', component: OwnersComponent },
   { path: 'owners/:name',
     component: OwnerDetailComponent,

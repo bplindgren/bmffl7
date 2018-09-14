@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 
 @Component({
-  selector: 'app-owner-detail',
+  selector: 'owner-detail',
   templateUrl: './owner-detail.component.html',
   styleUrls: ['./owner-detail.component.css']
 })
@@ -18,8 +18,18 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("owner init")
     this.route.data.subscribe((data: { owner: Owner }) => {
       this.owner = data['owner'];
     })
+    console.log("owner init done")
+  }
+
+  ngAfterViewInit() {
+    console.log("owner detail view initialized");
+  }
+
+  ngOnDestroy() {
+    console.log("owner detail destroyed");
   }
 }
