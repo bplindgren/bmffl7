@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, AfterContentInit } from '@angular/core';
-import { GameService } from '../game.service';
+import { GameService } from '../../game.service';
 import { RouterModule, ActivatedRoute, ParamMap } from '@angular/router';
 import { Game } from '../game';
 import { MatCardModule } from '@angular/material/card';
-import { TeamService } from '../team/team-service/team.service';
+import { TeamService } from '../../team/team-service/team.service';
 
 @Component({
   selector: 'app-week-scores',
@@ -28,6 +28,7 @@ export class WeekScoresComponent implements OnInit, AfterContentInit {
     this.season = params['seasonId']
     this.week = params['weekId']
     this.route.data.subscribe((data: { games: Game[] }) => {
+      console.log("getting games: ", data);
       this.games = data['games'];
     })
   }
