@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { OwnerRoutingModule } from './owner-routing.module';
+import { Routes, RouterModule } from '@angular/router';
 
 import { Owner } from '../owner';
 import { OwnerService } from './owner-service/owner.service';
@@ -9,9 +8,20 @@ import { OwnersComponent } from './owners/owners.component';
 import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
 import { OwnerDetailResolver } from './owner-detail/owner-detail.resolver';
 
+const routes: Routes = [
+  {
+    path: 'owners',
+    component: OwnersComponent
+  },
+  {
+    path: 'owners/:name',
+    component: OwnerDetailComponent,
+    resolve: { owner: OwnerDetailResolver }
+  }
+];
+
 @NgModule({
-  imports: [CommonModule, OwnerRoutingModule],
-  declarations: [OwnersComponent, OwnerDetailComponent],
-  providers: [OwnerService, OwnerDetailResolver]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class OwnerModule { }
+export class OwnerRoutingModule { }
