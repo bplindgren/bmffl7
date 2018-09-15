@@ -15,26 +15,15 @@ import { TeamService } from './team/team-service/team.service';
 import { TeamComponent } from './team/team.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MenuComponent } from './menu/menu.component';
-// import { WeekScoresComponent } from './week-scores/week-scores.component';
-// import { WeekScoresResolver } from './week-scores/week-scores.resolver';
-// import { ScorecardResolver } from './week-scores/scorecard/scorecard.resolver';
-
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
-// import { WeekScoresFormComponent } from './week-scores/week-scores-form/week-scores-form.component';
-// import { ScoreboardComponent } from './week-scores/scoreboard/scoreboard.component';
-// import { ScorecardComponent } from './week-scores/scorecard/scorecard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamComponent,
     MenuComponent
-    // WeekScoresComponent,
-    // WeekScoresFormComponent,
-    // ScoreboardComponent,
-    // ScorecardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, AfterContentInit } from '@angular/core';
 import { GameService } from '../../game.service';
 import { RouterModule, ActivatedRoute, ParamMap } from '@angular/router';
-import { Game } from '../game';
+import { Game } from '../../game';
 import { MatCardModule } from '@angular/material/card';
 import { TeamService } from '../../team/team-service/team.service';
 
