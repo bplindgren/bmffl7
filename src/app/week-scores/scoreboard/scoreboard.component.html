@@ -1,6 +1,6 @@
 <div id="scoreboard-div">
   <ul fxLayout="row wrap">
-    <li *ngFor="let game of games" fxFlex.lg="50%" fxFlex.md="calc(50%-25px)" fxFlex.sm="75%" fxFlex.xs="95%">
+    <li *ngFor="let game of games" fxFlex="50%">
       <scorecard [game]=game></scorecard>
     </li>
   </ul>

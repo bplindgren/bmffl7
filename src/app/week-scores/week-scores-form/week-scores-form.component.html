@@ -13,8 +13,18 @@
     <button
       id="scores-submit-btn"
       class="btn btn-success"
+      (click)="changeWeek()"
       routerLink="{{ '/scores/season/' + seasonInput.value + '/week/' + weekInput.value }}">
       View Scores
+    </button>
+
+    <button
+      id="this-week-btn"
+      class="btn btn-primary"
+      (click)="updateFormDropDowns()"
+      [(disabled)]="this.current"
+      routerLink="{{ '/scores/season/' + this.originalSeason + '/week/' + this.originalWeek }}">
+      Back To This Week
     </button>
   </div>
 </form>

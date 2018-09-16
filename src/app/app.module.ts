@@ -26,22 +26,11 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     MenuComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule,
-    MatGridListModule,
-    MatMenuModule,
-    OwnerModule
+    BrowserModule, FormsModule, FlexLayoutModule, ReactiveFormsModule,
+    BrowserAnimationsModule, HttpClientModule, AppRoutingModule,
+    FlexLayoutModule, MatToolbarModule, MatButtonModule,
+    MatSidenavModule, MatIconModule, MatListModule,
+    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
   ],
   providers: [GameService, TeamService],
   bootstrap: [AppComponent]
