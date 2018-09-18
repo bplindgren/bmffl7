@@ -17,7 +17,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MenuComponent } from './menu/menu.component';
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
-  MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
+  MatIconModule, MatListModule, MatCardModule, MatGridListModule,
+  MatMenuModule } from '@angular/material';
+  import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     BrowserAnimationsModule, HttpClientModule, AppRoutingModule,
     FlexLayoutModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
+    MatCardModule, MatGridListModule, MatMenuModule,
+    FormsModule, OwnerModule
   ],
   providers: [GameService, TeamService],
   bootstrap: [AppComponent]

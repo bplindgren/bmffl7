@@ -12,7 +12,10 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 
 import { MatCardModule } from '@angular/material';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -20,8 +23,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatSelectModule,
+    MatButtonModule,
     FlexLayoutModule,
-    WeekScoresRoutingModule
+    WeekScoresRoutingModule,
+    FormsModule
   ],
   declarations: [
     WeekScoresComponent,

@@ -28,15 +28,15 @@ export class WeekScoresFormComponent implements OnInit, AfterContentInit {
     this.originalWeek = this.week;
   }
 
-  ngAfterContentInit() {
-    console.log(this)
-  }
+  // ngAfterContentInit() {
+  //   console.log(this)
+  // }
 
   changeWeek(): void {
     this.current = this.isCurrent();
   }
 
-  updateFormDropDowns(): void {
+  backToThisWeek(): void {
     this.season = this.originalSeason;
     this.week = this.originalWeek;
     this.current = this.isCurrent();

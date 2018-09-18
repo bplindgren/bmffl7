@@ -25,9 +25,9 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.ownerService.getOwnerNames("upstairs")
-      .subscribe((owners) => { this.upstairsOwners = owners })
+      .subscribe((owners) => { this.upstairsOwners = owners });
     this.ownerService.getOwnerNames("downstairs")
-      .subscribe((owners) => { this.downstairsOwners = owners })
+      .subscribe((owners) => { this.downstairsOwners = owners });
 
     this.year = this.getYear();
     this.week = this.getWeek();
@@ -53,7 +53,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
     let sum = left + right;
     let oneDay = 1000 * 60 * 60 * 24;
     let day = Math.floor(sum / oneDay);
-    let week = Math.floor(day / 7) - 34
+    let week = Math.floor(day / 7) - 35;
     return (week < 0) ?  1 : week;
   }
 
