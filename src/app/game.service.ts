@@ -11,7 +11,8 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  getWeekGames(year: String, week: String): Observable<Game[]> {
+  getWeekGames(year: number, week: number): Observable<Game[]> {
+    console.log(year, week);
     return this.http.get<Game[]>(`${this.baseURL}` + '/games/season/' + year + '/week/' + week).pipe(
       tap(_ => console.log('games retreived'))
     );

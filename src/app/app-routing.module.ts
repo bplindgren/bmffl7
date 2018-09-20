@@ -16,7 +16,8 @@ export const routes: Routes = [
     path: 'scores/season',
     loadChildren: './week-scores/week-scores.module#WeekScoresModule'
   },
-  { path: 'owners',
+  {
+    path: 'owners',
     loadChildren: './owner/owner.module#OwnerModule'
   },
   { path: 'matchup', component: MatchupComponent },

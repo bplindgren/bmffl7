@@ -15,7 +15,6 @@ import { MatCardModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -26,8 +25,7 @@ import { FormsModule }   from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     FlexLayoutModule,
-    WeekScoresRoutingModule,
-    FormsModule
+    WeekScoresRoutingModule
   ],
   declarations: [
     WeekScoresComponent,

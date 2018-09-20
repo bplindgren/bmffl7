@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, AfterContentInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, AfterContentInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GameService } from '../../game.service';
 import { Game } from '../../game';
+import { Week } from '../../week';
 
 @Component({
   selector: 'week-scores-form',
@@ -10,13 +11,13 @@ import { Game } from '../../game';
   styleUrls: ['./week-scores-form.component.css']
 })
 export class WeekScoresFormComponent implements OnInit, AfterContentInit {
-  @Input() season: String;
-  @Input() week: String;
-  private originalSeason: String;
-  private originalWeek: String;
-  private current = true;
+  @Input() season: number;
+  @Input() week: number;
+  private originalSeason: number;
+  private originalWeek: number;
   private seasons = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
   private weeks = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
+  @Output() evtEmitterWeek: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private gameService: GameService,
@@ -28,19 +29,16 @@ export class WeekScoresFormComponent implements OnInit, AfterContentInit {
     this.originalWeek = this.week;
   }
 
-  // ngAfterContentInit() {
-  //   console.log(this)
-  // }
-
-  changeWeek(): void {
-    this.current = this.isCurrent();
+  ngAfterContentInit() {
+    console.log(this)
   }
 
-  backToThisWeek(): void {
-    this.season = this.originalSeason;
-    this.week = this.originalWeek;
-    this.current = this.isCurrent();
-    console.log(this.current);
+  emitWeek(): void {
+    let w : Week = {
+      season: this.season,
+      week: this.week
+    }
+    this.evtEmitterWeek.emit(w);
   }
 
   isCurrent(): boolean {

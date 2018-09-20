@@ -19,7 +19,6 @@ import { MenuComponent } from './menu/menu.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatCardModule, MatGridListModule,
   MatMenuModule } from '@angular/material';
-  import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     BrowserAnimationsModule, HttpClientModule, AppRoutingModule,
     FlexLayoutModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule,
-    FormsModule, OwnerModule
+    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
   ],
   providers: [GameService, TeamService],
   bootstrap: [AppComponent]
