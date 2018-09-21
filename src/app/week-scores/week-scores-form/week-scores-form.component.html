@@ -1,16 +1,15 @@
 <form id="scores-form">
   <div class="form-group" fxFlex="100%">
-
     <div id="score-selectors">
       <mat-form-field>
         <mat-select placeholder="Season" [(ngModel)]="season" name="seasonSelect">
-          <mat-option *ngFor="let season of seasons" [value]="season">{{ season }}</mat-option>
+          <mat-option *ngFor="let s of seasons" [value]="s">{{ season }}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-select placeholder="Week" [(ngModel)]="week" name="weekSelect">
-          <mat-option *ngFor="let week of weeks" [value]="week">{{ week }}</mat-option>
+          <mat-option *ngFor="let w of weeks" [value]="w">{{ week }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -26,13 +25,11 @@
       <button
         id="this-week-btn"
         class="btn btn-primary"
-        [(disabled)]="isCurrent"
-        routerLink="{{'/scores/season/' + this.originalSeason + '/week/' + this.originalWeek }}">
+        [disabled]="current"
+        (click)="backToCurrent()">
         Back To This Week
       </button>
     </div>
 
   </div>
 </form>
-
-<!-- routerLink="{{'/scores/season/' + seasonSelection + '/week/' + weekSelection }}" -->

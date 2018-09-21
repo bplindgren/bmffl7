@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, AfterContentInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameService } from '../../game.service';
-import { RouterModule, ActivatedRoute, ParamMap } from '@angular/router';
 import { Game } from '../../game';
 import { Week } from '../../week';
 import { MatCardModule } from '@angular/material/card';
@@ -11,42 +10,31 @@ import { TeamService } from '../../team/team-service/team.service';
   templateUrl: './week-scores.component.html',
   styleUrls: ['./week-scores.component.css']
 })
-export class WeekScoresComponent implements OnInit, AfterContentInit {
-  @Input() season: String;
-  @Input() week: String;
+export class WeekScoresComponent implements OnInit {
+  private season: number;
+  private week: number;
   private seasons = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
   private weeks = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
-
-  games: any[] = [];
+  private games: Game[] = [];
 
   constructor(
-    private gameService: GameService,
-    private route: ActivatedRoute) {
+    private gameService: GameService) {
+      this.season = this.getYear();
+      this.week = this.getWeek();
   }
 
   ngOnInit() {
-    let params = this.route.snapshot.params
-    this.season = params['seasonId']
-    this.week = params['weekId']
-    this.route.data.subscribe((data: { games: Game[] }) => {
-      console.log("getting games: ", data);
-      this.games = data['games'];
-    })
+    let w : Week = {
+      season: this.season,
+      week: this.week
+    }
+    this.getGames(w);
   }
 
-  getGames($event) {
-    console.log('week');
-    console.log($event.season);
-    this.gameService.getWeekGames($event.season, $event.week)
-      .subscribe((data: Game[]) => {
-        console.log(data)
-        this.games = data;
-      }
+  getGames(week: Week): void {
+    this.gameService.getWeekGames(week.season, week.week)
+      .subscribe((data: Game[]) => { this.games = data }
     )
-  }
-
-  ngAfterContentInit() {
-    console.log("week scores component: ", this)
   }
 
   getYear() {

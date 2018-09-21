@@ -13,16 +13,16 @@ export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
-    path: 'scores/season',
+    path: 'scores',
     loadChildren: './week-scores/week-scores.module#WeekScoresModule'
   },
   {
     path: 'owners',
     loadChildren: './owner/owner.module#OwnerModule'
   },
+  { path: 'teams', component: TeamComponent },
   { path: 'matchup', component: MatchupComponent },
-  { path: 'records', component: RecordsComponent },
-  { path: 'teams', component: TeamComponent }
+  { path: 'records', component: RecordsComponent }
 ]
 
 @NgModule({

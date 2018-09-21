@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeekScoresRoutingModule } from './week-scores-routing.module';
 
 import { WeekScoresComponent } from './week-scores/week-scores.component';
-import { WeekScoresResolver } from './week-scores/week-scores.resolver';
 import { ScorecardResolver } from './scorecard/scorecard.resolver';
 import { WeekScoresFormComponent } from './week-scores-form/week-scores-form.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
@@ -34,7 +33,6 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     ScorecardComponent
   ],
   providers: [
-    WeekScoresResolver,
     ScorecardResolver
   ]
 })
