@@ -16,7 +16,7 @@ export class WeekScoresFormComponent implements OnChanges {
   private originalSeason: number;
   private originalWeek: number;
   private current = true;
-  private seasons = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
+  private seasons = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
   private weeks = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   @Output() evtEmitterWeek: EventEmitter<Week> = new EventEmitter();
 
@@ -39,7 +39,7 @@ export class WeekScoresFormComponent implements OnChanges {
       week: this.week
     }
     this.evtEmitterWeek.emit(w);
-    this.isCurrent();
+    this.current = this.isCurrent();
   }
 
   backToCurrent(): void {
@@ -48,10 +48,13 @@ export class WeekScoresFormComponent implements OnChanges {
       week: this.originalWeek
     }
     this.evtEmitterWeek.emit(w);
-    this.isCurrent();
+    this.current = true;
+    this.season = this.originalSeason;
+    this.week = this.originalWeek;
   }
 
   isCurrent(): boolean {
+    console.log(this.originalSeason == this.season && this.originalWeek == this.week);
     return this.originalSeason == this.season && this.originalWeek == this.week;
   }
 
