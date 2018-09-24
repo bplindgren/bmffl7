@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Game } from '../../game';
 
 @Component({
@@ -6,13 +6,9 @@ import { Game } from '../../game';
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.css']
 })
-export class ScoreboardComponent implements AfterContentInit {
+export class ScoreboardComponent {
   @Input() games: Game[];
 
   constructor() { }
-
-  ngAfterContentInit() {
-    console.log("scoreboard: ", this)
-  }
 
 }

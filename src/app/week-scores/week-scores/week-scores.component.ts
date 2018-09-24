@@ -13,8 +13,8 @@ import { TeamService } from '../../team/team-service/team.service';
 export class WeekScoresComponent implements OnInit {
   private season: number;
   private week: number;
-  private seasons = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
-  private weeks = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
+  private seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
+  private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   private games: Game[] = [];
 
   constructor(
@@ -33,16 +33,15 @@ export class WeekScoresComponent implements OnInit {
 
   getGames(week: Week): void {
     this.gameService.getWeekGames(week.season, week.week)
-      .subscribe((data: Game[]) => { this.games = data }
-    )
+      .subscribe((data: Game[]) => { this.games = data })
   }
 
-  getYear() {
+  getYear(): number {
     let now = new Date();
     return now.getFullYear();
   }
 
-  getWeek() {
+  getWeek(): number {
     let now = new Date();
     let start = new Date(now.getFullYear(), 0, 0);
     let left = (Math.abs(now.getTime() - start.getTime()));

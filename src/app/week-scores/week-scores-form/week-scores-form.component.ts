@@ -11,13 +11,13 @@ import { Week } from '../../week';
   styleUrls: ['./week-scores-form.component.css']
 })
 export class WeekScoresFormComponent implements OnChanges {
-  @Input() season: number;
-  @Input() week: number;
-  private originalSeason: number;
-  private originalWeek: number;
-  private current = true;
-  private seasons = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
-  private weeks = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
+  @Input() season : number;
+  @Input() week : number;
+  private originalSeason : number;
+  private originalWeek : number;
+  private current : boolean = true;
+  private seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
+  private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   @Output() evtEmitterWeek: EventEmitter<Week> = new EventEmitter();
 
   constructor(
