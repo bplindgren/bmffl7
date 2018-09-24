@@ -5,5 +5,6 @@
     [week]="this.week"
     (evtEmitterWeek)="getGames($event)">
     </week-scores-form>
-  <scoreboard [games]="this.games"></scoreboard>
+  <scoreboard *ngIf="this.games.length" [games]="this.games"></scoreboard>
+  <p id="no-games" *ngIf="!this.games.length">No games scheduled yet for this week!</p>
 </div>
