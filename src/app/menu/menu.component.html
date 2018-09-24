@@ -14,7 +14,7 @@
       <button mat-raised-button
         color="primary"
         class="resized-button"
-        routerLink="{{ '/scores/season/' + this.year + '/week/' + this.week }}">
+        routerLink="scores">
         Scores
       </button>
 
@@ -51,6 +51,12 @@
         <button mat-menu-item *ngFor="let year of years">
           {{ year }}</button>
       </mat-menu>
+
+      <button mat-raised-button
+        color="primary"
+        class="resized-button"
+        routerLink="/teams">Teams
+      </button>
 
       <button mat-raised-button
         color="primary"

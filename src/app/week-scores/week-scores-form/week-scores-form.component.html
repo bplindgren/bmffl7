@@ -1,20 +1,35 @@
-<form #f="ngForm" id="scores-form" novalidate>
-  <div class="form-group">
-    <label for="season" class="col-lg-1 mar-top">Season</label>
-    <select class="form-control" #seasonInput [(ngModel)]="this.season" name="seasonInput" class="col-lg-1 mar-top">
-      <option *ngFor="let season of seasons" [value]="season">{{ season }}</option>
-    </select>
+<form id="scores-form">
+  <div class="form-group" fxFlex="100%">
+    <div id="score-selectors">
+      <mat-form-field>
+        <mat-select placeholder="Season" [(ngModel)]="season" name="seasonSelect" disableRipple>
+          <mat-option *ngFor="let season of seasons" [value]="season">{{ season }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <label for="week" class="col-lg-1 mar-top">Week</label>
-    <select class="form-control" #weekInput [(ngModel)]="this.week" name="weekInput" class="col-lg-1 mar-top">
-      <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
-    </select>
+      <mat-form-field>
+        <mat-select placeholder="Week" [(ngModel)]="week" name="weekSelect">
+          <mat-option *ngFor="let week of weeks" [value]="week">{{ week }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-    <button
-      id="scores-submit-btn"
-      class="btn btn-success"
-      routerLink="{{ '/scores/season/' + seasonInput.value + '/week/' + weekInput.value }}">
-      View Scores
-    </button>
+    <div id="score-buttons">
+      <button
+        id="scores-submit-btn"
+        class="btn btn-success"
+        (click)="emitWeek()">
+        View Scores
+      </button>
+
+      <button
+        id="this-week-btn"
+        class="btn btn-primary"
+        [disabled]="current"
+        (click)="backToCurrent()">
+        Back To This Week
+      </button>
+    </div>
+
   </div>
 </form>

@@ -1,5 +1,9 @@
 <div id="scores-div">
   <h1>BMFFL Scoreboard</h1>
-  <week-scores-form [season]="this.season" [week]="this.week"></week-scores-form>
+  <week-scores-form
+    [season]="this.season"
+    [week]="this.week"
+    (evtEmitterWeek)="getGames($event)">
+    </week-scores-form>
   <scoreboard [games]="this.games"></scoreboard>
 </div>

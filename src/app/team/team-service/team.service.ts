@@ -11,9 +11,8 @@ export class TeamService {
   constructor(private http: HttpClient) { }
 
   getTeamRecord(team: number, week: number): Observable<number[]> {
-    console.log(`${this.baseURL}` + '/teams/record/' + team + '/' + week)
-    return this.http.get<number[]>(`${this.baseURL}` + '/teams/record/' + team + '/' + week)
-      .pipe(tap(r => console.log(r)));
+    return this.http.get<number[]>(`${this.baseURL}` + '/teams/record/' + team + '/' + week).pipe(
+      tap(_ => console.log('teams records retrieved')));
   }
-  
+
 }

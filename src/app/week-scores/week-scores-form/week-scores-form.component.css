@@ -1,7 +1,19 @@
-#scores-submit-btn {
+#scores-form {
+  padding: 10px 0px 10px 0px;
+}
+
+#score-selectors {
+  float: left;
+}
+
+#score-buttons {
+  float: left;
+}
+
+mat-form-field {
   margin-left: 20px;
 }
 
-.mar-top {
-  margin-top: 6px;
+#scores-submit-btn {
+  margin: 0px 20px 0px 20px;
 }

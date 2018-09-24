@@ -5,14 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeekScoresRoutingModule } from './week-scores-routing.module';
 
 import { WeekScoresComponent } from './week-scores/week-scores.component';
-import { WeekScoresResolver } from './week-scores/week-scores.resolver';
 import { ScorecardResolver } from './scorecard/scorecard.resolver';
 import { WeekScoresFormComponent } from './week-scores-form/week-scores-form.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 
 import { MatCardModule } from '@angular/material';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 @NgModule({
   imports: [
@@ -20,6 +21,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatSelectModule,
+    MatButtonModule,
     FlexLayoutModule,
     WeekScoresRoutingModule
   ],
@@ -30,7 +33,6 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     ScorecardComponent
   ],
   providers: [
-    WeekScoresResolver,
     ScorecardResolver
   ]
 })
