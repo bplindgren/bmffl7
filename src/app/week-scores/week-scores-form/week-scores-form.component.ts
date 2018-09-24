@@ -28,9 +28,7 @@ export class WeekScoresFormComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this.originalSeason = this.season;
     this.originalWeek = this.week;
-    console.log(this.originalSeason, this.season, this.originalWeek, this.week)
     this.current = this.isCurrent();
-    console.log(this.current);
   }
 
   emitWeek(): void {
@@ -54,7 +52,6 @@ export class WeekScoresFormComponent implements OnChanges {
   }
 
   isCurrent(): boolean {
-    console.log(this.originalSeason == this.season && this.originalWeek == this.week);
     return this.originalSeason == this.season && this.originalWeek == this.week;
   }
 

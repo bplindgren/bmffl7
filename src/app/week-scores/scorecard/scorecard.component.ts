@@ -19,7 +19,6 @@ export class ScorecardComponent implements OnInit {
       .subscribe(r => this.awayRecord = r)
     this.teamService.getTeamRecord(this.game.homeTeam.id, this.game.week)
       .subscribe(r => this.homeRecord = r)
-    console.log("scorecard: ", this.game, this.awayRecord, this.homeRecord)
   }
 
 }
