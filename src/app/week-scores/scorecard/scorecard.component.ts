@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Game } from '../../game';
 import { TeamService } from '../../team/team-service/team.service';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'scorecard',

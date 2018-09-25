@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Resolve } from '@angular/router';
+import { MatMenuModule } from '@angular/material';
 
 import { OwnerModule } from './owner/owner.module';
 import { WeekScoresModule } from './week-scores/week-scores.module';
@@ -27,7 +28,7 @@ export const routes: Routes = [
 
 @NgModule({
   declarations: [ HomeComponent, MatchupComponent, RecordsComponent ],
-  imports: [ OwnerModule, RouterModule.forRoot(routes) ],
+  imports: [ OwnerModule, MatMenuModule, RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
   providers: []
 })

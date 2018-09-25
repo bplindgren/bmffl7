@@ -2,7 +2,7 @@
   <div class="form-group" fxFlex="100%">
     <div id="score-selectors">
       <mat-form-field>
-        <mat-select placeholder="Season" [(ngModel)]="season" name="seasonSelect" disableRipple>
+        <mat-select placeholder="Season" [(ngModel)]="season" name="seasonSelect">
           <mat-option *ngFor="let season of seasons" [value]="season">{{ season }}</mat-option>
         </mat-select>
       </mat-form-field>
