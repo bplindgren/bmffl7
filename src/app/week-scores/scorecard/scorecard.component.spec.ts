@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { ScorecardComponent } from './scorecard.component';
+import { MatCardModule } from '@angular/material/card';
 
 describe('ScorecardComponent', () => {
   let component: ScorecardComponent;
@@ -8,7 +10,8 @@ describe('ScorecardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScorecardComponent ]
+      declarations: [ ScorecardComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

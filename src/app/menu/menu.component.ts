@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit, Input,
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner/owner-service/owner.service';
+import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
