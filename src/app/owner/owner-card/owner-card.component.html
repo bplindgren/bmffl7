@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ owner.firstName + " " + owner.lastInitial }}</mat-card-title>
+    <mat-card-subtitle class="small-font">
+      {{ owner.division | titlecase }} Division
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ owner.id }}</p>
+  </mat-card-content>
+</mat-card>

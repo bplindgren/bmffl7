@@ -1,3 +1,7 @@
-<ul>
-  <li *ngFor="let owner of allOwners">{{ owner }}</li>
-</ul>
+<div id="owner-cards">
+  <ul fxLayout="row wrap">
+    <li *ngFor="let owner of allOwners" fxFlex="30%">
+      <owner-card [owner]="owner"></owner-card>
+    </li>
+  </ul>
+</div>

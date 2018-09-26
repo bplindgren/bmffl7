@@ -1,0 +1,12 @@
+mat-card {
+  padding: 12px;
+}
+
+mat-card-title {
+  margin-bottom: 8px;
+}
+
+.small-font {
+  font-size: 12px;
+  color: gray;
+}
