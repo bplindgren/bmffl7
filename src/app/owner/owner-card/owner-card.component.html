@@ -6,6 +6,7 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>{{ owner.id }}</p>
+    <p *ngIf="seasons">Seasons: {{ seasons.firstSeason + "-" + seasons.lastSeason }}</p>
+    <p *ngIf="allTimeRecord">All-Time Record: {{ allTimeRecord.wins + "-" + allTimeRecord.losses + "-" + allTimeRecord.ties }}</p>
   </mat-card-content>
 </mat-card>

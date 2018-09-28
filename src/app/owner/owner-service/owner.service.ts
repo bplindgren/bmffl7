@@ -31,4 +31,12 @@ export class OwnerService {
     )
   }
 
+  getAllTimeRecord(ownerID: number): Observable<number[]> {
+    const url = `${this.baseURL}` + '/owners/getAllTimeRecord/' + ownerID;
+    console.log(url)
+    return this.http.get<number[]>(url).pipe(
+      tap(_ => console.log('fetched owner all time record'))
+    )
+  }
+
 }

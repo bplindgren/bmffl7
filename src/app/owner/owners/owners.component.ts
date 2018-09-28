@@ -11,7 +11,6 @@ import { OwnerCardComponent } from '../owner-card/owner-card.component';
 })
 export class OwnersComponent implements OnInit {
   private allOwners = [];
-  private ownerSeasons = {};
 
   constructor(
     private ownerService: OwnerService,
@@ -20,8 +19,7 @@ export class OwnersComponent implements OnInit {
 
   ngOnInit() {
     this.ownerService.getAllOwners()
-      .subscribe(owners => { this.allOwners = owners }
-    )
+      .subscribe(owners => { this.allOwners = owners })
   }
 
 }
