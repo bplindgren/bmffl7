@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { ActivatedRoute } from '@angular/router';
+import { OwnerCardComponent } from '../owner-card/owner-card.component';
 
 @Component({
-  selector: 'app-owners',
+  selector: 'owners',
   templateUrl: './owners.component.html',
   styleUrls: ['./owners.component.css']
 })
@@ -13,7 +14,7 @@ export class OwnersComponent implements OnInit {
 
   constructor(
     private ownerService: OwnerService,
-    private route: ActivatedRoute ) {
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {

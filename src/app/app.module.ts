@@ -12,6 +12,7 @@ import { OwnerModule } from './owner/owner.module'
 
 import { GameService } from './game.service';
 import { TeamService } from './team/team-service/team.service';
+import { SeasonService } from './season/season.service';
 
 import { TeamComponent } from './team/team.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -35,7 +36,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     MatSidenavModule, MatIconModule, MatListModule,
     MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
   ],
-  providers: [GameService, TeamService],
+  providers: [GameService, TeamService, SeasonService],
   exports: [
     AppComponent,
     TeamComponent,
