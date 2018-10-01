@@ -49,7 +49,7 @@ export class WeekScoresComponent implements OnInit {
     let right = (Math.abs((start.getTimezoneOffset()- now.getTimezoneOffset()) * 60 * 1000));
     let sum = left + right;
     let oneDay = 1000 * 60 * 60 * 24;
-    let day = Math.floor(sum / oneDay);
+    let day = Math.floor(sum / oneDay) - 1;
     let week = Math.floor(day / 7) - 34;
     return (week < 0) ?  1 : week;
   }

@@ -11,13 +11,15 @@ import { OwnerDetailResolver } from './owner-detail/owner-detail.resolver';
 import { OwnerCardComponent } from './owner-card/owner-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   imports: [
     CommonModule,
     OwnerRoutingModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule
   ],
   declarations: [
     OwnersComponent,

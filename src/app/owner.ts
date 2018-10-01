@@ -5,4 +5,5 @@ export class Owner {
   firstName: string;
   lastInitial: string;
   teams: Team[];
+  division: string;
 }
