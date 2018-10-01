@@ -1,7 +1,7 @@
 <div id="owner-cards">
-  <ul fxLayout="row wrap">
-    <li *ngFor="let owner of allOwners" fxFlex="30%">
-      <owner-card [owner]="owner"></owner-card>
+  <ul *ngIf="ownerCardConfigArray" fxLayout="row wrap">
+    <li *ngFor="let owner of ownerCardConfigArray" fxFlex="50%">
+      <owner-card [config]="owner"></owner-card>
     </li>
   </ul>
 </div>

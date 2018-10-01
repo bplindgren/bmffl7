@@ -1,12 +1,27 @@
 <mat-card>
-  <mat-card-header>
+  <mat-card-header *ngIf="owner">
     <mat-card-title>{{ owner.firstName + " " + owner.lastInitial }}</mat-card-title>
     <mat-card-subtitle class="small-font">
       {{ owner.division | titlecase }} Division
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p *ngIf="seasons">Seasons: {{ seasons.firstSeason + "-" + seasons.lastSeason }}</p>
-    <p *ngIf="allTimeRecord">All-Time Record: {{ allTimeRecord.wins + "-" + allTimeRecord.losses + "-" + allTimeRecord.ties }}</p>
+    <p *ngIf="firstSeason && lastSeason">Seasons: {{ firstSeason + "-" + lastSeason }}</p>
+    <p *ngIf="allTimeStats">All-Time Record: {{ allTimeStats.wins + "-" + allTimeStats.losses + "-" + allTimeStats.ties }}</p>
+    <p *ngIf="championships; else elseBlock">Championships: {{ displayChampionships(championships) }}</p>
+        <ng-template #elseBlock><p>Championships: None</p></ng-template>
+    <mat-expansion-panel id="teams-exp-panel" *ngIf="owner">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Teams</mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul>
+        <li *ngFor="let team of config.teams">
+          <p>{{ team.year + ": " + team.name }}</p>
+        </li>
+      </ul>
+    </mat-expansion-panel>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button routerLink="{{ '/owners/' + owner.firstName + '-' + owner.lastInitial }}">View Owner Details</button>
+  </mat-card-actions>
 </mat-card>

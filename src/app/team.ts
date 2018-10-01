@@ -8,6 +8,7 @@ export class Team {
   abbr: string;
   owner: Owner;
   season: Season;
+  year: string;
   division: string;
   standing: string;
   gamesPlayed: number;

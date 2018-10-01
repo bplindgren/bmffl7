@@ -15,8 +15,6 @@ export class MenuComponent implements OnInit, AfterViewInit {
   private upstairsOwners = [];
   private downstairsOwners = [];
   private years = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
-  private year: number;
-  private week: number;
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
@@ -25,13 +23,12 @@ export class MenuComponent implements OnInit, AfterViewInit {
   constructor(private ownerService: OwnerService) { }
 
   ngOnInit() {
-    this.ownerService.getOwnerNames("upstairs")
-      .subscribe((owners) => { this.upstairsOwners = owners })
-    this.ownerService.getOwnerNames("downstairs")
-      .subscribe((owners) => { this.downstairsOwners = owners })
-
-    this.year = this.getYear();
-    this.week = this.getWeek();
+    this.ownerService.getAllOwners()
+      .subscribe((owners) => {
+        this.upstairsOwners = owners.filter(o => o.division == "upstairs")
+        this.downstairsOwners = owners.filter(o => o.division == "downstairs")
+      }
+    )
   }
 
   ngAfterViewInit() {
@@ -39,23 +36,6 @@ export class MenuComponent implements OnInit, AfterViewInit {
     console.log(`ngAfterViewInit - menuChildren is ${this.menuChildren}`);
     console.log(`ngAfterViewInit - ownersMenu is ${this.ownersMenu}`);
     console.log(`ngAfterViewInit - seasonsMenu is ${this.seasonsMenu}`);
-  }
-
-  getYear() {
-    let now = new Date();
-    return now.getFullYear();
-  }
-
-  getWeek() {
-    let now = new Date();
-    let start = new Date(now.getFullYear(), 0, 0);
-    let left = (Math.abs(now.getTime() - start.getTime()));
-    let right = (Math.abs((start.getTimezoneOffset()- now.getTimezoneOffset()) * 60 * 1000));
-    let sum = left + right;
-    let oneDay = 1000 * 60 * 60 * 24;
-    let day = Math.floor(sum / oneDay);
-    let week = Math.floor(day / 7) - 34
-    return (week < 0) ?  1 : week;
   }
 
 }
