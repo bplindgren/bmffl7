@@ -15,7 +15,7 @@ import { TeamService } from './team/team-service/team.service';
 import { SeasonService } from './season/season.service';
 
 import { TeamComponent } from './team/team.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 
