@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
+import { TeamService } from '../../team/team-service/team.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 
@@ -10,19 +11,26 @@ import { Owner } from '../../owner';
   styleUrls: ['./owner-detail.component.css']
 })
 export class OwnerDetailComponent implements OnInit {
-  @Input() owner: Owner;
+  private allTimeStats[];
 
   constructor(
     private ownerService: OwnerService,
+    private teamService: TeamService,
     private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    console.log("owner init")
-    this.route.data.subscribe((data: { owner: Owner }) => {
-      this.owner = data['owner'];
+    this.getData().subscribe(responseList => {
+      console.log(responseList)
     })
-    console.log("owner init done")
+  }
+
+  getData(): Observable<any[]> {
+    let id = Number(this.route.params.value["id"]);
+    let ownerResponse = this.ownerService.getOwner(id);
+    let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
+    let teamResponse = this.teamService.getOwnerTeams(id);
+    return forkJoin([ownerResponse, statsResponse, teamResponse]);
   }
 
   ngAfterViewInit() {
