@@ -1,1 +1,5 @@
-<p>hi</p>
+<ul *ngIf="statValues">
+  <li *ngFor="let cardStat of cardStats">
+    <app-stat-card [stat]=formatKeys(cardStat) [value]="statValues[cardStat]"></app-stat-card>
+  </li>
+</ul>

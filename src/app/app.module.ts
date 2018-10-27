@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,8 +32,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   ],
   imports: [
     BrowserModule, FormsModule, FlexLayoutModule, ReactiveFormsModule,
-    BrowserAnimationsModule, HttpModule, HttpClientModule, AppRoutingModule,
-    FlexLayoutModule, MatToolbarModule, MatButtonModule,
+    BrowserAnimationsModule, HttpModule, HttpClientModule, NgxChartsModule,
+    AppRoutingModule, FlexLayoutModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
     MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
   ],

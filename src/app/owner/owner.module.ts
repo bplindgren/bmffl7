@@ -12,6 +12,7 @@ import { OwnerCardComponent } from './owner-card/owner-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { StatCardComponent } from './stat-card/stat-card.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
   declarations: [
     OwnersComponent,
     OwnerDetailComponent,
-    OwnerCardComponent
+    OwnerCardComponent,
+    StatCardComponent
   ],
   providers: [OwnerService, OwnerDetailResolver]
 })
