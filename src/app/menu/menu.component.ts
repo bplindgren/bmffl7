@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit, Input,
-         ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output
+         ViewChild, ViewChildren, QueryList, ElementRef,
+         EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner/owner-service/owner.service';
@@ -19,6 +20,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
   @ViewChild("seasonsMenu") seasonsMenu: ElementRef;
+  @Output() evtEmitterOwnerId: EventEmitter<Number> = new EventEmitter();
 
   constructor(private ownerService: OwnerService) { }
 

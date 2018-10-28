@@ -50,8 +50,9 @@ export class OwnersComponent implements OnInit {
       let oc : OwnerCardConfig = {
         owner: this.allOwners.filter(o => o.id == i)[0],
         teams: this.allTeams.filter(t => t.owner.id == i).sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)),
-        stats: this.allTimeStats.filter(s => s.owner_id == i)[0]
+        stats: this.allTimeStats.filter(s => s.ownerId == i)[0]
       }
+      console.log(oc)
       ownerConfigs.push(oc);
     }
     return ownerConfigs;

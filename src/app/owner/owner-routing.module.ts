@@ -6,7 +6,6 @@ import { OwnerService } from './owner-service/owner.service';
 
 import { OwnersComponent } from './owners/owners.component';
 import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
-import { OwnerDetailResolver } from './owner-detail/owner-detail.resolver';
 
 const routes: Routes = [
   {
@@ -15,8 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'owners/:id',
-    component: OwnerDetailComponent,
-    resolve: { owner: OwnerDetailResolver }
+    component: OwnerDetailComponent
   }
 ];
 

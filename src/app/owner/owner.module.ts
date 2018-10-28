@@ -13,6 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { StatCardComponent } from './stat-card/stat-card.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { StatCardGridListComponent } from './stat-card-grid-list/stat-card-grid-list.component';
 
 @NgModule({
   imports: [
@@ -20,13 +22,15 @@ import { StatCardComponent } from './stat-card/stat-card.component';
     OwnerRoutingModule,
     FlexLayoutModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule
   ],
   declarations: [
     OwnersComponent,
     OwnerDetailComponent,
     OwnerCardComponent,
-    StatCardComponent
+    StatCardComponent,
+    StatCardGridListComponent
   ],
   providers: [OwnerService, OwnerDetailResolver]
 })

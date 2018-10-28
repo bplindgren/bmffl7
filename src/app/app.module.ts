@@ -24,6 +24,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatGridListModule,
   MatMenuModule } from '@angular/material';
 
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
     BrowserAnimationsModule, HttpModule, HttpClientModule, NgxChartsModule,
     AppRoutingModule, FlexLayoutModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
+    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule
   ],
   providers: [GameService, TeamService, SeasonService],
   exports: [

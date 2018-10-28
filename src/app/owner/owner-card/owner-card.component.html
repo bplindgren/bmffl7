@@ -8,20 +8,10 @@
   <mat-card-content>
     <p *ngIf="firstSeason && lastSeason">Seasons: {{ firstSeason + "-" + lastSeason }}</p>
     <p *ngIf="allTimeStats">All-Time Record: {{ allTimeStats.wins + "-" + allTimeStats.losses + "-" + allTimeStats.ties }}</p>
-    <p *ngIf="championships; else elseBlock">Championships: {{ displayChampionships(championships) }}</p>
+    <p *ngIf="championships; else elseBlock">Championships: {{ displayChampionships() }}</p>
         <ng-template #elseBlock><p>Championships: None</p></ng-template>
-    <mat-expansion-panel id="teams-exp-panel" *ngIf="owner">
-      <mat-expansion-panel-header>
-        <mat-panel-title>Teams</mat-panel-title>
-      </mat-expansion-panel-header>
-      <ul>
-        <li *ngFor="let team of config.teams">
-          <p>{{ team.year + ": " + team.name }}</p>
-        </li>
-      </ul>
-    </mat-expansion-panel>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button routerLink="{{ '/owners/' + owner.id1 }}">View Owner Details</button>
+    <button mat-raised-button routerLink="{{ '/owners/' + owner.id }}">View Owner Details</button>
   </mat-card-actions>
 </mat-card>

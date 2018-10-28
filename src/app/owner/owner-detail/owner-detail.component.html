@@ -1,5 +1,13 @@
-<ul *ngIf="statValues">
-  <li *ngFor="let cardStat of cardStats">
-    <app-stat-card [stat]=formatKeys(cardStat) [value]="statValues[cardStat]"></app-stat-card>
-  </li>
-</ul>
+<h4 *ngIf="owner">{{ owner.firstName + " " + owner.lastInitial }}</h4>
+
+<div id="left-col">
+  <mat-grid-list cols="4" gutterSize="20px">
+    <mat-grid-tile *ngFor="let cardStat of cardStats">
+      <stat-card [stat]=formatKeys(cardStat) [value]="statValues[cardStat]" (click)="getStatData(cardStat)"></stat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div id="right-col">
+  <p>hi</p>
+</div>
