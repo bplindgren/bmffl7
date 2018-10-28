@@ -1,11 +1,3 @@
-<!-- <div id="owner-cards">
-  <ul *ngIf="ownerCardConfigArray" fxLayout="row wrap">
-    <li *ngFor="let owner of ownerCardConfigArray" fxFlex="50%">
-      <owner-card [config]="owner"></owner-card>
-    </li>
-  </ul>
-</div> -->
-
 <div id="owner-cards">
   <mat-grid-list cols="3" *ngIf="ownerCardConfigArray">
     <mat-grid-tile *ngFor="let owner of ownerCardConfigArray" >

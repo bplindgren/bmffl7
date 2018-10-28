@@ -1,6 +1,7 @@
 #left-col {
   width: 50%;
   float: left;
+  padding: 20px;
   /* border: 2px solid green; */
 }
 
@@ -8,9 +9,4 @@
   width: 50%;
   float: right;
   border: 2px solid blue;
-}
-
-mat-grid-tile {
-  border: 2px solid #D3D3D3;
-  border-radius: 20px;
 }
