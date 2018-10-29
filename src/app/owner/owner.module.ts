@@ -15,6 +15,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { StatCardGridListComponent } from './stat-card-grid-list/stat-card-grid-list.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart.component';
 
 @NgModule({
   imports: [
@@ -23,14 +25,16 @@ import { StatCardGridListComponent } from './stat-card-grid-list/stat-card-grid-
     FlexLayoutModule,
     MatCardModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    NgxChartsModule
   ],
   declarations: [
     OwnersComponent,
     OwnerDetailComponent,
     OwnerCardComponent,
     StatCardComponent,
-    StatCardGridListComponent
+    StatCardGridListComponent,
+    VerticalBarChartComponent
   ],
   providers: [OwnerService, OwnerDetailResolver]
 })

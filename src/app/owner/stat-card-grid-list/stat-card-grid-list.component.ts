@@ -6,6 +6,7 @@ import { TeamService } from '../../team/team-service/team.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 import { AllTimeStats } from '../../allTimeStats';
+import { SeasonStats } from '../../seasonStats';
 import { StatCardComponent } from '../stat-card/stat-card';
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -17,8 +18,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
 export class StatCardGridListComponent implements OnInit {
   @Input() owner: Owner;
   private allTimeStats: AllTimeStats;
+  private ownerTeams: Team[];
   private cardStats: Array<String> = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Diff"]
-  @Output() evtEmitterStat: EventEmitter<string> = new EventEmitter();
+  private statDict: Object = {
+    "Wins": "wins",
+    "Losses": "losses",
+    "Ties": "ties",
+    "Winning_Percentage": "winningpct",
+    "Points_For": "pointsfor",
+    "Points_Against": "pointsagainst",
+    "Point_Differential": "pointdifferential",
+    "Points_For_Per_Game": "pfpg",
+    "Points_Against_Per_Game": "papg",
+    "PPG_Diff": "ppgdiff"
+  }
+  @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
 
   constructor(
     private ownerService: OwnerService,
@@ -28,17 +42,19 @@ export class StatCardGridListComponent implements OnInit {
 
   ngOnInit() {
     let id = Number(this.route.params.value["id"]);
-    this.getData(id)
+    this.getData(id).subscribe(responseList => {
+      // this.owner = responseList[0];
+      this.allTimeStats = responseList[0];
+      this.statValues = this.getCardStats(responseList[0]);
+      this.ownerTeams = responseList[1];
+      this.getStatData("Wins");
+    })
   }
 
   getData(id: number): Observable<any[]> {
     let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
-    let teamResponse = this.teamService.getOwnerTeams(id);
-    forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
-      // this.owner = responseList[0];
-      this.allTimeStats = responseList[0];
-      this.statValues = this.getCardStats(responseList[0]);
-    })
+    let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
+    return forkJoin([statsResponse, teamResponse])
   }
 
   getCardStats(allTimeStats: AllTimeStats): Object {
@@ -53,7 +69,7 @@ export class StatCardGridListComponent implements OnInit {
       Point_Differential: allTimeStats["pointDifferential"],
       Points_For_Per_Game: allTimeStats["pfpg"],
       Points_Against_Per_Game: allTimeStats["papg"],
-      PPG_Diff: (allTimeStats["pfpg"]-allTimeStats["papg"]).toFixed(1)
+      PPG_Diff: allTimeStats["ppgDiff"]
     }
     console.log(cardStats);
     return cardStats;
@@ -63,8 +79,12 @@ export class StatCardGridListComponent implements OnInit {
     return str.split("_").join(" ").split(" Percentage").join("%").split(" Per ").join("/");
   }
 
-  getStatData(stat: string): void {
-    this.evtEmitterStat.emit(stat);
+  getStatData(stat: string): Object {
+    let statValues = this.ownerTeams.map(team =>
+      ({ "name": team["year"], "value": team[this.statDict[stat]] })
+    );
+    let sortedValues = statValues.sort((a,b) => (a["name"] > b["name"]) ? 1 : ((b["name"] > a["name"]) ? -1 : 0));
+    this.evtEmitterStat.emit(sortedValues);
   }
 
   ngOnChanges(changes: SimpleChanges) {

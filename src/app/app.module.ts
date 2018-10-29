@@ -25,6 +25,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatMenuModule } from '@angular/material';
 
 import { MatGridListModule } from '@angular/material/grid-list';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     BrowserAnimationsModule, HttpModule, HttpClientModule, NgxChartsModule,
     AppRoutingModule, FlexLayoutModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule
+    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule, NgxChartsModule
   ],
   providers: [GameService, TeamService, SeasonService],
   exports: [

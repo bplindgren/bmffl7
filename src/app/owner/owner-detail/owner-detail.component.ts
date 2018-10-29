@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 import { StatCardComponent } from '../stat-card/stat-card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart';
 
 @Component({
   selector: 'owner-detail',
@@ -14,6 +15,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 })
 export class OwnerDetailComponent implements OnInit {
   private owner: Owner;
+  private stat: Object[];
 
   constructor(
     private ownerService: OwnerService,
@@ -33,8 +35,10 @@ export class OwnerDetailComponent implements OnInit {
         })
     })
   }
-  log(str: string) {
-    console.log("NEW STAT GRAPH: " + str);
+
+  setStat(obj: Object): void {
+    this.stat = obj[0];
+    console.log(this.stat);
   }
 
   ngAfterViewInit() {

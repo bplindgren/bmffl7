@@ -2,10 +2,10 @@
 
 <div id="left-col">
   <stat-card-grid-list [owner]="owner"
-  (evtEmitterStat)=log($event)>
+  (evtEmitterStat)=setStat($event)>
   </stat-card-grid-list>
 </div>
 
-<div id="right-col">
-  <p>hi</p>
+<div id="right-col" *ngIf="stat">
+  <vertical-bar-chart [(data)]="stat"></vertical-bar-chart>
 </div>

@@ -1,4 +1,3 @@
-<p>{{ owner.firstName }}</p>
 <mat-grid-list cols="4" gutterSize="20px">
   <mat-grid-tile *ngFor="let cardStat of cardStats">
     <stat-card [stat]=formatKeys(cardStat) [value]="statValues[cardStat]" (click)="getStatData(cardStat)"></stat-card>

@@ -31,4 +31,11 @@ export class TeamService {
     )
   }
 
+  getOwnerTeamsStatsView(ownerID: number): Observable<SeasonStats> {
+    const url = `${this.baseURL}` + '/teams/owner/stats/' + ownerID;
+    return this.http.get<TeamStats[]>(url).pipe(
+      tap(_ => console.log('owner stats received'))
+    )
+  }
+
 }
