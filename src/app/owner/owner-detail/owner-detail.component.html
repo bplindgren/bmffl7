@@ -1,3 +1,11 @@
-<p>{{ owner.firstName }}</p>
-<p>hi</p>
-<p>{{ owner.lastInitial }}</p>
+<h4 *ngIf="owner">{{ owner.firstName + " " + owner.lastInitial }}</h4>
+
+<div id="left-col">
+  <stat-card-grid-list [owner]="owner"
+  (evtEmitterStat)=setStat($event)>
+  </stat-card-grid-list>
+</div>
+
+<div id="right-col" *ngIf="stat">
+  <vertical-bar-chart [(data)]="stat"></vertical-bar-chart>
+</div>

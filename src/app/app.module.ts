@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,13 +16,16 @@ import { TeamService } from './team/team-service/team.service';
 import { SeasonService } from './season/season.service';
 
 import { TeamComponent } from './team/team.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatGridListModule,
   MatMenuModule } from '@angular/material';
+
+import { MatGridListModule } from '@angular/material/grid-list';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -31,10 +35,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   ],
   imports: [
     BrowserModule, FormsModule, FlexLayoutModule, ReactiveFormsModule,
-    BrowserAnimationsModule, HttpModule, HttpClientModule, AppRoutingModule,
-    FlexLayoutModule, MatToolbarModule, MatButtonModule,
+    BrowserAnimationsModule, HttpModule, HttpClientModule, NgxChartsModule,
+    AppRoutingModule, FlexLayoutModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule
+    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule, NgxChartsModule
   ],
   providers: [GameService, TeamService, SeasonService],
   exports: [

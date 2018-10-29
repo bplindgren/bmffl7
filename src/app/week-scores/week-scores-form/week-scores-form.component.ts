@@ -29,6 +29,7 @@ export class WeekScoresFormComponent implements OnChanges {
     this.originalSeason = this.season;
     this.originalWeek = this.week;
     this.current = this.isCurrent();
+    console.log("on changes")
   }
 
   emitWeek(): void {

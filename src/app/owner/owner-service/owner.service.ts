@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Owner } from '../../owner';
+import { AllTimeStats } from '../../allTimeStats';
 
 @Injectable({ providedIn: 'root' })
 export class OwnerService {
@@ -17,25 +18,25 @@ export class OwnerService {
     )
   }
 
-  getOwner(name: String): Observable<Owner> {
-    const url = `${this.baseURL}` + '/owners/' + name;
+  getOwner(id: Integer): Observable<Owner> {
+    const url = `${this.baseURL}` + '/owners/' + id;
     return this.http.get<Owner>(url).pipe(
-      tap(_ => console.log('fetched owner name=' + `${name}`))
+      tap(_ => console.log('fetched owner with id=' + `${id}`))
     )
   }
 
-  getAllTimeRecords(): Observable<number[]> {
+  getAllTimeStats(): Observable<AllTimeStats[]> {
     const url = `${this.baseURL}` + '/owners/getAllTimeRecords';
     return this.http.get<number[]>(url).pipe(
-      tap(_ => console.log('fetched owner all time record'))
+      tap(_ => console.log('fetched all owner all-time records'))
     )
   }
 
-  // getAllTimeRecord(ownerID: number): Observable<number[]> {
-  //   const url = `${this.baseURL}` + '/owners/getAllTimeRecord/' + ownerID;
-  //   return this.http.get<number[]>(url).pipe(
-  //     // tap(_ => console.log('fetched owner all time record'))
-  //   )
-  // }
+  getOwnerAllTimeStats(id: Integer): Observable<AllTimeStats> {
+    const url = `${this.baseURL}` + '/owners/getOwnerAllTimeStats/' + id;
+    return this.http.get<AllTimeStats>(url).pipe(
+      tap(_ => console.log('fetched all time owner stats'))
+    )
+  }
 
 }

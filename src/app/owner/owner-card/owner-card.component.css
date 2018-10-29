@@ -2,12 +2,16 @@ mat-card-title {
   margin-bottom: 6px;
 }
 
+mat-card {
+  padding-bottom: 40px;
+}
+
 p {
   margin-bottom: 0px;
   margin-left: 8px;
   font-size: 12px;
 }
 
-#teams-exp-panel {
-  margin-top: 20px;
+mat-card-actions {
+  padding-left: 20px;
 }

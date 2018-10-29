@@ -1,8 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable, forkJoin } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
+import { TeamService } from '../../team/team-service/team.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
+import { StatCardComponent } from '../stat-card/stat-card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart';
 
 @Component({
   selector: 'owner-detail',
@@ -10,7 +14,8 @@ import { Owner } from '../../owner';
   styleUrls: ['./owner-detail.component.css']
 })
 export class OwnerDetailComponent implements OnInit {
-  @Input() owner: Owner;
+  private owner: Owner;
+  private stat: Object[];
 
   constructor(
     private ownerService: OwnerService,
@@ -18,11 +23,22 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("owner init")
-    this.route.data.subscribe((data: { owner: Owner }) => {
-      this.owner = data['owner'];
+    this.ownerService.getOwner(this.route.params.value["id"])
+      .subscribe(owner => {
+        this.owner = owner;
+      }
+    )
+    this.route.url.subscribe(url => {
+      this.ownerService.getOwner(url[1])
+        .subscribe(newOwner => {
+          this.owner = newOwner;
+        })
     })
-    console.log("owner init done")
+  }
+
+  setStat(obj: Object): void {
+    this.stat = obj[0];
+    console.log(this.stat);
   }
 
   ngAfterViewInit() {

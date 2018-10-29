@@ -24,6 +24,7 @@ export class OwnerCardComponent implements OnInit {
 
   ngOnInit() {
     this.owner = this.config.owner;
+    console.log(this.owner, this.owner.id)
     let seasons = this.config.teams.map(team => team.year).sort();
     this.championships = this.config.teams.filter(s => s.champion == "true").map(c => c.year);
     this.firstSeason = seasons.shift();

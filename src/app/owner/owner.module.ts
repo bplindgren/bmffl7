@@ -12,6 +12,11 @@ import { OwnerCardComponent } from './owner-card/owner-card.component';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { StatCardComponent } from './stat-card/stat-card.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { StatCardGridListComponent } from './stat-card-grid-list/stat-card-grid-list.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart.component';
 
 @NgModule({
   imports: [
@@ -19,12 +24,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
     OwnerRoutingModule,
     FlexLayoutModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule,
+    NgxChartsModule
   ],
   declarations: [
     OwnersComponent,
     OwnerDetailComponent,
-    OwnerCardComponent
+    OwnerCardComponent,
+    StatCardComponent,
+    StatCardGridListComponent,
+    VerticalBarChartComponent
   ],
   providers: [OwnerService, OwnerDetailResolver]
 })

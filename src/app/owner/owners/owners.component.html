@@ -1,7 +1,7 @@
 <div id="owner-cards">
-  <ul *ngIf="ownerCardConfigArray" fxLayout="row wrap">
-    <li *ngFor="let owner of ownerCardConfigArray" fxFlex="50%">
+  <mat-grid-list cols="3" *ngIf="ownerCardConfigArray">
+    <mat-grid-tile *ngFor="let owner of ownerCardConfigArray" >
       <owner-card [config]="owner"></owner-card>
-    </li>
-  </ul>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
