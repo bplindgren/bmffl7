@@ -42,19 +42,19 @@ export class StatCardGridListComponent implements OnInit {
 
   ngOnInit() {
     let id = Number(this.route.params.value["id"]);
-    this.getData(id).subscribe(responseList => {
+    this.getData(id);
+  }
+
+  getData(id: number): void {
+    let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
+    let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
+    forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
       // this.owner = responseList[0];
       this.allTimeStats = responseList[0];
       this.statValues = this.getCardStats(responseList[0]);
       this.ownerTeams = responseList[1];
       this.getStatData("Wins");
     })
-  }
-
-  getData(id: number): Observable<any[]> {
-    let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
-    let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
-    return forkJoin([statsResponse, teamResponse])
   }
 
   getCardStats(allTimeStats: AllTimeStats): Object {
@@ -84,7 +84,8 @@ export class StatCardGridListComponent implements OnInit {
       ({ "name": team["year"], "value": team[this.statDict[stat]] })
     );
     let sortedValues = statValues.sort((a,b) => (a["name"] > b["name"]) ? 1 : ((b["name"] > a["name"]) ? -1 : 0));
-    this.evtEmitterStat.emit(sortedValues);
+    let emitArray: Array<any> = [sortedValues, stat];
+    this.evtEmitterStat.emit(emitArray);
   }
 
   ngOnChanges(changes: SimpleChanges) {

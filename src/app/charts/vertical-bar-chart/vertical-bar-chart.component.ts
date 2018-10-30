@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { single } from '../../data';
 
 @Component({
   selector: 'vertical-bar-chart',
@@ -7,33 +8,38 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VerticalBarChartComponent implements OnInit {
   @Input() data: Object[];
+  @Input() yAxis: string;
+  private single: any[];
 
-  view: any[] = [400, 400];
+  view: any[] = [500, 400];
 
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
+  showLegend = false;
   showXAxisLabel = true;
-  xAxisLabel = 'Year';
-  showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  xAxisLabel = "year"
+  showYAxisLabel = "true";
+  yAxisLabel = "";
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
   constructor() {
+    Object.assign(this, { single })
   }
 
   onSelect(event) {
     console.log(event);
   }
 
-  ngOnInit() {
-    let data_ = this.data;
-    Object.assign(this, { data_ })
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data']) {
+      this.single = this.data
+      this.yAxisLabel = this.yAxis;
+    }
   }
 
 }
