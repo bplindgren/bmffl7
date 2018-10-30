@@ -1,4 +1,4 @@
-<h4 *ngIf="owner">{{ owner.firstName + " " + owner.lastInitial }}</h4>
+<h2 *ngIf="owner">{{ owner.firstName + " " + owner.lastInitial }}</h2>
 
 <div id="left-col">
   <stat-card-grid-list [owner]="owner"
@@ -6,6 +6,6 @@
   </stat-card-grid-list>
 </div>
 
-<div id="right-col" *ngIf="stat">
-  <vertical-bar-chart [(data)]="stat"></vertical-bar-chart>
+<div id="right-col" *ngIf="stat && yAxis">
+  <vertical-bar-chart [data]="stat" [yAxis]="yAxis"></vertical-bar-chart>
 </div>

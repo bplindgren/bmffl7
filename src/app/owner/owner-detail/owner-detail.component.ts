@@ -15,7 +15,8 @@ import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical
 })
 export class OwnerDetailComponent implements OnInit {
   private owner: Owner;
-  private stat: Object[];
+  private stat: Array<any>;
+  private yAxis: "";
 
   constructor(
     private ownerService: OwnerService,
@@ -36,9 +37,9 @@ export class OwnerDetailComponent implements OnInit {
     })
   }
 
-  setStat(obj: Object): void {
-    this.stat = obj[0];
-    console.log(this.stat);
+  setStat(arr: Array<any>): void {
+    this.stat = arr[0];
+    this.yAxis = arr[1];
   }
 
   ngAfterViewInit() {
