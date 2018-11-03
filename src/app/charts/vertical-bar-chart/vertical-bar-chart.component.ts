@@ -12,16 +12,17 @@ export class VerticalBarChartComponent implements OnInit {
   private single: any[];
 
   view: any[] = [500, 400];
-
+  
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
   showLegend = false;
   showXAxisLabel = true;
-  xAxisLabel = "year"
+  xAxisLabel = "Year"
   showYAxisLabel = "true";
   yAxisLabel = "";
+  animations = false;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
@@ -37,7 +38,7 @@ export class VerticalBarChartComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
-      this.single = this.data
+      this.single = this.data;
       this.yAxisLabel = this.yAxis;
     }
   }

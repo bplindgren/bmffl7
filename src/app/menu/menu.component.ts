@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, Output
+import { Component, OnInit, AfterViewInit, Input, Output,
          ViewChild, ViewChildren, QueryList, ElementRef,
          EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';

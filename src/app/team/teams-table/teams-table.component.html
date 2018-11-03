@@ -1,0 +1,12 @@
+<p>
+  teams-table works!
+</p>
+
+<table mat-table [dataSource]="teams" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef>Year</th>
+    <td mat-cell *matCellDef="let element">{{element.year}}</td>
+  </ng-container>
+
+</table>

@@ -11,7 +11,7 @@ import { WeekScoresRoutingModule } from './week-scores-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
