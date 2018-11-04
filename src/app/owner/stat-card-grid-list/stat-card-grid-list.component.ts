@@ -4,7 +4,6 @@ import { Observable, forkJoin } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
 import { SeasonService } from '../../season/season.service';
-import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 import { AllTimeStats } from '../../allTimeStats';
 import { SeasonStats } from '../../seasonStats';
@@ -22,34 +21,12 @@ export class StatCardGridListComponent implements OnInit {
   @Input() allTimeStats: AllTimeStats;
   @Input() ownerTeams: Team[];
   @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
-  initialized: boolean = false;
 
-  constructor(
-    private ownerService: OwnerService,
-    private teamService: TeamService,
-    private seasonService: SeasonService,
-    private route: ActivatedRoute) {
-  }
+  constructor() { }
 
   ngOnInit() {
-    let id = Number(this.route.params.value["id"]);
-    this.getData(id);
-  }
-
-  getData(id: number): void {
-    let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
-    let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
-    let yearAverages = this.seasonService.getSeasonAverages();
-    forkJoin([statsResponse, teamResponse, yearAverages]).subscribe(responseList => {
-      // this.owner = responseList[0];
-      console.log(responseList[2])
-      this.allTimeStats = responseList[0];
-      this.cardStats = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
-      this.statValues = this.getCardStats(responseList[0]);
-      this.ownerTeams = responseList[1];
-      this.getGraphData("Wins");
-      this.initialized = true;
-    })
+    this.statValues = this.getCardStats(this.allTimeStats);
+    this.cardStats = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
   }
 
   getCardStats(allTimeStats: AllTimeStats): Object {
@@ -68,7 +45,7 @@ export class StatCardGridListComponent implements OnInit {
     return cardStats;
   }
 
-  formatKey(str: string): string {
+  formatKey(str: string): void {
     return str.split("_").join(" ").split(" Percentage").join("%").split(" Per ").join("/");
   }
 
@@ -84,10 +61,8 @@ export class StatCardGridListComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.initialized) {
-      let newOwnerId = changes.owner.currentValue.id;
-      this.getData(newOwnerId);
-    }
+    this.getGraphData("Wins");
+    this.statValues = this.getCardStats(changes['allTimeStats']['currentValue'])
   }
 
 }

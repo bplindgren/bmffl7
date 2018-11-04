@@ -18,6 +18,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart.component';
 import { LineChartComponent } from '../charts/line-chart/line-chart.component';
 
+import { MatTableModule } from '@angular/material/table';
+import { TeamsTableComponent } from '../team/teams-table/teams-table.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { LineChartComponent } from '../charts/line-chart/line-chart.component';
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MatTableModule
   ],
   declarations: [
     OwnersComponent,
@@ -34,7 +38,8 @@ import { LineChartComponent } from '../charts/line-chart/line-chart.component';
     StatCardComponent,
     StatCardGridListComponent,
     VerticalBarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    TeamsTableComponent
   ],
   providers: [OwnerService, OwnerDetailResolver]
 })

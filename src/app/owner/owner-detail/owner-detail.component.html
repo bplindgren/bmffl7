@@ -2,14 +2,20 @@
 
 <div>
   <div id="left-col">
-    <stat-card-grid-list [owner]="owner"
-    (evtEmitterStat)=setStat($event)>
+    <stat-card-grid-list *ngIf="allTimeStats && ownerTeams"
+      [allTimeStats]="allTimeStats"
+      [ownerTeams]="ownerTeams"
+      (evtEmitterStat)=setStat($event)>
     </stat-card-grid-list>
   </div>
 
   <div id="right-col" *ngIf="stat && yAxis">
-    <vertical-bar-chart [data]="stat" [yAxis]="yAxis"></vertical-bar-chart>
+    <vertical-bar-chart
+      [data]="stat"
+      [yAxis]="yAxis">
+    </vertical-bar-chart>
   </div>
 </div>
 
-<!-- <teams-table *ngIf="ownerTeams" [teams]="ownerTeams"></teams-table> -->
+
+<teams-table *ngIf="ownerTeams" [teams]="ownerTeams"></teams-table>

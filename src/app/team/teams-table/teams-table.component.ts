@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { Team } from '../team';
 
@@ -9,6 +10,8 @@ import { Team } from '../team';
 })
 export class TeamsTableComponent implements OnInit {
   @Input() teams: Team[];
+  @Input() datasource;
+  displayedColumns: string[] = ['year', 'name', 'standing', 'divisionwinner', 'gamesplayed', 'wins', 'losses', 'ties', 'winningpct', 'pointsfor', 'pointsagainst', 'pfpg', 'papg', 'ppgdiff'];
 
   constructor() { }
 

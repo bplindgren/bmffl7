@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, SimpleChange  } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
+import { startWith, tap, delay } from 'rxjs/operators';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
 import { SeasonService } from '../../season/season.service';
@@ -21,7 +22,7 @@ import { AllTimeStats } from '../../allTimeStats';
 export class OwnerDetailComponent implements OnInit {
   private owner: Owner;
   private stat: Array<any>;
-  private yAxis: "";
+  private yAxis: null;
   private allTimeStats: AllTimeStats;
   private ownerTeams: Team[];
 
@@ -34,17 +35,14 @@ export class OwnerDetailComponent implements OnInit {
 
   ngOnInit() {
     this.ownerService.getOwner(this.route.params.value["id"])
-      .subscribe(owner => {
-        this.owner = owner;
-        this.getData(owner.id);
-      }
+      .pipe(delay(1))
+      .subscribe(owner => { this.refreshOwner(owner) }
     )
-    this.route.url.subscribe(url => {
-      this.ownerService.getOwner(url[1])
-        .subscribe(newOwner => {
-          this.owner = newOwner;
-        })
-    })
+  }
+
+  refreshOwner(newOwner: Owner): void {
+    this.owner = newOwner;
+    this.getData(newOwner.id);
   }
 
   getData(id: number): void {
@@ -52,28 +50,28 @@ export class OwnerDetailComponent implements OnInit {
     let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
     let yearAverages = this.seasonService.getSeasonAverages();
     forkJoin([statsResponse, teamResponse, yearAverages]).subscribe(responseList => {
-      // this.owner = responseList[0];
-      console.log(responseList[2])
       this.allTimeStats = responseList[0];
-      this.cardStats = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
-      this.statValues = this.getCardStats(responseList[0]);
-      this.ownerTeams = responseList[1];
-      this.getGraphData("Wins");
-      this.initialized = true;
+      this.ownerTeams = responseList[1].sort((a,b) =>
+        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0)
     })
   }
 
   setStat(arr: Array<any>): void {
-    console.log(arr)
     this.stat = arr[0];
     this.yAxis = arr[1];
   }
 
   ngAfterViewInit() {
     console.log("owner detail view initialized");
+    this.route.url.subscribe(url => {
+      this.ownerService.getOwner(url[1])
+        .pipe(delay(1))
+        .subscribe(owner => { this.refreshOwner(owner) })
+    })
   }
 
   ngOnDestroy() {
     console.log("owner detail destroyed");
   }
+
 }

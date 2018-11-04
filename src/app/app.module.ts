@@ -25,14 +25,12 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
 import { MatTableModule } from '@angular/material/table';
 
 import { MatGridListModule } from '@angular/material/grid-list';
-import { TeamsTableComponent } from './team/teams-table/teams-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamComponent,
-    MenuComponent,
-    TeamsTableComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule,
