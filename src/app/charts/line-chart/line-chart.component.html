@@ -1,7 +1,11 @@
-<ngx-charts-bar-vertical
+<p>
+  line-chart works!
+</p>
+
+<ngx-charts-line-chart
   [view]="view"
   [scheme]="colorScheme"
-  [results]="single"
+  [results]="multi"
   [gradient]="gradient"
   [xAxis]="showXAxis"
   [yAxis]="showYAxis"
@@ -10,7 +14,6 @@
   [showYAxisLabel]="showYAxisLabel"
   [xAxisLabel]="xAxisLabel"
   [yAxisLabel]="yAxisLabel"
-  [barPadding]="8"
-  [animations]="animations"
+  [autoScale]="autoScale"
   (select)="onSelect($event)">
-</ngx-charts-bar-vertical>
+</ngx-charts-line-chart>

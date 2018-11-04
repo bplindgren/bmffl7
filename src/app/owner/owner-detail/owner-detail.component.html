@@ -1,11 +1,21 @@
 <h2 *ngIf="owner">{{ owner.firstName + " " + owner.lastInitial }}</h2>
 
-<div id="left-col">
-  <stat-card-grid-list [owner]="owner"
-  (evtEmitterStat)=setStat($event)>
-  </stat-card-grid-list>
+<div>
+  <div id="left-col">
+    <stat-card-grid-list *ngIf="allTimeStats && ownerTeams"
+      [allTimeStats]="allTimeStats"
+      [ownerTeams]="ownerTeams"
+      (evtEmitterStat)=setStat($event)>
+    </stat-card-grid-list>
+  </div>
+
+  <div id="right-col" *ngIf="stat && yAxis">
+    <vertical-bar-chart
+      [data]="stat"
+      [yAxis]="yAxis">
+    </vertical-bar-chart>
+  </div>
 </div>
 
-<div id="right-col" *ngIf="stat && yAxis">
-  <vertical-bar-chart [data]="stat" [yAxis]="yAxis"></vertical-bar-chart>
-</div>
+
+<teams-table *ngIf="ownerTeams" [teams]="ownerTeams"></teams-table>

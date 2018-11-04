@@ -1,0 +1,74 @@
+<mat-table #table [dataSource]="teams" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.year}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="standing">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Standing</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.standing}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="divisionwinner">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Div. Winner</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.divisionwinner}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="gamesplayed">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Games Played</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.gamesplayed}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="wins">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>W</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.wins}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="losses">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>L</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.losses}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ties">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>T</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.ties}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="winningpct">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Win%</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.winningpct}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="pointsfor">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>PF</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.pointsfor}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="pointsagainst">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>PA</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.pointsagainst}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="pfpg">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>PF/G</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.pfpg}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="papg">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>PA/G</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.papg}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ppgdiff">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>PPG +/-</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.ppgdiff}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

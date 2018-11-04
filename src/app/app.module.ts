@@ -16,16 +16,15 @@ import { TeamService } from './team/team-service/team.service';
 import { SeasonService } from './season/season.service';
 
 import { TeamComponent } from './team/team.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatGridListModule,
   MatMenuModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 
 import { MatGridListModule } from '@angular/material/grid-list';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -34,11 +33,12 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MenuComponent
   ],
   imports: [
-    BrowserModule, FormsModule, FlexLayoutModule, ReactiveFormsModule,
+    BrowserModule, FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule, HttpModule, HttpClientModule, NgxChartsModule,
-    AppRoutingModule, FlexLayoutModule, MatToolbarModule, MatButtonModule,
+    AppRoutingModule, MatToolbarModule, MatButtonModule,
     MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule, NgxChartsModule
+    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule,
+    MatTableModule
   ],
   providers: [GameService, TeamService, SeasonService],
   exports: [
