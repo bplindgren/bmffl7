@@ -16,7 +16,6 @@ export class TeamsTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.teams);
     console.log('team table created');
   }
 
