@@ -48,11 +48,13 @@ export class OwnerDetailComponent implements OnInit {
   getData(id: number): void {
     let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
     let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
-    let yearAverages = this.seasonService.getSeasonAverages();
-    forkJoin([statsResponse, teamResponse, yearAverages]).subscribe(responseList => {
+    // let ownerSeasons = this.seasonService.getOwnerSeasons(id);
+    // let yearAverages = this.seasonService.getSeasonAverages();
+    forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
       this.allTimeStats = responseList[0];
       this.ownerTeams = responseList[1].sort((a,b) =>
-        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0)
+        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0))
+      // console.log(responseList[2]);
     })
   }
 

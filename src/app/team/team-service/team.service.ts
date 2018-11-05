@@ -18,7 +18,7 @@ export class TeamService {
   }
 
   getAllTeams(): Observable<Team[]> {
-    const url = `${this.baseURL}` + '/teams/all';
+    const url = `${this.baseURL}` + '/teams';
     return this.http.get<Team[]>(url).pipe(
       tap(_ => console.log('all teams fetched'))
     )

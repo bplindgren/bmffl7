@@ -11,8 +11,8 @@ export class SeasonService {
 
   constructor(private http: HttpClient) { }
 
-  getOwnerSeasons(ownerID: number): Observable<String> {
-    const url = `${this.baseURL}` + '/season/getOwnerSeasons/' + ownerID;
+  getOwnerSeasons(ownerId: number): Observable<String> {
+    const url = `${this.baseURL}` + '/season/getOwnerSeasons/' + ownerId;
     return this.http.get<String>(url).pipe(
       tap(_ => console.log('owner seasons received'))
     )
