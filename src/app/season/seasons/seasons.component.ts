@@ -7,13 +7,17 @@ import { SeasonService } from '../season-service/season.service';
   styleUrls: ['./seasons.component.css']
 })
 export class SeasonsComponent implements OnInit {
+  private seasons: Season[];
 
   constructor(
-    private seasonService: SeasonService;
-  ) { }
+    private seasonService: SeasonService) {
+  }
 
   ngOnInit() {
-    this.seasonService.getSeasons();
+    this.seasonService.getSeasons().subscribe(res => {
+      this.seasons = res.sort((a,b) =>
+        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0)));
+    })
   }
 
 }

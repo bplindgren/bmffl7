@@ -11,15 +11,22 @@ export class SeasonService {
 
   constructor(private http: HttpClient) { }
 
+  getSeasons(): Observable<Season[]> {
+    const url = `${this.baseURL}` + '/seasons/';
+    return this.http.get<Season[]>(url).pipe(
+      tap(_ => console.log('seasons received'))
+    )
+  }
+  
   getOwnerSeasons(ownerId: number): Observable<String> {
-    const url = `${this.baseURL}` + '/season/getOwnerSeasons/' + ownerId;
+    const url = `${this.baseURL}` + '/seasons/getOwnerSeasons/' + ownerId;
     return this.http.get<String>(url).pipe(
       tap(_ => console.log('owner seasons received'))
     )
   }
 
   getSeasonAverages(): Observable<SeasonAverages> {
-    const url = `${this.baseURL}` + '/season/averages';
+    const url = `${this.baseURL}` + '/seasons/averages';
     return this.http.get<SeasonAverages[]>(url).pipe(
       tap(_ => console.log('all stats fetched'))
     )
