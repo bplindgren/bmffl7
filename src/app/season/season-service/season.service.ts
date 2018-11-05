@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Season } from '../season';
-import { SeasonAverage } from '../seasonAverages';
+import { Season } from '../../season';
+import { SeasonAverage } from '../../seasonAverages';
 
 @Injectable({ providedIn: 'root' })
 export class SeasonService {
