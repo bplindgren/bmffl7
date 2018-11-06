@@ -3,14 +3,14 @@ import { Observable, forkJoin } from 'rxjs';
 import { startWith, tap, delay } from 'rxjs/operators';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
-import { SeasonService } from '../../season/season.service';
+import { SeasonService } from '../../season/season-service/season.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 import { Team } from '../../team';
 import { StatCardComponent } from '../stat-card/stat-card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart';
-import { TeamsTableComponent } from '../../team/teams-table/teams-table.component';
+import { TableModule } from '../../shared-modules/table/table.module';
 
 import { AllTimeStats } from '../../allTimeStats';
 
@@ -55,6 +55,7 @@ export class OwnerDetailComponent implements OnInit {
       this.ownerTeams = responseList[1].sort((a,b) =>
         (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0))
       // console.log(responseList[2]);
+      console.log("owner teams: ", this.ownerTeams);
     })
   }
 
