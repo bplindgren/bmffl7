@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SeasonService } from '../season-service/season.service';
+import { TeamService } from '../../team/team-service/team.service';
 
 @Component({
   selector: 'app-seasons',
@@ -16,7 +17,8 @@ export class SeasonsComponent implements OnInit {
   ngOnInit() {
     this.seasonService.getSeasons().subscribe(res => {
       this.seasons = res.sort((a,b) =>
-        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0)));
+        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0)
+      )
     })
   }
 

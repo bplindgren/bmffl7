@@ -7,7 +7,6 @@ mat-table {
   flex: 0 0 22%;
 }
 
-/* .mat-cell:nth-child(3),
-.mat-header-cell:nth-child(3) {
-  flex: 0 0 20%;
-} */
+a {
+  color: black;
+}

@@ -9,12 +9,14 @@ import { SeasonDetailComponent } from './season-detail/season-detail.component';
 import { SeasonsTableComponent } from './seasons-table/seasons-table.component';
 
 import { MatTableModule } from '@angular/material/table';
+import { TableModule } from '../shared-modules/table/table.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SeasonRoutingModule,
-    MatTableModule
+    MatTableModule,
+    TableModule
   ],
   declarations: [SeasonsComponent, SeasonDetailComponent, SeasonsTableComponent],
   providers: [SeasonService]
