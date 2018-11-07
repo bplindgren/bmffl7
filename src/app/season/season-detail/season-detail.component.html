@@ -1,5 +1,18 @@
-<p>
-  season-detail works!
-</p>
-
-<teams-table *ngIf="teams" [teams]="teams"></teams-table>
+<mat-tab-group>
+  <mat-tab label="BMFFL Standings">
+    <teams-table *ngIf="teams" [teams]="teams"></teams-table>
+  </mat-tab>
+  <mat-tab label="Division Standings">
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle value="upstairs" (change)="changeDivision($event)">Upstairs Standings</mat-button-toggle>
+      <mat-button-toggle value="downstairs" (change)="changeDivision($event)">Downstairs Standings</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div *ngIf="upstairsTeams && currentDivision=='upstairs'">
+      <teams-table [teams]="upstairsTeams"></teams-table>
+    </div>
+    <div *ngIf="downstairsTeams && currentDivision=='downstairs'">
+      <teams-table [teams]="downstairsTeams"></teams-table>
+    </div>
+  </mat-tab>
+  <mat-tab label="Playoff Games"> Content 3 </mat-tab>
+</mat-tab-group>
