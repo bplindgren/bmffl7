@@ -1,6 +1,7 @@
 <mat-tab-group>
   <mat-tab label="BMFFL Standings">
     <teams-table *ngIf="teams" [teams]="teams"></teams-table>
+    <p *ngIf="teams">Note: League standings are based on overall winning % (including regular season, playoffs, and consolation games).</p>
   </mat-tab>
   <mat-tab label="Division Standings">
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
@@ -14,5 +15,7 @@
       <teams-table [teams]="downstairsTeams"></teams-table>
     </div>
   </mat-tab>
-  <mat-tab label="Playoff Games"> Content 3 </mat-tab>
+  <mat-tab label="Playoff Games">
+    <scoreboard *ngIf="playoffGames" [games]="playoffGames"></scoreboard>
+  </mat-tab>
 </mat-tab-group>

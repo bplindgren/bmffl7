@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { SeasonService } from '../season-service/season.service';
-import { TeamService } from '../../team/team-service/team.service';
+import { Game } from '../game';
+import { GameService } from '../../game.service';
 import { Team } from '../../team';
+import { TeamService } from '../../team/team-service/team.service';
 
 @Component({
   selector: 'season-detail',
@@ -13,20 +16,21 @@ export class SeasonDetailComponent implements OnInit {
   private teams: Team[];
   upstairsTeams: Team[];
   downstairsTeams: Team[];
+  playofGames: Game[];
   currentDivision: string = 'upstairs';
 
   constructor(
     private seasonService: SeasonService,
     private teamService: TeamService,
+    private gameService: GameService,
     private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     let seasonId = this.route.params.value["id"];
     this.teamService.getSeasonTeams(seasonId).subscribe(teams => {
-      console.log("season teams: ", teams);
       this.teams = teams.sort((a,b) =>
-        (a["wins"] > b["wins"]) ? 1 : ((b["wins"] > a["wins"]) ? -1 : 0)
+        (a["winningpct"] > b["winningpct"]) ? 1 : ((b["winningpct"] > a["winningpct"]) ? -1 : 0)
       ).reverse()
 
       // get upstairs teams
@@ -42,6 +46,10 @@ export class SeasonDetailComponent implements OnInit {
         .sort((a,b) =>
         (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
       )
+    })
+
+    this.gameService.getPlayoffGames(seasonId).subscribe(games => {
+      this.playoffGames = games;
     })
   }
 
