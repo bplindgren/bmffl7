@@ -34,13 +34,13 @@ export class StatCardGridListComponent implements OnInit {
       Wins: allTimeStats["wins"],
       Losses: allTimeStats["losses"],
       Ties: allTimeStats["ties"],
-      Winning_Percentage: allTimeStats["winningPct"],
-      Points_For: allTimeStats["pointsFor"],
-      Points_Against: allTimeStats["pointsAgainst"],
-      Point_Differential: allTimeStats["pointDifferential"],
+      Winning_Percentage: allTimeStats["winningpct"],
+      Points_For: allTimeStats["pointsfor"],
+      Points_Against: allTimeStats["pointsagainst"],
+      Point_Differential: allTimeStats["pointdifferential"],
       Points_For_Per_Game: allTimeStats["pfpg"],
       Points_Against_Per_Game: allTimeStats["papg"],
-      PPG_Differential: allTimeStats["ppgDiff"]
+      PPG_Differential: allTimeStats["ppgdiff"]
     }
     return cardStats;
   }

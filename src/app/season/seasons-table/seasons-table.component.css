@@ -1,0 +1,12 @@
+mat-table {
+  margin-top: 20px;
+}
+
+.mat-cell:nth-child(2),
+.mat-header-cell:nth-child(2) {
+  flex: 0 0 22%;
+}
+
+a {
+  color: black;
+}

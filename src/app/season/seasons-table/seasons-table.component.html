@@ -1,0 +1,39 @@
+<mat-table #table [dataSource]="seasons" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
+    <mat-cell *matCellDef="let element"><a routerLink="{{ '/seasons/' + element.id }}">{{element.year}}</a></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="champion">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Champion</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="owner">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Owner</mat-header-cell>
+    <mat-cell *matCellDef="let element"><a routerLink="{{ '/owners/' + element.champion.owner.id }}">{{element.champion == null ? '' : element.champion.owner.firstName + " " + element.champion.owner.lastInitial}}</a></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="division">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Division</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.division }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="wins">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Wins</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.wins }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="losses">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Losses</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.losses }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ties">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Ties</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.ties }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

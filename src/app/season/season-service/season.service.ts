@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Season } from '../season';
-import { SeasonAverage } from '../seasonAverages';
+import { Season } from '../../season';
+import { SeasonAverage } from '../../seasonAverages';
 
 @Injectable({ providedIn: 'root' })
 export class SeasonService {
@@ -11,15 +11,22 @@ export class SeasonService {
 
   constructor(private http: HttpClient) { }
 
-  getOwnerSeasons(ownerID: number): Observable<String> {
-    const url = `${this.baseURL}` + '/season/getOwnerSeasons/' + ownerID;
-    return this.http.get<String>(url).pipe(
+  getSeasons(): Observable<Season[]> {
+    const url = `${this.baseURL}` + '/seasons/';
+    return this.http.get<Season[]>(url).pipe(
+      tap(_ => console.log('seasons received'))
+    )
+  }
+
+  getOwnerSeasons(ownerId: number): Observable<Season[]> {
+    const url = `${this.baseURL}` + '/seasons/getOwnerSeasons/' + ownerId;
+    return this.http.get<Season[]>(url).pipe(
       tap(_ => console.log('owner seasons received'))
     )
   }
 
   getSeasonAverages(): Observable<SeasonAverages> {
-    const url = `${this.baseURL}` + '/season/averages';
+    const url = `${this.baseURL}` + '/seasons/averages';
     return this.http.get<SeasonAverages[]>(url).pipe(
       tap(_ => console.log('all stats fetched'))
     )
