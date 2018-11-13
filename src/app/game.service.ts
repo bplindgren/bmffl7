@@ -11,9 +11,17 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  getWeekGames(year: number, week: number): Observable<Game[]> {
-    return this.http.get<Game[]>(`${this.baseURL}` + '/games/season/' + year + '/week/' + week).pipe(
+  getWeekGames(seasonId: number, week: number): Observable<Game[]> {
+    const url = `${this.baseURL}` + '/games/season/' + seasonId + '/week/' + week
+    return this.http.get<Game[]>(url).pipe(
       tap(_ => console.log('games retreived'))
+    );
+  }
+
+  getPlayoffGames(seasonId: number): Observable<Game[]> {
+    const url = `${this.baseURL}` + '/games/season/playoffs/' + seasonId
+    return this.http.get<Game[]>(url).pipe(
+      tap(_ => console.log('games received'))
     );
   }
 

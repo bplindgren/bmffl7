@@ -1,10 +1,12 @@
+<h2 *ngIf="year">{{ year + " Standings"}}</h2>
+
 <mat-tab-group>
   <mat-tab label="BMFFL Standings">
     <teams-table *ngIf="teams" [teams]="teams"></teams-table>
     <p *ngIf="teams">Note: League standings are based on overall winning % (including regular season, playoffs, and consolation games).</p>
   </mat-tab>
   <mat-tab label="Division Standings">
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="upstairs">
       <mat-button-toggle value="upstairs" (change)="changeDivision($event)">Upstairs Standings</mat-button-toggle>
       <mat-button-toggle value="downstairs" (change)="changeDivision($event)">Downstairs Standings</mat-button-toggle>
     </mat-button-toggle-group>

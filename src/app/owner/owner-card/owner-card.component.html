@@ -9,7 +9,8 @@
     <p *ngIf="firstSeason && lastSeason">Seasons: {{ firstSeason + "-" + lastSeason }}</p>
     <p *ngIf="allTimeStats">All-Time Record: {{ allTimeStats.wins + "-" + allTimeStats.losses + "-" + allTimeStats.ties }}</p>
     <p *ngIf="championships; else elseBlock">Championships: {{ displayChampionships() }}</p>
-        <ng-template #elseBlock><p>Championships: None</p></ng-template>
+      <ng-template #elseBlock><p>Championships: None</p></ng-template>
+    <!-- <p *ngIf="championships; else elseBlock">Championships: {{ this.championships }}</p> -->
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button routerLink="{{ '/owners/' + owner.id }}">View Owner Details</button>

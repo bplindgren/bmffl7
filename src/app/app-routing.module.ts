@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Resolve } from '@angular/router';
 import { MatMenuModule } from '@angular/material';
 
-import { OwnerModule } from './owner/owner.module';
 import { WeekScoresModule } from './week-scores/week-scores.module';
+import { OwnerModule } from './owner/owner.module';
+import { SeasonModule } from './season/season.module';
 
 import { HomeComponent } from './home/home.component';
 import { TeamComponent } from './team/team.component';
@@ -20,6 +21,10 @@ export const routes: Routes = [
   {
     path: 'owners',
     loadChildren: './owner/owner.module#OwnerModule'
+  },
+  {
+    path: 'seasons',
+    loadChildren: './season/season.module#SeasonModule'
   },
   { path: 'teams', component: TeamComponent },
   { path: 'matchup', component: MatchupComponent },

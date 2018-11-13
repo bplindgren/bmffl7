@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { OwnerRoutingModule } from './owner-routing.module';
 
 import { Owner } from '../owner';
@@ -19,17 +20,19 @@ import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical
 import { LineChartComponent } from '../charts/line-chart/line-chart.component';
 
 import { MatTableModule } from '@angular/material/table';
-import { TeamsTableComponent } from '../team/teams-table/teams-table.component';
+import { TableModule } from '../shared-modules/table/table.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     OwnerRoutingModule,
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
     NgxChartsModule,
-    MatTableModule
+    MatTableModule,
+    TableModule
   ],
   declarations: [
     OwnersComponent,
@@ -38,8 +41,7 @@ import { TeamsTableComponent } from '../team/teams-table/teams-table.component';
     StatCardComponent,
     StatCardGridListComponent,
     VerticalBarChartComponent,
-    LineChartComponent,
-    TeamsTableComponent
+    LineChartComponent
   ],
   providers: [OwnerService, OwnerDetailResolver]
 })

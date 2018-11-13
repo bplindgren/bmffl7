@@ -12,7 +12,7 @@ import { TeamService } from '../../team/team-service/team.service';
   templateUrl: './season-detail.component.html',
   styleUrls: ['./season-detail.component.css']
 })
-export class SeasonDetailComponent implements OnInit {
+export class SeasonDetailComponent implements OnInit  {
   private teams: Team[];
   upstairsTeams: Team[];
   downstairsTeams: Team[];
@@ -28,6 +28,12 @@ export class SeasonDetailComponent implements OnInit {
 
   ngOnInit() {
     let seasonId = this.route.params.value["id"];
+    this.year = (+this.route.params.value["id"] + 2010).toString();
+    this.setTeams(seasonId);
+    this.setGames(seasonId);
+  }
+
+  setTeams(seasonId: string): void {
     this.teamService.getSeasonTeams(seasonId).subscribe(teams => {
       this.teams = teams.sort((a,b) =>
         (a["winningpct"] > b["winningpct"]) ? 1 : ((b["winningpct"] > a["winningpct"]) ? -1 : 0)
@@ -47,7 +53,9 @@ export class SeasonDetailComponent implements OnInit {
         (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
       )
     })
+  }
 
+  setGames(seasonId: string): void {
     this.gameService.getPlayoffGames(seasonId).subscribe(games => {
       this.playoffGames = games;
     })
@@ -55,6 +63,15 @@ export class SeasonDetailComponent implements OnInit {
 
   changeDivision(e: String) {
     this.currentDivision = e.value;
+  }
+
+  ngAfterViewInit() {
+    console.log("season detail view initialized");
+    this.route.url.subscribe(url => {
+      let seasonId = url[0]["path"];
+      this.setTeams(seasonId);
+      this.setGames(seasonId);
+    })
   }
 
 }

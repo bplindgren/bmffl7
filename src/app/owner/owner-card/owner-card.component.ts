@@ -31,17 +31,24 @@ export class OwnerCardComponent implements OnInit {
     this.allTimeStats = this.config.stats;
   }
 
-  displayChampionships(): string {
-    let years = this.championships;
-    if (years.length == 0) {
+  // displayChampionships(): string {
+  //   let years = this.championships;
+  //   if (years.length == 0) {
+  //     return "None"
+  //   } else {
+  //     let champString: string = '';
+  //     for (let year of years) {
+  //       champString = champString + year + ", "
+  //     }
+  //     return champString.slice(0, -2);
+  //   }
+  // }
+
+  displayChampionships(): string {this.championships
+    if (this.championships.length == 0) {
       return "None"
     } else {
-      let champString: string = '';
-      for (let year of years) {
-        champString = champString + year + ", "
-      }
-      return champString.slice(0, -2);
-    }
+      return this.championships.length
   }
 
 }

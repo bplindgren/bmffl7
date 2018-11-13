@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, SimpleChange  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { startWith, tap, delay } from 'rxjs/operators';
 import { OwnerService } from '../owner-service/owner.service';

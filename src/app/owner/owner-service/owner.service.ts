@@ -26,9 +26,9 @@ export class OwnerService {
   }
 
   getAllTimeStats(): Observable<AllTimeStats[]> {
-    const url = `${this.baseURL}` + '/owners/getAllTimeRecords';
+    const url = `${this.baseURL}` + '/owners/getAllTimeStats';
     return this.http.get<number[]>(url).pipe(
-      tap(_ => console.log('fetched all owner all-time records'))
+      tap(_ => console.log('fetched all owner all-time stats'))
     )
   }
 

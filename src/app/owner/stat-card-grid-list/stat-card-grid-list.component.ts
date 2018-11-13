@@ -25,7 +25,9 @@ export class StatCardGridListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("All Time Stats: ", this.allTimeStats);
     this.statValues = this.getCardStats(this.allTimeStats);
+    console.log("card stats: ", this.statValues);
     this.cardStats = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
   }
 
