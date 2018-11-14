@@ -5,9 +5,9 @@ import { MatMenuModule } from '@angular/material';
 import { WeekScoresModule } from './week-scores/week-scores.module';
 import { OwnerModule } from './owner/owner.module';
 import { SeasonModule } from './season/season.module';
+import { TeamModule } from './team/team.module';
 
-import { HomeComponent } from './home/home.component';
-import { TeamComponent } from './team/team.component';
+import { HomeComponent } from './home/home.component'
 import { MatchupComponent } from './matchup/matchup.component';
 import { RecordsComponent } from './records/records.component';
 
@@ -26,7 +26,10 @@ export const routes: Routes = [
     path: 'seasons',
     loadChildren: './season/season.module#SeasonModule'
   },
-  { path: 'teams', component: TeamComponent },
+  {
+    path: 'teams',
+    loadChildren: './team/team.module#TeamModule'
+  },
   { path: 'matchup', component: MatchupComponent },
   { path: 'records', component: RecordsComponent }
 ]

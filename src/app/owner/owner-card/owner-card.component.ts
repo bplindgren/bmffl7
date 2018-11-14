@@ -49,6 +49,7 @@ export class OwnerCardComponent implements OnInit {
       return "None"
     } else {
       return this.championships.length
+    }
   }
 
 }

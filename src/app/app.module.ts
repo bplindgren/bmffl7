@@ -11,10 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { GameService } from './game.service';
-import { TeamService } from './team/team-service/team.service';
-import { SeasonService } from './season/season-service/season.service';
 
-import { TeamComponent } from './team/team.component';
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 
@@ -28,7 +25,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
-    TeamComponent,
     MenuComponent
   ],
   imports: [
@@ -37,10 +33,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
     MatGridListModule, MatMenuModule, MatGridListModule, MatTableModule
   ],
-  providers: [GameService, TeamService, SeasonService],
+  providers: [GameService],
   exports: [
     AppComponent,
-    TeamComponent,
     MenuComponent
   ],
   bootstrap: [AppComponent]
