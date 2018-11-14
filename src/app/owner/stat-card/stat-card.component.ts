@@ -5,7 +5,7 @@ import { Component, OnInit , Input } from '@angular/core';
   templateUrl: './stat-card.component.html',
   styleUrls: ['./stat-card.component.css']
 })
-export class StatCardComponent implements OnInit {
+export class StatCardComponent {
   @Input() stat: String;
   @Input() value: Any;
 

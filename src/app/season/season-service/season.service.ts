@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Season } from '../../season';
-import { SeasonAverage } from '../../seasonAverages';
+import { SeasonAverages } from '../../seasonAverages';
 
 @Injectable({ providedIn: 'root' })
 export class SeasonService {
@@ -25,7 +25,7 @@ export class SeasonService {
     )
   }
 
-  getSeasonAverages(): Observable<SeasonAverages> {
+  getSeasonAverages(): Observable<SeasonAverages[]> {
     const url = `${this.baseURL}` + '/seasons/averages';
     return this.http.get<SeasonAverages[]>(url).pipe(
       tap(_ => console.log('all stats fetched'))

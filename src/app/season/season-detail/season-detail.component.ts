@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SeasonService } from '../season-service/season.service';
-import { Game } from '../game';
+import { SeasonStats } from '../../seasonStats';
+
+import { Game } from '../../game';
 import { GameService } from '../../game.service';
+
 import { Team } from '../../team';
 import { TeamService } from '../../team/team-service/team.service';
 
@@ -13,10 +16,11 @@ import { TeamService } from '../../team/team-service/team.service';
   styleUrls: ['./season-detail.component.css']
 })
 export class SeasonDetailComponent implements OnInit  {
-  private teams: Team[];
-  upstairsTeams: Team[];
-  downstairsTeams: Team[];
-  playofGames: Game[];
+  private teams: SeasonStats[];
+  upstairsTeams: SeasonStats[];
+  downstairsTeams: SeasonStats[];
+  playoffGames: Game[];
+  year: number;
   currentDivision: string = 'upstairs';
 
   constructor(
@@ -27,14 +31,15 @@ export class SeasonDetailComponent implements OnInit  {
   }
 
   ngOnInit() {
-    let seasonId = this.route.params.value["id"];
-    this.year = (+this.route.params.value["id"] + 2010).toString();
+    let seasonId = +this.route.params["value"]["id"];
+    this.year = (+this.route.params["value"]["id"] + 2010);
     this.setTeams(seasonId);
     this.setGames(seasonId);
   }
 
-  setTeams(seasonId: string): void {
+  setTeams(seasonId: number): void {
     this.teamService.getSeasonTeams(seasonId).subscribe(teams => {
+      console.log(teams);
       this.teams = teams.sort((a,b) =>
         (a["winningpct"] > b["winningpct"]) ? 1 : ((b["winningpct"] > a["winningpct"]) ? -1 : 0)
       ).reverse()
@@ -55,20 +60,20 @@ export class SeasonDetailComponent implements OnInit  {
     })
   }
 
-  setGames(seasonId: string): void {
+  setGames(seasonId: number): void {
     this.gameService.getPlayoffGames(seasonId).subscribe(games => {
       this.playoffGames = games;
     })
   }
 
   changeDivision(e: String) {
-    this.currentDivision = e.value;
+    this.currentDivision = e["value"];
   }
 
   ngAfterViewInit() {
     console.log("season detail view initialized");
     this.route.url.subscribe(url => {
-      let seasonId = url[0]["path"];
+      let seasonId = +(url[0]["path"]);
       this.setTeams(seasonId);
       this.setGames(seasonId);
     })

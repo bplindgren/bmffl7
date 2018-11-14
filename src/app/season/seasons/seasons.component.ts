@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeasonService } from '../season-service/season.service';
 import { TeamService } from '../../team/team-service/team.service';
+import { Season } from '../../season';
 
 @Component({
   selector: 'app-seasons',

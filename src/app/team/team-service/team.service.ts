@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Season } from '../../season';
 import { Team } from '../../team';
+import { SeasonStats } from '../../seasonStats';
 
 @Injectable({  providedIn: 'root' })
 export class TeamService {
@@ -33,14 +35,14 @@ export class TeamService {
 
   getOwnerTeamsStatsView(ownerID: number): Observable<SeasonStats[]> {
     const url = `${this.baseURL}` + '/teams/owner/stats/' + ownerID;
-    return this.http.get<TeamStats[]>(url).pipe(
+    return this.http.get<SeasonStats[]>(url).pipe(
       tap(_ => console.log('owner team stats received'))
     )
   }
 
-  getSeasonTeams(seasonId: number): Observable<Season[]> {
+  getSeasonTeams(seasonId: number): Observable<SeasonStats[]> {
     const url =`${this.baseURL}` + '/teams/getSeasonTeams/' + seasonId;
-    return this.http.get<Season[]>(url).pipe(
+    return this.http.get<SeasonStats[]>(url).pipe(
       tap(_ => console.log('season teams received'))
     )
   }
