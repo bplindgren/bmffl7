@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { Season } from '../../season';
 
 @Component({
   selector: 'seasons-table',

@@ -18,7 +18,7 @@ export class OwnerService {
     )
   }
 
-  getOwner(id: Integer): Observable<Owner> {
+  getOwner(id: number): Observable<Owner> {
     const url = `${this.baseURL}` + '/owners/' + id;
     return this.http.get<Owner>(url).pipe(
       tap(_ => console.log('fetched owner with id=' + `${id}`))
@@ -27,12 +27,12 @@ export class OwnerService {
 
   getAllTimeStats(): Observable<AllTimeStats[]> {
     const url = `${this.baseURL}` + '/owners/getAllTimeStats';
-    return this.http.get<number[]>(url).pipe(
+    return this.http.get<AllTimeStats[]>(url).pipe(
       tap(_ => console.log('fetched all owner all-time stats'))
     )
   }
 
-  getOwnerAllTimeStats(id: Integer): Observable<AllTimeStats> {
+  getOwnerAllTimeStats(id: number): Observable<AllTimeStats> {
     const url = `${this.baseURL}` + '/owners/getOwnerAllTimeStats/' + id;
     return this.http.get<AllTimeStats>(url).pipe(
       tap(_ => console.log('fetched all time owner stats'))

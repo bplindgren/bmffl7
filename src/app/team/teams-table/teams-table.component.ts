@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatSort, MatTableDataSource, Sort } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
-import { Team } from '../team';
+import { Team } from '../../team';
 
 @Component({
   selector: 'teams-table',

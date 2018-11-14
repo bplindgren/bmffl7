@@ -7,11 +7,11 @@ import { SeasonService } from '../../season/season-service/season.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 import { Team } from '../../team';
-import { StatCardComponent } from '../stat-card/stat-card';
+import { SeasonStats } from '../../seasonStats';
+import { StatCardComponent } from '../stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart';
+import { VerticalBarChartComponent } from '../../charts/vertical-bar-chart/vertical-bar-chart.component';
 import { TableModule } from '../../shared-modules/table/table.module';
-
 import { AllTimeStats } from '../../allTimeStats';
 
 @Component({
@@ -24,7 +24,7 @@ export class OwnerDetailComponent implements OnInit {
   private stat: Array<any>;
   private yAxis: null;
   private allTimeStats: AllTimeStats;
-  private ownerTeams: Team[];
+  private ownerTeams: SeasonStats[];
 
   constructor(
     private ownerService: OwnerService,
@@ -34,7 +34,7 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ownerService.getOwner(this.route.params.value["id"])
+    this.ownerService.getOwner(this.route.params["value"]["id"])
       .pipe(delay(1))
       .subscribe(owner => { this.refreshOwner(owner) }
     )
@@ -67,7 +67,7 @@ export class OwnerDetailComponent implements OnInit {
   ngAfterViewInit() {
     console.log("owner detail view initialized");
     this.route.url.subscribe(url => {
-      this.ownerService.getOwner(url[1])
+      this.ownerService.getOwner(+(url[1]))
         .pipe(delay(1))
         .subscribe(owner => { this.refreshOwner(owner) })
     })

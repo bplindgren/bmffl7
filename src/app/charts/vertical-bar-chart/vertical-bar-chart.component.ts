@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { single } from '../../data';
 
 @Component({
@@ -6,7 +6,7 @@ import { single } from '../../data';
   templateUrl: './vertical-bar-chart.component.html',
   styleUrls: ['./vertical-bar-chart.component.css']
 })
-export class VerticalBarChartComponent implements OnInit, OnChanges {
+export class VerticalBarChartComponent implements OnChanges {
   @Input() data: Object[];
   @Input() yAxis: string;
   private single: any[];
