@@ -7,7 +7,7 @@ import { Component, OnInit , Input } from '@angular/core';
 })
 export class StatCardComponent {
   @Input() stat: String;
-  @Input() value: Any;
+  @Input() value;
 
   constructor() { }
 

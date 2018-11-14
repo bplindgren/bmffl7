@@ -3,12 +3,13 @@ import { Component, OnInit, Input, Output, EventEmitter,
 import { Observable, forkJoin } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
-import { SeasonService } from '../../season/season.service';
+import { SeasonService } from '../../season/season-service/season.service';
 import { Owner } from '../../owner';
+import { Team } from '../../team';
 import { AllTimeStats } from '../../allTimeStats';
 import { SeasonStats } from '../../seasonStats';
 import { statDictionary } from '../../statDictionary';
-import { StatCardComponent } from '../stat-card/stat-card';
+import { StatCardComponent } from '../stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
@@ -21,6 +22,8 @@ export class StatCardGridListComponent implements OnInit {
   @Input() allTimeStats: AllTimeStats;
   @Input() ownerTeams: Team[];
   @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
+  private statValues;
+  private cardStats;
 
   constructor() { }
 
@@ -47,11 +50,11 @@ export class StatCardGridListComponent implements OnInit {
     return cardStats;
   }
 
-  formatKey(str: string): void {
+  formatKey(str: string): string {
     return str.split("_").join(" ").split(" Percentage").join("%").split(" Per ").join("/");
   }
 
-  getGraphData(stat: string): Object {
+  getGraphData(stat: string): void {
     let statValues = this.ownerTeams.map(team =>
       ({ "name": team["year"], "value": team[statDictionary[stat]] })
     );

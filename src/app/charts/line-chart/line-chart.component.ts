@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange  } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange  } from '@angular/core';
 import { single, multi } from '../../data2';
 
 @Component({
@@ -6,7 +6,7 @@ import { single, multi } from '../../data2';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.css']
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent {
   @Input() data: Object[];
   @Input() yAxis: string;
   private single: any[];
@@ -34,10 +34,6 @@ export class LineChartComponent implements OnInit {
   constructor() {
     Object.assign(this, { single, multi })
   }
-
-  // ngOnInit() {
-  //   console.log(this.data);
-  // }
 
   onSelect(event) {
     console.log(event);

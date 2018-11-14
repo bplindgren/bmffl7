@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Owner } from '../../owner';
-import { SeasonService } from '../../season/season.service';
+import { SeasonService } from '../../season/season-service/season.service';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
 import { OwnerCardConfig } from '../../ownerCardConfig';
@@ -46,9 +46,9 @@ export class OwnerCardComponent implements OnInit {
 
   displayChampionships(): string {this.championships
     if (this.championships.length == 0) {
-      return "None"
+      return "None";
     } else {
-      return this.championships.length
+      return this.championships.length.toString();
     }
   }
 
