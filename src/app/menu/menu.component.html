@@ -48,8 +48,10 @@
       Seasons
     </button>
     <mat-menu #seasonsMenu="matMenu" overlapTrigger=false>
-      <button mat-menu-item *ngFor="let year of years">
-        {{ year }}</button>
+      <button mat-menu-item routerLink='/seasons'>View All Seasons</button>
+      <button mat-menu-item *ngFor="let season of bmfflSeasons"
+        routerLink="{{ '/seasons/' + season.seasonNumber }}">
+        {{ season.year }}</button>
     </mat-menu>
 
     <button mat-raised-button

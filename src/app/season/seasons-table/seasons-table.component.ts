@@ -14,7 +14,7 @@ export class SeasonsTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.seasons);
+    console.log(this.seasons, 'seasons table created');
   }
 
 }

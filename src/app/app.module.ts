@@ -9,13 +9,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { OwnerModule } from './owner/owner.module'
 
 import { GameService } from './game.service';
-import { TeamService } from './team/team-service/team.service';
-import { SeasonService } from './season/season.service';
 
-import { TeamComponent } from './team/team.component';
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 
@@ -29,21 +25,17 @@ import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
-    TeamComponent,
     MenuComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule,
-    BrowserAnimationsModule, HttpModule, HttpClientModule, NgxChartsModule,
-    AppRoutingModule, MatToolbarModule, MatButtonModule,
-    MatSidenavModule, MatIconModule, MatListModule,
-    MatCardModule, MatGridListModule, MatMenuModule, OwnerModule, MatGridListModule,
-    MatTableModule
+    BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
+    HttpModule, HttpClientModule, NgxChartsModule, AppRoutingModule, MatToolbarModule,
+    MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
+    MatGridListModule, MatMenuModule, MatGridListModule, MatTableModule
   ],
-  providers: [GameService, TeamService, SeasonService],
+  providers: [GameService],
   exports: [
     AppComponent,
-    TeamComponent,
     MenuComponent
   ],
   bootstrap: [AppComponent]

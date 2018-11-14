@@ -6,13 +6,13 @@ import { single } from '../../data';
   templateUrl: './vertical-bar-chart.component.html',
   styleUrls: ['./vertical-bar-chart.component.css']
 })
-export class VerticalBarChartComponent implements OnInit {
+export class VerticalBarChartComponent implements OnInit, OnChanges {
   @Input() data: Object[];
   @Input() yAxis: string;
   private single: any[];
 
   view: any[] = [500, 400];
-  
+
   // options
   showXAxis = true;
   showYAxis = true;

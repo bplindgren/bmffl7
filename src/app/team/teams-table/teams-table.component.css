@@ -1,6 +1,6 @@
 mat-table {
-  width: 100%;
-  margin: 50px 10px 0px 10px;
+  width: 98%;
+  margin: 30px 10px 20px 10px;
 }
 
 .mat-cell:nth-child(1),
@@ -21,4 +21,19 @@ mat-table {
 .mat-cell:nth-child(4),
 .mat-header-cell:nth-child(4) {
   flex: 0 0 11%;
+}
+
+.mat-cell:nth-child(6),
+.mat-header-cell:nth-child(6) {
+  flex: 0 0 3.5%;
+}
+
+.mat-cell:nth-child(7),
+.mat-header-cell:nth-child(7) {
+  flex: 0 0 3.5%;
+}
+
+.mat-cell:nth-child(8),
+.mat-header-cell:nth-child(8) {
+  flex: 0 0 3.5%;
 }

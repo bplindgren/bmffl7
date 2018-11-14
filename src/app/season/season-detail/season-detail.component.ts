@@ -1,30 +1,76 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { SeasonService } from '../season-service/season.service';
-import { TeamService } from '../../team/team-service/team.service';
+import { Game } from '../game';
+import { GameService } from '../../game.service';
 import { Team } from '../../team';
+import { TeamService } from '../../team/team-service/team.service';
 
 @Component({
   selector: 'season-detail',
   templateUrl: './season-detail.component.html',
   styleUrls: ['./season-detail.component.css']
 })
-export class SeasonDetailComponent implements OnInit {
+export class SeasonDetailComponent implements OnInit  {
   private teams: Team[];
+  upstairsTeams: Team[];
+  downstairsTeams: Team[];
+  playofGames: Game[];
+  currentDivision: string = 'upstairs';
 
   constructor(
     private seasonService: SeasonService,
     private teamService: TeamService,
+    private gameService: GameService,
     private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     let seasonId = this.route.params.value["id"];
+    this.year = (+this.route.params.value["id"] + 2010).toString();
+    this.setTeams(seasonId);
+    this.setGames(seasonId);
+  }
+
+  setTeams(seasonId: string): void {
     this.teamService.getSeasonTeams(seasonId).subscribe(teams => {
-      console.log("season teams: ", teams);
       this.teams = teams.sort((a,b) =>
-        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0)
+        (a["winningpct"] > b["winningpct"]) ? 1 : ((b["winningpct"] > a["winningpct"]) ? -1 : 0)
+      ).reverse()
+
+      // get upstairs teams
+      this.upstairsTeams = this.teams.filter(team =>
+        team.division === 'upstairs')
+        .sort((a,b) =>
+        (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
       )
+
+      // get downstairs teams
+      this.downstairsTeams = this.teams.filter(team =>
+        team.division === 'downstairs')
+        .sort((a,b) =>
+        (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
+      )
+    })
+  }
+
+  setGames(seasonId: string): void {
+    this.gameService.getPlayoffGames(seasonId).subscribe(games => {
+      this.playoffGames = games;
+    })
+  }
+
+  changeDivision(e: String) {
+    this.currentDivision = e.value;
+  }
+
+  ngAfterViewInit() {
+    console.log("season detail view initialized");
+    this.route.url.subscribe(url => {
+      let seasonId = url[0]["path"];
+      this.setTeams(seasonId);
+      this.setGames(seasonId);
     })
   }
 

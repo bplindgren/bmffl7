@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatSort, MatTableDataSource } from '@angular/material';
+import { MatSort, MatTableDataSource, Sort } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { Team } from '../team';
 
@@ -16,7 +16,7 @@ export class TeamsTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('team table created');
+    console.log(this.teams, 'team table created');
   }
 
 }

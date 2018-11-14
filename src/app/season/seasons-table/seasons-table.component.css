@@ -1,5 +1,5 @@
 mat-table {
-  margin-top: 20px;
+  margin: 20px 0px 10px 0px;
 }
 
 .mat-cell:nth-child(2),

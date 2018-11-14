@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { OwnerService } from '../owner/owner-service/owner.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { seasons } from '../seasons';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +16,7 @@ import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 export class MenuComponent implements OnInit, AfterViewInit {
   private upstairsOwners = [];
   private downstairsOwners = [];
-  private years = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
+  private bmfflSeasons = seasons;
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;

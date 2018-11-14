@@ -3,20 +3,25 @@ import { CommonModule } from '@angular/common';
 import { SeasonRoutingModule } from './season-routing.module';
 
 import { SeasonService } from './season-service/season.service';
-
 import { SeasonsComponent } from './seasons/seasons.component';
 import { SeasonDetailComponent } from './season-detail/season-detail.component';
 import { SeasonsTableComponent } from './seasons-table/seasons-table.component';
+import { WeekScoresModule } from '../week-scores/week-scores.module';
 
 import { MatTableModule } from '@angular/material/table';
 import { TableModule } from '../shared-modules/table/table.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   imports: [
     CommonModule,
     SeasonRoutingModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    WeekScoresModule
   ],
   declarations: [SeasonsComponent, SeasonDetailComponent, SeasonsTableComponent],
   providers: [SeasonService]
