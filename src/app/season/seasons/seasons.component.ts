@@ -4,7 +4,7 @@ import { TeamService } from '../../team/team-service/team.service';
 import { Season } from '../../season';
 
 @Component({
-  selector: 'app-seasons',
+  selector: 'seasons',
   templateUrl: './seasons.component.html',
   styleUrls: ['./seasons.component.css']
 })

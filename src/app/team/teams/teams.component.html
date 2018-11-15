@@ -1,3 +1,27 @@
-<p>
-  teams works!
-</p>
+<h2 *ngIf="displayedTeams">BMFFL Teams</h2>
+
+<div *ngIf="displayedTeams" class="pad-group">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="allTeams">
+    <mat-button-toggle value="allTeams" (change)="getAllTeams($event)">All Teams</mat-button-toggle>
+    <mat-button-toggle value="teamsByOwner" (change)="showOwnerForm()">Teams By Owner</mat-button-toggle>
+    <mat-button-toggle value="teamsBySeason" (change)="showSeasonForm()">Teams By Season</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<mat-form-field *ngIf="currentDisplay === 'teamsByOwner'">
+  <mat-select placeholder="Select Owner " (selectionChange)="getTeamsByOwner($event)">
+    <mat-option *ngFor="let owner of owners" [value]="owner.id">
+      {{ owner.firstName }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field *ngIf="currentDisplay === 'teamsBySeason'">
+  <mat-select placeholder="Select Season " (selectionChange)="getTeamsBySeason($event)">
+    <mat-option *ngFor="let year of years" [value]="year">
+      {{ year }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<teams-table *ngIf="displayedTeams" [teams]="displayedTeams"></teams-table>

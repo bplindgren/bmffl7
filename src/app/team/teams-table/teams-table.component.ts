@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 import { MatSort, MatTableDataSource, Sort } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { Team } from '../../team';
@@ -8,15 +8,15 @@ import { Team } from '../../team';
   templateUrl: './teams-table.component.html',
   styleUrls: ['./teams-table.component.css']
 })
-export class TeamsTableComponent implements OnInit {
+export class TeamsTableComponent implements AfterViewInit {
   @Input() teams: Team[];
   @Input() datasource;
   displayedColumns: string[] = ['year', 'name', 'standing', 'divisionwinner', 'gamesplayed', 'wins', 'losses', 'ties', 'winningpct', 'pointsfor', 'pointsagainst', 'pfpg', 'papg', 'ppgdiff'];
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.teams, 'team table created');
+  ngAfterViewInit() {
+    console.log('team table created');
   }
 
 }
