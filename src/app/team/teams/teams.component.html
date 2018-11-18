@@ -11,7 +11,7 @@
 <mat-form-field *ngIf="currentDisplay === 'teamsByOwner'">
   <mat-select placeholder="Select Owner " (selectionChange)="getTeamsByOwner($event)">
     <mat-option *ngFor="let owner of owners" [value]="owner.id">
-      {{ owner.firstName }}
+      {{ owner.firstName + " " + owner.lastInitial }}
     </mat-option>
   </mat-select>
 </mat-form-field>
