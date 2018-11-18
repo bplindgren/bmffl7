@@ -22,10 +22,7 @@ export class VerticalBarChartComponent implements OnInit, OnChanges {
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
 
-  private barChartData: any[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40]},
-    {data: [28, 48, 40, 19, 86, 27, 90]}
-  ]
+  private barChartData: any[] = [{}]
 
   ngOnInit() {
     let chartLabels = this.data.map(object => object.name)
