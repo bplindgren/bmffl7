@@ -1,6 +1,6 @@
 <div id="owner-cards">
   <mat-grid-list cols="4" *ngIf="ownerCardConfigArray">
-    <mat-grid-tile *ngFor="let owner of ownerCardConfigArray" >
+    <mat-grid-tile *ngFor="let owner of ownerCardConfigArray">
       <owner-card [config]="owner"></owner-card>
     </mat-grid-tile>
   </mat-grid-list>
