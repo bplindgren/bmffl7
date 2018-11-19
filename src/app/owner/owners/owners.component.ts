@@ -46,6 +46,7 @@ export class OwnersComponent implements OnInit {
 
   generateOwnerCardConfigArray(): OwnerCardConfig[] {
     let ownerConfigs : OwnerCardConfig[] = [];
+    console.log(this.allTimeStats);
     for (let i = 1; i <= 11; i++) {
       let oc : OwnerCardConfig = {
         owner: this.allOwners.filter(o => o.id == i)[0],

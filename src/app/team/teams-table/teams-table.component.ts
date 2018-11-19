@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
 import { MatSort, MatTableDataSource, Sort } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import { RouterModule } from '@angular/router';
 import { Team } from '../../team';
 
 @Component({
@@ -16,7 +17,7 @@ export class TeamsTableComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    console.log('team table created');
+    console.log('team table created', this.teams);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Game } from '../../game';
 import { TeamService } from '../../team/team-service/team.service';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'scorecard',

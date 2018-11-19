@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { TeamRoutingModule } from './team-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -18,7 +17,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
     TeamRoutingModule,
     MatTableModule,
     TableModule,

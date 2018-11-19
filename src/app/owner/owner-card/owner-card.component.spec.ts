@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OwnerCardComponent } from './owner-card.component';
+import { OwnerCardConfig } from '../../ownerCardConfig';
 
 describe('OwnerCardComponent', () => {
   let component: OwnerCardComponent;
@@ -20,6 +21,12 @@ describe('OwnerCardComponent', () => {
   });
 
   it('should create', () => {
+    let oc : OwnerCardConfig = {
+      owner: [],
+      teams: [],
+      stats: []
+    }
+    component.config = oc;
     expect(component).toBeTruthy();
   });
 });

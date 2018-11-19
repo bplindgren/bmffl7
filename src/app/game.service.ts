@@ -25,4 +25,11 @@ export class GameService {
     );
   }
 
+  getTeamGames(teamId: number): Observable<Game[]> {
+    const url = `${this.baseURL}` + '/games/team/' + teamId
+    return this.http.get<Game[]>(url).pipe(
+      tap(_ => console.log('team games received'))
+    );
+  }
+
 }

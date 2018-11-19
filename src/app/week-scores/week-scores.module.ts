@@ -7,6 +7,7 @@ import { WeekScoresFormComponent } from './week-scores-form/week-scores-form.com
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { WeekScoresRoutingModule } from './week-scores-routing.module';
+import { RouterModule } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,7 +23,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSelectModule,
     MatButtonModule,
     FlexLayoutModule,
-    WeekScoresRoutingModule
+    WeekScoresRoutingModule,
+    RouterModule
   ],
   declarations: [
     WeekScoresComponent,

@@ -33,8 +33,15 @@ export class TeamService {
     )
   }
 
-  getOwnerTeamsStatsView(ownerID: number): Observable<SeasonStats[]> {
-    const url = `${this.baseURL}` + '/teams/owner/stats/' + ownerID;
+  getTeamSeasonStatsView(teamId: number): Observable<SeasonStats> {
+    const url = `${this.baseURL}` + '/teams/stats/' + teamId;
+    return this.http.get<SeasonStats>(url).pipe(
+      tap(_ => console.log('team stats received'))
+    )
+  }
+
+  getOwnerTeamsStatsView(ownerId: number): Observable<SeasonStats[]> {
+    const url = `${this.baseURL}` + '/teams/owner/stats/' + ownerId;
     return this.http.get<SeasonStats[]>(url).pipe(
       tap(_ => console.log('owner team stats received'))
     )

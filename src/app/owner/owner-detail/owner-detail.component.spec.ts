@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { OwnerDetailComponent } from './owner-detail.component';
 
 describe('OwnerDetailComponent', () => {
@@ -8,8 +7,7 @@ describe('OwnerDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OwnerDetailComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+      declarations: [ OwnerDetailComponent ]
     })
     .compileComponents();
   }));
