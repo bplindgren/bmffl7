@@ -1,3 +1,11 @@
-<p>
-  team-detail works!
-</p>
+<h2 *ngIf="teamStats">{{ teamStats[0].name + " Stats" }}</h2>
+
+<div *ngIf="games">
+  <teams-table [teams]="teamStats"></teams-table>
+</div>
+
+<h2 *ngIf="teamStats">{{ teamStats[0].name + " Games" }}</h2>
+
+<div *ngIf="games">
+  <games-table [games]="games"></games-table>
+</div>

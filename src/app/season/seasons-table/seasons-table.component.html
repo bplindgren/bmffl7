@@ -6,7 +6,11 @@
 
   <ng-container matColumnDef="champion">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Champion</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.name }}</mat-cell>
+    <mat-cell *matCellDef="let element">
+      <div *ngIf="element.champion != null" >
+        <a routerLink="{{ '/teams/' + element.champion.id }}">{{ element.champion == null ? '' : element.champion.name }}</a>
+      </div>
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="owner">

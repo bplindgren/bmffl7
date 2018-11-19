@@ -1,5 +1,5 @@
 export class AllTimeStats {
-  owner_id: number;
+  ownerId: number;
   firstname: string;
   lastinitial: string;
   losses: number;
