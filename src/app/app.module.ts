@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-// import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
@@ -31,7 +30,6 @@ import { MatTableModule } from '@angular/material/table';
     HttpModule, HttpClientModule, AppRoutingModule, MatToolbarModule, ChartsModule,
     MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
     MatGridListModule, MatMenuModule, MatTableModule
-    // NgxChartsModule,
   ],
   providers: [GameService],
   exports: [

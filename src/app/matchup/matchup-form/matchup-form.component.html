@@ -1,0 +1,28 @@
+<form id="matchup-form">
+  <div class="form-group" fxFlex="100%">
+    <div id="owner-selectors">
+      <mat-form-field id="select1">
+        <mat-select placeholder="Owner 1" [(ngModel)]="owner1" name="owner1select" (selectionChange)="formValid($event)">
+          <mat-option *ngFor="let owner of owners" [value]="owner">{{ owner.firstName + " " + owner.lastInitial }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Owner 2" [(ngModel)]="owner2" name="owner2select" (selectionChange)="formValid($event)">
+          <mat-option *ngFor="let owner of owners" [value]="owner">{{ owner.firstName + " " + owner.lastInitial }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div id="submit-button">
+      <button
+        id="matchup-submit"
+        class="btn btn-success"
+        [disabled]="formIncomplete"
+        (click)="getMatchup()">
+        View Matchup History
+      </button>
+    </div>
+
+  </div>
+</form>
