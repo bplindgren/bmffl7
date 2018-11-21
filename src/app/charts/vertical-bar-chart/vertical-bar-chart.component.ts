@@ -36,6 +36,7 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
       this.updateLabels(changes)
     }
     this.initialized = true;
+    console.log(changes['data']);
   }
 
   ngAfterViewInit() {
@@ -49,7 +50,6 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
       this.barChartLabels.push(newLabels[i]);
     }
     this.barChartLabels.reverse();
-    console.log(this.barChartLabels);
   }
 
   updateData(changes: SimpleChanges) {

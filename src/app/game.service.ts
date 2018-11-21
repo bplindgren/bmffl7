@@ -32,4 +32,11 @@ export class GameService {
     );
   }
 
+  getMatchupGames(owner1Id: number, owner2Id: number): Observable<Game[]> {
+    const url = `${this.baseURL}` + '/games/matchup/' + owner1Id + "/" + owner2Id;
+    return this.http.get<Game[]>(url).pipe(
+      tap(_ => console.log('games received'))
+    );
+  }
+
 }
