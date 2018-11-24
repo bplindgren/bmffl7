@@ -7,7 +7,8 @@ import { MatchupRoutingModule } from './matchup-routing.module';
 import { MatchupFormComponent } from './matchup-form/matchup-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TableModule } from '../shared-modules/table/table.module';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -18,9 +19,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     MatchupRoutingModule,
     RouterModule,
-    FlexLayoutModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule,
+    TableModule,
+    FlexLayoutModule
   ],
   declarations: [MatchupComponent, MatchupFormComponent]
 })

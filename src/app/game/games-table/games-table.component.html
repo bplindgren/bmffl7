@@ -1,4 +1,9 @@
 <mat-table #table [dataSource]="games" class="mat-elevation-z8">
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="week">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.week }}</mat-cell>

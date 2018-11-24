@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Owner } from '../../owner';
 import { OwnerService } from '../../owner/owner-service/owner.service';
@@ -14,6 +14,7 @@ export class MatchupFormComponent implements OnInit {
   owner1: Owner;
   owner2: Owner;
   formIncomplete: boolean = true;
+  @Output() matchupEventEmt: EventEmitter<Owner[]> = new EventEmitter();
 
   constructor(
     private ownerService: OwnerService,
@@ -26,17 +27,13 @@ export class MatchupFormComponent implements OnInit {
     });
   }
 
-  getMatchup() {
-    console.log(this.owner1, this.owner2);
-    this.gameService.getMatchupGames(this.owner1.id, this.owner2.id).subscribe(res => {
-      console.log(res);
-    });
+  emitMatchup() {
+    let matchupOwners: Owner[] = [this.owner1, this.owner2];
+    this.matchupEventEmt.emit(matchupOwners);
   }
 
   formValid(e: string): void {
-    console.log(this.formIncomplete);
     (this.owner1 && this.owner2) ? this.formIncomplete = false : null;
-    console.log(this.formIncomplete);
   }
 
 }
