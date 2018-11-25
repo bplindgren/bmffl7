@@ -7,7 +7,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   styleUrls: ['./vertical-bar-chart.component.css']
 })
 export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChanges {
-  @Input() data: Object[];
+  @Input() data: any[];
   @Input() yAxis: string;
   @ViewChild("chart") chart: ElementRef;
   private initialized: boolean = false;
@@ -36,7 +36,7 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
       this.updateLabels(changes)
     }
     this.initialized = true;
-    console.log(changes['data']);
+    // console.log(changes['data']);
   }
 
   ngAfterViewInit() {
