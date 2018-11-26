@@ -1,12 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SeasonService } from './season.service';
 
 describe('SeasonService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
-
-  it('should be created', () => {
-    const service: SeasonService = TestBed.get(SeasonService);
-    expect(service).toBeTruthy();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [SeasonService]
+    });
   });
+
+  it('should be created', inject([SeasonService], (service: SeasonService) => {
+    expect(service).toBeTruthy();
+  }));
 });

@@ -2,13 +2,31 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SeasonDetailComponent } from './season-detail.component';
 
+import { WeekScoresModule } from '../../week-scores/week-scores.module';
+import { MatTableModule } from '@angular/material/table';
+import { TableModule } from '../../shared-modules/table/table.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+import { SeasonService } from '../season-service/season.service';
+import { GameService } from '../../game/game-service/game.service';
+import { TeamService } from '../../team/team-service/team.service';
+
 describe('SeasonDetailComponent', () => {
   let component: SeasonDetailComponent;
   let fixture: ComponentFixture<SeasonDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SeasonDetailComponent ]
+      imports: [
+        WeekScoresModule,
+        MatTableModule,
+        TableModule,
+        MatTabsModule,
+        MatButtonToggleModule
+      ],
+      declarations: [ SeasonDetailComponent ],
+      providers: [SeasonService, GameService, TeamService]
     })
     .compileComponents();
   }));

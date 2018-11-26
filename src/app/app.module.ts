@@ -25,8 +25,8 @@ import { MatTableModule } from '@angular/material/table';
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
-    HttpModule, HttpClientModule, AppRoutingModule, MatToolbarModule, ChartsModule,
-    MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
+    HttpModule, HttpClientModule, ChartsModule, AppRoutingModule, MatCardModule,
+    MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
     MatGridListModule, MatMenuModule, MatTableModule
   ],
   providers: [],

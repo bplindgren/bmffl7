@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatchupComponent } from './matchup.component';
+import { MatchupFormComponent } from '../matchup-form/matchup-form.component';
 
 describe('MatchupComponent', () => {
   let component: MatchupComponent;
@@ -8,7 +9,7 @@ describe('MatchupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatchupComponent ]
+      declarations: [ MatchupComponent, MatchupFormComponent ]
     })
     .compileComponents();
   }));

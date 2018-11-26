@@ -7,7 +7,7 @@ describe('TeamService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [TeamService, HttpClientModule]
+      providers: [TeamService]
     });
   });
 
