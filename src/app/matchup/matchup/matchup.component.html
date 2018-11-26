@@ -2,15 +2,20 @@
 (matchupEventEmt)=getMatchupStats($event)>
 </matchup-form>
 
-<!-- <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="allGames">
-  <mat-button-toggle value="allGames" (change)="changeGames($event)">All Games</mat-button-toggle>
-  <mat-button-toggle value="regularSeason" (change)="changeGames($event)">Regular Season</mat-button-toggle>
-  <mat-button-toggle value="regAndPlayoffs" (change)="changeGames($event)">Reqular Season & Playoffs</mat-button-toggle>
-  <mat-button-toggle value="playoffs" (change)="changeGames($event)">Playoffs</mat-button-toggle>
-</mat-button-toggle-group> -->
-<h2>All Time Stats</h2>
+<div *ngIf="graphData">
+  <h2>All Time Stats</h2>
+  <form>
+    <mat-form-field>
+      <mat-select [(ngModel)]="displayedStat" name="stat-select" (selectionChange)="getNewStat($event)">
+        <mat-option *ngFor="let stat of statsArray" [value]="stat">{{ removeUnderScore(stat) }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <double-vertical-bar-chart [data]="graphData"></double-vertical-bar-chart>
+</div>
 
 <div *ngIf="games">
   <h2>Head to Head</h2>
+  <matchup-totals [matchupStats]="matchupStats"></matchup-totals>
   <games-table [games]="games"></games-table>
 </div>

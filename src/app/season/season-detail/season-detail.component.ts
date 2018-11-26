@@ -39,25 +39,21 @@ export class SeasonDetailComponent implements OnInit  {
 
   setTeams(seasonId: number): void {
     this.teamService.getSeasonTeams(seasonId).subscribe(teams => {
-      console.log(teams);
       this.teams = teams.sort((a,b) =>
         (a["winningpct"] > b["winningpct"]) ? 1 : ((b["winningpct"] > a["winningpct"]) ? -1 : 0)
       ).reverse()
 
-      // get upstairs teams
-      this.upstairsTeams = this.teams.filter(team =>
-        team.division === 'upstairs')
-        .sort((a,b) =>
-        (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
-      )
-
-      // get downstairs teams
-      this.downstairsTeams = this.teams.filter(team =>
-        team.division === 'downstairs')
-        .sort((a,b) =>
-        (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
-      )
+      this.upstairsTeams = this.getDivisionTeams('upstairs');
+      this.downstairsTeams = this.getDivisionTeams('downstairs');
     })
+  }
+
+  getDivisionTeams(division: string): SeasonStats[] {
+    return this.teams.filter(team =>
+      team.division === division)
+      .sort((a,b) =>
+      (a["standing"] > b["standing"]) ? 1 : ((b["standing"] > a["standing"]) ? -1 : 0)
+    )
   }
 
   setGames(seasonId: number): void {

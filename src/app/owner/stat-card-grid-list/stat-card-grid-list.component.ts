@@ -17,25 +17,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
   templateUrl: './stat-card-grid-list.component.html',
   styleUrls: ['./stat-card-grid-list.component.css']
 })
-export class StatCardGridListComponent implements OnInit {
+export class StatCardGridListComponent {
   @Input() owner: Owner;
   @Input() allTimeStats: AllTimeStats;
   @Input() ownerTeams: Team[];
   @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
   private statValues;
-  private cardStats;
+  private cardStats: string[] = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
 
   constructor() { }
 
-  ngOnInit() {
-    console.log("All Time Stats: ", this.allTimeStats);
-    // this.statValues = this.getCardStats(this.allTimeStats);
-    console.log("card stats: ", this.statValues);
-    this.cardStats = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
-  }
-
   getCardStats(allTimeStats: AllTimeStats): Object {
-    let cardStats : Object = {
+    let cardStats = {
       Wins: allTimeStats["wins"],
       Losses: allTimeStats["losses"],
       Ties: allTimeStats["ties"],
@@ -61,7 +54,7 @@ export class StatCardGridListComponent implements OnInit {
     let sortedValues = statValues.sort((a,b) =>
       (a["name"] > b["name"]) ? 1 : ((b["name"] > a["name"]) ? -1 : 0)
     );
-    let emitArray: Array<any> = [sortedValues, this.formatKey(stat)];
+    let emitArray: any[] = [sortedValues, this.formatKey(stat)];
     this.evtEmitterStat.emit(emitArray);
   }
 

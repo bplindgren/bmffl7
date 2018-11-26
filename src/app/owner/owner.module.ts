@@ -14,12 +14,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { StatCardGridListComponent } from './stat-card-grid-list/stat-card-grid-list.component';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart.component';
-import { LineChartComponent } from '../charts/line-chart/line-chart.component';
+import { TableModule } from '../shared-modules/table/table.module';
 
 import { MatTableModule } from '@angular/material/table';
-import { TableModule } from '../shared-modules/table/table.module';
 
 @NgModule({
   imports: [
@@ -29,7 +26,6 @@ import { TableModule } from '../shared-modules/table/table.module';
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
-    ChartsModule,
     MatTableModule,
     TableModule
   ],
@@ -38,9 +34,7 @@ import { TableModule } from '../shared-modules/table/table.module';
     OwnerDetailComponent,
     OwnerCardComponent,
     StatCardComponent,
-    StatCardGridListComponent,
-    VerticalBarChartComponent,
-    LineChartComponent
+    StatCardGridListComponent
   ],
   providers: [OwnerService]
 })
