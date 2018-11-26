@@ -18,7 +18,7 @@ export class Team {
   lossesRegSeason: number;
   ties: number;
   divisionWinner: string;
-  champion: string;
+  champion: boolean;
   pointsFor: number;
   pointsAgainst: number;
   homeGames: Game[];

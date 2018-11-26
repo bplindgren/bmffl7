@@ -30,9 +30,7 @@ export class OwnerCardComponent implements OnInit {
     let seasons = this.config.teams.map(team => team.year).sort();
     this.firstSeason = seasons.shift();
     this.lastSeason = seasons.pop();
-    // Error being thrown here is an open typescript bug:
-    // https://github.com/Microsoft/TypeScript/issues/26592
-    this.championships = this.config.teams.filter(team => team.champion != false).map(c => c.year);
+    this.championships = this.config.teams.filter(team => (team.champion == true)).map(c => c.year);
   }
 
   displayChampionships(): string {
