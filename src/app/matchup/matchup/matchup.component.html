@@ -3,10 +3,9 @@
 </matchup-form>
 
 <div *ngIf="graphData">
-  <h2>All Time Stats</h2>
   <form>
     <mat-form-field>
-      <mat-select [(ngModel)]="displayedStat" name="stat-select" (selectionChange)="getNewStat($event)">
+      <mat-select placeholder="Select Stat" [(ngModel)]="displayedStat" name="stat-select" (selectionChange)="getNewStat($event)">
         <mat-option *ngFor="let stat of statsArray" [value]="stat">{{ removeUnderScore(stat) }}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -15,7 +14,6 @@
 </div>
 
 <div *ngIf="games">
-  <h2>Head to Head</h2>
-  <matchup-totals [matchupStats]="matchupStats"></matchup-totals>
+  <matchup-totals [matchupStats]="matchupStats" [owner1]="owner1" [owner2]="owner2"></matchup-totals>
   <games-table [games]="games"></games-table>
 </div>

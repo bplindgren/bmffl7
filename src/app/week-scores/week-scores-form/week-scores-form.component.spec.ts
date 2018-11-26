@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-
+import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GameService } from '../../game/game-service/game.service';
+import { Game } from '../../game';
+import { Week } from '../../week';
 import { WeekScoresFormComponent } from './week-scores-form.component';
 
 describe('WeekScoresFormComponent', () => {

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormsModule, NgForm, FormControl } from '@angular/forms';
 import { Game } from '../../game';
-import { GameService } from '../../game.service';
+import { GameService } from '../../game/game-service/game.service';
 import { GamesTableComponent } from '../../game/games-table/games-table.component';
 import { Owner } from '../../owner';
 import { MatchupStats } from '../../matchupStats';

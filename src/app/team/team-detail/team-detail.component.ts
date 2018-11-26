@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
-import { GameService } from '../../game.service';
+import { GameService } from '../../game/game-service/game.service';
 import { TeamService } from '../team-service/team.service';
 import { ActivatedRoute } from '@angular/router';
 import { GamesTableComponent } from '../../game/games-table/games-table.component';

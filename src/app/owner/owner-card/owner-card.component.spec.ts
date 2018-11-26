@@ -21,12 +21,6 @@ describe('OwnerCardComponent', () => {
   });
 
   it('should create', () => {
-    let oc : OwnerCardConfig = {
-      owner: [],
-      teams: [],
-      stats: []
-    }
-    component.config = oc;
     expect(component).toBeTruthy();
   });
 });

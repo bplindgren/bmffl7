@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GameService } from '../../game.service';
+import { GameService } from '../../game/game-service/game.service';
 import { Game } from '../../game';
 import { Week } from '../../week';
 import { MatCardModule } from '@angular/material/card';

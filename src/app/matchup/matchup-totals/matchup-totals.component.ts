@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatchupStats } from '../../matchupStats';
+import { Owner } from '../../owner';
 
 @Component({
   selector: 'matchup-totals',
@@ -8,7 +9,10 @@ import { MatchupStats } from '../../matchupStats';
 })
 export class MatchupTotalsComponent implements OnInit {
   @Input() matchupStats: MatchupStats;
-  private longestStreak;
+  @Input() owner1: Owner;
+  @Input() owner2: Owner;
+  private longestStreakO1;
+  private currentStreakO2;
   private currentStreak;
 
   ngOnInit() {

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { Game } from './game';
-import { MatchupStats } from './matchupStats';
+import { Game } from '../../game';
+import { MatchupStats } from '../../matchupStats';
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
