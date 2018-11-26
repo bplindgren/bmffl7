@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MatchupComponent } from './matchup/matchup.component';
 import { MatchupRoutingModule } from './matchup-routing.module';
+import { MatchupComponent } from './matchup/matchup.component';
 import { MatchupFormComponent } from './matchup-form/matchup-form.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TableModule } from '../shared-modules/table/table.module';
+import { MatchupTotalsComponent } from './matchup-totals/matchup-totals.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -16,12 +18,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatchupRoutingModule,
     RouterModule,
-    FlexLayoutModule,
+    MatchupRoutingModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatInputModule,
+    MatSelectModule,
+    MatButtonToggleModule,
+    TableModule,
+    FlexLayoutModule
   ],
-  declarations: [MatchupComponent, MatchupFormComponent]
+  declarations: [MatchupComponent, MatchupFormComponent, MatchupTotalsComponent]
 })
 export class MatchupModule { }

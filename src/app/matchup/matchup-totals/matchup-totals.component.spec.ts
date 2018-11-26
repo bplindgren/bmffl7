@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineChartComponent } from './line-chart.component';
+import { MatchupTotalsComponent } from './matchup-totals.component';
 
-describe('LineChartComponent', () => {
-  let component: LineChartComponent;
-  let fixture: ComponentFixture<LineChartComponent>;
+describe('MatchupTotalsComponent', () => {
+  let component: MatchupTotalsComponent;
+  let fixture: ComponentFixture<MatchupTotalsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LineChartComponent ]
+      declarations: [ MatchupTotalsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LineChartComponent);
+    fixture = TestBed.createComponent(MatchupTotalsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

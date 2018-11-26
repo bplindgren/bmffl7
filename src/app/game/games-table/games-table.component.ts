@@ -9,7 +9,7 @@ import { Game } from '../../game';
 export class GamesTableComponent implements AfterViewInit {
   @Input() games: Game[];
   @Input() datasource;
-  displayedColumns: string[] = ['week', 'gametype', 'awayteam', 'hometeam', 'awayscore', 'homescore'];
+  displayedColumns: string[] = ['year', 'week', 'gametype', 'awayteam', 'hometeam', 'awayscore', 'homescore'];
 
   constructor() { }
 

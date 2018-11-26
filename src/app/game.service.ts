@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Game } from './game';
+import { MatchupStats } from './matchupStats';
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
@@ -13,6 +14,7 @@ export class GameService {
 
   getWeekGames(seasonId: number, week: number): Observable<Game[]> {
     const url = `${this.baseURL}` + '/games/season/' + seasonId + '/week/' + week
+    // const url = `${this.baseURL}/games/season/${seasonId}/week/${week}`
     return this.http.get<Game[]>(url).pipe(
       tap(_ => console.log('games retreived'))
     );
@@ -32,9 +34,9 @@ export class GameService {
     );
   }
 
-  getMatchupGames(owner1Id: number, owner2Id: number): Observable<Game[]> {
+  getMatchupStats(owner1Id: number, owner2Id: number): Observable<MatchupStats> {
     const url = `${this.baseURL}` + '/games/matchup/' + owner1Id + "/" + owner2Id;
-    return this.http.get<Game[]>(url).pipe(
+    return this.http.get<MatchupStats>(url).pipe(
       tap(_ => console.log('games received'))
     );
   }

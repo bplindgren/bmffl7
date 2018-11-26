@@ -53,9 +53,7 @@ export class OwnerDetailComponent implements OnInit {
     forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
       this.allTimeStats = responseList[0];
       this.ownerTeams = responseList[1].sort((a,b) =>
-        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0))
-      // console.log(responseList[2]);
-      console.log("owner teams: ", this.ownerTeams);
+        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0));
     })
   }
 

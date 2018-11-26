@@ -1,12 +1,15 @@
 <div id="scores-div">
   <h1>BMFFL Scoreboard</h1>
+
   <week-scores-form
     [season]="season"
     [week]="week"
     (evtEmitterWeek)="getGames($event)">
-    </week-scores-form>
-    <div *ngIf="games" >
-      <scoreboard [games]="games"></scoreboard>
-      <p id="no-games" *ngIf="!games.length">No games scheduled yet for this week!</p>
-    </div>
+  </week-scores-form>
+
+  <div *ngIf="games">
+    <scoreboard [games]="games"></scoreboard>
+    <p id="no-games" *ngIf="!games.length">No games scheduled yet for this week!</p>
+  </div>
+
 </div>

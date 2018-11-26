@@ -7,7 +7,7 @@ import { TeamService } from '../../team/team-service/team.service';
 import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.component';
 
 @Component({
-  selector: 'app-week-scores',
+  selector: 'week-scores',
   templateUrl: './week-scores.component.html',
   styleUrls: ['./week-scores.component.css']
 })

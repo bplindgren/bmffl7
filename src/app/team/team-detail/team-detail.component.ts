@@ -9,7 +9,7 @@ import { Game } from '../../game';
 import { SeasonStats } from '../../seasonStats';
 
 @Component({
-  selector: 'app-team-detail',
+  selector: 'team-detail',
   templateUrl: './team-detail.component.html',
   styleUrls: ['./team-detail.component.css']
 })
@@ -30,7 +30,6 @@ export class TeamDetailComponent implements OnInit {
 
     forkJoin([gamesResponse, teamStatsResponse]).subscribe(responseList => {
       this.games = responseList[0];
-      console.log(this.games);
       this.teamStats = [responseList[1]];
     })
   }

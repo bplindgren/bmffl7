@@ -7,7 +7,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   styleUrls: ['./vertical-bar-chart.component.css']
 })
 export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChanges {
-  @Input() data: Object[];
+  @Input() data: any[];
   @Input() yAxis: string;
   @ViewChild("chart") chart: ElementRef;
   private initialized: boolean = false;
@@ -28,21 +28,6 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
     this.barChartLabels = chartLabels;
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['data']) {;
-      this.updateData(changes);
-    }
-    if (changes['data'] && this.initialized) {
-      this.updateLabels(changes)
-    }
-    this.initialized = true;
-    console.log(changes['data']);
-  }
-
-  ngAfterViewInit() {
-    console.log(this.chart)
-  }
-
   updateLabels(changes: SimpleChanges) {
     let newLabels = this.data.map(object => object['name']);
     this.barChartLabels.length = 0;
@@ -54,11 +39,25 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
 
   updateData(changes: SimpleChanges) {
     let values = changes['data']['currentValue'].map(object => object.value);
-    let newData : Object = {
+    let newData = {
       data: values,
       label: this.yAxis
     }
     this.barChartData = [newData];
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data']) {
+      this.updateData(changes);
+    }
+    if (changes['data'] && this.initialized) {
+      this.updateLabels(changes)
+    }
+    this.initialized = true;
+  }
+
+  ngAfterViewInit() {
+    console.log(this.chart)
   }
 
 }
