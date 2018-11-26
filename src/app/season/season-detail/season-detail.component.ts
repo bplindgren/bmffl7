@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { SeasonService } from '../season-service/season.service';
 import { SeasonStats } from '../../seasonStats';
-
 import { Game } from '../../game';
-import { GameService } from '../../game.service';
-
+import { GameService } from '../../game/game-service/game.service';
 import { Team } from '../../team';
 import { TeamService } from '../../team/team-service/team.service';
 

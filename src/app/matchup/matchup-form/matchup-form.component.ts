@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Owner } from '../../owner';
 import { OwnerService } from '../../owner/owner-service/owner.service';
-import { GameService } from '../../game.service';
+import { GameService } from '../../game/game-service/game.service';
 
 @Component({
   selector: 'matchup-form',

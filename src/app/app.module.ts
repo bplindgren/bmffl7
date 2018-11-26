@@ -10,8 +10,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { GameService } from './game.service';
-
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 
@@ -31,7 +29,7 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule,
     MatGridListModule, MatMenuModule, MatTableModule
   ],
-  providers: [GameService],
+  providers: [],
   exports: [
     AppComponent,
     MenuComponent

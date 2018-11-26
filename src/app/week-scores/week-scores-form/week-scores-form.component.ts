@@ -1,7 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GameService } from '../../game.service';
+import { GameService } from '../../game/game-service/game.service';
 import { Game } from '../../game';
 import { Week } from '../../week';
 

@@ -13,7 +13,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatchupComponent } from './matchup/matchup.component';
 import { MatchupFormComponent } from './matchup-form/matchup-form.component';
 import { MatchupTotalsComponent } from './matchup-totals/matchup-totals.component';
-import { MatchupGridListComponent } from './matchup-grid-list/matchup-grid-list.component';
 
 @NgModule({
   imports: [
@@ -30,6 +29,6 @@ import { MatchupGridListComponent } from './matchup-grid-list/matchup-grid-list.
     MatGridListModule,
     FlexLayoutModule
   ],
-  declarations: [MatchupComponent, MatchupFormComponent, MatchupTotalsComponent, MatchupGridListComponent]
+  declarations: [MatchupComponent, MatchupFormComponent, MatchupTotalsComponent]
 })
 export class MatchupModule { }
