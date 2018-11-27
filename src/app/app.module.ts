@@ -32,7 +32,8 @@ import { MatTableModule } from '@angular/material/table';
   providers: [],
   exports: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

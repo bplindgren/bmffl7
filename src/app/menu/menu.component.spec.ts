@@ -1,21 +1,35 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
+
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { OwnerService } from '../owner/owner-service/owner.service';
 
 import { MenuComponent } from './menu.component';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { OwnerService } from '../owner/owner-service/owner.service';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
 
   beforeEach(async(() => {
+    let httpClient: HttpClient;
+    let httpTestingController: HttpTestingController;
+
     TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatMenuModule
+      ],
       declarations: [ MenuComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+      providers: [ OwnerService ]
     })
     .compileComponents();
   }));

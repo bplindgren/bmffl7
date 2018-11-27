@@ -1,12 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { GameService } from '../../game/game-service/game.service';
-import { Game } from '../../game';
-import { Week } from '../../week';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeekScoresFormComponent } from './week-scores-form.component';
+
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+
+import { GameService } from '../../game/game-service/game.service';
 
 describe('WeekScoresFormComponent', () => {
   let component: WeekScoresFormComponent;
@@ -14,8 +19,18 @@ describe('WeekScoresFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatSelectModule,
+        MatButtonModule
+      ],
       declarations: [ WeekScoresFormComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+      providers: [ GameService ]
     })
     .compileComponents();
   }));
@@ -26,6 +41,7 @@ describe('WeekScoresFormComponent', () => {
     fixture.detectChanges();
   });
 
+  // it('should create', inject([GameService, Router], (gameService: GameService, router: Router) => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });

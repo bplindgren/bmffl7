@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OwnerCardComponent } from './owner-card.component';
-import { OwnerCardConfig } from '../../ownerCardConfig';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { OwnerCardComponent } from './owner-card.component';\
 
 describe('OwnerCardComponent', () => {
   let component: OwnerCardComponent;
@@ -9,6 +12,11 @@ describe('OwnerCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        MatCardModule,
+        MatButtonModule
+      ],
       declarations: [ OwnerCardComponent ]
     })
     .compileComponents();

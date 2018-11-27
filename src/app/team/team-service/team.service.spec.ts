@@ -6,8 +6,8 @@ import { TeamService } from './team.service';
 describe('TeamService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [TeamService]
+      imports: [ HttpClientModule ],
+      providers: [ TeamService ]
     });
   });
 

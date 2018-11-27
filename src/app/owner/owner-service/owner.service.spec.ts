@@ -7,7 +7,7 @@ describe('OwnerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [OwnerService, HttpClientModule]
+      providers: [OwnerService]
     });
   });
 

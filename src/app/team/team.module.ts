@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TeamRoutingModule } from './team-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Team } from '../team';
 import { TeamService } from './team-service/team.service';
@@ -13,11 +13,13 @@ import { MatTableModule } from '@angular/material/table';
 import { TableModule } from '../shared-modules/table/table.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
     CommonModule,
     TeamRoutingModule,
+    HttpClientModule,
     MatTableModule,
     TableModule,
     MatTabsModule,
