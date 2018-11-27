@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GamesTableComponent } from './games-table.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { TableModule } from '../../shared-modules/table/table.module';
 
 describe('GamesTableComponent', () => {
   let component: GamesTableComponent;
@@ -8,7 +10,10 @@ describe('GamesTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GamesTableComponent ]
+      imports: [
+        MatTableModule,
+        TableModule
+      ]
     })
     .compileComponents();
   }));

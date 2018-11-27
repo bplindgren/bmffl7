@@ -1,4 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SeasonDetailComponent } from './season-detail.component';
 
@@ -15,10 +20,16 @@ import { TeamService } from '../../team/team-service/team.service';
 describe('SeasonDetailComponent', () => {
   let component: SeasonDetailComponent;
   let fixture: ComponentFixture<SeasonDetailComponent>;
+  let seasonService: SeasonService;
+  let gameService: GameService;
+  let teamService: TeamService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
         WeekScoresModule,
         MatTableModule,
         TableModule,
@@ -33,6 +44,9 @@ describe('SeasonDetailComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SeasonDetailComponent);
+    seasonService = TestBed.get(SeasonService);
+    gameService = TestBed.get(GameService);
+    teamService = TestBed.get(TeamService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
