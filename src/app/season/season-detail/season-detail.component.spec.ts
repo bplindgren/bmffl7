@@ -54,4 +54,8 @@ describe('SeasonDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('expect(12).toEqual(jasmine.any(Number))', () => {
+    expect(12).toEqual(jasmine.any(Number));
+  });
 });

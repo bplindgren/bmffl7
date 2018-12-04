@@ -7,25 +7,41 @@ import { GamesTableComponent } from '../../game/games-table/games-table.componen
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { VerticalBarChartComponent } from '../../charts/vertical-bar-chart/vertical-bar-chart.component';
 import { DoubleVerticalBarChartComponent } from '../../charts/double-vertical-bar-chart/double-vertical-bar-chart.component';
+import { NglModule } from 'ng-lightning/ng-lightning';
+import { NglTeamsTableComponent } from '../../team/ngl-teams-table/ngl-teams-table.component';
+import { NoCommaPipe } from './no-comma.pipe';
+import { NullToEmptyStrPipe } from './null-to-empty-str.pipe';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
     CommonModule,
     MatTableModule,
     RouterModule,
-    ChartsModule
+    ChartsModule,
+    NglModule,
+    CdkTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   declarations: [
     TeamsTableComponent,
     GamesTableComponent,
     VerticalBarChartComponent,
-    DoubleVerticalBarChartComponent
+    DoubleVerticalBarChartComponent,
+    NglTeamsTableComponent,
+    NoCommaPipe,
+    NullToEmptyStrPipe
   ],
   exports: [
     TeamsTableComponent,
     GamesTableComponent,
     VerticalBarChartComponent,
-    DoubleVerticalBarChartComponent
+    DoubleVerticalBarChartComponent,
+    NglTeamsTableComponent,
+    NoCommaPipe
   ]
 })
 export class TableModule { }

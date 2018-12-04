@@ -1,0 +1,49 @@
+<div class="mystyles">
+  <table ngl-datatable [data]="data" trackByKey="year" [loading]="loading" [(sort)]="sort" (sortChange)="onSort($event)"
+    (onRowClick)="onRowClick($event)" class="slds-max-medium-table--stacked-horizontal">
+
+    <ngl-datatable-column heading="Year" key="year" sortable>
+      <ng-template nglDatatableCell ngClass="em-class" let-row="row"><a routerLink="{{ '/seasons/' + row.seasonId }}">{{ row.year }}</a></ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="Team Name" key="name" cellClass="slds-truncate" sortable>
+      <ng-template nglDatatableCell let-row="row"><a routerLink="{{ '/teams/' + row.id }}">{{ row.name }}</a></ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="Standing" key="standing" cellClass="slds-text-align_center" sortable></ngl-datatable-column>
+
+    <ngl-datatable-column heading="Division Title" key="divisionwinner" cellClass="slds-text-align_center" sortable>
+        <ng-template nglDatatableCell let-row="row">{{ row.divisionwinner | nullToEmptyStr }}</ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="Games" key="gamesplayed" cellClass="slds-text-align_center" sortable></ngl-datatable-column>
+    <ngl-datatable-column heading="Wins" key="wins" cellClass="slds-text-align_center" sortable></ngl-datatable-column>
+    <ngl-datatable-column heading="Losses" key="losses" cellClass="slds-text-align_center" sortable></ngl-datatable-column>
+    <ngl-datatable-column heading="Ties" key="ties" cellClass="slds-text-align_center" sortable></ngl-datatable-column>
+
+    <ngl-datatable-column heading="Winning %" key="winningpct" cellClass="slds-text-align_center" sortable>
+      <ng-template nglDatatableCell let-row="row">{{ row.winningpct | number:'1.3-3' }}</ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="PF" key="pointsfor" cellClass="slds-text-align_center" sortable>
+      <ng-template nglDatatableCell let-row="row">{{ row.pointsfor | number:'3.1-1' | noComma }}</ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="PA" key="pointsagainst" cellClass="slds-text-align_center" sortable>
+      <ng-template nglDatatableCell let-row="row">{{ row.pointsagainst | number:'3.1-1' | noComma }}</ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="PF/G" key="pfpg" cellClass="slds-text-align_center" sortable>
+      <ng-template nglDatatableCell let-row="row">{{ row.pfpg | number:'2.1-1' | noComma }}</ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="PA/G" key="papg" cellClass="slds-text-align_center" sortable>
+      <ng-template nglDatatableCell let-row="row">{{ row.papg | number:'2.1-1' | noComma }}</ng-template>
+    </ngl-datatable-column>
+
+    <ngl-datatable-column heading="PPG +/-" key="ppgdiff" cellClass="slds-text-align_center" sortable>
+      <ng-template nglDatatableCell let-row="row">{{ row.ppgdiff | number:'1.1-1' | noComma }}</ng-template>
+    </ngl-datatable-column>
+
+  </table>
+</div>

@@ -22,7 +22,7 @@ describe('OwnerDetailComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
         MatCardModule,
         MatExpansionModule,
         MatGridListModule,

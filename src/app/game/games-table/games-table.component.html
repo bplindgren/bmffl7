@@ -1,4 +1,4 @@
-<mat-table #table [dataSource]="games" class="mat-elevation-z8">
+<mat-table #table [dataSource]="games" class="mat-elevation-z8" matSort>
   <ng-container matColumnDef="year">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
