@@ -1,20 +1,27 @@
-import { Component, AfterViewInit, Input } from '@angular/core';
+import { Component, Input, ViewChild, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
+import { RouterModule } from '@angular/router';
 import { Game } from '../../game';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'games-table',
   templateUrl: './games-table.component.html',
   styleUrls: ['./games-table.component.css']
 })
-export class GamesTableComponent implements AfterViewInit {
+export class GamesTableComponent implements OnChanges {
   @Input() games: Game[];
-  @Input() datasource;
+  dataSource: any;
   displayedColumns: string[] = ['year', 'week', 'gametype', 'awayteam', 'hometeam', 'awayscore', 'homescore'];
 
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngAfterViewInit() {
-    console.log('games table created', this.games);
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    this.dataSource = new MatTableDataSource<Game>(changes['games']['currentValue']);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
 }
