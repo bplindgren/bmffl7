@@ -1,21 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { Component, Input, ViewChild, AfterViewInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { RouterModule } from '@angular/router';
 import { Season } from '../../season';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'seasons-table',
   templateUrl: './seasons-table.component.html',
   styleUrls: ['./seasons-table.component.css']
 })
-export class SeasonsTableComponent implements OnInit {
+export class SeasonsTableComponent implements OnChanges {
   @Input() seasons: Season[];
-  @Input() datasource;
-  displayedColumns: string[] = ['year', 'champion', 'owner', 'division', 'wins', 'losses', 'ties'];
+  dataSource: any;
+  displayedColumns: string[] = ['year', 'champion', 'owner', 'division', 'divisionwinner', 'wins', 'losses', 'ties', 'pointsfor', 'pointsagainst', ];
 
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
 
-  ngOnInit() {
-    console.log(this.seasons, 'seasons table created');
+  ngOnChanges() {
+    this.dataSource = new MatTableDataSource<Season>(this.seasons);
+    this.dataSource.sort = this.sort;
   }
 
 }

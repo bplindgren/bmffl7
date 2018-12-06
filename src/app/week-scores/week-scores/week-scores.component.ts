@@ -34,7 +34,10 @@ export class WeekScoresComponent implements OnInit {
 
   getGames(week: Week): void {
     this.gameService.getWeekGames(week.season, week.week)
-      .subscribe((data: Game[]) => { this.games = data })
+      .subscribe((data: Game[]) => {
+        console.log(data);
+        this.games = data
+      })
   }
 
   getYear(): number {
@@ -49,7 +52,7 @@ export class WeekScoresComponent implements OnInit {
     let right = (Math.abs((start.getTimezoneOffset()- now.getTimezoneOffset()) * 60 * 1000));
     let sum = left + right;
     let oneDay = 1000 * 60 * 60 * 24;
-    let day = Math.floor(sum / oneDay) - 1;
+    let day = Math.floor(sum / oneDay) - 2;
     let week = Math.floor(day / 7) - 34;
     return (week < 0) ?  1 : week;
   }

@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { OwnerCardComponent } from './owner-card.component';\
+import { OwnerCardComponent } from './owner-card.component';
 
 describe('OwnerCardComponent', () => {
   let component: OwnerCardComponent;
@@ -31,4 +31,9 @@ describe('OwnerCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('displayChampionships should return a string', () => {
+  //   expect(component.displayChampionships())
+  //     .toEqual(jasmine.any(String));
+  // });
 });

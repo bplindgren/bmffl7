@@ -41,7 +41,6 @@ describe('WeekScoresFormComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', inject([GameService, Router], (gameService: GameService, router: Router) => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });

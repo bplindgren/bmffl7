@@ -1,39 +1,42 @@
-<mat-table #table [dataSource]="games" class="mat-elevation-z8">
-  <ng-container matColumnDef="year">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
-  </ng-container>
+<div class="gray-border">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <ng-container cdkColumnDef="year">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Year</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="week">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Week</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.week }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="week">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Week</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.week }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="gametype">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Game Type</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.gameType }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="gametype">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Game Type</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.gameType }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="awayteam">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.awayTeam.name  }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="awayteam">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.awayTeam.name + " (" + element.awayTeam.owner.firstName + " " +  element.awayTeam.owner.lastInitial + ")" }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="hometeam">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.homeTeam.name }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="hometeam">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.homeTeam.name + " (" + element.homeTeam.owner.firstName + " " +  element.homeTeam.owner.lastInitial + ")" }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="awayscore">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Away Score</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.awayScore }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="awayscore">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Away Score</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.awayScore }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="homescore">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Home Score</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.homeScore }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="homescore">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Home Score</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.homeScore }}</mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="20" showFirstLastButtons></mat-paginator>
+</div>

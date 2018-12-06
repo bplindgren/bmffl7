@@ -13,8 +13,8 @@ export class GameService {
   constructor(private http: HttpClient) { }
 
   getWeekGames(seasonId: number, week: number): Observable<Game[]> {
-    const url = `${this.baseURL}` + '/games/season/' + seasonId + '/week/' + week
-    // const url = `${this.baseURL}/games/season/${seasonId}/week/${week}`
+    // const url = `${this.baseURL}` + '/games/season/' + seasonId + '/week/' + week
+    const url = `${this.baseURL}/games/season/${seasonId}/week/${week}`
     return this.http.get<Game[]>(url).pipe(
       tap(_ => console.log('games retreived'))
     );

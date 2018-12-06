@@ -1,47 +1,64 @@
-<mat-table #table [dataSource]="seasons" matSort class="mat-elevation-z8">
-  <ng-container matColumnDef="year">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
-    <mat-cell *matCellDef="let element"><a routerLink="{{ '/seasons/' + element.id }}">{{ element.year }}</a></mat-cell>
-  </ng-container>
+<div class="gray-border">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <ng-container cdkColumnDef="year">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Year</mat-header-cell>
+      <mat-cell *cdkCellDef="let element"><a routerLink="{{ '/seasons/' + element.id }}">{{ element.year }}</a></mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="champion">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Champion</mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <div *ngIf="element.champion != null" >
-        <a routerLink="{{ '/teams/' + element.champion.id }}">{{ element.champion == null ? '' : element.champion.name }}</a>
-      </div>
-    </mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="champion">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Champion</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div *ngIf="element.champion != null">
+          <a routerLink="{{ '/teams/' + element.champion.id }}">{{ element.champion == null ? '' : element.champion.name }}</a>
+        </div>
+      </mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="owner">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Owner</mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <div *ngIf="element.champion != null" >
-        <a routerLink="{{ '/owners/' + element.champion.owner.id }}">{{ element.champion.owner == null ? '' : element.champion.owner.firstName + " " + element.champion.owner.lastInitial }}</a>
-      </div>
-    </mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="owner">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Owner</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div *ngIf="element.champion != null" >
+          <a routerLink="{{ '/owners/' + element.champion.owner.id }}">{{ element.champion.owner == null ? '' : element.champion.owner.firstName + " " + element.champion.owner.lastInitial }}</a>
+        </div>
+      </mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="division">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Division</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.division }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="division">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Division</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.division | titlecase }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="wins">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Wins</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.wins }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="divisionwinner">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Division Winner</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.divisionWinner }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="losses">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Losses</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.losses }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="wins">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>W</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.wins }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="ties">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Ties</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.champion == null ? '' : element.champion.ties }}</mat-cell>
-  </ng-container>
+    <ng-container cdkColumnDef="losses">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>L</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.losses }}</mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    <ng-container cdkColumnDef="ties">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>T</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.ties }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="pointsfor">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Points For</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.pointsFor }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pointsagainst">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Points Against</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.champion == null ? '' : element.champion.pointsAgainst }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

@@ -5,3 +5,7 @@ mat-tab-group {
 mat-button-toggle-group {
   margin: 20px 0px 0px 20px;
 }
+
+p {
+  padding-left: 14px;
+}

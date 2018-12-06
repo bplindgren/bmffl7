@@ -59,7 +59,7 @@ export class SeasonDetailComponent implements OnInit  {
     })
   }
 
-  changeDivision(e: String) {
+  changeDivision(e: String): void {
     this.currentDivision = e["value"];
   }
 
