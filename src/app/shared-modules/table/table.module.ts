@@ -8,8 +8,6 @@ import { SeasonsTableComponent } from '../../season/seasons-table/seasons-table.
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { VerticalBarChartComponent } from '../../charts/vertical-bar-chart/vertical-bar-chart.component';
 import { DoubleVerticalBarChartComponent } from '../../charts/double-vertical-bar-chart/double-vertical-bar-chart.component';
-import { NglModule } from 'ng-lightning/ng-lightning';
-import { NglTeamsTableComponent } from '../../team/ngl-teams-table/ngl-teams-table.component';
 import { NoCommaPipe } from './no-comma.pipe';
 import { NullToEmptyStrPipe } from './null-to-empty-str.pipe';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -22,7 +20,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     RouterModule,
     ChartsModule,
-    NglModule,
     CdkTableModule,
     MatPaginatorModule,
     MatSortModule
@@ -33,7 +30,6 @@ import { MatSortModule } from '@angular/material/sort';
     SeasonsTableComponent,
     VerticalBarChartComponent,
     DoubleVerticalBarChartComponent,
-    NglTeamsTableComponent,
     NoCommaPipe,
     NullToEmptyStrPipe
   ],
@@ -43,7 +39,6 @@ import { MatSortModule } from '@angular/material/sort';
     SeasonsTableComponent,
     VerticalBarChartComponent,
     DoubleVerticalBarChartComponent,
-    NglTeamsTableComponent,
     NoCommaPipe
   ]
 })

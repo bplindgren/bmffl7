@@ -14,7 +14,6 @@ import { TableModule } from '../shared-modules/table/table.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
-// import { NglTeamsTableComponent } from './ngl-teams-table/ngl-teams-table.component';
 
 @NgModule({
   imports: [
@@ -27,7 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonToggleModule,
     MatSelectModule
   ],
-  declarations: [TeamsComponent, TeamDetailComponent], //, NglTeamsTableComponent],
+  declarations: [TeamsComponent, TeamDetailComponent],
   providers: [TeamService]
 })
 export class TeamModule { }

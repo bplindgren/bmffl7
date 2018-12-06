@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { NglModule } from 'ng-lightning/ng-lightning';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +25,7 @@ import { MatTableModule } from '@angular/material/table';
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
-    HttpModule, HttpClientModule, ChartsModule, NglModule.forRoot(), AppRoutingModule, MatCardModule,
+    HttpModule, HttpClientModule, ChartsModule, AppRoutingModule, MatCardModule,
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
     MatGridListModule, MatMenuModule, MatTableModule
   ],
