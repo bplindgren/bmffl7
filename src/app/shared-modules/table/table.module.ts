@@ -39,7 +39,8 @@ import { MatSortModule } from '@angular/material/sort';
     SeasonsTableComponent,
     VerticalBarChartComponent,
     DoubleVerticalBarChartComponent,
-    NoCommaPipe
+    NoCommaPipe,
+    NullToEmptyStrPipe
   ]
 })
 export class TableModule { }

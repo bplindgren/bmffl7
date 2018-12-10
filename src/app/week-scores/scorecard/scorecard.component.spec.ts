@@ -7,6 +7,7 @@ import { ScorecardComponent } from './scorecard.component';
 import { MatCardModule } from '@angular/material/card';
 import { TeamService } from '../../team/team-service/team.service';
 import { RouterModule } from '@angular/router';
+import { TestGameObj } from '../../testGameObject'
 
 describe('ScorecardComponent', () => {
   let component: ScorecardComponent;
@@ -27,10 +28,15 @@ describe('ScorecardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ScorecardComponent);
     component = fixture.componentInstance;
+    component.game = TestGameObj;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have away team with id 74', () => {
+    expect(component['game']['awayTeam']['id']).toEqual(74);
+  })
 });

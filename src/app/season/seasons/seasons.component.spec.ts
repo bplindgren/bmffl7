@@ -22,7 +22,7 @@ describe('SeasonsComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule, RouterModule, MatTableModule, TableModule ],
-      declarations: [ SeasonsComponent, SeasonsTableComponent ],
+      declarations: [ SeasonsComponent ],
       providers: [ SeasonService ]
     })
     .compileComponents();

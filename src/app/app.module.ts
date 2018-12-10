@@ -29,11 +29,9 @@ import { MatTableModule } from '@angular/material/table';
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
     MatGridListModule, MatMenuModule, MatTableModule
   ],
-  providers: [],
   exports: [
     AppComponent,
-    MenuComponent,
-    HttpClientModule
+    MenuComponent
   ],
   bootstrap: [AppComponent]
 })
