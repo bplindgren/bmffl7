@@ -20,8 +20,7 @@ describe('SeasonsTableComponent', () => {
         MatTabsModule,
         MatButtonToggleModule,
         RouterTestingModule
-      ],
-      declarations: [ SeasonsTableComponent ]
+      ]
     })
     .compileComponents();
   }));

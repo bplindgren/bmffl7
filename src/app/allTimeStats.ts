@@ -5,11 +5,12 @@ export class AllTimeStats {
   losses: number;
   papg: number;
   pfpg: number;
-  point_differential: number;
-  points_against: number;
-  points_for: number;
+  ppgdiff: number;
+  pointdifferential: number;
+  pointsagainst: number;
+  pointsfor: number;
   seasons: number;
   ties: number;
-  winning_pct: number;
+  winningpct: number;
   wins: number;
 }

@@ -18,7 +18,6 @@ export class GamesTableComponent implements OnChanges {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     this.dataSource = new MatTableDataSource<Game>(changes['games']['currentValue']);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

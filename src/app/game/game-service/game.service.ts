@@ -7,7 +7,7 @@ import { MatchupStats } from '../../matchupStats';
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
-  private baseURL = 'http://localhost:8080';
+  public baseURL = 'http://localhost:8080';
   private games: Game[] = [];
 
   constructor(private http: HttpClient) { }
@@ -22,9 +22,10 @@ export class GameService {
 
   getPlayoffGames(seasonId: number): Observable<Game[]> {
     const url = `${this.baseURL}` + '/games/season/playoffs/' + seasonId
-    return this.http.get<Game[]>(url).pipe(
-      tap(_ => console.log('games received'))
-    );
+    return this.http.get<Game[]>(url)
+      // .pipe(
+      //   tap(_ => console.log('games received'))
+      // );
   }
 
   getTeamGames(teamId: number): Observable<Game[]> {

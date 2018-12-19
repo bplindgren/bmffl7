@@ -1,10 +1,12 @@
-import { Owner } from './owner';
+import { OwnerNoTeams } from './ownerNoTeams';
+import { Season } from './season';
+import { Game } from './game';
 
-export class Team {
+export interface TeamWithoutOwnerTeams {
   id: number;
   name: string;
   abbr: string;
-  owner: Owner;
+  owner: OwnerNoTeams;
   year: string;
   division: string;
   standing: number;
@@ -14,7 +16,7 @@ export class Team {
   losses: number;
   lossesRegSeason: number;
   ties: number;
-  divisionWinner: string;
+  divisionWinner: String;
   champion: boolean;
   pointsFor: number;
   pointsAgainst: number;

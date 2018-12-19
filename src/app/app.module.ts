@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,16 +24,14 @@ import { MatTableModule } from '@angular/material/table';
     MenuComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
+    BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     HttpModule, HttpClientModule, ChartsModule, AppRoutingModule, MatCardModule,
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
     MatGridListModule, MatMenuModule, MatTableModule
   ],
-  providers: [],
   exports: [
     AppComponent,
-    MenuComponent,
-    HttpClientModule
+    MenuComponent
   ],
   bootstrap: [AppComponent]
 })

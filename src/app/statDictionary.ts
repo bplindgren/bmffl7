@@ -1,4 +1,4 @@
-export var statDictionary = {
+export const statDictionary = {
   "Wins": "wins",
   "Losses": "losses",
   "Ties": "ties",

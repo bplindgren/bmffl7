@@ -18,7 +18,7 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
     scales: { yAxes: [{ ticks: { beginAtZero: true } }] }
   }
 
-  private barChartLabels: string[] = [];
+  public barChartLabels: string[] = [];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   private barChartData: any[] = [{}]
@@ -47,6 +47,7 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
     if (changes['data']) {
       this.updateData(changes);
     }

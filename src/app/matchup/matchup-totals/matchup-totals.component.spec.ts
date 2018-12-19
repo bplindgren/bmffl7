@@ -12,7 +12,9 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TableModule } from '../../shared-modules/table/table.module';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { OwnerService } from '../../owner/owner-service/owner.service';
-import { forkJoin } from 'rxjs';
+import { MatchupStatsTestObj } from '../../test-objects/MatchupStatsTestObj';
+import { Owner1TestObj } from '../../test-objects/Owner1TestObj';
+import { Owner2TestObj } from '../../test-objects/Owner2TestObj';
 
 describe('MatchupTotalsComponent', () => {
   let component: MatchupTotalsComponent;
@@ -39,26 +41,13 @@ describe('MatchupTotalsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MatchupTotalsComponent);
     component = fixture.componentInstance;
+    component.matchupStats = MatchupStatsTestObj;
+    component.owner1 = Owner1TestObj;
+    component.owner2 = Owner2TestObj;
     fixture.detectChanges();
   });
 
-  // it('should create', inject([OwnerService], (service: OwnerService)  => {
-  //   let owner1request = service.getOwner(1);
-  //   let owner2request = service.getOwner(2);
-  //   forkJoin([owner1request, owner2request]).subscribe(res => {
-  //     component.owner1 = res[0];
-  //     component.owner2 = res[1];
-  //     expect(component).toBeTruthy();
-  //   })
-  // }));
-
   it('should create', ()  => {
-    // let owner1request = service.getOwner(1);
-    // let owner2request = service.getOwner(2);
-    // forkJoin([owner1request, owner2request]).subscribe(res => {
-    //   component.owner1 = res[0];
-    //   component.owner2 = res[1];
-    //   expect(component).toBeTruthy();
-    // })
+    expect(component).toBeTruthy();
   });
 });
