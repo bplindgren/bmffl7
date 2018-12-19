@@ -18,10 +18,22 @@ describe('VerticalBarChartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VerticalBarChartComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.data = [
+      { name: "2011", value: 8 },
+      { name: "2012", value: 9 },
+      { name: "2013", value: 4 },
+      { name: "2014", value: 9 },
+      { name: "2015", value: 5 },
+      { name: "2016", value: 11 },
+      { name: "2017", value: 7 },
+      { name: "2018", value: 5 }
+    ]
+    component.yAxis = 'Wins';
+    component.ngOnInit();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', async(() => {
+      expect(component).toBeTruthy();
+    })
+  );
 });

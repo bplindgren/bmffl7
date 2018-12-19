@@ -4,6 +4,6 @@ export class Owner {
   id: number;
   firstName: string;
   lastInitial: string;
-  teams: Team[];
+  // teams: Team[];
   division: string;
 }

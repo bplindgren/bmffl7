@@ -16,6 +16,10 @@ getTestBed().initTestEnvironment(
 );
 // Then we find all the tests.
 const context = require.context('./', true, /\.spec\.ts$/);
-// const context = require.context('./', true, /game.service\.spec\.ts$/);
+// const context = require.context('./', true, /teams-table.component\.spec\.ts$/);
+// const context = require.context('./', true, /owner-card.component\.spec\.ts$/);
+// const context = require.context('./', true, /vertical-bar-chart.component\.spec\.ts$/);
+// const context = require.context('./', true, /stat-card-grid-list.component\.spec\.ts$/);
+
 // And load the modules.
 context.keys().map(context);

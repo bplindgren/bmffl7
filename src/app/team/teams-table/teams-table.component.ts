@@ -20,6 +20,7 @@ export class TeamsTableComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     this.dataSource = new MatTableDataSource<SeasonStats>(changes['teams']['currentValue']);
+    console.log(this.dataSource);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.hideTeams = this.setTenTeams();

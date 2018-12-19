@@ -22,9 +22,8 @@ export class OwnerCardComponent implements OnInit {
   private lastSeason: string;
   private championships: string[];
 
-  constructor() { }
-
   ngOnInit() {
+    console.log(this.config);
     this.owner = this.config.owner;
     this.allTimeStats = this.config.stats;
     let seasons = this.config.teams.map(team => team.year).sort();

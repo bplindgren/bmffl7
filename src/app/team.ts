@@ -1,13 +1,10 @@
 import { Owner } from './owner';
-import { Season } from './season';
-import { Game } from './game';
 
 export class Team {
   id: number;
   name: string;
   abbr: string;
   owner: Owner;
-  season: Season;
   year: string;
   division: string;
   standing: number;
@@ -21,6 +18,4 @@ export class Team {
   champion: boolean;
   pointsFor: number;
   pointsAgainst: number;
-  homeGames: Game[];
-  awayGames: Game[];
 }

@@ -8,6 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
 
 import { TeamService } from '../team-service/team.service';
+import { SeasonStatsTestObj } from '../../test-objects/SeasonStatsTestObj';
 
 describe('TeamsTableComponent', () => {
   let component: TeamsTableComponent;
@@ -30,10 +31,11 @@ describe('TeamsTableComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TeamsTableComponent);
     component = fixture.componentInstance;
+    component.teams = SeasonStatsTestObj;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', async(() => {
     expect(component).toBeTruthy();
-  });
+  }));
 });

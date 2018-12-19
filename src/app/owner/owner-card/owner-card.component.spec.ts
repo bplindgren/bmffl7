@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { OwnerCardComponent } from './owner-card.component';
+import { OwnerCardConfigTestObj } from '../../test-objects/OwnerCardConfigTestObj';
 
 describe('OwnerCardComponent', () => {
   let component: OwnerCardComponent;
@@ -25,12 +26,13 @@ describe('OwnerCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OwnerCardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.config = OwnerCardConfigTestObj;
+    component.ngOnInit();
   });
 
-  it('should create', () => {
+  it('should create', async(() => {
     expect(component).toBeTruthy();
-  });
+  }));
 
   // it('displayChampionships should return a string', () => {
   //   expect(component.displayChampionships())

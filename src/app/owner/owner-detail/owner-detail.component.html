@@ -8,7 +8,7 @@
   </stat-card-grid-list>
 </div>
 
-<div id="right-col" *ngIf="stat && yAxis">
+<div id="right-col" *ngIf="show">
   <vertical-bar-chart
     [data]="stat"
     [yAxis]="yAxis">
@@ -16,4 +16,3 @@
 </div>
 
 <teams-table *ngIf="ownerTeams" [teams]="ownerTeams"></teams-table>
-<!-- <ngl-teams-table *ngIf="ownerTeams" [data]="ownerTeams"></ngl-teams-table> -->

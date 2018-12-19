@@ -4,6 +4,9 @@ import { StatCardGridListComponent } from './stat-card-grid-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 
+import { AllTimeStatsTestObj } from '../../test-objects/AllTimeStatsTestObj';
+import { OwnerTeamsTestObj } from '../../test-objects/OwnerTeamsTestObj'
+
 describe('StatCardGridListComponent', () => {
   let component: StatCardGridListComponent;
   let fixture: ComponentFixture<StatCardGridListComponent>;
@@ -19,10 +22,13 @@ describe('StatCardGridListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StatCardGridListComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.allTimeStats = AllTimeStatsTestObj;
+    component.ownerTeams = OwnerTeamsTestObj;
+    component.ngOnInit();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', async(() => {
+      expect(component).toBeTruthy();
+    })
+  );
 });

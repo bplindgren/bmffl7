@@ -17,15 +17,17 @@ import { MatGridListModule } from '@angular/material/grid-list';
   templateUrl: './stat-card-grid-list.component.html',
   styleUrls: ['./stat-card-grid-list.component.css']
 })
-export class StatCardGridListComponent {
-  @Input() owner: Owner;
+export class StatCardGridListComponent implements OnInit {
   @Input() allTimeStats: AllTimeStats;
   @Input() ownerTeams: Team[];
   @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
   private statValues;
   private cardStats: string[] = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
 
-  constructor() { }
+  ngOnInit() {
+    console.log(this.allTimeStats ,this.ownerTeams);
+    this.getGraphData("Wins");
+  }
 
   getCardStats(allTimeStats: AllTimeStats): Object {
     let cardStats = {

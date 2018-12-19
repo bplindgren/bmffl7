@@ -1,6 +1,6 @@
 export class SeasonStats {
   id_: number;
-  champion: string;
+  champion: boolean;
   division: string;
   divisionwinner: string;
   gamesplayed: number;
