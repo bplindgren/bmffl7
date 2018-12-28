@@ -1,4 +1,4 @@
-import { OwnerCardConfig } from '../OwnerCardConfig';
+import { OwnerCardConfig } from '../ownerCardConfig';
 import { AllTimeStatsTestObj } from './AllTimeStatsTestObj';
 import { OwnerTeamsTestObj } from './OwnerTeamsTestObj';
 
