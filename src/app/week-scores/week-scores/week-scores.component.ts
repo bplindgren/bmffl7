@@ -54,7 +54,14 @@ export class WeekScoresComponent implements OnInit {
     let oneDay = 1000 * 60 * 60 * 24;
     let day = Math.floor(sum / oneDay) - 2;
     let week = Math.floor(day / 7) - 34;
-    return (week < 0) ?  1 : week;
+    console.log(week);
+    if (week < 0) {
+      return 1
+    } else if (week > 16) {
+      return 16
+    } else {
+      return week
+    };
   }
 
 }

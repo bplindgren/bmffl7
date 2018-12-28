@@ -6,7 +6,7 @@ import { Season } from '../../season';
 import { Team } from '../../team';
 import { SeasonStats } from '../../seasonStats';
 
-@Injectable({  providedIn: 'root' })
+@Injectable({ providedIn: 'root' })
 export class TeamService {
   private baseURL = 'http://localhost:8080';
 

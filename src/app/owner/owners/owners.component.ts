@@ -52,6 +52,7 @@ export class OwnersComponent implements OnInit {
         stats: this.allTimeStats.filter(s => s.ownerId == i)[0]
       }
       ownerConfigs.push(oc);
+      console.log(oc);
     }
     return ownerConfigs;
   }

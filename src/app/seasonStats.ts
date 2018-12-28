@@ -1,23 +1,24 @@
 export class SeasonStats {
-  id_: number;
+  id: number;
   champion: boolean;
   division: string;
   divisionwinner: string;
   gamesplayed: number;
   losses: number;
   lossesregseason: number;
-  name_: string;
+  name: string;
   pointsagainst: number;
   pointsfor: number;
   standing: number;
-  ties_: number;
+  ties: number;
   wins: number;
   winsregseason: number;
-  year_: string;
+  year: string;
   ownerId: number;
   winningpct: number;
   pointdifferential: number;
   pfpg: number;
   papg: number;
-  ppgdiff: number
+  ppgdiff: number;
+  seasonId: number;
 }
