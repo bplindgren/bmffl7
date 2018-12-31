@@ -1,4 +1,5 @@
 import { AllTimeStats } from '../allTimeStats';
+
 export const AllTimeStatsTestObj: AllTimeStats = {
   "ownerId":4,
   "firstname":"Brad",

@@ -1,6 +1,6 @@
-import { OwnerCardConfig } from '../OwnerCardConfig';
-import { OwnerTeamsTestObj } from './OwnerTeamsTestObj';
+import { OwnerCardConfig } from '../ownerCardConfig';
 import { AllTimeStatsTestObj } from './AllTimeStatsTestObj';
+import { OwnerTeamsTestObj } from './OwnerTeamsTestObj';
 
 export const OwnerCardConfigTestObj: OwnerCardConfig = {
   "owner": {
@@ -9,6 +9,6 @@ export const OwnerCardConfigTestObj: OwnerCardConfig = {
     "id": 4,
     "lastInitial": "L"
   },
-  "teams": OwnerTeamsTestObj,
-  "stats": AllTimeStatsTestObj
+  "stats": AllTimeStatsTestObj,
+  "teams": OwnerTeamsTestObj
 }
