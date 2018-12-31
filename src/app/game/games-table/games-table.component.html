@@ -1,37 +1,37 @@
 <div class="gray-border">
-  <mat-table #table [dataSource]="dataSource" matSort>
+  <mat-table #table [dataSource]="dataSource">
     <ng-container cdkColumnDef="year">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Year</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Year</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="week">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Week</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Week</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.week }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="gametype">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Game Type</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Game Type</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.gameType }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="awayteam">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Away Team</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Away Team</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.awayTeam.name + " (" + element.awayTeam.owner.firstName + " " +  element.awayTeam.owner.lastInitial + ")" }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="hometeam">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Home Team</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Home Team</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.homeTeam.name + " (" + element.homeTeam.owner.firstName + " " +  element.homeTeam.owner.lastInitial + ")" }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="awayscore">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Away Score</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Away Score</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.awayScore }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="homescore">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Home Score</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef>Home Score</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.homeScore }}</mat-cell>
     </ng-container>
 
