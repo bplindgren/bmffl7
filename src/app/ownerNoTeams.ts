@@ -3,4 +3,6 @@ export interface OwnerNoTeams {
   firstName: string;
   lastInitial: string;
   division: string;
+  handler: Object;
+  hibernateLazyInitializer: Object;
 }

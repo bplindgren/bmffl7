@@ -16,7 +16,7 @@ export class WeekScoresFormComponent implements OnChanges {
   private originalSeason : number;
   private originalWeek : number;
   private current : boolean = true;
-  private seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
+  private seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
   private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   @Output() evtEmitterWeek: EventEmitter<Week> = new EventEmitter();
 

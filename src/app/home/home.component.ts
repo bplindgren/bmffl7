@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { recentGames } from '../recentGames';
+import { recentGames } from '../test-objects/games/recentGames';
 
 @Component({
   selector: 'app-home',

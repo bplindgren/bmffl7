@@ -21,6 +21,7 @@ export class GamesTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.dataSource = new MatTableDataSource<Game>(this.sortGames(changes['games']['currentValue']));
     this.dataSource.paginator = this.paginator;
   }
 

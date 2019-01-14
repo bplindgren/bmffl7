@@ -1,6 +1,4 @@
-import { Game } from './game';
-// import { TestGame } from './testGame';
-// export const recentGames: TestGame[] = [
+import { Game } from '../../game';
 export const recentGames: Game[] = [
     {
         "id": 614,
@@ -13,21 +11,23 @@ export const recentGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs"
+                "division": "upstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "upstairs",
             "standing": 4,
-            "gamesPlayed": 13,
-            "wins": 5,
+            "gamesPlayed": 16,
+            "wins": 6,
             "winsRegSeason": 5,
-            "losses": 8,
+            "losses": 10,
             "lossesRegSeason": 8,
             "ties": 0,
             "divisionWinner": null,
             "champion": false,
-            "pointsFor": 1119.7,
-            "pointsAgainst": 1270.6
+            "pointsFor": 1339.7,
+            "pointsAgainst": 1555
         },
         "awayScore": 72.6,
         "homeTeam": {
@@ -38,21 +38,23 @@ export const recentGames: Game[] = [
                 "id": 3,
                 "firstName": "Brian",
                 "lastInitial": "K",
-                "division": "upstairs"
+                "division": "upstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "upstairs",
             "standing": 1,
-            "gamesPlayed": 13,
+            "gamesPlayed": 15,
             "wins": 11,
             "winsRegSeason": 11,
-            "losses": 2,
+            "losses": 4,
             "lossesRegSeason": 2,
             "ties": 0,
             "divisionWinner": "outright",
             "champion": false,
-            "pointsFor": 1464,
-            "pointsAgainst": 1165.7
+            "pointsFor": 1629.9,
+            "pointsAgainst": 1342.3
         },
         "homeScore": 95.4,
         "gameType": "Regular Season",
@@ -69,21 +71,23 @@ export const recentGames: Game[] = [
                 "id": 5,
                 "firstName": "Matt",
                 "lastInitial": "M",
-                "division": "downstairs"
+                "division": "downstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "downstairs",
             "standing": 1,
-            "gamesPlayed": 13,
-            "wins": 8,
+            "gamesPlayed": 16,
+            "wins": 10,
             "winsRegSeason": 8,
-            "losses": 5,
+            "losses": 6,
             "lossesRegSeason": 5,
             "ties": 0,
             "divisionWinner": "shared",
             "champion": false,
-            "pointsFor": 1461.3,
-            "pointsAgainst": 1220.7
+            "pointsFor": 1763.1,
+            "pointsAgainst": 1466.3
         },
         "awayScore": 122.4,
         "homeTeam": {
@@ -94,21 +98,23 @@ export const recentGames: Game[] = [
                 "id": 10,
                 "firstName": "Isaac",
                 "lastInitial": "S",
-                "division": "downstairs"
+                "division": "downstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "downstairs",
             "standing": 3,
-            "gamesPlayed": 13,
-            "wins": 7,
+            "gamesPlayed": 16,
+            "wins": 8,
             "winsRegSeason": 7,
-            "losses": 6,
+            "losses": 8,
             "lossesRegSeason": 6,
             "ties": 0,
             "divisionWinner": null,
             "champion": false,
-            "pointsFor": 1322,
-            "pointsAgainst": 1213.1
+            "pointsFor": 1542.1,
+            "pointsAgainst": 1465.6
         },
         "homeScore": 88.2,
         "gameType": "Regular Season",
@@ -125,21 +131,23 @@ export const recentGames: Game[] = [
                 "id": 6,
                 "firstName": "Drew",
                 "lastInitial": "M",
-                "division": "downstairs"
+                "division": "downstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "downstairs",
             "standing": 1,
-            "gamesPlayed": 13,
-            "wins": 8,
+            "gamesPlayed": 15,
+            "wins": 9,
             "winsRegSeason": 8,
-            "losses": 5,
+            "losses": 6,
             "lossesRegSeason": 5,
             "ties": 0,
             "divisionWinner": "shared",
             "champion": false,
-            "pointsFor": 1306.6,
-            "pointsAgainst": 1308.6
+            "pointsFor": 1484.9,
+            "pointsAgainst": 1509.2
         },
         "awayScore": 73.4,
         "homeTeam": {
@@ -150,21 +158,23 @@ export const recentGames: Game[] = [
                 "id": 1,
                 "firstName": "Brian",
                 "lastInitial": "D",
-                "division": "upstairs"
+                "division": "upstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "upstairs",
             "standing": 4,
-            "gamesPlayed": 13,
-            "wins": 5,
+            "gamesPlayed": 16,
+            "wins": 6,
             "winsRegSeason": 5,
-            "losses": 8,
+            "losses": 10,
             "lossesRegSeason": 8,
             "ties": 0,
             "divisionWinner": null,
             "champion": false,
-            "pointsFor": 1304.4,
-            "pointsAgainst": 1362.3
+            "pointsFor": 1531.7,
+            "pointsAgainst": 1597.7
         },
         "homeScore": 116,
         "gameType": "Regular Season",
@@ -181,21 +191,23 @@ export const recentGames: Game[] = [
                 "id": 2,
                 "firstName": "Nick",
                 "lastInitial": "D",
-                "division": "downstairs"
+                "division": "downstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "downstairs",
             "standing": 5,
-            "gamesPlayed": 13,
-            "wins": 2,
+            "gamesPlayed": 16,
+            "wins": 3,
             "winsRegSeason": 2,
-            "losses": 11,
+            "losses": 13,
             "lossesRegSeason": 11,
             "ties": 0,
             "divisionWinner": null,
             "champion": false,
-            "pointsFor": 1121.3,
-            "pointsAgainst": 1384.1
+            "pointsFor": 1301.2,
+            "pointsAgainst": 1687.8
         },
         "awayScore": 69.1,
         "homeTeam": {
@@ -206,21 +218,23 @@ export const recentGames: Game[] = [
                 "id": 8,
                 "firstName": "Kyle",
                 "lastInitial": "P",
-                "division": "downstairs"
+                "division": "downstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "downstairs",
             "standing": 4,
-            "gamesPlayed": 13,
-            "wins": 3,
+            "gamesPlayed": 16,
+            "wins": 6,
             "winsRegSeason": 3,
             "losses": 10,
             "lossesRegSeason": 10,
             "ties": 0,
             "divisionWinner": null,
             "champion": false,
-            "pointsFor": 1037.4,
-            "pointsAgainst": 1295.2
+            "pointsFor": 1398.2,
+            "pointsAgainst": 1459.7
         },
         "homeScore": 70.3,
         "gameType": "Regular Season",
@@ -237,21 +251,23 @@ export const recentGames: Game[] = [
                 "id": 11,
                 "firstName": "Ryan",
                 "lastInitial": "D",
-                "division": "upstairs"
+                "division": "upstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "upstairs",
             "standing": 2,
-            "gamesPlayed": 13,
-            "wins": 9,
+            "gamesPlayed": 16,
+            "wins": 12,
             "winsRegSeason": 9,
             "losses": 4,
             "lossesRegSeason": 4,
             "ties": 0,
             "divisionWinner": null,
-            "champion": false,
-            "pointsFor": 1317.8,
-            "pointsAgainst": 1198.6
+            "champion": true,
+            "pointsFor": 1642.7,
+            "pointsAgainst": 1427.6
         },
         "awayScore": 67.4,
         "homeTeam": {
@@ -262,21 +278,23 @@ export const recentGames: Game[] = [
                 "id": 7,
                 "firstName": "Dan",
                 "lastInitial": "O",
-                "division": "upstairs"
+                "division": "upstairs",
+                "handler": {},
+                "hibernateLazyInitializer": {}
             },
             "year": "2018",
             "division": "upstairs",
             "standing": 3,
-            "gamesPlayed": 13,
-            "wins": 7,
+            "gamesPlayed": 16,
+            "wins": 8,
             "winsRegSeason": 7,
-            "losses": 6,
+            "losses": 8,
             "lossesRegSeason": 6,
             "ties": 0,
             "divisionWinner": null,
             "champion": false,
-            "pointsFor": 1225.7,
-            "pointsAgainst": 1261.3
+            "pointsFor": 1433.6,
+            "pointsAgainst": 1555.9
         },
         "homeScore": 105.2,
         "gameType": "Regular Season",

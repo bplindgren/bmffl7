@@ -7,7 +7,9 @@ export const OwnerCardConfigTestObj: OwnerCardConfig = {
     "division": "upstairs",
     "firstName": "Brad",
     "id": 4,
-    "lastInitial": "L"
+    "lastInitial": "L",
+    "handler": {},
+    "hibernateLazyInitializer": {}
   },
   "stats": AllTimeStatsTestObj,
   "teams": OwnerTeamsTestObj
