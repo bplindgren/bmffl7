@@ -11,9 +11,7 @@ export const teamGames: Game[] = [
                 "id": 7,
                 "firstName": "Dan",
                 "lastInitial": "O",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -38,9 +36,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -71,9 +67,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -98,9 +92,7 @@ export const teamGames: Game[] = [
                 "id": 6,
                 "firstName": "Drew",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2016",
             "division": "downstairs",
@@ -131,9 +123,7 @@ export const teamGames: Game[] = [
                 "id": 7,
                 "firstName": "Dan",
                 "lastInitial": "O",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -158,9 +148,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -191,9 +179,7 @@ export const teamGames: Game[] = [
                 "id": 1,
                 "firstName": "Brian",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -218,9 +204,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -251,9 +235,7 @@ export const teamGames: Game[] = [
                 "id": 10,
                 "firstName": "Isaac",
                 "lastInitial": "S",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2016",
             "division": "downstairs",
@@ -278,9 +260,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -311,9 +291,7 @@ export const teamGames: Game[] = [
                 "id": 11,
                 "firstName": "Ryan",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -338,9 +316,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -371,9 +347,7 @@ export const teamGames: Game[] = [
                 "id": 1,
                 "firstName": "Brian",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -398,9 +372,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -431,9 +403,7 @@ export const teamGames: Game[] = [
                 "id": 2,
                 "firstName": "Nick",
                 "lastInitial": "D",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2016",
             "division": "downstairs",
@@ -458,9 +428,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -491,9 +459,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -518,9 +484,7 @@ export const teamGames: Game[] = [
                 "id": 3,
                 "firstName": "Brian",
                 "lastInitial": "K",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -551,9 +515,7 @@ export const teamGames: Game[] = [
                 "id": 8,
                 "firstName": "Kyle",
                 "lastInitial": "P",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2016",
             "division": "downstairs",
@@ -578,9 +540,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -611,9 +571,7 @@ export const teamGames: Game[] = [
                 "id": 5,
                 "firstName": "Matt",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2016",
             "division": "downstairs",
@@ -638,9 +596,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -671,9 +627,7 @@ export const teamGames: Game[] = [
                 "id": 11,
                 "firstName": "Ryan",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -698,9 +652,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -731,9 +683,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -758,9 +708,7 @@ export const teamGames: Game[] = [
                 "id": 3,
                 "firstName": "Brian",
                 "lastInitial": "K",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -791,9 +739,7 @@ export const teamGames: Game[] = [
                 "id": 1,
                 "firstName": "Brian",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -818,9 +764,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",
@@ -851,9 +795,7 @@ export const teamGames: Game[] = [
                 "id": 5,
                 "firstName": "Matt",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2016",
             "division": "downstairs",
@@ -878,9 +820,7 @@ export const teamGames: Game[] = [
                 "id": 4,
                 "firstName": "Brad",
                 "lastInitial": "L",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2016",
             "division": "upstairs",

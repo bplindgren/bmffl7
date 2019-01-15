@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from '../game';
 import { recentGames } from '../test-objects/games/recentGames';
 
 @Component({
@@ -7,7 +8,7 @@ import { recentGames } from '../test-objects/games/recentGames';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public recent = recentGames;
+  public recent: Game[] = recentGames;
 
   constructor() { }
 

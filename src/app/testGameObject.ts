@@ -11,9 +11,7 @@ export const TestGameObj: TestGame = {
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2018",
         "division": "upstairs",
@@ -38,9 +36,7 @@ export const TestGameObj: TestGame = {
             "id": 3,
             "firstName": "Brian",
             "lastInitial": "K",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2018",
         "division": "upstairs",

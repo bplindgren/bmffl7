@@ -1,6 +1,6 @@
 import { Game } from '../../game';
 import { MatchupStats } from '../../matchupStats';
-export const matchupStats: MatchupStats = {
+export const matchupStatsTestObj: MatchupStats = {
     "games": [
         {
             "id": 6,
@@ -13,9 +13,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2011",
                 "division": "downstairs",
@@ -40,9 +38,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2011",
                 "division": "upstairs",
@@ -73,9 +69,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2011",
                 "division": "upstairs",
@@ -100,9 +94,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2011",
                 "division": "downstairs",
@@ -133,9 +125,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2012",
                 "division": "downstairs",
@@ -160,9 +150,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2012",
                 "division": "upstairs",
@@ -193,9 +181,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2012",
                 "division": "upstairs",
@@ -220,9 +206,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2012",
                 "division": "downstairs",
@@ -253,9 +237,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2012",
                 "division": "upstairs",
@@ -280,9 +262,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2012",
                 "division": "downstairs",
@@ -313,9 +293,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2013",
                 "division": "downstairs",
@@ -340,9 +318,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2013",
                 "division": "upstairs",
@@ -373,9 +349,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2013",
                 "division": "upstairs",
@@ -400,9 +374,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2013",
                 "division": "downstairs",
@@ -433,9 +405,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2014",
                 "division": "downstairs",
@@ -460,9 +430,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2014",
                 "division": "upstairs",
@@ -493,9 +461,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2014",
                 "division": "upstairs",
@@ -520,9 +486,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2014",
                 "division": "downstairs",
@@ -553,9 +517,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2014",
                 "division": "upstairs",
@@ -580,9 +542,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2014",
                 "division": "downstairs",
@@ -613,9 +573,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2015",
                 "division": "upstairs",
@@ -640,9 +598,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2015",
                 "division": "downstairs",
@@ -673,9 +629,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2015",
                 "division": "upstairs",
@@ -700,9 +654,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2015",
                 "division": "downstairs",
@@ -733,9 +685,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2016",
                 "division": "upstairs",
@@ -760,9 +710,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2016",
                 "division": "downstairs",
@@ -793,9 +741,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2017",
                 "division": "upstairs",
@@ -820,9 +766,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2017",
                 "division": "downstairs",
@@ -853,9 +797,7 @@ export const matchupStats: MatchupStats = {
                     "id": 4,
                     "firstName": "Brad",
                     "lastInitial": "L",
-                    "division": "upstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "upstairs"
                 },
                 "year": "2018",
                 "division": "upstairs",
@@ -880,9 +822,7 @@ export const matchupStats: MatchupStats = {
                     "id": 6,
                     "firstName": "Drew",
                     "lastInitial": "M",
-                    "division": "downstairs",
-                    "handler": {},
-                    "hibernateLazyInitializer": {}
+                    "division": "downstairs"
                 },
                 "year": "2018",
                 "division": "downstairs",

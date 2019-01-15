@@ -12,7 +12,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TableModule } from '../../shared-modules/table/table.module';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { OwnerService } from '../../owner/owner-service/owner.service';
-import { MatchupStatsTestObj } from '../../test-objects/MatchupStatsTestObj';
+import { matchupStatsTestObj } from '../../test-objects/games/matchupStatsTestObj';
 import { Owner1TestObj } from '../../test-objects/Owner1TestObj';
 import { Owner2TestObj } from '../../test-objects/Owner2TestObj';
 
@@ -41,7 +41,7 @@ describe('MatchupTotalsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MatchupTotalsComponent);
     component = fixture.componentInstance;
-    component.matchupStats = MatchupStatsTestObj;
+    component.matchupStats = matchupStatsTestObj;
     component.owner1 = Owner1TestObj;
     component.owner2 = Owner2TestObj;
     fixture.detectChanges();

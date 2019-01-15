@@ -11,9 +11,7 @@ export const playoffGames: Game[] = [
                 "id": 10,
                 "firstName": "Isaac",
                 "lastInitial": "S",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2018",
             "division": "downstairs",
@@ -38,9 +36,7 @@ export const playoffGames: Game[] = [
                 "id": 11,
                 "firstName": "Ryan",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2018",
             "division": "upstairs",
@@ -71,9 +67,7 @@ export const playoffGames: Game[] = [
                 "id": 7,
                 "firstName": "Dan",
                 "lastInitial": "O",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2018",
             "division": "upstairs",
@@ -98,9 +92,7 @@ export const playoffGames: Game[] = [
                 "id": 5,
                 "firstName": "Matt",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2018",
             "division": "downstairs",
@@ -131,9 +123,7 @@ export const playoffGames: Game[] = [
                 "id": 5,
                 "firstName": "Matt",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2018",
             "division": "downstairs",
@@ -158,9 +148,7 @@ export const playoffGames: Game[] = [
                 "id": 3,
                 "firstName": "Brian",
                 "lastInitial": "K",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2018",
             "division": "upstairs",
@@ -191,9 +179,7 @@ export const playoffGames: Game[] = [
                 "id": 11,
                 "firstName": "Ryan",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2018",
             "division": "upstairs",
@@ -218,9 +204,7 @@ export const playoffGames: Game[] = [
                 "id": 6,
                 "firstName": "Drew",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2018",
             "division": "downstairs",
@@ -251,9 +235,7 @@ export const playoffGames: Game[] = [
                 "id": 5,
                 "firstName": "Matt",
                 "lastInitial": "M",
-                "division": "downstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "downstairs"
             },
             "year": "2018",
             "division": "downstairs",
@@ -278,9 +260,7 @@ export const playoffGames: Game[] = [
                 "id": 11,
                 "firstName": "Ryan",
                 "lastInitial": "D",
-                "division": "upstairs",
-                "handler": {},
-                "hibernateLazyInitializer": {}
+                "division": "upstairs"
             },
             "year": "2018",
             "division": "upstairs",

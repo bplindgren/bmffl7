@@ -9,9 +9,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2011",
         "division": "upstairs",
@@ -35,9 +33,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2013",
         "division": "upstairs",
@@ -61,9 +57,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2014",
         "division": "upstairs",
@@ -87,9 +81,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2015",
         "division": "upstairs",
@@ -113,9 +105,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2018",
         "division": "upstairs",
@@ -139,9 +129,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2012",
         "division": "upstairs",
@@ -165,9 +153,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2017",
         "division": "upstairs",
@@ -191,9 +177,7 @@ export const OwnerTeamsTestObj: Team[] = [
             "id": 4,
             "firstName": "Brad",
             "lastInitial": "L",
-            "division": "upstairs",
-            "handler": {},
-            "hibernateLazyInitializer": {}
+            "division": "upstairs"
         },
         "year": "2016",
         "division": "upstairs",
