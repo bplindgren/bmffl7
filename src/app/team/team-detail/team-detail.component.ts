@@ -30,6 +30,7 @@ export class TeamDetailComponent implements OnInit {
 
     forkJoin([gamesResponse, teamStatsResponse]).subscribe(responseList => {
       this.games = responseList[0];
+      // console.log(this.games);
       this.teamStats = [responseList[1]];
     })
   }

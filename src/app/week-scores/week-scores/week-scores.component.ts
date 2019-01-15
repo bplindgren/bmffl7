@@ -12,16 +12,15 @@ import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.co
   styleUrls: ['./week-scores.component.css']
 })
 export class WeekScoresComponent implements OnInit {
-  private season: number;
-  private week: number;
-  private seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
+  public season: number;
+  public week: number;
+  public seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
   private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
-  private games: Game[];
+  public games: Game[];
 
-  constructor(
-    private gameService: GameService) {
-      this.season = this.getYear();
-      this.week = this.getWeek();
+  constructor(private gameService: GameService) {
+    this.season = this.getYear();
+    this.week = this.getWeek();
   }
 
   ngOnInit() {
@@ -34,10 +33,7 @@ export class WeekScoresComponent implements OnInit {
 
   getGames(week: Week): void {
     this.gameService.getWeekGames(week.season, week.week)
-      .subscribe((data: Game[]) => {
-        console.log(data);
-        this.games = data
-      })
+      .subscribe((data: Game[]) => { this.games = data })
   }
 
   getYear(): number {
@@ -54,9 +50,9 @@ export class WeekScoresComponent implements OnInit {
     let oneDay = 1000 * 60 * 60 * 24;
     let day = Math.floor(sum / oneDay) - 2;
     let week = Math.floor(day / 7) - 34;
-    console.log(week);
     if (week < 0) {
-      return 1
+      this.season = this.season - 1;
+      return 16
     } else if (week > 16) {
       return 16
     } else {

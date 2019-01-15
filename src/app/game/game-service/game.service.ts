@@ -8,24 +8,21 @@ import { MatchupStats } from '../../matchupStats';
 @Injectable({ providedIn: 'root' })
 export class GameService {
   public baseURL = 'http://localhost:8080';
-  private games: Game[] = [];
 
   constructor(private http: HttpClient) { }
 
-  getWeekGames(seasonId: number, week: number): Observable<Game[]> {
-    // const url = `${this.baseURL}` + '/games/season/' + seasonId + '/week/' + week
-    const url = `${this.baseURL}/games/season/${seasonId}/week/${week}`
+  getWeekGames(season: number, week: number): Observable<Game[]> {
+    const url = `${this.baseURL}/games/season/${season}/week/${week}`
     return this.http.get<Game[]>(url).pipe(
-      tap(_ => console.log('games retreived'))
+      tap(_ => console.log('games received'))
     );
   }
 
-  getPlayoffGames(seasonId: number): Observable<Game[]> {
-    const url = `${this.baseURL}` + '/games/season/playoffs/' + seasonId
-    return this.http.get<Game[]>(url)
-      // .pipe(
-      //   tap(_ => console.log('games received'))
-      // );
+  getPlayoffGames(season: number): Observable<Game[]> {
+    const url = `${this.baseURL}` + '/games/season/playoffs/' + season
+    return this.http.get<Game[]>(url).pipe(
+      tap(_ => console.log('games received'))
+    );
   }
 
   getTeamGames(teamId: number): Observable<Game[]> {
@@ -36,7 +33,7 @@ export class GameService {
   }
 
   getMatchupStats(owner1Id: number, owner2Id: number): Observable<MatchupStats> {
-    const url = `${this.baseURL}` + '/games/matchup/' + owner1Id + "/" + owner2Id;
+    const url = `${this.baseURL}` + '/games/matchup/' + owner1Id + '/' + owner2Id;
     return this.http.get<MatchupStats>(url).pipe(
       tap(_ => console.log('games received'))
     );
