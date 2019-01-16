@@ -18,7 +18,7 @@ export class WeekScoresComponent implements OnInit {
   private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   public games: Game[];
 
-  constructor(private gameService: GameService) {
+  constructor(public gameService: GameService) {
   }
 
   ngOnInit() {
@@ -66,26 +66,5 @@ export class WeekScoresComponent implements OnInit {
     this.gameService.getWeekGames(week.season, week.week)
       .subscribe((data: Game[]) => { this.games = data })
   }
-
-  // getWeek(): number {
-  //   let now = new Date();
-  //   let start = new Date(now.getFullYear(), 0, 0);
-  //   let left = (Math.abs(now.getTime() - start.getTime()));
-  //   let right = (Math.abs((start.getTimezoneOffset()- now.getTimezoneOffset()) * 60 * 1000));
-  //   let sum = left + right;
-  //   let oneDay = 1000 * 60 * 60 * 24;
-  //   let day = Math.floor(sum / oneDay) - 2;
-  //   let week = Math.floor(day / 7) - 34;
-  //   if (week < 0) {
-  //     this.season = this.season - 1;
-  //     return 16
-  //   } else if (week > 16) {
-  //     return 16
-  //   } else {
-  //     return week
-  //   };
-  // }
-
-
 
 }

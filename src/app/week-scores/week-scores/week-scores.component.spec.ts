@@ -16,6 +16,7 @@ import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.co
 import { ScoreboardComponent } from '../scoreboard/scoreboard.component';
 import { ScorecardComponent } from '../scorecard/scorecard.component';
 import { Week } from '../../week';
+import { Game } from '../../game';
 
 import { GameService } from '../../game/game-service/game.service';
 
@@ -45,11 +46,13 @@ describe('WeekScoresComponent', () => {
       providers: [ GameService ]
     })
     .compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(WeekScoresComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -80,15 +83,22 @@ describe('WeekScoresComponent', () => {
     expect(component.getWeek(dayOfYear8)).toBe(16);
   });
 
-  // it ('should get games', async(inject( [GameService], (gameService: GameService) => {
-  //   let week : Week = {
-  //     season: 2018,
-  //     week: 16
-  //   }
-  //   // console.log(gameService);
-  //   return gameService.getWeekGames(week).subscribe(res => {
-  //     // console.log(res);
-  //     expect(res.length).toBeGreaterThan(0);
-  //   })
-  // })));
+  it ('should get games',
+    async(inject([GameService], (gameService: GameService) => {
+      let week : Week = {
+        season: 2018,
+        week: 16
+      }
+
+      let games: Game[];
+      console.log(gameService, games, week);
+      gameService.getWeekGames(week.season, week.week).subscribe(res => {
+        console.log(res);
+        games = res;
+      })
+
+      // expect(games.length).toBeGreaterThan(0);
+      expect(games).toBeTruthy();
+    }))
+  );
 });

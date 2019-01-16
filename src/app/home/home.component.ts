@@ -3,7 +3,7 @@ import { Game } from '../game';
 import { recentGames } from '../test-objects/games/recentGames';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
