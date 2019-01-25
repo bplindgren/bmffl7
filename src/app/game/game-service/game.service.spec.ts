@@ -115,7 +115,7 @@ describe('GameService', () => {
 
 
 // I had the initial test below, but they turned out to be overkill. Didn't need to inject the testing classes.
-// Hang on to for now. They do might. Might want to reference later.
+// Hang on to for now. Might want to reference later.
 
   // it('should be created',
   //   inject([GameService], (service: GameService) => {
