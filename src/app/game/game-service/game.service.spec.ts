@@ -32,7 +32,7 @@ describe('GameService', () => {
 
   it('expects service to fetch a week\'s games', () => {
     // Call the getWeekGames(season, week) method
-    service.getWeekGames(2018, 13).subscribe((games: Games[]) => {
+    service.getWeekGames(2018, 13).subscribe((games: Game[]) => {
       expect(games['data'].length).toBe(5);
       expect(games['data'].map(game => { return game.id })).toEqual([614, 615, 616, 617, 618]);
     });
@@ -46,7 +46,7 @@ describe('GameService', () => {
 
   it('expects service to fetch a seasons\'s playoff games', () => {
     // Call the getPlayoffGames(season) method
-    service.getPlayoffGames(8).subscribe((games: Games[]) => {
+    service.getPlayoffGames(8).subscribe((games: Game[]) => {
       expect(games['data'].length).toBe(5);
 
       // Expect gamesTypes to be playoff types
@@ -67,7 +67,7 @@ describe('GameService', () => {
 
   it('expects service to fetch a team\'s games', () => {
     // Call the getTeamGames(teamId) method
-    service.getTeamGames(54).subscribe((games: Games[]) => {
+    service.getTeamGames(54).subscribe((games: Game[]) => {
       // Check correct number of games
       expect(games['data'].length).toBe(15);
 
