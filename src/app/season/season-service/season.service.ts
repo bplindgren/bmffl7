@@ -12,16 +12,9 @@ export class SeasonService {
   constructor(private http: HttpClient) { }
 
   getSeasons(): Observable<Season[]> {
-    const url = `${this.baseURL}` + '/seasons/';
+    const url = `${this.baseURL}` + '/seasons';
     return this.http.get<Season[]>(url).pipe(
       tap(_ => console.log('seasons received'))
-    )
-  }
-
-  getOwnerSeasons(ownerId: number): Observable<Season[]> {
-    const url = `${this.baseURL}` + '/seasons/getOwnerSeasons/' + ownerId;
-    return this.http.get<Season[]>(url).pipe(
-      tap(_ => console.log('owner seasons received'))
     )
   }
 

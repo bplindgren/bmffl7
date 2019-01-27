@@ -12,13 +12,6 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
-  getTeamRecord(team: number, week: number): Observable<number[]> {
-    const url = `${this.baseURL}` + '/teams/record/' + team + '/' + week;
-    return this.http.get<number[]>(url).pipe(
-      tap(_ => console.log('teams records retrieved'))
-    )
-  }
-
   getAllTeams(): Observable<Team[]> {
     const url = `${this.baseURL}` + '/teams';
     return this.http.get<Team[]>(url).pipe(
@@ -26,8 +19,16 @@ export class TeamService {
     )
   }
 
+  getTeamRecord(team: number, week: number): Observable<Number[]> {
+    const url = `${this.baseURL}` + '/teams/record/' + team + '/' + week;
+    return this.http.get<number[]>(url).pipe(
+      tap(_ => console.log('teams records retrieved'))
+    )
+  }
+
   getOwnerTeams(ownerID: number): Observable<Team[]> {
     const url = `${this.baseURL}` + '/teams/owner/' + ownerID;
+    console.log(url);
     return this.http.get<Team[]>(url).pipe(
       tap(_ => console.log('owner teams received'))
     )

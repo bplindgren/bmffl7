@@ -1,0 +1,25 @@
+import { SeasonStats } from '../../seasonStats';
+export const teamSeasonStatsTestObj: SeasonStats = {
+    "id": 54,
+    "champion": true,
+    "divisionwinner": "outright",
+    "gamesplayed": 15,
+    "losses": 4,
+    "lossesregseason": 4,
+    "name": "The Ricky Stanzis",
+    "pointsagainst": 1411,
+    "pointsfor": 1549,
+    "standing": 1,
+    "ties": 0,
+    "wins": 11,
+    "winsregseason": 9,
+    "year": "2016",
+    "ownerId": 4,
+    "winningpct": 0.733,
+    "pointdifferential": 138,
+    "pfpg": 103.3,
+    "papg": 94.1,
+    "ppgdiff": 9.2,
+    "seasonId": 6,
+    "division": "upstairs"
+}

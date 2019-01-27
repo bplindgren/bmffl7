@@ -18,6 +18,7 @@ export class ScoreboardComponent implements OnInit, OnChanges {
   }
 
   sortGames(games: Game[]): Game[] {
+    console.log(games);
     if (games !== undefined) {
       return games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
     }
