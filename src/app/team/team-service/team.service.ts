@@ -12,17 +12,17 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
-  getTeamRecord(team: number, week: number): Observable<number[]> {
-    const url = `${this.baseURL}` + '/teams/record/' + team + '/' + week;
-    return this.http.get<number[]>(url).pipe(
-      tap(_ => console.log('teams records retrieved'))
-    )
-  }
-
   getAllTeams(): Observable<Team[]> {
     const url = `${this.baseURL}` + '/teams';
     return this.http.get<Team[]>(url).pipe(
       tap(_ => console.log('all teams fetched'))
+    )
+  }
+
+  getTeamRecord(team: number, week: number): Observable<Number[]> {
+    const url = `${this.baseURL}` + '/teams/record/' + team + '/' + week;
+    return this.http.get<number[]>(url).pipe(
+      tap(_ => console.log('teams records retrieved'))
     )
   }
 

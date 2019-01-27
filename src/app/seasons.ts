@@ -30,5 +30,9 @@ export var seasons = [
   {
     "year": "2018",
     "seasonNumber": 8
+  },
+  {
+    "year": "2019",
+    "seasonNumber": 9
   }
 ]

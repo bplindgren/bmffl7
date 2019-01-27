@@ -28,7 +28,6 @@ describe('OwnerService', () => {
   });
 
   it('expects service to get all owners', () => {
-    // get all owners from service
     service.getAllOwners().subscribe((owners: Owner[]) => {
       expect(owners['data'].length).toBe(11);
       // check that only the following first names are in the owners array
@@ -40,6 +39,7 @@ describe('OwnerService', () => {
 
     const req = httpMock.expectOne("http://localhost:8080/owners")
     expect(req.request.method).toEqual('GET');
+
     req.flush({ data: ownersTestObj });
   });
 
@@ -53,10 +53,12 @@ describe('OwnerService', () => {
 
     service.getOwner(4).subscribe((owner: Owner) => {
       expect(owner['data']).toBe(ownerObj);
+      expect(owner['data'].firstName).toBe("Brad");
     })
 
     const req = httpMock.expectOne("http://localhost:8080/owners/4")
     expect(req.request.method).toEqual('GET');
+
     req.flush({ data: ownerObj });
   })
 
@@ -72,6 +74,7 @@ describe('OwnerService', () => {
 
     const req = httpMock.expectOne("http://localhost:8080/owners/getAllTimeStats")
     expect(req.request.method).toEqual('GET');
+
     req.flush({ data: allTimeStatsTestObj });
   })
 
@@ -94,7 +97,7 @@ describe('OwnerService', () => {
     }
 
     service.getOwnerAllTimeStats(4).subscribe((stats: AllTimeStats) => {
-      let res: Object = stats['data'];
+      let res: AllTimeStats = stats['data'];
       expect(res.ownerId).toBe(4);
       expect(res.firstname).toBe("Brad");
       expect(res.pfpg + res.papg === res.ppgdiff);
@@ -102,6 +105,7 @@ describe('OwnerService', () => {
 
     const req = httpMock.expectOne("http://localhost:8080/owners/getOwnerAllTimeStats/4")
     expect(req.request.method).toEqual('GET');
+
     req.flush({ data: ownerAllTimeStats });
   })
 

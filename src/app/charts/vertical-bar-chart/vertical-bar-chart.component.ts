@@ -24,7 +24,9 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
   private barChartData: any[] = [{}]
 
   ngOnInit() {
-    let chartLabels = this.data.map(object => object['name'])
+    let chartLabels = this.data
+      .map(object => object['name'])
+      .filter(label => label !== '2019');
     this.barChartLabels = chartLabels;
   }
 
@@ -32,7 +34,9 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
     let newLabels = this.data.map(object => object['name']);
     this.barChartLabels.length = 0;
     for (let i = newLabels.length - 1; i >= 0; i--) {
-      this.barChartLabels.push(newLabels[i]);
+      if (newLabels[i] !== '2019') {
+        this.barChartLabels.push(newLabels[i]);
+      }
     }
     this.barChartLabels.reverse();
   }

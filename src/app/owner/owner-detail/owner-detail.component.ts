@@ -28,7 +28,7 @@ export class OwnerDetailComponent implements OnInit, AfterViewInit {
     { name: "2015", value: 0},
     { name: "2016", value: 0},
     { name: "2017", value: 0},
-    { name: "2018", value: 0},
+    { name: "2018", value: 0}
   ];
   private yAxis: string = "Wins";
   private allTimeStats: AllTimeStats;
@@ -57,6 +57,7 @@ export class OwnerDetailComponent implements OnInit, AfterViewInit {
     let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
     let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
     forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
+      console.log(responseList);
       this.allTimeStats = responseList[0];
       this.ownerTeams = responseList[1].sort((a,b) =>
         (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0));

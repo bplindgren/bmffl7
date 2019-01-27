@@ -11,8 +11,8 @@ import { RouterModule } from '@angular/router';
 })
 export class ScorecardComponent implements OnInit {
   @Input() game: Game;
-  private awayRecord: number[];
-  private homeRecord: number[];
+  private awayRecord: Number[];
+  private homeRecord: Number[];
 
   constructor(private teamService: TeamService) { }
 
