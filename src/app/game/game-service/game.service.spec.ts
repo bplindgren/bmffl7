@@ -75,7 +75,6 @@ describe('GameService', () => {
       const awayTeams: number[] = games['data'].map(g => g.awayTeam.id);
       const homeTeams: number[] = games['data'].map(g => g.homeTeam.id);
       let teams: number[] = awayTeams.concat(homeTeams).filter(t => t == 54);
-      expect(games.length).toEqual(15);
       expect(teams).toEqual(jasmine.arrayContaining([54]));
     });
 

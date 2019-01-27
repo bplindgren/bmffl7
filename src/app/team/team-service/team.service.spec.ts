@@ -62,7 +62,7 @@ describe('TeamService', () => {
 
   it('expects service to fetch an owner\'s teams', () => {
     service.getOwnerTeams(4).subscribe((teams: Team[]) => {
-      expect(teams.map(team => { return team.owner }).length).toBe(8);
+      expect(teams['data'].map(team => { return team.owner }).length).toBe(8);
     })
 
     const req = httpMock.expectOne("http://localhost:8080/teams/owner/4");
