@@ -48,4 +48,8 @@ describe('SeasonService', () => {
     // method not used
   })
 
+  afterEach(() => {
+    httpMock.verify();
+  });
+
 });

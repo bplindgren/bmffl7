@@ -14,12 +14,9 @@ import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.co
 export class WeekScoresComponent implements OnInit {
   public season: number;
   public week: number;
-  public seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
-  private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   public games: Game[];
 
-  constructor(public gameService: GameService) {
-  }
+  constructor(public gameService: GameService) { }
 
   ngOnInit() {
     // Get Season

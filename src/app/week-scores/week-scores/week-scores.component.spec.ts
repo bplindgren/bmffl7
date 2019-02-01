@@ -1,30 +1,35 @@
-import { async, inject, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+
+import { Week } from '../../week';
+import { Game } from '../../game';
 
 import { WeekScoresComponent } from './week-scores.component';
 import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.component';
 import { ScoreboardComponent } from '../scoreboard/scoreboard.component';
 import { ScorecardComponent } from '../scorecard/scorecard.component';
-import { Week } from '../../week';
-import { Game } from '../../game';
 
 import { GameService } from '../../game/game-service/game.service';
+import { MockGameService } from '../../mocks/mockGameService.service';
 
 describe('WeekScoresComponent', () => {
   let component: WeekScoresComponent;
   let fixture: ComponentFixture<WeekScoresComponent>;
+  let mockGameService: MockGameService;
 
   beforeEach(async(() => {
+    mockGameService = new MockGameService();
+
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
@@ -43,7 +48,9 @@ describe('WeekScoresComponent', () => {
         ScoreboardComponent,
         ScorecardComponent
       ],
-      providers: [ GameService ]
+      providers: [
+        { provide: GameService, useValue: mockGameService }
+      ]
     })
     .compileComponents();
   }));
@@ -83,22 +90,7 @@ describe('WeekScoresComponent', () => {
     expect(component.getWeek(dayOfYear8)).toBe(16);
   });
 
-  it ('should get games',
-    async(inject([GameService], (gameService: GameService) => {
-      let week : Week = {
-        season: 2018,
-        week: 16
-      }
-
-      let games: Game[];
-      console.log(gameService, games, week);
-      gameService.getWeekGames(week.season, week.week).subscribe(res => {
-        console.log(res);
-        games = res;
-      })
-
-      // expect(games.length).toBeGreaterThan(0);
-      expect(games).toBeTruthy();
-    }))
-  );
+  it('should get games upon instantiation', () => {
+    expect(mockGameService.getWeekGamesSpy).toHaveBeenCalled();
+  });
 });

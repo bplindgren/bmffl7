@@ -42,27 +42,27 @@
 
     <ng-container cdkColumnDef="winningpct">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>Win%</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.winningpct | number:'1.3-3' }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.winningpct | number:'0.3-3' }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="pointsfor">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>PF</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.pointsfor | number:'3.1-1' | noComma }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointsfor | number:'1.1-1' | noComma }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="pointsagainst">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>PA</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.pointsagainst | number:'3.1-1' | noComma }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointsagainst | number:'1.1-1' | noComma }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="pfpg">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>PF/G</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.pfpg | number:'2.1-1' | noComma }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pfpg | number:'1.1-1' | noComma }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="papg">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>PA/G</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.papg | number:'2.1-1' | noComma }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.papg | number:'1.1-1' | noComma }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="ppgdiff">

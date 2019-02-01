@@ -94,7 +94,6 @@ describe('TeamService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush({ data: ownerTeamStatsTestObj });
-
   })
 
   it('expects service to fetch all team\'s stats', () => {
@@ -107,7 +106,6 @@ describe('TeamService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush({ data: allTeamStatsTestObj });
-
   })
 
   it('expects service to fetch a season\'s teams', () => {
@@ -121,6 +119,10 @@ describe('TeamService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush({ data: seasonTeamsTestObj });
-
   })
+
+  afterEach(() => {
+    httpMock.verify();
+  });
+
 });
