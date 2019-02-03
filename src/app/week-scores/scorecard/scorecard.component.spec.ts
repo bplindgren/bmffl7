@@ -35,8 +35,4 @@ describe('ScorecardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should have away team with id 74', () => {
-    expect(component['game']['awayTeam']['id']).toEqual(74);
-  })
 });
