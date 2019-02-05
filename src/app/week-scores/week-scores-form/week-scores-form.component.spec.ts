@@ -85,7 +85,7 @@ describe('WeekScoresFormComponent', () => {
     expect(button['disabled']).toBeTruthy();
   });
 
-  it('isCurrent() returns correct true/false', () => {
+  it('isCurrent() method returns correct true/false', () => {
     component.originalSeason = 2018;
     component.originalWeek = 6;
     component.season = 2017;

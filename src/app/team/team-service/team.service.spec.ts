@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { Team } from '../../team';
 import { TeamService } from './team.service';
 import { SeasonStats } from '../../seasonStats';
+import { Record } from '../../record';
 
 import { allTeamsTestObj } from '../../test-objects/teams/allTeams';
 import { ownerTeamsTestObj } from '../../test-objects/teams/ownerTeams';
@@ -48,7 +49,7 @@ describe('TeamService', () => {
     let recordArray: Number[] = [6, 2, 0];
 
     // Get the 2016 Ricky Stanzis record at week 8
-    service.getTeamRecord(54, 8).subscribe((record: Number[]) => {
+    service.getTeamRecord(54, 8).subscribe((record: Record) => {
       expect(record['data'][0]).toBe(6);
       expect(record['data'][1]).toBe(2);
       expect(record['data'][2]).toBe(0);
