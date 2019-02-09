@@ -22,4 +22,9 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render an h3 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h3').innerHTML).toBe('News Articles');
+  })
 });

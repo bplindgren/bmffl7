@@ -24,10 +24,11 @@ export class StatCardGridListComponent implements OnInit {
   private statValues;
   private cardStats: string[] = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
 
+  // When component is initialized, show "Wins" as the initial stat
   ngOnInit() {
-    console.log(this.allTimeStats ,this.ownerTeams);
     this.getGraphData("Wins");
   }
+
 
   getCardStats(allTimeStats: AllTimeStats): Object {
     let cardStats = {
@@ -45,9 +46,11 @@ export class StatCardGridListComponent implements OnInit {
     return cardStats;
   }
 
+
   formatKey(str: string): string {
     return str.split("_").join(" ").split(" Percentage").join("%").split(" Per ").join("/");
   }
+
 
   getGraphData(stat: string): void {
     let statValues = this.ownerTeams.map(team =>

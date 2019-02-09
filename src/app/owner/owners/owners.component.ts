@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { OwnerService } from '../owner-service/owner.service';
-import { ActivatedRoute } from '@angular/router';
 import { OwnerCardComponent } from '../owner-card/owner-card.component';
 import { TeamService } from '../../team/team-service/team.service';
 import { OwnerCardConfig } from '../../ownerCardConfig';
@@ -16,15 +15,14 @@ import { AllTimeStats } from '../../allTimeStats';
   styleUrls: ['./owners.component.css']
 })
 export class OwnersComponent implements OnInit {
-  private allOwners: Owner[];
-  private allTeams: Team[];
-  private allTimeStats: AllTimeStats[];
-  private ownerCardConfigArray: OwnerCardConfig[];
+  public allOwners: Owner[];
+  public allTeams: Team[];
+  public allTimeStats: AllTimeStats[];
+  public ownerCardConfigArray: OwnerCardConfig[];
 
   constructor(
-    private ownerService: OwnerService,
-    private teamService: TeamService,
-    private route: ActivatedRoute) {
+    public ownerService: OwnerService,
+    public teamService: TeamService) {
   }
 
   ngOnInit() {

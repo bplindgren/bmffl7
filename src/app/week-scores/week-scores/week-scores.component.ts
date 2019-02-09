@@ -5,6 +5,7 @@ import { Week } from '../../week';
 import { MatCardModule } from '@angular/material/card';
 import { TeamService } from '../../team/team-service/team.service';
 import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'week-scores',
@@ -15,6 +16,7 @@ export class WeekScoresComponent implements OnInit {
   public season: number;
   public week: number;
   public games: Game[];
+  public sub: Subscription;
 
   constructor(public gameService: GameService) { }
 
@@ -60,8 +62,14 @@ export class WeekScoresComponent implements OnInit {
   }
 
   getGames(week: Week): void {
-    this.gameService.getWeekGames(week.season, week.week)
+    this.sub = this.gameService.getWeekGames(week.season, week.week)
       .subscribe((data: Game[]) => { this.games = data })
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
 }
