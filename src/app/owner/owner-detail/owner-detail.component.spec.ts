@@ -45,6 +45,6 @@ describe('OwnerDetailComponent', () => {
   });
 
   it('on instantiation should call getGraphData(\"Wins\")', () => {
-    spy = spyOn(component, getGraphData())
+
   });
 });
