@@ -1,26 +1,30 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 
+import { TeamService } from '../../team/team-service/team.service';
+import { MockTeamService } from '../../mocks/mockTeamService';
+
 import { ScorecardComponent } from './scorecard.component';
 import { MatCardModule } from '@angular/material/card';
-import { TeamService } from '../../team/team-service/team.service';
 import { RouterModule } from '@angular/router';
 import { TestGameObj } from '../../testGameObject'
 
 describe('ScorecardComponent', () => {
   let component: ScorecardComponent;
   let fixture: ComponentFixture<ScorecardComponent>;
+  let mockTeamService: MockTeamService;
 
   beforeEach(async(() => {
-    let httpClient: HttpClient;
-    let httpTestingController: HttpTestingController;
+    mockTeamService = new MockTeamService;
 
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule, MatCardModule, RouterModule ],
       declarations: [ ScorecardComponent ],
-      providers: [ TeamService ]
+      providers: [
+        { provide: TeamService, useValue: mockTeamService }
+      ]
     })
     .compileComponents();
   }));
@@ -36,7 +40,9 @@ describe('ScorecardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have away team with id 74', () => {
-    expect(component['game']['awayTeam']['id']).toEqual(74);
-  })
+  it('should make calls for team records', () => {
+    expect(mockTeamService.getTeamRecordSpy).toHaveBeenCalledWith(74, 13);
+    expect(mockTeamService.getTeamRecordSpy).toHaveBeenCalledWith(73, 13);
+  });
+
 });

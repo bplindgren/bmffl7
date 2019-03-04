@@ -1,10 +1,10 @@
 <mat-card>
   <div fxLayout="row wrap">
     <div class="team-names" fxFlex="90%">
-      <mat-card-content *ngIf="awayRecord"><a routerLink="{{ '/teams/' + game.awayTeam.id }}">{{ game.awayTeam.name }}</a> ({{ this.awayRecord.wins }}-{{ this.awayRecord.losses }}-{{ this.awayRecord.ties }})
+      <mat-card-content id="away-record" *ngIf="awayRecord"><a routerLink="{{ '/teams/' + game.awayTeam.id }}">{{ game.awayTeam.name }}</a> ({{ this.awayRecord.wins }}-{{ this.awayRecord.losses }}-{{ this.awayRecord.ties }})
         <p class="small-font"><a routerLink="{{ '/owners/' + game.awayTeam.owner.id }}">{{ game.awayTeam.owner.firstName }} {{ game.awayTeam.owner.lastInitial }}</a> </p>
       </mat-card-content>
-      <mat-card-content *ngIf="homeRecord"><a routerLink="{{ '/teams/' + game.homeTeam.id }}">{{ game.homeTeam.name }}</a> ({{ this.homeRecord.wins }}-{{ this.homeRecord.losses }}-{{ this.homeRecord.ties }})
+      <mat-card-content id="home-record" *ngIf="homeRecord"><a routerLink="{{ '/teams/' + game.homeTeam.id }}">{{ game.homeTeam.name }}</a> ({{ this.homeRecord.wins }}-{{ this.homeRecord.losses }}-{{ this.homeRecord.ties }})
         <p class="small-font"><a routerLink="{{ '/owners/' + game.homeTeam.owner.id }}">{{ game.homeTeam.owner.firstName }} {{ game.homeTeam.owner.lastInitial }}</a> </p>
       </mat-card-content>
     </div>

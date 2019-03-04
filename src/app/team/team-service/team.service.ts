@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Season } from '../../season';
 import { Team } from '../../team';
 import { SeasonStats } from '../../seasonStats';
+import { Record } from '../../record';
 
 @Injectable({ providedIn: 'root' })
 export class TeamService {
@@ -19,9 +20,9 @@ export class TeamService {
     )
   }
 
-  getTeamRecord(team: number, week: number): Observable<Number[]> {
+  getTeamRecord(team: number, week: number): Observable<Record> {
     const url = `${this.baseURL}` + '/teams/record/' + team + '/' + week;
-    return this.http.get<number[]>(url).pipe(
+    return this.http.get<Record>(url).pipe(
       tap(_ => console.log('teams records retrieved'))
     )
   }

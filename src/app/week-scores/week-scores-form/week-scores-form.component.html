@@ -15,20 +15,9 @@
     </div>
 
     <div id="score-buttons">
-      <button
-        id="scores-submit-btn"
-        class="btn btn-success"
-        (click)="emitWeek()">
-        View Scores
-      </button>
+      <button id="scores-submit-btn" class="btn btn-success" (click)="emitWeek()">View Scores</button>
 
-      <button
-        id="this-week-btn"
-        class="btn btn-primary"
-        [disabled]="current"
-        (click)="backToCurrent()">
-        Back To This Week
-      </button>
+      <button id="this-week-btn" class="btn btn-primary" [disabled]="current" (click)="backToCurrent()"> Back To This Week</button>
     </div>
   </div>
 </form>

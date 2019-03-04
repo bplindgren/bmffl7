@@ -1,7 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { GameService } from '../../game/game-service/game.service';
 import { Game } from '../../game';
 import { Week } from '../../week';
 
@@ -13,17 +11,14 @@ import { Week } from '../../week';
 export class WeekScoresFormComponent implements OnChanges {
   @Input() season : number;
   @Input() week : number;
-  private originalSeason : number;
-  private originalWeek : number;
-  private current : boolean = true;
-  private seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
-  private weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
+  public originalSeason : number;
+  public originalWeek : number;
+  public current : boolean = true;
+  public seasons : number[] = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+  public weeks : number[] = Array.apply(null, {length: 17}).map(Number.call, Number).splice(1);
   @Output() evtEmitterWeek: EventEmitter<Week> = new EventEmitter();
 
-  constructor(
-    private gameService: GameService,
-    private router: Router) {
-  }
+  constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
     this.originalSeason = this.season;

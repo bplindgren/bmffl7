@@ -43,4 +43,8 @@ describe('OwnerDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('on instantiation should call getGraphData(\"Wins\")', () => {
+
+  });
 });

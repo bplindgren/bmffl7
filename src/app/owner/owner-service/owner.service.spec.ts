@@ -109,4 +109,8 @@ describe('OwnerService', () => {
     req.flush({ data: ownerAllTimeStats });
   })
 
+  afterEach(() => {
+    httpMock.verify();
+  });
+
 });
