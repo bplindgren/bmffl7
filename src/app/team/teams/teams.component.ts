@@ -17,7 +17,7 @@ export class TeamsComponent implements OnInit {
   private allTeams: SeasonStats[];
   private displayedTeams: SeasonStats[];
   public currentDisplay: string = "allTeams";
-  years: string[] = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
+  // years: string[] = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
 
   constructor(
     private teamService: TeamService,
@@ -26,11 +26,12 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit() {
     this.teamService.getAllTeamsStatsView().subscribe(teams => {
-      this.allTeams = this.sortTeams(teams);
+      // this.allTeams = this.sortTeams(teams, "id");
+      this.allTeams = teams;
       this.displayedTeams = this.allTeams;
     })
-    this.ownerService.getAllOwners().subscribe(res => {
-      this.owners = res;
+    this.ownerService.getAllOwners().subscribe(owners => {
+      this.owners = owners;
     })
   }
 
@@ -45,7 +46,7 @@ export class TeamsComponent implements OnInit {
 
   getTeamsByOwner(e: string): void {
     this.teamService.getOwnerTeamsStatsView(e["value"]).subscribe(teams => {
-      this.displayedTeams = this.sortTeams(teams);
+      this.displayedTeams = this.sortTeams(teams, "id");
     })
   }
 
@@ -56,13 +57,13 @@ export class TeamsComponent implements OnInit {
   getTeamsBySeason(e: string): void {
     let id = +e["value"] - 2010;
     this.teamService.getSeasonTeams(id).subscribe(teams => {
-      this.displayedTeams = this.sortTeams(teams);
+      this.displayedTeams = this.sortTeams(teams, "name");
     })
   }
 
-  sortTeams(teams: SeasonStats[]): SeasonStats[] {
+  sortTeams(teams: SeasonStats[], prop: string): SeasonStats[] {
     return teams.sort((a,b) =>
-      (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0));
+      (a[prop] > b[prop]) ? 1 : ((b[prop] > a[prop]) ? -1 : 0));
   }
 
 }

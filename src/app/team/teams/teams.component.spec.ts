@@ -11,13 +11,22 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
 
+import { TeamService } from '../../team/team-service/team.service';
+import { MockTeamService } from '../../mocks/mockTeamService';
+import { GameService } from '../../game/game-service/game.service';
+import { MockOwnerService } from '../../mocks/mockOwnerService';
+
 describe('TeamsComponent', () => {
   let component: TeamsComponent;
   let fixture: ComponentFixture<TeamsComponent>;
+  let mockTeamService: MockTeamService;
+  let mockOwnerService: MockOwnerService;
 
   beforeEach(async(() => {
     let httpClient: HttpClient;
     let httpTestingController: HttpTestingController;
+    mockTeamService = new MockTeamService();
+    mockOwnerService = new MockOwnerService();
 
     TestBed.configureTestingModule({
       imports: [
@@ -28,7 +37,11 @@ describe('TeamsComponent', () => {
         MatButtonToggleModule,
         MatSelectModule
       ],
-      declarations: [ TeamsComponent ]
+      declarations: [ TeamsComponent ],
+      providers: [
+        { provide: TeamService, useValue: mockTeamService },
+        { provide: GameService, useValue: mockOwnerService }
+      ]
     })
     .compileComponents();
   }));
@@ -42,4 +55,13 @@ describe('TeamsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should fetch all teams on instantiation', () => {
+    expect(mockTeamService.getAllTeamsStatsViewSpy).toHaveBeenCalled();
+  });
+
+  xit('should fetch all owners on instantiation', () => {
+    expect(mockOwnerService.getAllOwnersSpy).toHaveBeenCalled();
+  });
+
 });
