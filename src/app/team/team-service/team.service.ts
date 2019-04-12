@@ -29,7 +29,6 @@ export class TeamService {
 
   getOwnerTeams(ownerID: number): Observable<Team[]> {
     const url = `${this.baseURL}` + '/teams/owner/' + ownerID;
-    console.log(url);
     return this.http.get<Team[]>(url).pipe(
       tap(_ => console.log('owner teams received'))
     )

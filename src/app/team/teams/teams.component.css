@@ -1,7 +1,11 @@
 .pad-group {
-  padding: 20px 0px 10px 0px;
+  padding: 20px 0px 0px 0px;
 }
 
 mat-form-field {
   padding-left: 40px;
+}
+
+mat-form-field-wrapper {
+  padding: 0px;
 }

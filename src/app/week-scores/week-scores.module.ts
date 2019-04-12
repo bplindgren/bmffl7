@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { WeekScoresRoutingModule } from './week-scores-routing.module';
 import { WeekScoresComponent } from './week-scores/week-scores.component';
 import { WeekScoresFormComponent } from './week-scores-form/week-scores-form.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
-import { WeekScoresRoutingModule } from './week-scores-routing.module';
 import { RouterModule } from '@angular/router';
 
 import { MatCardModule } from '@angular/material/card';
