@@ -48,7 +48,7 @@ describe('WeekScoresFormComponent', () => {
     component.week = 6;
 
     // spy on the event emitter
-    spyOn(component.evtEmitterWeek, 'emit');
+    // spyOn(component.evtEmitterWeek, 'emit');
 
     // trigger the click
     const nativeElement: HTMLElement = fixture.nativeElement;
@@ -71,7 +71,7 @@ describe('WeekScoresFormComponent', () => {
     const w: Week = { season: component.originalSeason, week: component.originalWeek };
 
     // spy on the event emitter
-    spyOn(component.evtEmitterWeek, 'emit');
+    // spyOn(component.evtEmitterWeek, 'emit');
 
     // expect the button to emit an event
     const nativeElement: HTMLElement = fixture.nativeElement;

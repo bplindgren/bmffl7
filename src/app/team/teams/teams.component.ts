@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Team } from '../../team';
 import { TeamService } from '../team-service/team.service';
 import { TeamsTableComponent } from '../teams-table/teams-table.component';
@@ -17,7 +17,9 @@ export class TeamsComponent implements OnInit {
   private allTeams: SeasonStats[];
   private displayedTeams: SeasonStats[];
   public currentDisplay: string = "allTeams";
-  // years: string[] = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
+
+  @ViewChild("ownerButton") ownerMatToggle: ElementRef;
+  years: string[] = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
 
   constructor(
     private teamService: TeamService,
@@ -26,13 +28,17 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit() {
     this.teamService.getAllTeamsStatsView().subscribe(teams => {
-      // this.allTeams = this.sortTeams(teams, "id");
       this.allTeams = teams;
+      // this.allTeams = this.sortTeams(teams, "id");
       this.displayedTeams = this.allTeams;
     })
     this.ownerService.getAllOwners().subscribe(owners => {
       this.owners = owners;
     })
+  }
+
+  ngAfterViewInit() {
+    console.log(`ngAfterViewInit - ownerButton is ${this.ownerMatToggle}`);
   }
 
   getAllTeams(): void {
@@ -45,8 +51,10 @@ export class TeamsComponent implements OnInit {
   }
 
   getTeamsByOwner(e: string): void {
+    console.log(e);
     this.teamService.getOwnerTeamsStatsView(e["value"]).subscribe(teams => {
-      this.displayedTeams = this.sortTeams(teams, "id");
+      // this.displayedTeams = this.sortTeams(teams, "id");
+      this.displayedTeams = teams;
     })
   }
 

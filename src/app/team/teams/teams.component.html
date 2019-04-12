@@ -1,14 +1,14 @@
-<h2 *ngIf="displayedTeams">BMFFL Teams</h2>
+<h2 id="id_1" *ngIf="displayedTeams">BMFFL Teams</h2>
 
 <div *ngIf="displayedTeams" class="pad-group">
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="allTeams">
     <mat-button-toggle value="allTeams" (change)="getAllTeams($event)">All Teams</mat-button-toggle>
-    <mat-button-toggle value="teamsByOwner" (change)="showOwnerForm()">Teams By Owner</mat-button-toggle>
-    <mat-button-toggle value="teamsBySeason" (change)="showSeasonForm()">Teams By Season</mat-button-toggle>
+    <mat-button-toggle id="ownerButton" value="teamsByOwner" (change)="showOwnerForm()">Teams By Owner</mat-button-toggle>
+    <mat-button-toggle id="seasonsButton" value="teamsBySeason" (change)="showSeasonForm()">Teams By Season</mat-button-toggle>
   </mat-button-toggle-group>
 
-  <mat-form-field *ngIf="currentDisplay === 'teamsByOwner'">
-    <mat-select placeholder="Select Owner " (selectionChange)="getTeamsByOwner($event)">
+  <mat-form-field id="ownerMatFormField" *ngIf="currentDisplay === 'teamsByOwner'">
+    <mat-select id="ownerSelect" placeholder="Select Owner " (selectionChange)="getTeamsByOwner($event)">
       <mat-option *ngFor="let owner of owners" [value]="owner.id">
         {{ owner.firstName + " " + owner.lastInitial }}
       </mat-option>
@@ -16,7 +16,7 @@
   </mat-form-field>
 
   <mat-form-field *ngIf="currentDisplay === 'teamsBySeason'">
-    <mat-select placeholder="Select Season " (selectionChange)="getTeamsBySeason($event)">
+    <mat-select id="seasonSelect" placeholder="Select Season " (selectionChange)="getTeamsBySeason($event)">
       <mat-option *ngFor="let year of years" [value]="year">
         {{ year }}
       </mat-option>
