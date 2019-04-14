@@ -1,22 +1,29 @@
-mat-card {
-  background-color: #006600;
-}
-
 #header-component {
   min-width: 600px;
   margin: auto;
-  /* border: 2px solid white; */
   text-align: center;
-  padding: 15px;
+  border-radius: 0px;
+}
+
+mat-card {
+  background-color: #006600;
+  padding: 10px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+mat-card-title {
+  padding: 10px 0px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#buttons-bar {
+  background-color: #673AB7;
 }
 
 .button-link {
   text-decoration: none;
   color: white;
-}
-
-.resized-button {
-  height: 36px;
 }
 
 mat-card-title {

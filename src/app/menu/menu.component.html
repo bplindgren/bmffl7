@@ -1,24 +1,24 @@
 <mat-card id="header-component">
-  <mat-card-title>
-    BMFFL League and Stats Website
+  <mat-card-title id="official-site">
+    THE OFFICIAL SITE OF THE BMFFL - THE BEST FANTASY FOOTBAL LEAGUE IN THE WORLD
   </mat-card-title>
-
-  <mat-card-content>
-    <button mat-raised-button
+  
+  <mat-card-content id="buttons-bar">
+    <button mat-flat-button
       color="primary"
       class="resized-button"
       routerLink="/">
       Home
     </button>
 
-    <button mat-raised-button
+    <button mat-flat-button
       color="primary"
       class="resized-button"
       routerLink="scores">
       Scores
     </button>
 
-    <button mat-raised-button
+    <button mat-flat-button
       color="primary"
       [matMenuTriggerFor]="ownersMenu">
       Owners
@@ -42,7 +42,7 @@
         {{ owner.firstName + ' ' + owner.lastInitial}}</button>
     </mat-menu>
 
-    <button mat-raised-button
+    <button mat-flat-button
       color="primary"
       [matMenuTriggerFor]="seasonsMenu">
       Seasons
@@ -54,20 +54,20 @@
         {{ season.year }}</button>
     </mat-menu>
 
-    <button mat-raised-button
+    <button mat-flat-button
       color="primary"
       class="resized-button"
       routerLink="/teams">Teams
     </button>
 
-    <button mat-raised-button
+    <button mat-flat-button
       color="primary"
       class="resized-button"
       routerLink="/matchup">
       Matchups
     </button>
 
-    <!-- <button mat-raised-button
+    <!-- <button mat-flat-button
       color="primary"
       class="resized-button"
       routerLink="/records">Records
