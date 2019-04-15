@@ -5,16 +5,21 @@
   border-radius: 0px;
 }
 
-mat-card {
-  background-color: #006600;
-  padding: 10px 0px 0px 0px;
-  border-radius: 0px;
+#top-bar {
+  padding-bottom: 0px;
 }
 
 mat-card-title {
   padding: 10px 0px;
   font-size: 12px;
   font-weight: bold;
+  color: white;
+}
+
+mat-card {
+  background-color: #006600;
+  padding: 10px 0px 0px 0px;
+  border-radius: 0px;
 }
 
 #buttons-bar {
@@ -23,9 +28,5 @@ mat-card-title {
 
 .button-link {
   text-decoration: none;
-  color: white;
-}
-
-mat-card-title {
   color: white;
 }
