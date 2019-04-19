@@ -1,28 +1,16 @@
 <mat-card id="header-component">
-  <mat-card-title>
-    BMFFL League and Stats Website
-  </mat-card-title>
+  <div class="top-bar">
+    <mat-card-title id="official-site">
+      THE OFFICIAL SITE OF THE BMFFL - THE BEST FANTASY FOOTBAL LEAGUE IN THE WORLD
+    </mat-card-title>
+  </div>
 
-  <mat-card-content>
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/">
-      Home
-    </button>
+  <mat-card-content id="buttons-bar">
+    <button mat-flat-button color="primary" routerLink="/">Home</button>
+    <button mat-flat-button color="primary" routerLink="scores">Scores</button>
 
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="scores">
-      Scores
-    </button>
+    <button mat-flat-button color="primary" [matMenuTriggerFor]="ownersMenu">Owners</button>
 
-    <button mat-raised-button
-      color="primary"
-      [matMenuTriggerFor]="ownersMenu">
-      Owners
-    </button>
     <mat-menu #ownersMenu="matMenu" overlapTrigger=false>
       <button mat-menu-item routerLink='/owners'>View All Owners</button>
       <button mat-menu-item [matMenuTriggerFor]="upstairs">Upstairs</button>
@@ -42,11 +30,8 @@
         {{ owner.firstName + ' ' + owner.lastInitial}}</button>
     </mat-menu>
 
-    <button mat-raised-button
-      color="primary"
-      [matMenuTriggerFor]="seasonsMenu">
-      Seasons
-    </button>
+    <button mat-flat-button color="primary" [matMenuTriggerFor]="seasonsMenu">Seasons</button>
+
     <mat-menu #seasonsMenu="matMenu" overlapTrigger=false>
       <button mat-menu-item routerLink='/seasons'>View All Seasons</button>
       <button mat-menu-item *ngFor="let season of bmfflSeasons"
@@ -54,23 +39,10 @@
         {{ season.year }}</button>
     </mat-menu>
 
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/teams">Teams
-    </button>
-
-    <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/matchup">
-      Matchups
-    </button>
-
-    <!-- <button mat-raised-button
-      color="primary"
-      class="resized-button"
-      routerLink="/records">Records
-    </button> -->
+    <button mat-flat-button color="primary" routerLink="/teams">Teams</button>
+    <button mat-flat-button color="primary" routerLink="/matchup">Matchups</button>
+    <!-- <button mat-flat-button color="primary" routerLink="/records">Records</button> -->
+    <button mat-flat-button id="float-right" color="primary" routerLink="/user/login">Login</button>
+    <button mat-flat-button id="float-right" color="primary" routerLink="/user/register">Register</button>
   </mat-card-content>
 </mat-card>

@@ -6,7 +6,8 @@ import { WeekScoresModule } from './week-scores/week-scores.module';
 import { OwnerModule } from './owner/owner.module';
 import { SeasonModule } from './season/season.module';
 import { TeamModule } from './team/team.module';
-import { MatchupModule} from './matchup/matchup.module';
+import { MatchupModule } from './matchup/matchup.module';
+import { UserModule } from './user/user.module';
 
 import { HomeComponent } from './home/home.component'
 import { RecordsComponent } from './records/records.component';
@@ -34,7 +35,11 @@ export const routes: Routes = [
     path: 'matchup',
     loadChildren: './matchup/matchup.module#MatchupModule'
   },
-  { path: 'records', component: RecordsComponent }
+  // { path: 'records', component: RecordsComponent }
+  {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule'
+  }
 ]
 
 @NgModule({
