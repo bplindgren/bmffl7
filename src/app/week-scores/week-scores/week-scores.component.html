@@ -2,11 +2,11 @@
 
 <week-scores-form
   [season]="season"
-  [week]="week"
-  (evtEmitterWeek)="getGames($event)">
+  [week]="weekNum"
+  (evtEmitterWeek)="updateSeasonWeekNum($event)">
 </week-scores-form>
 
-<div *ngIf="games">
-  <scoreboard [games]="games"></scoreboard>
-  <p id="no-games" *ngIf="!games.length">No games scheduled yet for this week!</p>
+<div *ngIf="season && weekNum">
+  <scoreboard [season]="season" [week]="weekNum"></scoreboard>
+  <!-- <p id="no-games" *ngIf="!games.length">No games scheduled yet for this week!</p> -->
 </div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Game } from '../../game';
+import { GameService } from '../../game/game-service/game.service';
 
 @Component({
   selector: 'scoreboard',
@@ -7,14 +8,23 @@ import { Game } from '../../game';
   styleUrls: ['./scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit, OnChanges {
-  @Input() games: Game[];
+  @Input() season: number;
+  @Input() week: number;
+
+  constructor(public gameService: GameService) { }
 
   ngOnInit() {
-    this.games = this.sortGames(this.games);
+    console.log(this.season, this.week)
+    this.getGames()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.games = this.sortGames(changes['games']['currentValue']);
+    this.getGames();
+  }
+
+  getGames(): void {
+    this.gameService.getWeekGames(this.season, this.week)
+      .subscribe((data: Game[]) => { this.games = data })
   }
 
   sortGames(games: Game[]): Game[] {
