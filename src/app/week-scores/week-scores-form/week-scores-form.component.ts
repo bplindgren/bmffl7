@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Game } from '../../game';
 import { Week } from '../../week';
@@ -8,7 +8,7 @@ import { Week } from '../../week';
   templateUrl: './week-scores-form.component.html',
   styleUrls: ['./week-scores-form.component.css']
 })
-export class WeekScoresFormComponent implements OnChanges {
+export class WeekScoresFormComponent implements OnInit {
   @Input() season : number;
   @Input() week : number;
   public originalSeason : number;
@@ -20,10 +20,9 @@ export class WeekScoresFormComponent implements OnChanges {
 
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnInit() {
     this.originalSeason = this.season;
     this.originalWeek = this.week;
-    this.current = this.isCurrent();
   }
 
   emitWeek(): void {

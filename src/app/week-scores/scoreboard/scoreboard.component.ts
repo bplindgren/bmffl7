@@ -10,11 +10,11 @@ import { GameService } from '../../game/game-service/game.service';
 export class ScoreboardComponent implements OnInit, OnChanges {
   @Input() season: number;
   @Input() week: number;
+  public games: Game[];
 
   constructor(public gameService: GameService) { }
 
   ngOnInit() {
-    console.log(this.season, this.week)
     this.getGames()
   }
 
@@ -24,7 +24,7 @@ export class ScoreboardComponent implements OnInit, OnChanges {
 
   getGames(): void {
     this.gameService.getWeekGames(this.season, this.week)
-      .subscribe((data: Game[]) => { this.games = data })
+      .subscribe((data: Game[]) => { this.games = this.sortGames(data) })
   }
 
   sortGames(games: Game[]): Game[] {
