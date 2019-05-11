@@ -18,6 +18,6 @@
     </div>
   </mat-tab>
   <mat-tab label="Playoff Games">
-    <scoreboard *ngIf="playoffGames" [games]="playoffGames"></scoreboard>
+    <scoreboard *ngIf="year" [season]="year" [week]=0></scoreboard>
   </mat-tab>
 </mat-tab-group>
