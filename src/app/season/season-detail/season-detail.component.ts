@@ -16,7 +16,6 @@ export class SeasonDetailComponent implements OnInit  {
   private teams: SeasonStats[];
   upstairsTeams: SeasonStats[];
   downstairsTeams: SeasonStats[];
-  playoffGames: Game[];
   year: number;
   currentDivision: string = 'upstairs';
 
@@ -31,7 +30,6 @@ export class SeasonDetailComponent implements OnInit  {
     let seasonId = +this.route.params["value"]["id"];
     this.year = (+this.route.params["value"]["id"] + 2010);
     this.setTeams(seasonId);
-    this.setGames(seasonId);
   }
 
   setTeams(seasonId: number): void {
@@ -53,12 +51,6 @@ export class SeasonDetailComponent implements OnInit  {
     )
   }
 
-  setGames(seasonId: number): void {
-    this.gameService.getPlayoffGames(seasonId).subscribe(games => {
-      this.playoffGames = games;
-    })
-  }
-
   changeDivision(e: String): void {
     this.currentDivision = e["value"];
   }
@@ -69,7 +61,6 @@ export class SeasonDetailComponent implements OnInit  {
       this.year = 2010 + (+(url[0]['path']));
       let seasonId = +(url[0]["path"]);
       this.setTeams(seasonId);
-      this.setGames(seasonId);
     })
   }
 

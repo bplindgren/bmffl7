@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GameService } from '../../game/game-service/game.service';
 import { Game } from '../../game';
 import { Week } from '../../week';
 import { MatCardModule } from '@angular/material/card';
@@ -14,11 +13,9 @@ import { Subscription } from 'rxjs';
 })
 export class WeekScoresComponent implements OnInit {
   public season: number;
-  public week: number;
+  public weekNum: number;
   public games: Game[];
   public sub: Subscription;
-
-  constructor(public gameService: GameService) { }
 
   ngOnInit() {
     // Get Season
@@ -32,14 +29,7 @@ export class WeekScoresComponent implements OnInit {
     let today = Math.ceil((new Date().getTime()) / 86400000);
 
     let dayOfYear = today - yearFirstDay
-    this.week = this.getWeek(dayOfYear)
-
-    // Get week games
-    let w : Week = {
-      season: this.season,
-      week: this.week
-    }
-    this.getGames(w);
+    this.weekNum = this.getWeek(dayOfYear)
   }
 
   getYear(): number {
@@ -61,9 +51,9 @@ export class WeekScoresComponent implements OnInit {
     }
   }
 
-  getGames(week: Week): void {
-    this.sub = this.gameService.getWeekGames(week.season, week.week)
-      .subscribe((data: Game[]) => { this.games = data })
+  updateSeasonWeekNum(week: Week): void {
+    this.season = week.season
+    this.weekNum = week.week
   }
 
   ngOnDestroy() {
