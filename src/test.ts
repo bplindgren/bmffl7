@@ -16,8 +16,9 @@ getTestBed().initTestEnvironment(
 );
 // Then we find all the tests.
 // const context = require.context('./', true, /\.spec\.ts$/);
-// const context = require.context('./', true, /week-scores.component\.spec\.ts$/);
-const context = require.context('./', true, /teams.component\.spec\.ts$/);
+const context = require.context('./', true, /week-scores-form.component\.spec\.ts$/);
+// const context = require.context('./', true, /scoreboard.component\.spec\.ts$/);
+// const context = require.context('./', true, /teams.component\.spec\.ts$/);
 
 // And load the modules.
 context.keys().map(context);

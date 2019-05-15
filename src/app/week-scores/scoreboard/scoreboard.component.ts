@@ -15,25 +15,30 @@ export class ScoreboardComponent implements OnChanges {
   constructor(public gameService: GameService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.week !== 0 ? this.getGames() : this.getPlayoffGames()
+    console.log(changes);
+    this.week !== 0 ? this.getWeekGames() : this.getPlayoffGames()
   }
 
-  getGames(): void {
+  getWeekGames(): void {
     this.gameService.getWeekGames(this.season, this.week)
-      .subscribe((data: Game[]) => { this.games = this.sortGames(data) })
+      .subscribe((data: Game[]) => {
+        this.games = data
+        // this.sortGames()
+      });
   }
 
   getPlayoffGames(): void {
     this.gameService.getPlayoffGames(this.season-2010).subscribe(games => {
-      this.games = games;
+      this.games = games
+      // this.sortGames()
     })
   }
 
-  sortGames(games: Game[]): Game[] {
-    if (games !== undefined) {
-      return games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+  sortGames() {
+    if (this.games !== undefined) {
+      this.games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
     } else {
-      return games;
+      return null;
     }
   }
 

@@ -19,37 +19,20 @@ import { WeekScoresFormComponent } from '../week-scores-form/week-scores-form.co
 import { ScoreboardComponent } from '../scoreboard/scoreboard.component';
 import { ScorecardComponent } from '../scorecard/scorecard.component';
 
-import { GameService } from '../../game/game-service/game.service';
-import { MockGameService } from '../../mocks/mockGameService.service';
-
 describe('WeekScoresComponent', () => {
   let component: WeekScoresComponent;
   let fixture: ComponentFixture<WeekScoresComponent>;
-  let mockGameService: MockGameService;
 
   beforeEach(async(() => {
-    mockGameService = new MockGameService();
-
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
-        HttpClientTestingModule,
-        RouterTestingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterModule,
-        MatCardModule,
-        MatSelectModule,
-        MatButtonModule
+        BrowserAnimationsModule, HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule, RouterModule, MatCardModule, MatSelectModule, MatButtonModule
       ],
       declarations: [
         WeekScoresComponent,
         WeekScoresFormComponent,
         ScoreboardComponent,
         ScorecardComponent
-      ],
-      providers: [
-        { provide: GameService, useValue: mockGameService }
       ]
     })
     .compileComponents();
@@ -64,6 +47,11 @@ describe('WeekScoresComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('getYear() should return 2019', () => {
+    let year: number = component.getYear();
+    expect(year).toBe(2019);
+  })
 
   it('getWeek() should return last week of previous season if the next season is >4 weeks away', () => {
     let dayOfYear = 1;
@@ -90,7 +78,4 @@ describe('WeekScoresComponent', () => {
     expect(component.getWeek(dayOfYear8)).toBe(16);
   });
 
-  it('should get games upon instantiation', () => {
-    expect(mockGameService.getWeekGamesSpy).toHaveBeenCalled();
-  });
 });

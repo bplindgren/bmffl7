@@ -17,8 +17,6 @@ export class WeekScoresComponent implements OnInit {
   public games: Game[];
   public sub: Subscription;
 
-  constructor() { }
-
   ngOnInit() {
     // Get Season
     this.season = this.getYear();
