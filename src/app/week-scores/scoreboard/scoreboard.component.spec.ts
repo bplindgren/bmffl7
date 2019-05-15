@@ -50,32 +50,30 @@ describe('ScoreboardComponent', () => {
     expect(component.games.length).toBeGreaterThan(0);
   });
 
-  it('should getGames()', () => {
-    expect(mockGameService.getWeekGamesSpy).toHaveBeenCalledWith(2018, 13);
-  })
-
-  it('sortGames() should sort games', () => {
-    component.getGames(2014, 5)
+  it('should get games when week is changed', () => {
+    component = fixture.debugElement.componentInstance;
+    component.season = 2014;
+    component.week = 5;
     fixture.detectChanges();
+    component.ngOnChanges({
+      season: new SimpleChange(2018, 2014, true),
+      week: new SimpleChange(5, 13, true)
+    });
 
-    component.sortGames();
-    expect(component.games).toEqual(recentGames);
+    expect(mockGameService.getWeekGamesSpy).toHaveBeenCalled();
   });
 
   it('should get playoff games', () => {
-    let newSeason: number = 2014;
-    let newWeek: number = 0;
-
-    component.ngOnChanges({
-      season: new SimpleChange(null, newSeason, true),
-      week: new SimpleChange(null, newWeek, true)
-    })
-
-    // component.ngOnChanges(changes);
-    console.log("component", component)
-
+    component = fixture.debugElement.componentInstance;
+    component.season = 2014;
+    component.week = 0;
     fixture.detectChanges();
-    expect(mockGameService.getPlayoffGamesSpy).toHaveBeenCalledWith(2014);
+    component.ngOnChanges({
+      season: new SimpleChange(2018, 2014, true),
+      week: new SimpleChange(5, 0, true)
+    });
+
+    expect(mockGameService.getPlayoffGamesSpy).toHaveBeenCalled();
   })
 
 });

@@ -20,26 +20,21 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   getWeekGames(): void {
-    this.gameService.getWeekGames(this.season, this.week)
-      .subscribe((data: Game[]) => {
-        this.games = data
-        // this.sortGames()
-      });
+    this.gameService.getWeekGames(this.season, this.week).subscribe((res: Game[]) => {
+      console.log(res)
+      this.games = res
+    });
   }
 
   getPlayoffGames(): void {
-    this.gameService.getPlayoffGames(this.season-2010).subscribe(games => {
-      this.games = games
-      // this.sortGames()
+    this.gameService.getPlayoffGames(this.season-2010).subscribe((res: Game[]) => {
+      this.games = res
     })
   }
 
-  sortGames() {
-    if (this.games !== undefined) {
-      this.games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
-    } else {
-      return null;
-    }
+  sortGames(games: Game[]) {
+    console.log(games)
+    return games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
   }
 
 }
