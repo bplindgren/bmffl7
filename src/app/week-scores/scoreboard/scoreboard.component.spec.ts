@@ -54,11 +54,11 @@ describe('ScoreboardComponent', () => {
     component = fixture.debugElement.componentInstance;
     component.season = 2014;
     component.week = 5;
-    fixture.detectChanges();
     component.ngOnChanges({
       season: new SimpleChange(2018, 2014, true),
       week: new SimpleChange(5, 13, true)
     });
+    fixture.detectChanges();
 
     expect(mockGameService.getWeekGamesSpy).toHaveBeenCalled();
   });
@@ -67,13 +67,13 @@ describe('ScoreboardComponent', () => {
     component = fixture.debugElement.componentInstance;
     component.season = 2014;
     component.week = 0;
-    fixture.detectChanges();
     component.ngOnChanges({
       season: new SimpleChange(2018, 2014, true),
       week: new SimpleChange(5, 0, true)
     });
+    fixture.detectChanges();
 
     expect(mockGameService.getPlayoffGamesSpy).toHaveBeenCalled();
-  })
+  });
 
 });
