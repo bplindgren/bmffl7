@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,7 +25,7 @@ import { MatTableModule } from '@angular/material/table';
     MenuComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
+    LayoutModule, BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     HttpModule, HttpClientModule, ChartsModule, AppRoutingModule, MatCardModule,
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
     MatGridListModule, MatMenuModule, MatTableModule

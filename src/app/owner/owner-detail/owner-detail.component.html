@@ -4,7 +4,7 @@
   <stat-card-grid-list *ngIf="allTimeStats && ownerTeams"
     [allTimeStats]="allTimeStats"
     [ownerTeams]="ownerTeams"
-    (evtEmitterStat)=setStat($event)>
+    (evtEmitterStat)=updateGrid($event)>
   </stat-card-grid-list>
 </div>
 

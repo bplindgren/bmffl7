@@ -5,6 +5,7 @@ mat-card-title {
 mat-card {
   padding-bottom: 40px;
   width: 200px;
+  border: 2px solid #C8C8C8;
 }
 
 p {

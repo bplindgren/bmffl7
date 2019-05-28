@@ -29,7 +29,6 @@ export class StatCardGridListComponent implements OnInit {
     this.getGraphData("Wins");
   }
 
-
   getCardStats(allTimeStats: AllTimeStats): Object {
     let cardStats = {
       Wins: allTimeStats["wins"],

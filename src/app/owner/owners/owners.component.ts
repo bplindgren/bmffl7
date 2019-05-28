@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OwnerService } from '../owner-service/owner.service';
 import { OwnerCardComponent } from '../owner-card/owner-card.component';
 import { TeamService } from '../../team/team-service/team.service';
@@ -19,13 +20,28 @@ export class OwnersComponent implements OnInit {
   public allTeams: Team[];
   public allTimeStats: AllTimeStats[];
   public ownerCardConfigArray: OwnerCardConfig[];
+  public size: Observable<string>;
+  public numCols: number;
 
   constructor(
     public ownerService: OwnerService,
-    public teamService: TeamService) {
+    public teamService: TeamService,
+    public breakpointObserver: BreakpointObserver) {
   }
 
   ngOnInit() {
+    this.breakpointObserver.observe([
+      '(max-width: 991px)',
+      '(min-width: 992px)'
+    ]).subscribe(result => {
+      if (result.breakpoints['(max-width: 991px)']) {
+        this.numCols = 3
+      }
+      if (result.breakpoints['(min-width: 992px)']) {
+        this.numCols = 4
+      }
+    });
+
     this.getData().subscribe(responseList => {
       this.allOwners = responseList[0];
       this.allTimeStats = responseList[1];

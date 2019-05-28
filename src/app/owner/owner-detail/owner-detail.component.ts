@@ -44,9 +44,7 @@ export class OwnerDetailComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.route.url.subscribe(url => {
       this.ownerService.getOwner(+(url[1]))
-        // .pipe(delay(1))
         .subscribe(owner => {
-          this.yAxis = "Wins";
           this.owner = owner;
           this.getData(owner.id);
          })
@@ -65,7 +63,7 @@ export class OwnerDetailComponent implements OnInit, AfterViewInit {
     })
   }
 
-  setStat(arr: Array<any>): void {
+  updateGrid(arr: Array<any>): void {
     this.stat = arr[0];
     this.yAxis = arr[1];
   }
