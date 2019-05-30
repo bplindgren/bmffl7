@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="4" gutterSize="20px" *ngIf="allTimeStats">
+<mat-grid-list [cols]="4" gutterSize="20px" *ngIf="allTimeStats && statValues">
   <mat-grid-tile *ngFor="let cardStat of cardStats">
     <stat-card [stat]=formatKey(cardStat) [value]="statValues[cardStat]" (click)="getGraphData(cardStat)"></stat-card>
   </mat-grid-tile>

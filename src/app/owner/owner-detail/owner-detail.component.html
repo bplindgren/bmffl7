@@ -1,10 +1,10 @@
 <h2 *ngIf="owner">{{ owner.firstName + " " + owner.lastInitial }}</h2>
 
-<div id="left-col">
-  <stat-card-grid-list *ngIf="allTimeStats && ownerTeams"
-    [allTimeStats]="allTimeStats"
-    [ownerTeams]="ownerTeams"
-    (evtEmitterStat)=updateGrid($event)>
+<div id="left-col" *ngIf="owner">
+  <stat-card-grid-list
+    [ownerId]="owner.id"
+    (evtEmitterStat)=updateGrid($event)
+    (evtEmitterTeams)=updateTeams($event)>
   </stat-card-grid-list>
 </div>
 

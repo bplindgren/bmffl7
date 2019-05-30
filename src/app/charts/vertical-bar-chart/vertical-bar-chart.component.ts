@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, SimpleChange, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @Component({
@@ -6,7 +6,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   templateUrl: './vertical-bar-chart.component.html',
   styleUrls: ['./vertical-bar-chart.component.css']
 })
-export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChanges {
+export class VerticalBarChartComponent implements OnInit, OnChanges {
   @Input() data: any[];
   @Input() yAxis: string;
   @ViewChild("chart") chart: ElementRef;
@@ -51,7 +51,6 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     if (changes['data']) {
       this.updateData(changes);
     }
@@ -59,10 +58,6 @@ export class VerticalBarChartComponent implements OnInit, AfterViewInit, OnChang
       this.updateLabels(changes)
     }
     this.initialized = true;
-  }
-
-  ngAfterViewInit() {
-    console.log(this.chart)
   }
 
 }

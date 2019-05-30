@@ -6,14 +6,15 @@ h2 {
   width: 50%;
   float: left;
   padding: 20px;
-  height: 400px;
+  height: auto;
+  height: 360px;
   /* border: 2px solid green; */
 }
 
 #right-col {
   width: 50%;
   float: right;
-  height: 400px;
+  height: 360px;
   /* border: 2px solid blue; */
 }
 
