@@ -1,11 +1,8 @@
-import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
-import { startWith, tap, delay } from 'rxjs/operators';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
-import { TeamService } from '../../team/team-service/team.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
-import { Team } from '../../team';
 import { SeasonStats } from '../../seasonStats';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -18,7 +15,7 @@ import { AllTimeStats } from '../../allTimeStats';
   templateUrl: './owner-detail.component.html',
   styleUrls: ['./owner-detail.component.css']
 })
-export class OwnerDetailComponent implements OnInit, AfterViewInit {
+export class OwnerDetailComponent implements OnInit {
   private owner: Owner;
   private stat: Array<any> = [
     { name: "2011", value: 0},
@@ -37,39 +34,25 @@ export class OwnerDetailComponent implements OnInit, AfterViewInit {
 
   constructor(
     private ownerService: OwnerService,
-    private teamService: TeamService,
     private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.url.subscribe(url => {
-      this.ownerService.getOwner(+(url[1]))
-        .subscribe(owner => {
-          this.owner = owner;
-          this.getData(owner.id);
-         })
-    })
-  }
-
-  getData(id: number): void {
-    let statsResponse = this.ownerService.getOwnerAllTimeStats(id);
-    let teamResponse = this.teamService.getOwnerTeamsStatsView(id);
-    forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
-      console.log(responseList);
-      this.allTimeStats = responseList[0];
-      this.ownerTeams = responseList[1].sort((a,b) =>
-        (a["id"] > b["id"]) ? 1 : ((b["id"] > a["id"]) ? -1 : 0));
-      this.show = true;
+      this.ownerService.getOwner(+(url[1])).subscribe(owner => {
+        this.owner = owner
+      })
     })
   }
 
   updateGrid(arr: Array<any>): void {
     this.stat = arr[0];
     this.yAxis = arr[1];
+    this.show = true;
   }
 
-  ngAfterViewInit() {
-    console.log("owner detail view initialized");
+  updateTeams(teams: SeasonStats[]) {
+    this.ownerTeams = teams;
   }
 
   ngOnDestroy() {
