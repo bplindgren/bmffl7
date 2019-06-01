@@ -1,10 +1,8 @@
-<div id="scoreboard-div">
-  <div *ngIf="games">
-    <ul fxLayout="row wrap">
-      <li *ngFor="let game of games" fxFlex="50%">
-        <scorecard [game]=game></scorecard>
-      </li>
-    </ul>
-  </div>
+<div id="scoreboard-div" *ngIf="games">
+  <ul fxLayout="row wrap">
+    <li *ngFor="let game of games" fxFlex="50%">
+      <scorecard [game]=game></scorecard>
+    </li>
+  </ul>
   <p id="no-games" *ngIf="games && games.length === 0">No games scheduled yet for this week!</p>
 </div>

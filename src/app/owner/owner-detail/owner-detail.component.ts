@@ -1,10 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
 import { SeasonStats } from '../../seasonStats';
-import { StatCardComponent } from '../stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { VerticalBarChartComponent } from '../../charts/vertical-bar-chart/vertical-bar-chart.component';
 import { TableModule } from '../../shared-modules/table/table.module';
@@ -53,10 +52,6 @@ export class OwnerDetailComponent implements OnInit {
 
   updateTeams(teams: SeasonStats[]) {
     this.ownerTeams = teams;
-  }
-
-  ngOnDestroy() {
-    console.log("owner detail destroyed");
   }
 
 }

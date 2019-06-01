@@ -1,13 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
-import { Team } from '../../team';
 import { AllTimeStats } from '../../allTimeStats';
 import { SeasonStats } from '../../seasonStats';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { TableModule } from '../../shared-modules/table/table.module';
 
 const statDictionary = {
   "Wins": "wins",
@@ -27,23 +25,19 @@ const statDictionary = {
   templateUrl: './stat-card-grid-list.component.html',
   styleUrls: ['./stat-card-grid-list.component.css']
 })
-export class StatCardGridListComponent implements OnInit, OnChanges {
+export class StatCardGridListComponent implements OnChanges {
   @Input() ownerId: number;
   public allTimeStats: AllTimeStats;
-  private ownerTeams: SeasonStats[];
+  public ownerTeams: SeasonStats[];
   @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
   @Output() evtEmitterTeams: EventEmitter<SeasonStats[]> = new EventEmitter();
-  private statValues;
   private cardStats: string[] = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
+  private statValues;
   private show: boolean = false;
 
   constructor(
     private ownerService: OwnerService,
     private teamService: TeamService) {
-  }
-
-  ngOnInit() {
-    this.getData()
   }
 
   getData() {
@@ -91,7 +85,7 @@ export class StatCardGridListComponent implements OnInit, OnChanges {
     this.evtEmitterStat.emit(emitArray);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.getData();
   }
 

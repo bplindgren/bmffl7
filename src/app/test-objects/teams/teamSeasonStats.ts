@@ -1,5 +1,5 @@
 import { SeasonStats } from '../../seasonStats';
-export const teamSeasonStatsTestObj: SeasonStats = {
+export const TeamSeasonStatsTestObj: SeasonStats = {
     "id": 54,
     "champion": true,
     "divisionwinner": "outright",

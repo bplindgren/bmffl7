@@ -8,7 +8,7 @@ import { Record } from '../../record';
 
 import { allTeamsTestObj } from '../../test-objects/teams/allTeams';
 import { ownerTeamsTestObj } from '../../test-objects/teams/ownerTeams';
-import { teamSeasonStatsTestObj } from '../../test-objects/teams/teamSeasonStats';
+import { TeamSeasonStatsTestObj } from '../../test-objects/teams/teamSeasonStats';
 import { ownerTeamStatsTestObj } from '../../test-objects/teams/ownerTeamStats';
 import { allTeamStatsTestObj } from '../../test-objects/teams/allTeamStats';
 import { seasonTeamsTestObj } from '../../test-objects/teams/seasonTeams';
@@ -82,7 +82,7 @@ describe('TeamService', () => {
     const req = httpMock.expectOne("http://localhost:8080/teams/stats/54");
     expect(req.request.method).toEqual('GET');
 
-    req.flush({ data: teamSeasonStatsTestObj });
+    req.flush({ data: TeamSeasonStatsTestObj });
   })
 
   it('expects service to fetch an owner\'s team\'s stats', () => {

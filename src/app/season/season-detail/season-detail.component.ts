@@ -55,13 +55,4 @@ export class SeasonDetailComponent implements OnInit  {
     this.currentDivision = e["value"];
   }
 
-  ngAfterViewInit() {
-    console.log("season detail view initialized");
-    this.route.url.subscribe(url => {
-      this.year = 2010 + (+(url[0]['path']));
-      let seasonId = +(url[0]["path"]);
-      this.setTeams(seasonId);
-    })
-  }
-
 }

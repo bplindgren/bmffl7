@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from './game-service/game.service';
-// import { HttpClientModule } from '@angular/common/http/testing';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
+  imports: [CommonModule, BrowserModule, BrowserAnimationsModule],
   providers: [GameService]
 })
 export class GameModule { }

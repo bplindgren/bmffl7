@@ -1,4 +1,4 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'stat-card',
@@ -8,7 +8,4 @@ import { Component, OnInit , Input } from '@angular/core';
 export class StatCardComponent {
   @Input() stat: String;
   @Input() value;
-
-  constructor() { }
-
 }

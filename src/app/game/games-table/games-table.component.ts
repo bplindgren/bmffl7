@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, OnInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, ViewChild, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { Game } from '../../game';
