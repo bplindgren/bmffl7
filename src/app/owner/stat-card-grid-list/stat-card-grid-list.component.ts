@@ -28,7 +28,7 @@ const statDictionary = {
 export class StatCardGridListComponent implements OnChanges {
   @Input() ownerId: number;
   public allTimeStats: AllTimeStats;
-  private ownerTeams: SeasonStats[];
+  public ownerTeams: SeasonStats[];
   @Output() evtEmitterStat: EventEmitter<Object> = new EventEmitter();
   @Output() evtEmitterTeams: EventEmitter<SeasonStats[]> = new EventEmitter();
   private cardStats: string[] = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];

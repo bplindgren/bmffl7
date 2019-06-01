@@ -15,7 +15,6 @@ export class ScoreboardComponent implements OnChanges {
   constructor(public gameService: GameService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     this.week !== 0 ? this.getWeekGames() : this.getPlayoffGames()
   }
 
@@ -33,7 +32,6 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   sortGames(games: Game[]) {
-    console.log(games)
     return games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
   }
 
