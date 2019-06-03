@@ -13,8 +13,6 @@
   "dependencies": {
     "@angular/animations": "^7.2.15",
     "@angular/cdk": "^7.0.4",
-    "@angular/cli": "^7.0.6",
-    "@angular/compiler-cli": "^7.0.4",
     "@angular/common": "^7.0.4",
     "@angular/compiler": "^7.0.4",
     "@angular/core": "^7.0.4",
@@ -41,6 +39,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.11.0",
+    "@angular/cli": "^7.0.6",
+    "@angular/compiler-cli": "^7.0.4",
     "@angular/language-service": "^7.0.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
@@ -60,5 +60,14 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
-  }
+  },
+  "scripts": {
+    "start": "http-server",
+    "lint": "tslint \"src/**/*.ts\"",
+    "test": "ng test",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor",
+    "preinstall": "npm install -g angular-cli",
+    "postinstall": "ng build && mv dist/* ."
+  },
 }
