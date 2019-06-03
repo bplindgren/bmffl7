@@ -9,7 +9,7 @@ import { Record } from '../../record';
 
 @Injectable({ providedIn: 'root' })
 export class TeamService {
-  private baseURL = 'http://localhost:8080';
+  private baseURL = 'https://bmffl-spring-boot.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 

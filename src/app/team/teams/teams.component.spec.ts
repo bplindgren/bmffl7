@@ -58,11 +58,11 @@ describe('TeamsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('should fetch all teams on instantiation', () => {
+  it('should fetch all teams on instantiation', () => {
     expect(mockTeamService.getAllTeamsStatsViewSpy).toHaveBeenCalled();
   });
 
-  xit('should fetch all owners on instantiation', () => {
+  it('should fetch all owners on instantiation', () => {
     expect(mockOwnerService.getAllOwnersSpy).toHaveBeenCalled();
   });
 
@@ -76,19 +76,14 @@ describe('TeamsComponent', () => {
     expect(component.currentDisplay).toBe("teamsBySeason");
   })
 
-  it('should fetch all teams for an owner', () => {
-    console.log(component)
-    let ownerMatToggleButton = component.ownerMatToggle;
-    console.log(ownerMatToggleButton);
-    // console.log(select);
-    // select.triggerEventHandler('selectionChange', {})
-    // fixture.detectChanges();
-    // component.getTeamsByOwner(ownerId);
+  xit('should fetch all teams for an owner', () => {
+    let select = By.css('mat-select-trigger');
+    console.log(select)
     // expect(mockTeamService.getOwnerTeamsStatsViewSpy).toHaveBeenCalled();
     expect(1).toEqual(1);
   });
 
+  xit('should get teams for a season', () => {
 
-
-
+  });
 });

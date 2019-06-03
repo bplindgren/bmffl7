@@ -41,4 +41,8 @@ describe('TeamDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  xit('should fetch the team\'s games and stats on instantiation', () => {
+
+  })
 });
