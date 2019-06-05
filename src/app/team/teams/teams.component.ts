@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Team } from '../../team';
 import { TeamService } from '../team-service/team.service';
 import { TeamsTableComponent } from '../teams-table/teams-table.component';
@@ -29,16 +29,11 @@ export class TeamsComponent implements OnInit {
   ngOnInit() {
     this.teamService.getAllTeamsStatsView().subscribe(teams => {
       this.allTeams = teams;
-      // this.allTeams = this.sortTeams(teams, "id");
       this.displayedTeams = this.allTeams;
     })
     this.ownerService.getAllOwners().subscribe(owners => {
       this.owners = owners;
     })
-  }
-
-  ngAfterViewInit() {
-    console.log(`ngAfterViewInit - ownerButton is ${this.ownerMatToggle}`);
   }
 
   getAllTeams(): void {
@@ -53,7 +48,6 @@ export class TeamsComponent implements OnInit {
   getTeamsByOwner(e: string): void {
     console.log(e);
     this.teamService.getOwnerTeamsStatsView(e["value"]).subscribe(teams => {
-      // this.displayedTeams = this.sortTeams(teams, "id");
       this.displayedTeams = teams;
     })
   }
