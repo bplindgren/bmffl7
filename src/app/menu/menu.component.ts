@@ -14,9 +14,9 @@ import { seasons } from '../seasons';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, AfterViewInit {
-  private upstairsOwners = [];
-  private downstairsOwners = [];
-  private bmfflSeasons = seasons;
+  public upstairsOwners = [];
+  public downstairsOwners = [];
+  public bmfflSeasons = seasons;
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;

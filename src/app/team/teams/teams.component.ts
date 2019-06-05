@@ -15,7 +15,7 @@ import { OwnerService } from '../../owner/owner-service/owner.service';
 export class TeamsComponent implements OnInit {
   private owners: Owner[];
   private allTeams: SeasonStats[];
-  private displayedTeams: SeasonStats[];
+  public displayedTeams: SeasonStats[];
   public currentDisplay: string = "allTeams";
 
   @ViewChild("ownerButton") ownerMatToggle: ElementRef;

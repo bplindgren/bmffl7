@@ -14,8 +14,8 @@ import { SeasonStats } from '../../seasonStats';
   styleUrls: ['./team-detail.component.css']
 })
 export class TeamDetailComponent implements OnInit {
-  private games: Game[];
-  private teamStats: SeasonStats[];
+  public games: Game[];
+  public teamStats: SeasonStats[];
 
   constructor(
     private gameService: GameService,

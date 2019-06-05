@@ -15,7 +15,7 @@ import { AllTimeStats } from '../../allTimeStats';
   styleUrls: ['./owner-detail.component.css']
 })
 export class OwnerDetailComponent implements OnInit {
-  private owner: Owner;
+  public owner: Owner;
   private stat: Array<any> = [
     { name: "2011", value: 0},
     { name: "2012", value: 0},
@@ -28,8 +28,8 @@ export class OwnerDetailComponent implements OnInit {
   ];
   private yAxis: string = "Wins";
   private allTimeStats: AllTimeStats;
-  private ownerTeams: SeasonStats[];
-  private show: boolean = false;
+  public ownerTeams: SeasonStats[];
+  public show: boolean = false;
 
   constructor(
     private ownerService: OwnerService,

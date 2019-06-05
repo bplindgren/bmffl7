@@ -9,10 +9,10 @@ import { Season } from '../../season';
   styleUrls: ['./seasons.component.css']
 })
 export class SeasonsComponent implements OnInit {
-  private seasons: Season[];
+  public seasons: Season[];
 
   constructor(
-    private seasonService: SeasonService) {
+    public seasonService: SeasonService) {
   }
 
   ngOnInit() {
