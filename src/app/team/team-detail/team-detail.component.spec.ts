@@ -11,7 +11,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
 
-
 import { MockActivatedRoute, MockRouter } from '../../mocks/routes';
 import { GameService } from '../../game/game-service/game.service';
 import { MockGameService } from '../../mocks/mockGameService.service';

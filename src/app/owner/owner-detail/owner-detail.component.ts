@@ -16,18 +16,18 @@ import { AllTimeStats } from '../../allTimeStats';
 })
 export class OwnerDetailComponent implements OnInit, OnDestroy {
   public owner: Owner;
-  private stat: Array<any> = [
-    { name: "2011", value: 0},
-    { name: "2012", value: 0},
-    { name: "2013", value: 0},
-    { name: "2014", value: 0},
-    { name: "2015", value: 0},
-    { name: "2016", value: 0},
-    { name: "2017", value: 0},
-    { name: "2018", value: 0}
+  public stat: Array<any> = [
+    { name: "2011", value: 0 },
+    { name: "2012", value: 0 },
+    { name: "2013", value: 0 },
+    { name: "2014", value: 0 },
+    { name: "2015", value: 0 },
+    { name: "2016", value: 0 },
+    { name: "2017", value: 0 },
+    { name: "2018", value: 0 }
   ];
-  private yAxis: string = "Wins";
-  private allTimeStats: AllTimeStats;
+  public yAxis: string = "Wins";
+  public allTimeStats: AllTimeStats;
   public ownerTeams: SeasonStats[];
   public show: boolean = false;
   public sub: Subscription;
@@ -38,14 +38,17 @@ export class OwnerDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.route.url.subscribe(url => {
-      this.ownerService.getOwner(+(url[1])).subscribe(owner => {
-        this.owner = owner
-      })
+    // this.sub = this.route.url.subscribe(url => {
+    this.sub = this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.ownerService.getOwner(+(params['id']))
+          .subscribe(owner => { this.owner = owner })
+      }
     })
   }
 
   updateGrid(arr: Array<any>): void {
+    console.log(arr);
     this.stat = arr[0];
     this.yAxis = arr[1];
     this.show = true;
