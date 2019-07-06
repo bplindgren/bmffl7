@@ -2,6 +2,7 @@
 
 <div *ngIf="games">
   <teams-table [teams]="teamStats"></teams-table>
+  <!-- <team-grid [teams]="teamStats"></team-grid> -->
 </div>
 
 <h2 *ngIf="teamStats">{{ teamStats[0].name + " Games" }}</h2>

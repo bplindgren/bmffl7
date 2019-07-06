@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 
@@ -21,6 +21,7 @@ import { MockOwnerService } from '../../mocks/mockOwnerService';
 describe('TeamsComponent', () => {
   let component: TeamsComponent;
   let fixture: ComponentFixture<TeamsComponent>;
+  let de: DebugElement;
   let mockTeamService: MockTeamService;
   let mockOwnerService: MockOwnerService;
 
@@ -50,7 +51,7 @@ describe('TeamsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TeamsComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 
@@ -76,14 +77,13 @@ describe('TeamsComponent', () => {
     expect(component.currentDisplay).toBe("teamsBySeason");
   })
 
-  xit('should fetch all teams for an owner', () => {
-    let select = By.css('mat-select-trigger');
-    console.log(select)
-    // expect(mockTeamService.getOwnerTeamsStatsViewSpy).toHaveBeenCalled();
-    expect(1).toEqual(1);
+  it('should fetch all teams for an owner', () => {
+    component.getTeamsByOwner({value: "Brad L"});
+    expect(mockTeamService.getOwnerTeamsStatsViewSpy).toHaveBeenCalledWith("Brad L");
   });
 
-  xit('should get teams for a season', () => {
-
+  it('should get teams for a season', () => {
+    component.getTeamsBySeason({value: "2018"});
+    expect(mockTeamService.getSeasonTeamsSpy).toHaveBeenCalledWith(8);
   });
 });

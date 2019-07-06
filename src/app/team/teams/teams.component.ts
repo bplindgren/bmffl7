@@ -45,7 +45,7 @@ export class TeamsComponent implements OnInit {
     this.currentDisplay = "teamsByOwner";
   }
 
-  getTeamsByOwner(e: string): void {
+  getTeamsByOwner(e: Object): void {
     console.log(e);
     this.teamService.getOwnerTeamsStatsView(e["value"]).subscribe(teams => {
       this.displayedTeams = teams;
@@ -56,10 +56,10 @@ export class TeamsComponent implements OnInit {
     this.currentDisplay = "teamsBySeason";
   }
 
-  getTeamsBySeason(e: string): void {
+  getTeamsBySeason(e: Object): void {
     let id = +e["value"] - 2010;
     this.teamService.getSeasonTeams(id).subscribe(teams => {
-      this.displayedTeams = this.sortTeams(teams, "name");
+      this.displayedTeams = teams;
     })
   }
 
