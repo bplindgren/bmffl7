@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { ActivatedRoute } from '@angular/router';
 import { Owner } from '../../owner';
@@ -14,8 +14,8 @@ import { AllTimeStats } from '../../allTimeStats';
   templateUrl: './owner-detail.component.html',
   styleUrls: ['./owner-detail.component.css']
 })
-export class OwnerDetailComponent implements OnInit {
-  private owner: Owner;
+export class OwnerDetailComponent implements OnInit, OnDestroy {
+  public owner: Owner;
   private stat: Array<any> = [
     { name: "2011", value: 0},
     { name: "2012", value: 0},
@@ -28,8 +28,9 @@ export class OwnerDetailComponent implements OnInit {
   ];
   private yAxis: string = "Wins";
   private allTimeStats: AllTimeStats;
-  private ownerTeams: SeasonStats[];
-  private show: boolean = false;
+  public ownerTeams: SeasonStats[];
+  public show: boolean = false;
+  public sub: Subscription;
 
   constructor(
     private ownerService: OwnerService,
@@ -37,7 +38,7 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.url.subscribe(url => {
+    this.sub = this.route.url.subscribe(url => {
       this.ownerService.getOwner(+(url[1])).subscribe(owner => {
         this.owner = owner
       })
@@ -52,6 +53,12 @@ export class OwnerDetailComponent implements OnInit {
 
   updateTeams(teams: SeasonStats[]) {
     this.ownerTeams = teams;
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
 }

@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +29,7 @@ import { MatTableModule } from '@angular/material/table';
     LayoutModule, BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     HttpModule, HttpClientModule, ChartsModule, AppRoutingModule, MatCardModule,
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-    MatGridListModule, MatMenuModule, MatTableModule
+    MatGridListModule, MatMenuModule, MatTableModule, AgGridModule.withComponents(null),
   ],
   exports: [
     AppComponent,

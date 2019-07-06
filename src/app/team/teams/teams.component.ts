@@ -15,7 +15,7 @@ import { OwnerService } from '../../owner/owner-service/owner.service';
 export class TeamsComponent implements OnInit {
   private owners: Owner[];
   private allTeams: SeasonStats[];
-  private displayedTeams: SeasonStats[];
+  public displayedTeams: SeasonStats[];
   public currentDisplay: string = "allTeams";
 
   @ViewChild("ownerButton") ownerMatToggle: ElementRef;
@@ -45,7 +45,7 @@ export class TeamsComponent implements OnInit {
     this.currentDisplay = "teamsByOwner";
   }
 
-  getTeamsByOwner(e: string): void {
+  getTeamsByOwner(e: Object): void {
     console.log(e);
     this.teamService.getOwnerTeamsStatsView(e["value"]).subscribe(teams => {
       this.displayedTeams = teams;
@@ -56,10 +56,10 @@ export class TeamsComponent implements OnInit {
     this.currentDisplay = "teamsBySeason";
   }
 
-  getTeamsBySeason(e: string): void {
+  getTeamsBySeason(e: Object): void {
     let id = +e["value"] - 2010;
     this.teamService.getSeasonTeams(id).subscribe(teams => {
-      this.displayedTeams = this.sortTeams(teams, "name");
+      this.displayedTeams = teams;
     })
   }
 

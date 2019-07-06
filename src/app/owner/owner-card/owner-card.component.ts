@@ -16,11 +16,11 @@ import { OwnerCardConfig } from '../../ownerCardConfig';
 })
 export class OwnerCardComponent implements OnInit {
   @Input() config : OwnerCardConfig;
-  private owner: Owner;
-  private allTimeStats: AllTimeStats;
-  private firstSeason: string;
-  private lastSeason: string;
-  private championships: string[];
+  public owner: Owner;
+  public allTimeStats: AllTimeStats;
+  public firstSeason: string;
+  public lastSeason: string;
+  public championships: string[];
 
   ngOnInit() {
     this.owner = this.config.owner;

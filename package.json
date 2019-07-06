@@ -1,5 +1,5 @@
 {
-  "name": "bmffl7",
+  "name": "bmffl6",
   "version": "2.0.0",
   "scripts": {
     "ng": "ng",
@@ -24,6 +24,8 @@
     "@angular/platform-browser": "^7.2.15",
     "@angular/platform-browser-dynamic": "^7.2.15",
     "@angular/router": "^7.2.15",
+    "ag-grid-angular": "^21.0.1",
+    "ag-grid-community": "^21.0.1",
     "angular-6-social-login": "^1.1.1",
     "angular-bootstrap-md": "^7.5.3",
     "bootstrap": "^4.3.1",
@@ -49,7 +51,8 @@
     "@types/node": "^10.12.30",
     "codelyzer": "~4.5.0",
     "css-loader": "^1.0.1",
-    "eslint-plugin-angular": "^4.0.1",
+    "enhanced-resolve": "^3.3.0",
+    "eslint-plugin-angular": "^4.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",

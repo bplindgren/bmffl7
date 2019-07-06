@@ -13,7 +13,7 @@ import { TeamService } from '../../team/team-service/team.service';
   styleUrls: ['./season-detail.component.css']
 })
 export class SeasonDetailComponent implements OnInit  {
-  private teams: SeasonStats[];
+  public teams: SeasonStats[];
   upstairsTeams: SeasonStats[];
   downstairsTeams: SeasonStats[];
   year: number;

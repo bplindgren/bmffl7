@@ -17,7 +17,7 @@ import { forkJoin } from 'rxjs';
 export class MatchupComponent implements OnChanges {
   private owner1: Owner;
   private owner2: Owner;
-  private games: Game[] = null;
+  public games: Game[] = null;
   private matchupStats: MatchupStats;
   private owner1stats: SeasonStats[];
   private owner2stats: SeasonStats[];
@@ -39,7 +39,7 @@ export class MatchupComponent implements OnChanges {
     Points_Per_Game_Differential: 'ppgdiff'
   };
   private displayedStat: string = 'Wins';
-  private graphData: any[];
+  public graphData: any[];
 
   constructor(
     private gameService: GameService,

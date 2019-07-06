@@ -7,7 +7,8 @@ import { SeasonAverages } from '../../seasonAverages';
 
 @Injectable({ providedIn: 'root' })
 export class SeasonService {
-  private baseURL = 'https://bmffl-spring-boot.herokuapp.com';
+  // private baseURL = 'https://bmffl-spring-boot.herokuapp.com';
+  public baseURL = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
