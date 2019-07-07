@@ -63,7 +63,7 @@ describe('ScoreboardComponent', () => {
     expect(mockGameService.getWeekGamesSpy).toHaveBeenCalled();
   });
 
-  it('should get playoff games', () => {
+  it('should get playoff games when week is changed to a playoff games week', () => {
     component = fixture.debugElement.componentInstance;
     component.season = 2014;
     component.week = 0;

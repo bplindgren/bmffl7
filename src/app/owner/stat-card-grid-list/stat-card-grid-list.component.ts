@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Subscription, Observable, forkJoin, throwError } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
 import { AllTimeStats } from '../../allTimeStats';
@@ -40,9 +40,10 @@ export class StatCardGridListComponent implements OnChanges {
     private teamService: TeamService) {
   }
 
-  getData() {
+  getData(): void {
     let statsResponse = this.ownerService.getOwnerAllTimeStats(this.ownerId);
     let teamResponse = this.teamService.getOwnerTeamsStatsView(this.ownerId);
+
     forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
       this.allTimeStats = responseList[0];
       this.ownerTeams = responseList[1].sort((a,b) =>
@@ -81,11 +82,12 @@ export class StatCardGridListComponent implements OnChanges {
     let sortedValues = statValues.sort((a,b) =>
       (a["name"] > b["name"]) ? 1 : ((b["name"] > a["name"]) ? -1 : 0)
     );
+    console.log(sortedValues);
     let emitArray: any[] = [sortedValues, this.formatKey(stat)];
     this.evtEmitterStat.emit(emitArray);
   }
 
-  ngOnChanges(): void {
+  ngOnChanges() {
     this.getData();
   }
 
