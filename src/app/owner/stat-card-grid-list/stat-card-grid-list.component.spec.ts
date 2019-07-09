@@ -62,7 +62,6 @@ describe('StatCardGridListComponent', () => {
     fixture.detectChanges();
     expect(mockOwnerService.getOwnerAllTimeStatsSpy).toHaveBeenCalledWith(3);
     expect(mockTeamService.getOwnerTeamsStatsViewSpy).toHaveBeenCalledWith(3);
-    expect(component.ownerTeams.length).toBeGreaterThan(0);
   });
 
   it('should return an object with current stats', () => {
@@ -103,8 +102,6 @@ describe('StatCardGridListComponent', () => {
       ],
       "Points For/Game"
     ];
-
-    console.log(emitArray);
 
     expect(evtEmitterStatSpy).toHaveBeenCalledWith(emitArray);
   });
