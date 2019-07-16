@@ -3,8 +3,6 @@ import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 
-import { By } from '@angular/platform-browser';
-
 import { TeamsComponent } from './teams.component';
 
 import { MatTableModule } from '@angular/material/table';
