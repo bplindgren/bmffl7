@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
@@ -26,7 +27,7 @@ describe('SeasonsComponent', () => {
     mockSeasonService = new MockSeasonService();
 
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, RouterTestingModule, MatTableModule, TableModule ],
+      imports: [ HttpClientTestingModule, BrowserAnimationsModule, RouterTestingModule, MatTableModule, TableModule ],
       declarations: [ SeasonsComponent ],
       providers: [{ provide: SeasonService, useValue: mockSeasonService }]
     })
@@ -46,7 +47,13 @@ describe('SeasonsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should expect getSeasons() to be called', () => {
+  it('should expect seasons to set on instantiaion', () => {
     expect(mockSeasonService.getSeasonsSpy).toHaveBeenCalled();
+    expect(component.seasons.length).toBe(9);
   });
+
+  it('should expect ngOnInit to sort the seasons in the correct order', () => {
+    let seasonsArray = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
+    expect(component.seasons.map(s => s['year'])).toEqual(seasonsArray);
+  })
 });
