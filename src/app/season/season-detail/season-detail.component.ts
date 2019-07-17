@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SeasonService } from '../season-service/season.service';
 import { SeasonStats } from '../../seasonStats';
-import { Game } from '../../game';
-import { GameService } from '../../game/game-service/game.service';
 import { Team } from '../../team';
 import { TeamService } from '../../team/team-service/team.service';
 
@@ -22,18 +20,21 @@ export class SeasonDetailComponent implements OnInit  {
   constructor(
     private seasonService: SeasonService,
     private teamService: TeamService,
-    private gameService: GameService,
+    private router: Router,
     private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    let seasonId = +this.route.params["value"]["id"];
-    this.year = (+this.route.params["value"]["id"] + 2010);
-    this.setTeams(seasonId);
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.year = (+(params['id']) + 2010);
+        this.setTeams(this.year);
+      }
+    });
   }
 
   setTeams(seasonId: number): void {
-    this.teamService.getSeasonTeams(seasonId).subscribe(teams => {
+    this.teamService.getSeasonTeams(seasonId-2010).subscribe(teams => {
       this.teams = teams.sort((a,b) =>
         (a["winningpct"] > b["winningpct"]) ? 1 : ((b["winningpct"] > a["winningpct"]) ? -1 : 0)
       ).reverse()

@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { SeasonDetailComponent } from './season-detail.component';
@@ -13,40 +14,43 @@ import { TableModule } from '../../shared-modules/table/table.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
-import { SeasonService } from '../season-service/season.service';
-import { GameService } from '../../game/game-service/game.service';
 import { TeamService } from '../../team/team-service/team.service';
+import { MockTeamService } from '../../mocks/mockTeamService';
+import { MockActivatedRoute, MockRouter } from '../../mocks/routes';
+
+import { seasonTeamsTestObj } from '../../test-objects/teams/seasonTeams';
 
 describe('SeasonDetailComponent', () => {
   let component: SeasonDetailComponent;
   let fixture: ComponentFixture<SeasonDetailComponent>;
-  let seasonService: SeasonService;
-  let gameService: GameService;
-  let teamService: TeamService;
+  let mockTeamService: MockTeamService;
+  let mockActivatedRoute: MockActivatedRoute;
+  let mockRouter: MockRouter;
 
   beforeEach(async(() => {
+    let httpClient: HttpClient;
+    let httpTestingController: HttpTestingController;
+    mockTeamService = new MockTeamService();
+    mockActivatedRoute = new MockActivatedRoute({ "id": 6 });
+    mockRouter = new MockRouter();
+
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
-        HttpClientTestingModule,
-        RouterTestingModule,
-        WeekScoresModule,
-        MatTableModule,
-        TableModule,
-        MatTabsModule,
-        MatButtonToggleModule
+        BrowserAnimationsModule, HttpClientTestingModule, RouterTestingModule, WeekScoresModule, MatTableModule, TableModule, MatTabsModule, MatButtonToggleModule
       ],
       declarations: [ SeasonDetailComponent ],
-      providers: [SeasonService, GameService, TeamService]
+      providers: [
+        { provide: TeamService, useValue: mockTeamService },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+        { provide: Router, useValue: mockRouter }
+      ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SeasonDetailComponent);
-    seasonService = TestBed.get(SeasonService);
-    gameService = TestBed.get(GameService);
-    teamService = TestBed.get(TeamService);
+    mockTeamService.setResponse(seasonTeamsTestObj);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -55,7 +59,12 @@ describe('SeasonDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('expect(12).toEqual(jasmine.any(Number))', () => {
-    expect(12).toEqual(jasmine.any(Number));
+  it('expect getSeasonTeams() to have been called with 2016', () => {
+    expect(mockTeamService.getSeasonTeamsSpy).toHaveBeenCalledWith(6);
   });
+
+  it('expect upstairsTeams and downstairsTeams to each have a lenth of 5', () => {
+    expect(component.upstairsTeams.length).toBe(5);
+    expect(component.downstairsTeams.length).toBe(5);
+  })
 });

@@ -34,7 +34,6 @@ describe('OwnersComponent', () => {
   beforeEach(async(() => {
     mockOwnerService = new MockOwnerService;
     mockTeamService = new MockTeamService;
-    let spy: any;
 
     TestBed.configureTestingModule({
       imports: [

@@ -33,8 +33,6 @@ describe('OwnerDetailComponent', () => {
     mockOwnerService = new MockOwnerService();
     mockActivatedRoute = new MockActivatedRoute({ "id": 1 });
 
-
-
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
@@ -78,6 +76,7 @@ describe('OwnerDetailComponent', () => {
   });
 
   it('updateTeams() should update the ownerTeams property', () => {
+    console.log(component);
     let newTeams: SeasonStats[] = SeasonStatsTestObj;
     component.updateTeams(newTeams);
 

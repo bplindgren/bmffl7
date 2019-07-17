@@ -18,7 +18,6 @@ import { seasonsTestObj } from '../../test-objects/seasons/seasonsTestObj';
 describe('SeasonsComponent', () => {
   let component: SeasonsComponent;
   let fixture: ComponentFixture<SeasonsComponent>;
-  let testBedService: SeasonService;
   let mockSeasonService: MockSeasonService;
 
   beforeEach(async(() => {
