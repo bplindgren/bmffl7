@@ -16,7 +16,7 @@ getTestBed().initTestEnvironment(
 );
 // Then we find all the tests.
 // const context = require.context('./', true, /\.spec\.ts$/);
-const context = require.context('./', true, /seasons.component\.spec\.ts$/);
+const context = require.context('./', true, /season-detail.component\.spec\.ts$/);
 
 // And load the modules.
 context.keys().map(context);
