@@ -1,4 +1,4 @@
-  import { SpyObject } from './helper';
+import { SpyObject } from './helper';
 import { TeamService } from '../team/team-service/team.service';
 import Spy = jasmine.Spy;
 

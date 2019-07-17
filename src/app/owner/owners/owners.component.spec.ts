@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 
@@ -34,10 +34,10 @@ describe('OwnersComponent', () => {
   beforeEach(async(() => {
     mockOwnerService = new MockOwnerService;
     mockTeamService = new MockTeamService;
-    let spy: any;
 
     TestBed.configureTestingModule({
       imports: [
+        BrowserAnimationsModule,
         HttpClientTestingModule,
         RouterTestingModule,
         MatCardModule,

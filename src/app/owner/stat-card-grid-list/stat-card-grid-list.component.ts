@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Subscription, Observable, forkJoin, throwError } from 'rxjs';
 import { OwnerService } from '../owner-service/owner.service';
 import { TeamService } from '../../team/team-service/team.service';
 import { AllTimeStats } from '../../allTimeStats';
@@ -33,16 +33,16 @@ export class StatCardGridListComponent implements OnChanges {
   @Output() evtEmitterTeams: EventEmitter<SeasonStats[]> = new EventEmitter();
   private cardStats: string[] = ["Wins", "Losses", "Ties", "Winning_Percentage", "Points_For", "Points_Against", "Point_Differential", "Points_For_Per_Game", "Points_Against_Per_Game", "PPG_Differential"];
   public statValues;
-  private show: boolean = false;
 
   constructor(
     private ownerService: OwnerService,
     private teamService: TeamService) {
   }
 
-  getData() {
+  getData(): void {
     let statsResponse = this.ownerService.getOwnerAllTimeStats(this.ownerId);
     let teamResponse = this.teamService.getOwnerTeamsStatsView(this.ownerId);
+
     forkJoin([statsResponse, teamResponse]).subscribe(responseList => {
       this.allTimeStats = responseList[0];
       this.ownerTeams = responseList[1].sort((a,b) =>
@@ -81,11 +81,12 @@ export class StatCardGridListComponent implements OnChanges {
     let sortedValues = statValues.sort((a,b) =>
       (a["name"] > b["name"]) ? 1 : ((b["name"] > a["name"]) ? -1 : 0)
     );
+    console.log(sortedValues);
     let emitArray: any[] = [sortedValues, this.formatKey(stat)];
     this.evtEmitterStat.emit(emitArray);
   }
 
-  ngOnChanges(): void {
+  ngOnChanges() {
     this.getData();
   }
 
