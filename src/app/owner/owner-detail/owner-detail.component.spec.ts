@@ -22,6 +22,7 @@ import { MockOwnerService } from '../../mocks/mockOwnerService';
 import { SeasonStats } from '../../seasonStats';
 import { newStatTestObj } from '../../test-objects/newStatTestObj';
 import { SeasonStatsTestObj } from '../../test-objects/SeasonStatsTestObj';
+import { ownerTestObj } from '../../test-objects/owners/ownerTestObj';
 
 describe('OwnerDetailComponent', () => {
   let component: OwnerDetailComponent;
@@ -34,15 +35,7 @@ describe('OwnerDetailComponent', () => {
     mockActivatedRoute = new MockActivatedRoute({ "id": 1 });
 
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule,
-        MatCardModule,
-        MatExpansionModule,
-        MatGridListModule,
-        MatTableModule,
-        TableModule
-      ],
+      imports: [HttpClientTestingModule, RouterTestingModule, MatCardModule, MatExpansionModule, MatGridListModule, MatTableModule, TableModule],
       declarations: [ OwnerDetailComponent, StatCardGridListComponent, StatCardComponent ],
       providers: [
         { provide: OwnerService, useValue: mockOwnerService },
@@ -54,6 +47,7 @@ describe('OwnerDetailComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OwnerDetailComponent);
+    mockOwnerService.setResponse(ownerTestObj);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -64,6 +58,8 @@ describe('OwnerDetailComponent', () => {
 
   it('on instantiation should get an owner', () => {
     expect(mockOwnerService.getOwnerSpy).toHaveBeenCalledWith(1);
+    expect(component.owner.firstName).toBe("Brian");
+    expect(component.owner.lastInitial).toBe("D");
   });
 
   it('updateGrid() should change the stat, yAxis, and show properties', () => {

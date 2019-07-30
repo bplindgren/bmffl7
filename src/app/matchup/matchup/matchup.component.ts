@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule, NgForm, FormControl } from '@angular/forms';
 import { Game } from '../../game';
 import { GameService } from '../../game/game-service/game.service';
@@ -9,37 +9,38 @@ import { TeamService } from '../../team/team-service/team.service';
 import { SeasonStats } from '../../seasonStats';
 import { forkJoin } from 'rxjs';
 
+const stats: Object = {
+  Games_Played: 'gamesplayed',
+  Wins: 'wins',
+  Losses: 'losses',
+  Ties: 'ties',
+  Winning_Percentage: 'winningpct',
+  Regular_Season_Wins: 'winsregseason',
+  Regular_Season_Losses: 'lossesregseason',
+  Points_For: 'pointsfor',
+  Points_Against: 'pointsagainst',
+  Point_Differential: 'pointdifferential',
+  Points_For_Per_Game: 'pfpg',
+  Points_Against_Per_Game: 'papg',
+  Points_Per_Game_Differential: 'ppgdiff'
+};
+
 @Component({
   selector: 'matchup',
   templateUrl: './matchup.component.html',
   styleUrls: ['./matchup.component.css']
 })
-export class MatchupComponent implements OnChanges {
+export class MatchupComponent {
   private owner1: Owner;
   private owner2: Owner;
   public games: Game[] = null;
   private matchupStats: MatchupStats;
   private owner1stats: SeasonStats[];
   private owner2stats: SeasonStats[];
-  private statsArray: Array<string> = ['Games_Played', 'Wins', 'Losses', 'Ties', 'Winning_Percentage', 'Regular_Season_Wins', 'Regular_Season_Losses', 'Points_For', 'Points_Against', 'Point_Differential', 'Points_For_Per_Game', 'Points_Against_Per_Game', 'Points_Per_Game_Differential'];
   private statControl = new FormControl();
-  private stats: Object = {
-    Games_Played: 'gamesplayed',
-    Wins: 'wins',
-    Losses: 'losses',
-    Ties: 'ties',
-    Winning_Percentage: 'winningpct',
-    Regular_Season_Wins: 'winsregseason',
-    Regular_Season_Losses: 'lossesregseason',
-    Points_For: 'pointsfor',
-    Points_Against: 'pointsagainst',
-    Point_Differential: 'pointdifferential',
-    Points_For_Per_Game: 'pfpg',
-    Points_Against_Per_Game: 'papg',
-    Points_Per_Game_Differential: 'ppgdiff'
-  };
   private displayedStat: string = 'Wins';
   public graphData: any[];
+  public statsArray: Array<string> = ['Games_Played', 'Wins', 'Losses', 'Ties', 'Winning_Percentage', 'Regular_Season_Wins', 'Regular_Season_Losses', 'Points_For', 'Points_Against', 'Point_Differential', 'Points_For_Per_Game', 'Points_Against_Per_Game', 'Points_Per_Game_Differential'];
 
   constructor(
     private gameService: GameService,
@@ -50,6 +51,7 @@ export class MatchupComponent implements OnChanges {
     this.owner1 = e[0];
     this.owner2 = e[1];
     let gamesRequest = this.gameService.getMatchupStats(this.owner1.id, this.owner2.id);
+    console.log(gamesRequest);
     let owner1stats = this.teamService.getOwnerTeamsStatsView(this.owner1.id);
     let owner2stats = this.teamService.getOwnerTeamsStatsView(this.owner2.id);
     forkJoin([gamesRequest, owner1stats, owner2stats]).subscribe(responseList => {
@@ -96,15 +98,11 @@ export class MatchupComponent implements OnChanges {
   }
 
   formatOwnerStats(ownerSeasonStats: SeasonStats[], value: string): any[] {
-    return ownerSeasonStats.map(s => s[this.stats[value]] )
+    return ownerSeasonStats.map(s => s[stats[value]] )
   }
 
   removeUnderScore(s: string): string {
     return s.replace(/_/g, " ");
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
   }
 
 }

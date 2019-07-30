@@ -5,9 +5,8 @@ import { TeamService } from '../team-service/team.service';
 import { ActivatedRoute } from '@angular/router';
 import { GamesTableComponent } from '../../game/games-table/games-table.component';
 import { TeamsTableComponent } from '../teams-table/teams-table.component';
-import { Game } from '../../game';
+import { TeamGame } from '../../teamGame';
 import { SeasonStats } from '../../seasonStats';
-import { TeamGridComponent } from '../team-grid/team-grid.component';
 
 @Component({
   selector: 'team-detail',
@@ -16,7 +15,7 @@ import { TeamGridComponent } from '../team-grid/team-grid.component';
 })
 export class TeamDetailComponent implements OnInit, OnDestroy {
   public teamId: number;
-  public games: Game[];
+  public games: TeamGame[];
   public teamStats: SeasonStats[];
   public sub: Subscription;
 
@@ -40,7 +39,8 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
     let teamStatsResponse = this.teamService.getTeamSeasonStatsView(this.teamId);
 
     forkJoin([gamesResponse, teamStatsResponse]).subscribe(responseList => {
-      this.games = responseList[0];
+      console.log(responseList);
+      this.games = responseList[0]
       this.teamStats = [responseList[1]];
     })
   }

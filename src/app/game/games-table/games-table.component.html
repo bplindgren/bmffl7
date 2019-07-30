@@ -1,38 +1,68 @@
 <div class="gray-border">
   <mat-table #table [dataSource]="dataSource">
-    <ng-container cdkColumnDef="year">
+    <!-- <ng-container cdkColumnDef="year">
       <mat-header-cell *cdkHeaderCellDef>Year</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <ng-container cdkColumnDef="week">
       <mat-header-cell *cdkHeaderCellDef>Week</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.week }}</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="gametype">
-      <mat-header-cell *cdkHeaderCellDef>Game Type</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.gameType }}</mat-cell>
+    <ng-container cdkColumnDef="team">
+      <mat-header-cell *cdkHeaderCellDef>Team</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.team }}</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="awayteam">
-      <mat-header-cell *cdkHeaderCellDef>Away Team</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.awayTeam.name + " (" + element.awayTeam.owner.firstName + " " +  element.awayTeam.owner.lastInitial + ")" }}</mat-cell>
+    <ng-container cdkColumnDef="home">
+      <mat-header-cell *cdkHeaderCellDef></mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.home }}</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="hometeam">
-      <mat-header-cell *cdkHeaderCellDef>Home Team</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.homeTeam.name + " (" + element.homeTeam.owner.firstName + " " +  element.homeTeam.owner.lastInitial + ")" }}</mat-cell>
+    <ng-container cdkColumnDef="opponent">
+      <mat-header-cell *cdkHeaderCellDef>Opponent</mat-header-cell>
+      <mat-cell *cdkCellDef="let element"><a routerLink="{{ '/teams/' + element.opposingTeamId }}">{{ element.opposingTeam }}</a>&nbsp;(<a routerLink="{{ '/owners/' + element.opposingOwnerId }}">{{ element.opposingOwner }}</a>)</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="awayscore">
-      <mat-header-cell *cdkHeaderCellDef>Away Score</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.awayScore }}</mat-cell>
+    <ng-container cdkColumnDef="division">
+      <mat-header-cell *cdkHeaderCellDef>Division</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.division }}</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="homescore">
-      <mat-header-cell *cdkHeaderCellDef>Home Score</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.homeScore }}</mat-cell>
+    <ng-container cdkColumnDef="result">
+      <mat-header-cell *cdkHeaderCellDef>Result</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.result }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="pts">
+      <mat-header-cell *cdkHeaderCellDef>Pts</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.teamScore }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="opp">
+      <mat-header-cell *cdkHeaderCellDef>Opp</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.opponentScore }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="w">
+      <mat-header-cell *cdkHeaderCellDef>W</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.w }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="l">
+      <mat-header-cell *cdkHeaderCellDef>L</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.l }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="t">
+      <mat-header-cell *cdkHeaderCellDef>T</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.t }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="streak">
+      <mat-header-cell *cdkHeaderCellDef>Streak</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.fullStreak }}</mat-cell>
     </ng-container>
 
     <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
