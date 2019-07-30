@@ -32,8 +32,8 @@ describe('OwnersComponent', () => {
   let mockTeamService: MockTeamService;
 
   beforeEach(async(() => {
-    mockOwnerService = new MockOwnerService;
-    mockTeamService = new MockTeamService;
+    mockOwnerService = new MockOwnerService();
+    mockTeamService = new MockTeamService();
 
     TestBed.configureTestingModule({
       imports: [
@@ -69,8 +69,8 @@ describe('OwnersComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should getData() for all owners on instantiation', () => {
-    expect(mockOwnerService.getAllOwnersSpy).toHaveBeenCalled();
+  it('should call getData() on instantiation', () => {
+    expect(mockOwnerService.getAllOwnersSpy).toHaveBeenCalledWith();
     expect(mockOwnerService.getAllTimeStatsSpy).toHaveBeenCalled();
     expect(mockTeamService.getAllTeamsSpy).toHaveBeenCalled();
 

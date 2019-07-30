@@ -9,7 +9,7 @@ import { ScorecardComponent } from '../scorecard/scorecard.component';
 import { Game } from '../../game';
 
 import { GameService } from '../../game/game-service/game.service';
-import { MockGameService } from '../../mocks/mockGameService.service';
+import { MockGameService } from '../../mocks/mockGameService';
 
 import { recentGames } from '../../test-objects/games/recentGames';
 import { unsortedGames } from '../../test-objects/games/unsortedGames';

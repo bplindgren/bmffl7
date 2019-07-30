@@ -18,15 +18,7 @@ describe('WeekScoresFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        HttpClientTestingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatSelectModule,
-        MatButtonModule
-      ],
+      imports: [BrowserAnimationsModule, HttpClientTestingModule, FormsModule, ReactiveFormsModule, MatCardModule, MatSelectModule, MatButtonModule],
       declarations: [ WeekScoresFormComponent ]
     })
     .compileComponents();

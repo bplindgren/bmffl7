@@ -52,7 +52,7 @@ export class StatCardGridListComponent implements OnChanges {
       this.statValues = this.getCardStats();
       // When component is initialized, show "Wins" as the initial stat
       this.getGraphData("Wins");
-    })
+    });
   }
 
   getCardStats(): Object {

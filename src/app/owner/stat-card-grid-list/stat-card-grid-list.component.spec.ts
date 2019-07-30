@@ -50,7 +50,7 @@ describe('StatCardGridListComponent', () => {
       expect(component).toBeTruthy();
   });
 
-  xit('should call the getData() method on changes', () => {
+  it('should call the getData() method on changes', () => {
     component.ownerId = 4;
     fixture.detectChanges();
     component.ngOnChanges();

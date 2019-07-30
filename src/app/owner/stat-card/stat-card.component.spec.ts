@@ -32,6 +32,6 @@ describe('StatCardComponent', () => {
 
   it('should have a <p> tag for the value', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('p:last-child').innerHTML).toBe("54");
+    expect(compiled.querySelector('p:last-child').innerHTML).toBe("55");
   });
 });

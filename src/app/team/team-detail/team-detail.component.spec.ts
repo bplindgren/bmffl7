@@ -13,7 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { MockActivatedRoute, MockRouter } from '../../mocks/routes';
 import { GameService } from '../../game/game-service/game.service';
-import { MockGameService } from '../../mocks/mockGameService.service';
+import { MockGameService } from '../../mocks/mockGameService';
 import { TeamService } from '../../team/team-service/team.service';
 import { MockTeamService } from '../../mocks/mockTeamService';
 

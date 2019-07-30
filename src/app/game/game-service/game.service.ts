@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Game } from '../../game';
+import { TeamGame } from '../../teamGame';
 import { MatchupStats } from '../../matchupStats';
 
 @Injectable({ providedIn: 'root' })
@@ -26,9 +27,9 @@ export class GameService {
     );
   }
 
-  getTeamGames(teamId: number): Observable<Game[]> {
+  getTeamGames(teamId: number): Observable<TeamGame[]> {
     const url = `${this.baseURL}` + '/games/team/' + teamId
-    return this.http.get<Game[]>(url).pipe(
+    return this.http.get<TeamGame[]>(url).pipe(
       tap(_ => console.log('team games received'))
     );
   }

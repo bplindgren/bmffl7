@@ -12,7 +12,7 @@ import { DataSource } from '@angular/cdk/table';
 export class GamesTableComponent implements OnInit, OnChanges {
   @Input() games: Game[];
   dataSource: any;
-  displayedColumns: string[] = ['year', 'week', 'gametype', 'awayteam', 'hometeam', 'awayscore', 'homescore'];
+  displayedColumns: string[] = ['week', 'team', 'home', 'opponent', 'division', 'result', 'pts', 'opp', 'w', 'l', 't', 'streak'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

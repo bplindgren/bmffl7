@@ -14,7 +14,6 @@ import { TableModule } from '../shared-modules/table/table.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
-import { TeamGridComponent } from './team-grid/team-grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
@@ -29,7 +28,7 @@ import { AgGridModule } from 'ag-grid-angular';
     MatSelectModule,
     AgGridModule.withComponents(null)
   ],
-  declarations: [TeamsComponent, TeamDetailComponent, TeamGridComponent],
+  declarations: [TeamsComponent, TeamDetailComponent],
   providers: [TeamService]
 })
 export class TeamModule { }
