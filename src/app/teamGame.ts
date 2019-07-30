@@ -4,7 +4,9 @@ export class TeamGame {
   owner: string;
   home: string;
   opposingTeam: string;
+  opposingTeamId: number;
   opposingOwner: string;
+  opposingOwnerId: number;
   fullOpponent: string;
   division: string;
   result: string;
