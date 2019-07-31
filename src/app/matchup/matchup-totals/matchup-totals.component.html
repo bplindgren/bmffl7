@@ -20,13 +20,13 @@
   <mat-grid-tile id="o1points">
     <div>
       <h4>{{ owner1.firstName + " " + owner1.lastInitial + " Points" }}</h4>
-      <h1>{{ matchupStats.o1points}}</h1>
+      <h1>{{ matchupStats.o1points | number : '1.2-2' }}</h1>
     </div>
   </mat-grid-tile>
   <mat-grid-tile id="o2points">
     <div>
       <h4>{{ owner2.firstName + " " + owner2.lastInitial + " Points" }}</h4>
-      <h1>{{ matchupStats.o2points }}</h1>
+      <h1>{{ matchupStats.o2points | number : '1.2-2' }}</h1>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

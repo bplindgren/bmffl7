@@ -13,7 +13,7 @@
   <double-vertical-bar-chart [data]="graphData"></double-vertical-bar-chart>
 </div>
 
-<div *ngIf="games">
+<div *ngIf="games && matchupStats">
   <matchup-totals [matchupStats]="matchupStats" [owner1]="owner1" [owner2]="owner2"></matchup-totals>
-  <games-table [games]="games"></games-table>
+  <matchup-table [o1]="owner1" [o2]="owner2" [games]="games"></matchup-table>
 </div>

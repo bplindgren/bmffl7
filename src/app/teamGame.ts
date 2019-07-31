@@ -7,7 +7,6 @@ export class TeamGame {
   opposingTeamId: number;
   opposingOwner: string;
   opposingOwnerId: number;
-  fullOpponent: string;
   division: string;
   result: string;
   teamScore: number;

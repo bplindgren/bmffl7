@@ -1,18 +1,13 @@
 <div class="gray-border">
   <mat-table #table [dataSource]="dataSource">
-    <!-- <ng-container cdkColumnDef="year">
-      <mat-header-cell *cdkHeaderCellDef>Year</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.awayTeam.year }}</mat-cell>
-    </ng-container> -->
-
     <ng-container cdkColumnDef="week">
       <mat-header-cell *cdkHeaderCellDef>Week</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.week }}</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="team">
-      <mat-header-cell *cdkHeaderCellDef>Team</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.team }}</mat-cell>
+    <ng-container cdkColumnDef="gameType">
+      <mat-header-cell *cdkHeaderCellDef>Game Type</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.gameType }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="home">

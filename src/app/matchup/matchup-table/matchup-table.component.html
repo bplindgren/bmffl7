@@ -1,0 +1,54 @@
+<div class="gray-border">
+  <mat-table #matchupTable [dataSource]="dataSource">
+    <ng-container cdkColumnDef="season">
+      <mat-header-cell *cdkHeaderCellDef>Season</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.season }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="week">
+      <mat-header-cell *cdkHeaderCellDef>Week</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.week }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="gameType">
+      <mat-header-cell *cdkHeaderCellDef>Game Type</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.gameType }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="o1team">
+      <mat-header-cell *cdkHeaderCellDef>{{ o1.firstName + " " + o1.lastInitial + " Team"}}</mat-header-cell>
+      <mat-cell *cdkCellDef="let element" [ngClass]="{
+        'winner':element.o1score > element.o2score,
+        'loser':element.o1score < element.o2score
+      }">{{ element.o1team }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="o1score">
+      <mat-header-cell *cdkHeaderCellDef>{{ o1.firstName + " " + o1.lastInitial }}</mat-header-cell>
+      <mat-cell *cdkCellDef="let element" [ngClass]="{
+        'winner':element.o1score > element.o2score,
+        'loser':element.o1score < element.o2score
+      }">{{ element.o1score }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="o2score">
+      <mat-header-cell *cdkHeaderCellDef>{{ o2.firstName + " " + o2.lastInitial }}</mat-header-cell>
+      <mat-cell *cdkCellDef="let element" [ngClass]="{
+        'winner':element.o2score > element.o1score,
+        'loser':element.o2score < element.o1score
+      }">{{ element.o2score }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="o2team">
+      <mat-header-cell *cdkHeaderCellDef>{{ o2.firstName + " " + o2.lastInitial + " Team"}}</mat-header-cell>
+      <mat-cell *cdkCellDef="let element" [ngClass]="{
+        'winner':element.o2score > element.o1score,
+        'loser':element.o2score < element.o1score
+      }">{{ element.o2team }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="20" showFirstLastButtons></mat-paginator>
+</div>

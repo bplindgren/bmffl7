@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm, FormControl } from '@angular/forms';
 import { Game } from '../../game';
 import { GameService } from '../../game/game-service/game.service';
-import { GamesTableComponent } from '../../game/games-table/games-table.component';
+import { MatchupTableComponent } from '../../matchup/matchup-table/matchup-table.component';
 import { Owner } from '../../owner';
+import { MatchupGame } from '../../matchupGame';
 import { MatchupStats } from '../../matchupStats';
 import { TeamService } from '../../team/team-service/team.service';
 import { SeasonStats } from '../../seasonStats';
@@ -33,7 +34,7 @@ const stats: Object = {
 export class MatchupComponent {
   private owner1: Owner;
   private owner2: Owner;
-  public games: Game[] = null;
+  public games: MatchupGame[];
   private matchupStats: MatchupStats;
   private owner1stats: SeasonStats[];
   private owner2stats: SeasonStats[];
@@ -50,16 +51,17 @@ export class MatchupComponent {
   getMatchupStats(e: Owner[]): void {
     this.owner1 = e[0];
     this.owner2 = e[1];
+
     let gamesRequest = this.gameService.getMatchupStats(this.owner1.id, this.owner2.id);
-    console.log(gamesRequest);
     let owner1stats = this.teamService.getOwnerTeamsStatsView(this.owner1.id);
     let owner2stats = this.teamService.getOwnerTeamsStatsView(this.owner2.id);
+
     forkJoin([gamesRequest, owner1stats, owner2stats]).subscribe(responseList => {
-      this.games = responseList[0]['games'];
-      this.matchupStats = responseList[0];
+      this.games = responseList[0];
       this.owner1stats = this.sortSeasonStats(responseList[1]);
       this.owner2stats = this.sortSeasonStats(responseList[2]);
       this.updateChart(this.displayedStat);
+      this.calculateMatchupStats();
     })
   }
 
@@ -88,6 +90,19 @@ export class MatchupComponent {
       { data: owner1values, label: (this.owner1.firstName + " " + this.owner1.lastInitial) },
       { data: owner2values, label: (this.owner2.firstName + " " + this.owner2 .lastInitial) }
     ];
+  }
+
+
+  calculateMatchupStats(): void {
+    let games = this.games.filter(g => g.completed === true);
+    let stats: MatchupStats = {
+      o1wins: games.filter(g => g.o1score > g.o2score).length,
+      o2wins: games.filter(g => g.o2score > g.o1score).length,
+      ties: games.filter(g => g.o1score == g.o2score).length,
+      o1points: games.reduce((a, g) => a + g.o1score, 0),
+      o2points: games.reduce((a, g) => a + g.o2score, 0)
+    }
+    this.matchupStats = stats;
   }
 
   sortSeasonStats(seasonStats: SeasonStats[]): SeasonStats[] {
