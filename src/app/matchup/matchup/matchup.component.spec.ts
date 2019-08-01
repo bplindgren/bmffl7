@@ -62,15 +62,15 @@ describe('MatchupComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get matchup stats', () => {
-    const e: Owner[] = [ownersTestObj[0], ownersTestObj[1]];
-    console.log(e);
-    mockGameService.setResponse(matchupStatsTestObj);
-    mockTeamServiceOwner1.setResponse(Owner1TestObj);
-    mockTeamServiceOwner2.setResponse(Owner2TestObj);
-    component.getMatchupStats(e);
-
-    expect(getMatchupStatsSpy).toHaveBeenCalled();
-  });
+  // it('should get matchup stats', () => {
+  //   const e: Owner[] = [ownersTestObj[0], ownersTestObj[1]];
+  //   console.log(e);
+  //   mockGameService.setResponse(matchupStatsTestObj);
+  //   mockTeamServiceOwner1.setResponse(Owner1TestObj);
+  //   mockTeamServiceOwner2.setResponse(Owner2TestObj);
+  //   component.getMatchupStats(e);
+  //
+  //   expect(getMatchupStatsSpy).toHaveBeenCalled();
+  // });
 
 });
