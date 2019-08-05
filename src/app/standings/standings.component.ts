@@ -10,7 +10,7 @@ import { AllTimeStats } from '../allTimeStats';
 })
 export class StandingsComponent {
   dataSource: any;
-  public displayedColumns: string[] = ['owner', 'seasons', 'wins', 'losses', 'ties', 'winningpct', 'pointsfor', 'pointsagainst', 'pointdifferential', 'pfpg', 'papg', 'pdiff'];
+  public displayedColumns: string[] = ['owner', 'seasons', 'wins', 'losses', 'ties', 'winningpct', 'pointsfor', 'pointsagainst', 'pointdifferential', 'pfpg', 'papg', 'ppgdiff'];
 
   @ViewChild(MatSort) sort: MatSort;
 

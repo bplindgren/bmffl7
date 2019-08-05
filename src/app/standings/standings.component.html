@@ -41,7 +41,7 @@
     </ng-container>
 
     <ng-container cdkColumnDef="pointdifferential">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Diff</mat-header-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>+/-</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.pointdifferential | number: '1.1-1' }}</mat-cell>
     </ng-container>
 
@@ -55,8 +55,8 @@
       <mat-cell *cdkCellDef="let element">{{ element.papg }}</mat-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="pdiff">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Diff</mat-header-cell>
+    <ng-container cdkColumnDef="ppgdiff">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>PPG +/-</mat-header-cell>
       <mat-cell *cdkCellDef="let element">{{ element.ppgdiff }}</mat-cell>
     </ng-container>
 
