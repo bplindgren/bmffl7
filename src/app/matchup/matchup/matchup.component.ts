@@ -35,7 +35,7 @@ export class MatchupComponent {
   private owner1: Owner;
   private owner2: Owner;
   public games: MatchupGame[];
-  private matchupStats: MatchupStats;
+  public matchupStats: MatchupStats;
   private owner1stats: SeasonStats[];
   private owner2stats: SeasonStats[];
   private statControl = new FormControl();
