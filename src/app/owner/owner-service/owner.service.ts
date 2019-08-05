@@ -7,8 +7,8 @@ import { AllTimeStats } from '../../allTimeStats';
 
 @Injectable({ providedIn: 'root' })
 export class OwnerService {
-  // private baseURL = 'https://bmffl-spring-boot.herokuapp.com';
-  public baseURL = 'http://localhost:8080';
+  private baseURL = 'https://bmffl-spring-boot.herokuapp.com';
+  // public baseURL = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
