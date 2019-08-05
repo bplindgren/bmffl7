@@ -19,21 +19,28 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule, MatGridListModule,
   MatMenuModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import { StandingsComponent } from './standings/standings.component';
+
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    StandingsComponent
   ],
   imports: [
     LayoutModule, BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     HttpModule, HttpClientModule, ChartsModule, AppRoutingModule, MatCardModule,
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-    MatGridListModule, MatMenuModule, MatTableModule, AgGridModule.withComponents(null),
+    MatGridListModule, MatMenuModule, MatTableModule, CdkTableModule, MatPaginatorModule, MatSortModule
   ],
   exports: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    StandingsComponent
   ],
   bootstrap: [AppComponent]
 })

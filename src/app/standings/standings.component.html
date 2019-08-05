@@ -1,0 +1,66 @@
+<div class="gray-border">
+  <mat-table #standingsTable [dataSource]="dataSource" matSort>
+    <ng-container cdkColumnDef="owner">
+      <mat-header-cell *cdkHeaderCellDef>Owner</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.firstname }}&nbsp;{{ element.lastinitial }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="seasons">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Seasons</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.seasons }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="wins">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>W</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.wins }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="losses">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>L</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.losses }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="ties">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>T</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.ties }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="winningpct">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>Win%</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.winningpct }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="pointsfor">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>PF</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointsfor }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="pointsagainst">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>PA</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointsagainst }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="pointdifferential">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>+/-</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointdifferential | number: '1.1-1' }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="pfpg">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>PF/G</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pfpg }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="papg">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>PA/G</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.papg }}</mat-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="ppgdiff">
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header>PPG +/-</mat-header-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.ppgdiff }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

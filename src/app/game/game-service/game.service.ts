@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Game } from '../../game';
 import { TeamGame } from '../../teamGame';
-import { MatchupStats } from '../../matchupStats';
+import { MatchupGame } from '../../matchupGame';
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
@@ -34,9 +34,9 @@ export class GameService {
     );
   }
 
-  getMatchupStats(owner1Id: number, owner2Id: number): Observable<MatchupStats> {
+  getMatchupStats(owner1Id: number, owner2Id: number): Observable<MatchupGame[]> {
     const url = `${this.baseURL}` + '/games/matchup/' + owner1Id + '/' + owner2Id;
-    return this.http.get<MatchupStats>(url).pipe(
+    return this.http.get<MatchupGame[]>(url).pipe(
       tap(_ => console.log('games received'))
     );
   }

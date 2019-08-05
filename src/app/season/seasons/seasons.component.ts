@@ -10,9 +10,7 @@ import { Season } from '../../season';
 export class SeasonsComponent implements OnInit {
   public seasons: Season[];
 
-  constructor(
-    public seasonService: SeasonService) {
-  }
+  constructor(public seasonService: SeasonService) { }
 
   ngOnInit() {
     this.seasonService.getSeasons().subscribe(res => {

@@ -13,6 +13,7 @@ import { NullToEmptyStrPipe } from './null-to-empty-str.pipe';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatchupTableComponent } from '../../matchup/matchup-table/matchup-table.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { MatSortModule } from '@angular/material/sort';
     VerticalBarChartComponent,
     DoubleVerticalBarChartComponent,
     NoCommaPipe,
-    NullToEmptyStrPipe
+    NullToEmptyStrPipe,
+    MatchupTableComponent
   ],
   exports: [
     TeamsTableComponent,
@@ -40,7 +42,8 @@ import { MatSortModule } from '@angular/material/sort';
     VerticalBarChartComponent,
     DoubleVerticalBarChartComponent,
     NoCommaPipe,
-    NullToEmptyStrPipe
+    NullToEmptyStrPipe,
+    MatchupTableComponent
   ]
 })
 export class TableModule { }
