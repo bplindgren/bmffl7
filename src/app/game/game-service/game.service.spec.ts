@@ -3,12 +3,13 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { GameService } from './game.service';
 import { Game } from '../../game';
-import { MatchupStats } from '../../matchupStats';
+import { TeamGame } from '../../teamGame';
+import { MatchupGame } from '../../matchupGame';
 
 import { recentGames } from '../../test-objects/games/recentGames';
 import { playoffGames } from '../../test-objects/games/playoffGames';
 import { teamGames } from '../../test-objects/games/teamGames';
-import { matchupStatsTestObj } from '../../test-objects/games/matchupStatsTestObj';
+import { matchupGamesTestObj } from '../../test-objects/matchup/matchupGames';
 
 describe('GameService', () => {
   let injector: TestBed;
@@ -67,7 +68,7 @@ describe('GameService', () => {
 
   it('expects service to fetch a team\'s games', () => {
     // Call the getTeamGames(teamId) method
-    service.getTeamGames(54).subscribe((games: Game[]) => {
+    service.getTeamGames(54).subscribe((games: TeamGame[]) => {
       // Check correct number of games
       expect(games['data'].length).toBe(15);
 
@@ -83,34 +84,28 @@ describe('GameService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush({ data: teamGames });
-  })
+  });
 
   it('expects service to fetch matchupStats', () => {
     // Call the getTeamGames(teamId) method
-    service.getMatchupStats(4, 6).subscribe((stats: MatchupStats) => {
-      console.log(stats);
+    service.getMatchupGames(4, 6).subscribe((games: MatchupGame[]) => {
+
       // Check stats
-      expect(stats['data']['games'].length).toBe(15);
-      expect(stats['data']['o1wins']).toBe(6);
-      expect(stats['data']['o2wins']).toBe(9);
-      expect(stats['data']['o1points']).toBe(1404.7);
-      expect(stats['data']['o2points']).toBe(1386.3);
-      expect(stats['data']['ties']).toBe(0);
+      expect(games['data'].length).toBe(16);
 
       // Check for correct games
-      const awayOwners: number[] = stats['data']['games'].map(game => { return game['awayTeam']['owner'].id });
-      const homeOwners: number[] = stats['data']['games'].map(game => { return game['homeTeam']['owner'].id });
-      let owners: number[] = awayOwners.concat(homeOwners)
-      expect(owners.length).toBe(30);
-      expect(owners).toEqual(jasmine.arrayContaining([4, 6]));
+      const o1teams: string[] = games['data'].map(g => g['o1team'] );
+      const o2teams: string[] = games['data'].map(g => g['o2team']);
+      let teams: string[] = o1teams.concat(o2teams)
+      expect(teams).toEqual(jasmine.arrayContaining(["The Ricky Stanzis", "Orange Crush"]));
     });
 
     // Expect request to be a 'GET' request
     const req = httpMock.expectOne("http://localhost:8080/games/matchup/4/6");
     expect(req.request.method).toEqual('GET');
 
-    req.flush({ data: matchupStatsTestObj });
-  })
+    req.flush({ data: matchupGamesTestObj });
+  });
 
   afterEach(() => {
     httpMock.verify();

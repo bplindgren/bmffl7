@@ -35,7 +35,7 @@ export class MatchupComponent {
   private owner1: Owner;
   private owner2: Owner;
   public games: MatchupGame[];
-  private matchupStats: MatchupStats;
+  public matchupStats: MatchupStats;
   private owner1stats: SeasonStats[];
   private owner2stats: SeasonStats[];
   private statControl = new FormControl();
@@ -52,7 +52,7 @@ export class MatchupComponent {
     this.owner1 = e[0];
     this.owner2 = e[1];
 
-    let gamesRequest = this.gameService.getMatchupStats(this.owner1.id, this.owner2.id);
+    let gamesRequest = this.gameService.getMatchupGames(this.owner1.id, this.owner2.id);
     let owner1stats = this.teamService.getOwnerTeamsStatsView(this.owner1.id);
     let owner2stats = this.teamService.getOwnerTeamsStatsView(this.owner2.id);
 
