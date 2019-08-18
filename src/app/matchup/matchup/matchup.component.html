@@ -2,7 +2,17 @@
 (matchupEventEmt)=getMatchupStats($event)>
 </matchup-form>
 
-<div *ngIf="graphData">
+<mat-button-toggle-group name="matchup-toggle" aria-label="Font Style" value="games">
+  <mat-button-toggle value="games" (change)="showGamesClick($event)">Show Games</mat-button-toggle>
+  <mat-button-toggle value="stats" (change)="showStatsClick($event)">Show Stats</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div *ngIf="games && matchupStats && showGames">
+  <matchup-totals [matchupStats]="matchupStats" [owner1]="owner1" [owner2]="owner2"></matchup-totals>
+  <matchup-table [o1]="owner1" [o2]="owner2" [games]="games"></matchup-table>
+</div>
+
+<div id="graph" *ngIf="graphData && showStats">
   <form>
     <mat-form-field>
       <mat-select placeholder="Select Stat" [(ngModel)]="displayedStat" name="stat-select" (selectionChange)="getNewStat($event)">
@@ -11,9 +21,4 @@
     </mat-form-field>
   </form>
   <double-vertical-bar-chart [data]="graphData"></double-vertical-bar-chart>
-</div>
-
-<div *ngIf="games && matchupStats">
-  <matchup-totals [matchupStats]="matchupStats" [owner1]="owner1" [owner2]="owner2"></matchup-totals>
-  <matchup-table [o1]="owner1" [o2]="owner2" [games]="games"></matchup-table>
 </div>

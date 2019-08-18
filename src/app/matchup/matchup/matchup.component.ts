@@ -41,6 +41,8 @@ export class MatchupComponent {
   private statControl = new FormControl();
   private displayedStat: string = 'Wins';
   public graphData: any[];
+  public showGames: boolean = true;
+  public showStats: boolean = false;
   public statsArray: Array<string> = ['Games_Played', 'Wins', 'Losses', 'Ties', 'Winning_Percentage', 'Regular_Season_Wins', 'Regular_Season_Losses', 'Points_For', 'Points_Against', 'Point_Differential', 'Points_For_Per_Game', 'Points_Against_Per_Game', 'Points_Per_Game_Differential'];
 
   constructor(
@@ -67,6 +69,16 @@ export class MatchupComponent {
 
   getNewStat(e: string): void {
     this.updateChart(e['value']);
+  }
+
+  showGamesClick(e: string): void {
+    this.showGames = true;
+    this.showStats = false;
+  }
+
+  showStatsClick(e: string): void {
+    this.showStats = true;
+    this.showGames = false;
   }
 
   updateChart(stat: string): void {
