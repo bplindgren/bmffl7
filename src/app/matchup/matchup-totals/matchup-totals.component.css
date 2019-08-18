@@ -1,12 +1,12 @@
 mat-grid-list {
   height: 120px;
-  padding: 40px 0px 20px 0px;
-  width: 95%;
-  margin: auto;
+  padding: 10px 0px 10px 0px;
+  margin-top: 30px;
+  border: 2px solid black;
 }
 
 mat-grid-tile {
-  border: 1px dashed gray;
+  /* border: 1px dashed gray; */
   border-top: none;
   border-bottom: none;
   text-align: center;

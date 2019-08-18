@@ -1,6 +1,6 @@
 export class MatchupGame {
   id: number;
-  season: number;
+  season: string;
   week: number;
   gameType: string;
   o1team: string;
