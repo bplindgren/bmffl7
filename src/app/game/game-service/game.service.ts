@@ -34,7 +34,7 @@ export class GameService {
     );
   }
 
-  getMatchupStats(owner1Id: number, owner2Id: number): Observable<MatchupGame[]> {
+  getMatchupGames(owner1Id: number, owner2Id: number): Observable<MatchupGame[]> {
     const url = `${this.baseURL}` + '/games/matchup/' + owner1Id + '/' + owner2Id;
     return this.http.get<MatchupGame[]>(url).pipe(
       tap(_ => console.log('games received'))

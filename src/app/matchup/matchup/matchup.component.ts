@@ -35,12 +35,14 @@ export class MatchupComponent {
   private owner1: Owner;
   private owner2: Owner;
   public games: MatchupGame[];
-  private matchupStats: MatchupStats;
+  public matchupStats: MatchupStats;
   private owner1stats: SeasonStats[];
   private owner2stats: SeasonStats[];
   private statControl = new FormControl();
   private displayedStat: string = 'Wins';
   public graphData: any[];
+  public showGames: boolean = true;
+  public showStats: boolean = false;
   public statsArray: Array<string> = ['Games_Played', 'Wins', 'Losses', 'Ties', 'Winning_Percentage', 'Regular_Season_Wins', 'Regular_Season_Losses', 'Points_For', 'Points_Against', 'Point_Differential', 'Points_For_Per_Game', 'Points_Against_Per_Game', 'Points_Per_Game_Differential'];
 
   constructor(
@@ -52,7 +54,7 @@ export class MatchupComponent {
     this.owner1 = e[0];
     this.owner2 = e[1];
 
-    let gamesRequest = this.gameService.getMatchupStats(this.owner1.id, this.owner2.id);
+    let gamesRequest = this.gameService.getMatchupGames(this.owner1.id, this.owner2.id);
     let owner1stats = this.teamService.getOwnerTeamsStatsView(this.owner1.id);
     let owner2stats = this.teamService.getOwnerTeamsStatsView(this.owner2.id);
 
@@ -67,6 +69,16 @@ export class MatchupComponent {
 
   getNewStat(e: string): void {
     this.updateChart(e['value']);
+  }
+
+  showGamesClick(e: string): void {
+    this.showGames = true;
+    this.showStats = false;
+  }
+
+  showStatsClick(e: string): void {
+    this.showStats = true;
+    this.showGames = false;
   }
 
   updateChart(stat: string): void {
