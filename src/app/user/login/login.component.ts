@@ -1,21 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from '../user-service/user.service';
-import { MatFormFieldModule, MatInputModule } from '@angular/material'
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { User } from '../../user';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  user: User = new User();
+  errorMessage: String;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router) {
+  }
 
-  ngOnInit() {
-    this.userService.getAllUsers().subscribe(response => {
-      console.log(response);
-    });
-
+  login() {
+    console.log(this.user);
+    this.userService.login(this.user).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/home']);
+    }, err => {
+      console.log(err);
+      this.errorMessage = "Username or Password is incorrect.";
+    })
   }
 
 }
