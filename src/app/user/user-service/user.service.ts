@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 import { User } from '../../user';
 
 @Injectable({ providedIn: 'root' })
@@ -15,6 +15,26 @@ export class UserService {
     return this.http.get<User[]>(url).pipe(
       tap(_ => console.log('all owners fetched'))
     )
+  }
+
+  login(user:User): Observable<any> {
+    // console.log(localStorage)
+    const headers = new HttpHeaders(user ?{
+      authorization:'Basic ' + btoa(user.username + ':' + user.password)
+    }:{});
+
+    console.log(headers);
+
+    const url = `${this.baseURL}` + '/users/login';
+    return this.http.get<any>(url, {headers:headers})
+    .pipe(map(response => {
+      console.log(response);
+      if(response){
+        localStorage.setItem('currentUser', JSON.stringify(response));
+        // console.log(localStorage)
+      }
+      return response;
+    }));
   }
 
 }
