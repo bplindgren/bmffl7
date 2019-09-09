@@ -37,7 +37,6 @@ export class UserService {
     .pipe(map(response=> {
       localStorage.removeItem('currentUser');
     }));
-    this.router.navigate(['/home']);
   }
 
 }
