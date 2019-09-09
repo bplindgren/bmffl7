@@ -32,6 +32,10 @@ export class UserService {
     }));
   }
 
+  register(user: User): Observable<any> {
+    return this.http.post(this.baseURL + '/users/register', JSON.stringify(user), {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+  }
+
   logOut(): Observable<any> {
     return this.http.post(this.baseURL + '/users/logout', {})
     .pipe(map(response=> {
