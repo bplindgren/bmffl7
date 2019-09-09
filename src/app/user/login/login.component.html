@@ -17,8 +17,12 @@
       <button type="submit" id="submit-button">Sign In</button>
     </div>
   </mat-card>
-
-<p>{{ errorMessage }}</p>
-
 </form>
-<a [routerLink]="['/user/register']" class="btn btn-link">Create New Account</a>
+
+<div id="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<div class="center">
+  <button><a [routerLink]="['/user/register']" class="btn btn-link">Don't have an account? Create a new Account!</a></button>
+</div>

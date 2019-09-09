@@ -7,6 +7,7 @@ import { MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/mate
 import { User } from '../user';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { RegisterComponent } from './register/register.component';
     MatFormFieldModule,
     MatInputModule
   ],
-  declarations: [ LoginComponent, RegisterComponent ],
+  declarations: [ LoginComponent, RegisterComponent, LogoutComponent ],
   exports: [ LoginComponent, RegisterComponent ]
 })
 export class UserModule { }

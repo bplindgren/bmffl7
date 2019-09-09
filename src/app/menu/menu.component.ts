@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public upstairsOwners = [];
   public downstairsOwners = [];
   public bmfflSeasons = seasons;
+  public loggedIn: String = "Login";
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
@@ -26,6 +27,9 @@ export class MenuComponent implements OnInit, AfterViewInit {
   constructor(private ownerService: OwnerService) { }
 
   ngOnInit() {
+    if (localStorage['currentUser']) {
+      this.loggedIn = localStorage['currentUser']['username'];
+    }
     this.ownerService.getAllOwners()
       .subscribe((owners) => {
         this.upstairsOwners = owners.filter(o => o.division == "upstairs")

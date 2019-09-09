@@ -18,23 +18,26 @@ export class UserService {
   }
 
   login(user:User): Observable<any> {
-    // console.log(localStorage)
     const headers = new HttpHeaders(user ?{
       authorization:'Basic ' + btoa(user.username + ':' + user.password)
     }:{});
 
-    console.log(headers);
-
     const url = `${this.baseURL}` + '/users/login';
     return this.http.get<any>(url, {headers:headers})
     .pipe(map(response => {
-      console.log(response);
       if(response){
         localStorage.setItem('currentUser', JSON.stringify(response));
-        // console.log(localStorage)
       }
       return response;
     }));
+  }
+
+  logOut(): Observable<any> {
+    return this.http.post(this.baseURL + '/users/logout', {})
+    .pipe(map(response=> {
+      localStorage.removeItem('currentUser');
+    }));
+    this.router.navigate(['/home']);
   }
 
 }
