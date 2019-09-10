@@ -19,9 +19,7 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.user);
     this.userService.login(this.user).subscribe(res => {
-      console.log(res);
       this.router.navigate(['/home']);
     }, err => {
       console.log(err);

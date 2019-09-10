@@ -30,3 +30,7 @@ mat-card {
   text-decoration: none;
   color: white;
 }
+
+.float-right {
+  float: right;
+}

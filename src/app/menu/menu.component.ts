@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public upstairsOwners = [];
   public downstairsOwners = [];
   public bmfflSeasons = seasons;
-  public loggedIn: String = "Login";
+  public loggedIn: String = "";
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
