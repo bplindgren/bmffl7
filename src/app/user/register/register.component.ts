@@ -10,8 +10,8 @@ import { User } from '../../user';
 })
 export class RegisterComponent {
 
-  private user: User = new User();
-  private errorMessage: String;
+  public user: User = new User();
+  public errorMessage: String;
 
   constructor(
     private userService: UserService,
