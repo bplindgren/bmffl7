@@ -26,7 +26,7 @@ export class VerticalBarChartComponent implements OnInit, OnChanges {
   ngOnInit() {
     let chartLabels = this.data
       .map(object => object['name'])
-      .filter(label => label !== '2019');
+      .filter(label => label !== '2020');
     this.barChartLabels = chartLabels;
   }
 
@@ -34,7 +34,7 @@ export class VerticalBarChartComponent implements OnInit, OnChanges {
     let newLabels = this.data.map(object => object['name']);
     this.barChartLabels.length = 0;
     for (let i = newLabels.length - 1; i >= 0; i--) {
-      if (newLabels[i] !== '2019') {
+      if (newLabels[i] !== '2020') {
         this.barChartLabels.push(newLabels[i]);
       }
     }
