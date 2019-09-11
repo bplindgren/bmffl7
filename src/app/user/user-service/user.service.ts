@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { User } from '../../user';
 @Injectable({ providedIn: 'root' })
 export class UserService {
   private baseURL = 'http://localhost:8080';
+  @Output() getLoggedInUser: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,7 @@ export class UserService {
     .pipe(map(response => {
       if(response){
         localStorage.setItem('currentUser', JSON.stringify(response));
+        this.getLoggedInUser.emit(response['username']);
       }
       return response;
     }));
@@ -40,6 +42,7 @@ export class UserService {
     return this.http.post(this.baseURL + '/users/logout', {})
     .pipe(map(response=> {
       localStorage.removeItem('currentUser');
+      this.getLoggedInUser.emit('');
     }));
   }
 

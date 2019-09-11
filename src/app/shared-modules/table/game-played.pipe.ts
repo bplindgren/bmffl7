@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class GamePlayedPipe implements PipeTransform {
 
   transform(value: number, gamePlayed: String): any {
-    console.log(value, gamePlayed);
     return gamePlayed !== null ? value : "";
   }
 
