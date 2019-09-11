@@ -12,7 +12,7 @@ export class DoubleVerticalBarChartComponent implements OnInit, OnChanges {
     responsive: true,
     scales: { yAxes: [{ ticks: { beginAtZero: true } }] }
   };
-  public barChartLabels: string[] = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'];
+  public barChartLabels: string[] = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'];
   public barChartType: string = 'line';
   public barChartLegend: boolean = true;
 

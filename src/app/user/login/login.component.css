@@ -55,7 +55,8 @@ mat-card-title {
   color: red;
 }
 
-.center {
-  margin: auto;
-  width: 50%;
+#register-button {
+  margin-left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }

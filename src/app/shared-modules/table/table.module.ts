@@ -14,6 +14,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatchupTableComponent } from '../../matchup/matchup-table/matchup-table.component';
+import { GamePlayedPipe } from './game-played.pipe';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MatchupTableComponent } from '../../matchup/matchup-table/matchup-table
     DoubleVerticalBarChartComponent,
     NoCommaPipe,
     NullToEmptyStrPipe,
-    MatchupTableComponent
+    MatchupTableComponent,
+    GamePlayedPipe
   ],
   exports: [
     TeamsTableComponent,

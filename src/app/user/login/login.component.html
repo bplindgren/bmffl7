@@ -1,5 +1,4 @@
 <form name="form-signin" (ngSubmit)="login()">
-
   <mat-card id="login-form">
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
@@ -23,6 +22,4 @@
   <p>{{ errorMessage }}</p>
 </div>
 
-<div class="center">
-  <button><a [routerLink]="['/user/register']" class="btn btn-link">Don't have an account? Create a new Account!</a></button>
-</div>
+<button id="register-button"><a [routerLink]="['/user/register']" class="btn btn-link">Don't have an account? Create a new Account!</a></button>

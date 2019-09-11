@@ -4,6 +4,7 @@ import { Component, OnInit, AfterViewInit, Input, Output,
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner/owner-service/owner.service';
+import { LocalStorageService } from '../local-storage-service/local-storage.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { seasons } from '../seasons';
@@ -17,14 +18,15 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public upstairsOwners = [];
   public downstairsOwners = [];
   public bmfflSeasons = seasons;
-  public loggedIn: String = "Login";
+  public loggedIn: String = "";
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
   @ViewChild("seasonsMenu") seasonsMenu: ElementRef;
   @Output() evtEmitterOwnerId: EventEmitter<Number> = new EventEmitter();
 
-  constructor(private ownerService: OwnerService) { }
+  constructor(
+    private ownerService: OwnerService) { }
 
   ngOnInit() {
     if (localStorage['currentUser']) {

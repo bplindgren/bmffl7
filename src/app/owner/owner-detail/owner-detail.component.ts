@@ -24,7 +24,8 @@ export class OwnerDetailComponent implements OnInit, OnDestroy {
     { name: "2015", value: 0 },
     { name: "2016", value: 0 },
     { name: "2017", value: 0 },
-    { name: "2018", value: 0 }
+    { name: "2018", value: 0 },
+    { name: "2019", value: 0 }
   ];
   public yAxis: string = "Wins";
   public allTimeStats: AllTimeStats;
@@ -48,7 +49,6 @@ export class OwnerDetailComponent implements OnInit, OnDestroy {
   }
 
   updateGrid(arr: Array<any>): void {
-    console.log(arr);
     this.stat = arr[0];
     this.yAxis = arr[1];
     this.show = true;
