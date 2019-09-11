@@ -28,7 +28,7 @@ export class WeekScoresComponent implements OnInit {
     // number of days since epoch
     let today = Math.ceil((new Date().getTime()) / 86400000);
 
-    let dayOfYear = today - yearFirstDay
+    let dayOfYear = today - yearFirstDay - 1;
     this.weekNum = this.getWeek(dayOfYear)
   }
 

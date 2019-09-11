@@ -1,17 +1,25 @@
-<mat-card id="login-form">
-  <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
+<form name="form-signin" (ngSubmit)="login()">
+  <mat-card id="login-form">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
 
-  <div class="form-container">
-    <mat-form-field>
-      <input matInput type="email" placeholder="username">
-    </mat-form-field>
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput name="username" type="text" placeholder="username" [(ngModel)]="user.username" required>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="password" placeholder="password">
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput name="password" type="password" placeholder="password" [(ngModel)]="user.password" required>
+      </mat-form-field>
 
-    <button type="submit" id="submit-button">Submit</button>
-  </div>
-</mat-card>
+      <button type="submit" id="submit-button">Sign In</button>
+    </div>
+  </mat-card>
+</form>
+
+<div id="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<button id="register-button"><a [routerLink]="['/user/register']" class="btn btn-link">Don't have an account? Create a new Account!</a></button>

@@ -32,32 +32,32 @@
 
     <ng-container cdkColumnDef="pts">
       <mat-header-cell *cdkHeaderCellDef>Pts</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.teamScore }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.teamScore | gamePlayed: element.result }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="opp">
       <mat-header-cell *cdkHeaderCellDef>Opp</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.opponentScore }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.opponentScore | gamePlayed: element.result }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="w">
       <mat-header-cell *cdkHeaderCellDef>W</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.w }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.w | gamePlayed: element.result }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="l">
       <mat-header-cell *cdkHeaderCellDef>L</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.l }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.l | gamePlayed: element.result }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="t">
       <mat-header-cell *cdkHeaderCellDef>T</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.t }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.t | gamePlayed: element.result }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="streak">
       <mat-header-cell *cdkHeaderCellDef>Streak</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.fullStreak }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.fullStreak | gamePlayed: element.result }}</mat-cell>
     </ng-container>
 
     <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>

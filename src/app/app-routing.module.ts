@@ -36,12 +36,12 @@ export const routes: Routes = [
     path: 'matchup',
     loadChildren: './matchup/matchup.module#MatchupModule'
   },
-  { path: 'standings', component: StandingsComponent }
+  { path: 'standings', component: StandingsComponent },
+  {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule'
+  }
   // { path: 'records', component: RecordsComponent }
-  // {
-  //   path: 'user',
-  //   loadChildren: './user/user.module#UserModule'
-  // }
 ]
 
 @NgModule({
