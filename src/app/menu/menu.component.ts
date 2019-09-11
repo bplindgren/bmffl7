@@ -4,7 +4,6 @@ import { Component, OnInit, AfterViewInit, Input, Output,
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { OwnerService } from '../owner/owner-service/owner.service';
-import { LocalStorageService } from '../local-storage-service/local-storage.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { seasons } from '../seasons';
