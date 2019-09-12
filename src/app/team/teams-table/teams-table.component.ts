@@ -14,12 +14,14 @@ export class TeamsTableComponent implements OnChanges {
   public dataSource: any;
   displayedColumns: string[] = ['year', 'name', 'standing', 'divisionwinner', 'gamesplayed', 'wins', 'losses', 'ties', 'winningpct', 'pointsfor', 'pointsagainst', 'pfpg', 'papg', 'ppgdiff'];
   public hideTeams: boolean = true;
+  @Input() public stat: string;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnChanges(changes: SimpleChanges) {
-    this.dataSource = new MatTableDataSource<SeasonStats>(changes['teams']['currentValue'].sort((a: SeasonStats, b: SeasonStats) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)));
+    this.dataSource = new MatTableDataSource<SeasonStats>(changes['teams']['currentValue'].sort((a: SeasonStats, b: SeasonStats) => (a[this.stat] > b[this.stat]) ? 1 : ((b[this.stat] > a[this.stat]) ? -1 : 0)));
+
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.hideTeams = this.setTenTeams();

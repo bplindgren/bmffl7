@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component'
 import { RecordsComponent } from './records/records.component';
 import { StandingsComponent } from './standings/standings.component';
+import { RankingsComponent } from './rankings/rankings.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,12 +37,19 @@ export const routes: Routes = [
     path: 'matchup',
     loadChildren: './matchup/matchup.module#MatchupModule'
   },
-  { path: 'standings', component: StandingsComponent },
+  {
+    path: 'standings', component: StandingsComponent
+  },
   {
     path: 'user',
     loadChildren: './user/user.module#UserModule'
-  }
-  // { path: 'records', component: RecordsComponent }
+  },
+  {
+    path: 'rankings', component: RankingsComponent
+  },
+  // {
+  //   path: 'records', component: RecordsComponent
+  // }
 ]
 
 @NgModule({

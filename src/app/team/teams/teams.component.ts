@@ -30,6 +30,7 @@ export class TeamsComponent implements OnInit {
     this.teamService.getAllTeamsStatsView().subscribe(teams => {
       this.allTeams = teams;
       this.displayedTeams = this.allTeams;
+      console.log(this.displayedTeams);
     })
     this.ownerService.getAllOwners().subscribe(owners => {
       this.owners = owners;
