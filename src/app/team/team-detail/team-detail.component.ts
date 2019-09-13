@@ -39,8 +39,7 @@ export class TeamDetailComponent implements OnInit, OnDestroy {
     let teamStatsResponse = this.teamService.getTeamSeasonStatsView(this.teamId);
 
     forkJoin([gamesResponse, teamStatsResponse]).subscribe(responseList => {
-      console.log(responseList);
-      this.games = responseList[0]
+      this.games = responseList[0];
       this.teamStats = [responseList[1]];
     })
   }

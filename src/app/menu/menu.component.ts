@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit, Input, Output,
          EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
+import { User } from '../user';
 import { OwnerService } from '../owner/owner-service/owner.service';
 import { UserService } from '../user/user-service/user.service';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +20,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public downstairsOwners = [];
   public bmfflSeasons = seasons;
   public loggedIn: String = null;
+  public userProfile: String = null;
 
   @ViewChildren(MatMenuTrigger) menuChildren: QueryList<MatMenuTrigger>;
   @ViewChild("ownersMenu") ownersMenu: ElementRef;
@@ -29,7 +31,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
     private ownerService: OwnerService,
     private userService: UserService) {
       userService.getLoggedInUser.subscribe(name => {
-        this.loggedIn = name
+        this.updateLoggedIn();
     });
   }
 
@@ -47,10 +49,16 @@ export class MenuComponent implements OnInit, AfterViewInit {
   updateLoggedIn() {
     if (localStorage['currentUser'] != null) {
       let userInfo = localStorage['currentUser'];
+
       let usernameStartIdx = userInfo.indexOf("username") + 11;
       let usernameEndIdx = userInfo.indexOf("\"", usernameStartIdx);
       let username = userInfo.substring(usernameStartIdx, usernameEndIdx);
       this.loggedIn = username;
+
+      let idStartIdx = userInfo.indexOf("id") + 4;
+      let idEndIdx = userInfo.indexOf(",", idStartIdx);
+      let userId = userInfo.substring(idStartIdx, idEndIdx);
+      this.userProfile = '/user/' + userId;
     } else {
       this.loggedIn = null;
     }

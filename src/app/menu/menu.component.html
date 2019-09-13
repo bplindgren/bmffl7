@@ -48,7 +48,7 @@
     <button *ngIf="loggedIn" class="login-button" mat-flat-button color="primary" [matMenuTriggerFor]="userMenu">{{ loggedIn }}</button>
 
     <mat-menu #userMenu="matMenu" overlapTrigger=false>
-      <button mat-menu-item class="float-right" routerLink="/teams/54">View Profile</button>
+      <button mat-menu-item class="float-right" routerLink="{{ userProfile }}">View Profile</button>
       <button mat-menu-item class="float-right" routerLink="/user/logout">Logout</button>
     </mat-menu>
   </mat-card-content>

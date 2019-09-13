@@ -8,6 +8,7 @@ import { User } from '../user';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { LogoutComponent } from './logout/logout.component';
     MatFormFieldModule,
     MatInputModule
   ],
-  declarations: [ LoginComponent, RegisterComponent, LogoutComponent ],
-  exports: [ LoginComponent, RegisterComponent ]
+  declarations: [ LoginComponent, RegisterComponent, LogoutComponent, ProfileComponent ],
+  exports: [ LoginComponent, RegisterComponent, ProfileComponent ]
 })
 export class UserModule { }

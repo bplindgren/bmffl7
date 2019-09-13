@@ -10,7 +10,7 @@ import { MatchupModule } from './matchup/matchup.module';
 import { UserModule } from './user/user.module';
 
 import { HomeComponent } from './home/home.component'
-import { RecordsComponent } from './records/records.component';
+// import { RecordsComponent } from './records/records.component';
 import { StandingsComponent } from './standings/standings.component';
 import { RankingsComponent } from './rankings/rankings.component';
 
@@ -53,7 +53,7 @@ export const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [ HomeComponent, RecordsComponent ],
+  declarations: [ HomeComponent ], //, RecordsComponent ],
   imports: [ OwnerModule, MatMenuModule, RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
   providers: []

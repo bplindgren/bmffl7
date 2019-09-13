@@ -40,10 +40,17 @@ export class UserService {
 
   logOut(): Observable<any> {
     return this.http.post(this.baseURL + '/users/logout', {})
-    .pipe(map(response=> {
+    .pipe(map(response => {
       localStorage.removeItem('currentUser');
       this.getLoggedInUser.emit('');
     }));
+  }
+
+  getUserInfo(username: string): Observable<User> {
+    const url = `${this.baseURL}` + '/users/user/' + username;
+    return this.http.get<User>(url).pipe(
+      tap(_ => console.log('owner fetched'))
+    )
   }
 
 }
