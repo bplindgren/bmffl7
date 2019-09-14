@@ -25,13 +25,15 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { RankingsComponent } from './rankings/rankings.component';
+import { SmackboardComponent } from './smackboard/smackboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     StandingsComponent,
-    RankingsComponent
+    RankingsComponent,
+    SmackboardComponent
   ],
   imports: [
     LayoutModule, BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
@@ -43,7 +45,8 @@ import { RankingsComponent } from './rankings/rankings.component';
     AppComponent,
     MenuComponent,
     StandingsComponent,
-    RankingsComponent
+    RankingsComponent,
+    SmackboardComponent
   ],
   bootstrap: [AppComponent]
 })

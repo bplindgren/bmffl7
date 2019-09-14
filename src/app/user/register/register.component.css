@@ -1,6 +1,5 @@
 #register-form {
   margin: auto;
-  height: 360px;
   width: 500px;
   margin-top: 50px;
   border: 1px solid #B0B0B0;
@@ -53,9 +52,4 @@ mat-card-title {
   text-align: center;
   padding: 20px 0px;
   color: red;
-}
-
-.center {
-  margin: auto;
-  width: 50%;
 }

@@ -1,5 +1,5 @@
 #header-component {
-  min-width: 900px;
+  min-width: 980px;
   margin: auto;
   text-align: center;
   border-radius: 0px;
@@ -24,7 +24,7 @@ mat-card {
 
 #buttons-bar {
   background-color: #673AB7;
-  padding-left: 4.5%;
+  /* padding-left: 4.5%; */
   height: 38px;
   clear: both;
 }

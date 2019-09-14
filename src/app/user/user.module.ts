@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material'
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material'
 
 import { User } from '../user';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   declarations: [ LoginComponent, RegisterComponent, LogoutComponent, ProfileComponent ],
   exports: [ LoginComponent, RegisterComponent, ProfileComponent ]
