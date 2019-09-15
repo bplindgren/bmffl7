@@ -22,7 +22,7 @@
         <h5>favorite BMFFL team</h5>
         <mat-form-field>
           <mat-select [disabled]="!editing" [(ngModel)]="user.favbmfflteam" name="favbmfflteam">
-            <mat-option *ngFor="let team of teams" [value]="team">
+            <mat-option *ngFor="let team of teams" [value]="team.name">
               {{ team.name }}
             </mat-option>
           </mat-select>

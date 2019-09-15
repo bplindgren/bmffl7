@@ -35,7 +35,11 @@ export class UserService {
   }
 
   register(user: User): Observable<any> {
-    return this.http.post(this.baseURL + '/users/register', JSON.stringify(user), {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    return this.http.post(
+      this.baseURL + '/users/register',
+      JSON.stringify(user),
+      {headers: {"Content-Type": "application/json; charset=UTF-8"}}
+    );
   }
 
   logOut(): Observable<any> {
@@ -51,6 +55,13 @@ export class UserService {
     return this.http.get<User>(url).pipe(
       tap(_ => console.log('owner fetched'))
     )
+  }
+
+  updateUser(user: User): Observable<any> {
+    const url = this.baseURL + '/users/edit/' + `${user.id}`;
+    return this.http.put(url,
+      JSON.stringify(user),
+      {headers: { "Content-Type": "application/json; charset=UTF-8" }});
   }
 
 }

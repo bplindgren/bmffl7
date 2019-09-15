@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit {
 
     this.userService.getUserInfo(username).subscribe(res => {
       this.user = res;
-      console.log(this.user);
     })
 
     // get teams
@@ -39,13 +38,16 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  toggleEditing() {
+  toggleEditing(): void {
     this.editing = !this.editing;
     console.log(this.editing);
   }
 
-  updateUser() {
-
+  updateUser(): void {
+    this.userService.updateUser(this.user).subscribe(res => {
+      console.log(res);
+      this.toggleEditing();
+    })
   }
 
 }
