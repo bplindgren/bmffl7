@@ -6,7 +6,8 @@ import { User } from '../../user';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  private baseURL = 'http://localhost:8080';
+  private baseURL = 'https://bmffl-spring-boot.herokuapp.com';
+  // private baseURL = 'http://localhost:8080';
   @Output() getLoggedInUser: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) { }

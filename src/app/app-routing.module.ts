@@ -12,8 +12,8 @@ import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component'
 // import { RecordsComponent } from './records/records.component';
 import { StandingsComponent } from './standings/standings.component';
-// import { RankingsComponent } from './rankings/rankings.component';
-// import { SmackboardComponent } from './smackboard/smackboard.component';
+import { RankingsComponent } from './rankings/rankings.component';
+import { SmackboardComponent } from './smackboard/smackboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -44,17 +44,17 @@ export const routes: Routes = [
   {
     path: 'user',
     loadChildren: './user/user.module#UserModule'
+  },
+  {
+    path: 'rankings', component: RankingsComponent
+  },
+  {
+    path: 'smackboard', component: SmackboardComponent
   }
-  // {
-  //   path: 'rankings', component: RankingsComponent
-  // },
-  // {
-  //   path: 'smackboard', component: SmackboardComponent
-  // }
 ]
 
 @NgModule({
-  declarations: [ HomeComponent ], //, RecordsComponent ],
+  declarations: [ HomeComponent ],
   imports: [ OwnerModule, MatMenuModule, RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
   providers: []
