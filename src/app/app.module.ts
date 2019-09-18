@@ -44,9 +44,9 @@ import { MatSortModule } from '@angular/material/sort';
   exports: [
     AppComponent,
     MenuComponent,
-    StandingsComponent,
-    RankingsComponent,
-    SmackboardComponent
+    StandingsComponent
+    // RankingsComponent,
+    // SmackboardComponent
   ],
   bootstrap: [AppComponent]
 })
