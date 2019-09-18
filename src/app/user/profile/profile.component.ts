@@ -23,6 +23,15 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getUserInfo();
+
+    // get teams for favorite teams drop down
+    this.teamService.getSeasonTeams(9).subscribe(res => {
+      this.teams = res;
+    })
+  }
+
+  getUserInfo(): void {
     let userInfo = localStorage['currentUser'];
     let usernameStartIdx = userInfo.indexOf("username") + 11;
     let usernameEndIdx = userInfo.indexOf("\"", usernameStartIdx);
@@ -30,17 +39,12 @@ export class ProfileComponent implements OnInit {
 
     this.userService.getUserInfo(username).subscribe(res => {
       this.user = res;
-    })
-
-    // get teams
-    this.teamService.getSeasonTeams(9).subscribe(res => {
-      this.teams = res;
-    })
+    });
   }
 
   toggleEditing(): void {
     this.editing = !this.editing;
-    console.log(this.editing);
+    this.getUserInfo();
   }
 
   updateUser(): void {
