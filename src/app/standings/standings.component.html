@@ -29,7 +29,7 @@
 
     <ng-container cdkColumnDef="winningpct">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>Win%</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.winningpct }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.winningpct | number:'0.3' }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="pointsfor">

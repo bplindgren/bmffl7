@@ -1,7 +1,11 @@
 export class User {
   id: number;
-  name: String;
+  firstname: String;
+  lastname: String;
   username: String;
   email: String;
   password: String;
+  role: String;
+  favBMFFLteam: String;
+  favNFLteam: String;
 }

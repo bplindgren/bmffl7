@@ -7,7 +7,11 @@
 
     <div class="form-container">
       <mat-form-field>
-        <input matInput name="name" type="text" placeholder="full name" [(ngModel)]="user.name" required>
+        <input matInput name="firstname" type="text" placeholder="first name" [(ngModel)]="user.firstname" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput name="lastname" type="text" placeholder="last name" [(ngModel)]="user.lastname" required>
       </mat-form-field>
 
       <mat-form-field>
@@ -15,7 +19,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput name="username" type="text" placeholder="username" [(ngModel)]="user.username" required>
+        <input matInput name="username" type="text" maxlength="12" placeholder="username" [(ngModel)]="user.username" required>
       </mat-form-field>
 
       <mat-form-field>

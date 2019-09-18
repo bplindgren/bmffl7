@@ -1,0 +1,50 @@
+<h1>MORE COOL USER FEATURES TO COME SOON</h1>
+
+<div *ngIf="user">
+  <form name="form-user" (ngSubmit)="updateUser()">
+
+    <mat-card id="form-user">
+      <mat-card-header>
+        <mat-card-title>User Info</mat-card-title>
+      </mat-card-header>
+
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput name="firstname" type="text" placeholder="first name" [disabled]="!editing" [(ngModel)]="user.firstname" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput name="lastname" type="text" placeholder="last name" [disabled]="!editing" [(ngModel)]="user.lastname" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput name="email" type="email" placeholder="email" [disabled]="!editing" [(ngModel)]="user.email" required>
+        </mat-form-field>
+
+        <h5>favorite BMFFL team</h5>
+        <mat-form-field>
+          <mat-select [disabled]="!editing" [(ngModel)]="user.favbmfflteam" name="favbmfflteam">
+            <mat-option *ngFor="let team of teams" [value]="team.name">
+              {{ team.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h5>favorite NFL team</h5>
+        <mat-form-field>
+          <mat-select [disabled]="!editing" [(ngModel)]="user.favnflteam" name="favnflteam">
+            <mat-option *ngFor="let team of nflTeams" [value]="team">
+              {{ team }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div id="button-div">
+          <button class="btn btn-primary form-button" *ngIf="!editing" (click)="toggleEditing()">Edit User Info</button>
+          <button class="btn btn-danger form-button" *ngIf="editing" (click)="toggleEditing()">Cancel Edits</button>
+          <button type="submit" class="btn btn-success form-button" [disabled]="!editing">Save Edits</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>

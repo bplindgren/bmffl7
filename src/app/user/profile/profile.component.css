@@ -1,4 +1,11 @@
-#register-form {
+h1 {
+  font-family: Helvetica;
+  margin-top: 20px;
+  color: red;
+  text-align: center;
+}
+
+#form-user {
   margin: auto;
   width: 500px;
   margin-top: 50px;
@@ -38,18 +45,14 @@ mat-card-title {
   width: 80%;
 }
 
-#submit-button {
-  height: 40px;
-  width: 120px;
-  border-radius: 2px;
-  margin: auto;
-  font-size: 16px;
-  color: #FFFFFF;
-  background-color: #007BFF;
+#button-div {
+  padding-top: 10px;
 }
 
-#errorMessage {
-  text-align: center;
-  padding: 20px 0px;
-  color: red;
+.form-button {
+  height: 40px;
+  margin: 0px 19px;
+  width: 40%;
+  border-radius: 4px;
+  font-size: 16px;
 }

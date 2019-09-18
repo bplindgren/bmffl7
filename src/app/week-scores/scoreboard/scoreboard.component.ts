@@ -19,15 +19,16 @@ export class ScoreboardComponent implements OnChanges {
   }
 
   getWeekGames(): void {
-    this.gameService.getWeekGames(this.season, this.week).subscribe((res: Game[]) => {
-      console.log(res)
-      this.games = res
+    this.gameService.getWeekGames(this.season, this.week)
+      .subscribe((res: Game[]) => {
+        this.games = res
     });
   }
 
   getPlayoffGames(): void {
-    this.gameService.getPlayoffGames(this.season-2010).subscribe((res: Game[]) => {
-      this.games = res
+    this.gameService.getPlayoffGames(this.season-2010)
+      .subscribe((res: Game[]) => {
+        this.games = res
     })
   }
 

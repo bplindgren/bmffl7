@@ -24,12 +24,16 @@ import { StandingsComponent } from './standings/standings.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { RankingsComponent } from './rankings/rankings.component';
+import { SmackboardComponent } from './smackboard/smackboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    StandingsComponent
+    StandingsComponent,
+    RankingsComponent,
+    SmackboardComponent
   ],
   imports: [
     LayoutModule, BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
@@ -40,7 +44,9 @@ import { MatSortModule } from '@angular/material/sort';
   exports: [
     AppComponent,
     MenuComponent,
-    StandingsComponent
+    StandingsComponent,
+    RankingsComponent,
+    SmackboardComponent
   ],
   bootstrap: [AppComponent]
 })

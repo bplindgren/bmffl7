@@ -9,9 +9,8 @@ import { User } from '../../user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
-  public user: User = new User();
-  public errorMessage: String;
+  private user: User = new User();
+  private errorMessage: String;
 
   constructor(
     private userService: UserService,

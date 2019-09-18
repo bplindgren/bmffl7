@@ -16,7 +16,7 @@ export class MatchupTotalsComponent implements OnInit {
   private currentStreak;
 
   ngOnInit() {
-    console.log(this.matchupStats);
+    console.log("matchup stats received");
   }
 
 }

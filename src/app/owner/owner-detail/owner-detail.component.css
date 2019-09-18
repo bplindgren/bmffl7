@@ -1,23 +1,51 @@
-h2 {
-  padding-left: 20px;
+@media only screen and (min-width: 992px) {
+  h2 {
+    padding-left: 20px;
+  }
+
+  #left-col {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    height: auto;
+    height: 360px;
+    /* border: 2px solid green; */
+  }
+
+  #right-col {
+    width: 50%;
+    float: right;
+    height: 360px;
+    /* border: 2px solid blue; */
+  }
+
+  teams-table {
+    margin: 20px;
+  }
 }
 
-#left-col {
-  width: 50%;
-  float: left;
-  padding: 20px;
-  height: auto;
-  height: 360px;
-  /* border: 2px solid green; */
-}
+@media only screen and (max-width: 991px) {
+  h2 {
+    padding-left: 20px;
+  }
 
-#right-col {
-  width: 50%;
-  float: right;
-  height: 360px;
-  /* border: 2px solid blue; */
-}
+  #left-col {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    height: auto;
+    height: 240px;
+    /* border: 2px solid green; */
+  }
 
-teams-table {
-  margin: 20px;
+  #right-col {
+    width: 50%;
+    float: right;
+    height: 240px;
+    /* border: 2px solid blue; */
+  }
+
+  teams-table {
+    margin: 20px;
+  }
 }

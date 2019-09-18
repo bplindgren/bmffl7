@@ -42,8 +42,15 @@
     <button mat-flat-button color="primary" routerLink="/teams">Teams</button>
     <button mat-flat-button color="primary" routerLink="/matchup">Matchups</button>
     <button mat-flat-button color="primary" routerLink="/standings">All-Time Standings</button>
+    <!-- <button mat-flat-button color="primary" routerLink="/rankings">Rankings</button>
+    <button mat-flat-button color="primary" routerLink="/smackboard">Smackboard</button> -->
 
-    <!-- <button *ngIf="!loggedIn" mat-flat-button color="primary" routerLink="/user/login">Login</button>
-    <button *ngIf="loggedIn" mat-flat-button color="primary" routerLink="/user/logout">Logout</button> -->
+    <mat-menu #userMenu="matMenu" overlapTrigger=false>
+      <button mat-menu-item class="float-right" routerLink="{{ userProfile }}">View Profile</button>
+      <button mat-menu-item class="float-right" routerLink="/user/logout">Logout</button>
+    </mat-menu>
+
+    <button *ngIf="!loggedIn" class="login-button" mat-flat-button color="primary" routerLink="/user/login">Login</button>
+    <button *ngIf="loggedIn" class="login-button" mat-flat-button color="primary" [matMenuTriggerFor]="userMenu">{{ loggedIn }}</button>
   </mat-card-content>
 </mat-card>

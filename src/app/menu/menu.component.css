@@ -1,8 +1,8 @@
 #header-component {
-  min-width: 600px;
+  min-width: 800px;
   margin: auto;
-  text-align: center;
   border-radius: 0px;
+  text-align: center;
 }
 
 #top-bar {
@@ -24,6 +24,8 @@ mat-card {
 
 #buttons-bar {
   background-color: #673AB7;
+  height: 38px;
+  clear: both;
 }
 
 .button-link {
@@ -33,4 +35,11 @@ mat-card {
 
 .float-right {
   float: right;
+}
+
+.login-button {
+  border: 2px solid white;
+  border-radius: 0px;
+  margin-left: 50px;
+  padding-right: 20px;
 }
