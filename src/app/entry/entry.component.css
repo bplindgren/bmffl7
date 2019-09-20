@@ -3,12 +3,8 @@
   flex-direction: column;
   margin: 10px 0px;
   padding: 20px;
-  border: 2px solid green;
+  border: 2px solid #B8B8B8;
   border-radius: 10px;
-}
-
-textarea {
-  height: 100px;
 }
 
 .form-container > * {
@@ -17,6 +13,7 @@ textarea {
 
 .form-button {
   width: 110px !important;
+  margin-right: 20px;
 }
 
 .login-button {
@@ -25,9 +22,4 @@ textarea {
 
 .red {
   color: red;
-}
-
-ul {
-  margin: 15px 0px;
-  padding: 0px;
 }

@@ -1,0 +1,17 @@
+<form #smackForm class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput #inputTitle name="title" type="text" maxlength="128" [(ngModel)]="title" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput #inputContent name="content" maxlength="1024" [(ngModel)]="content" required></textarea>
+  </mat-form-field>
+
+  <p>{{ 1024 - inputContent.value.length }} of 1024 characters remaining</p>
+
+  <div *ngIf="loggedIn == ownerId">
+    <button type="submit" *ngIf="editing" class="btn btn-success form-button">Save Edits</button>
+    <button *ngIf="!editing" class="btn btn-primary form-button" (click)="toggleEditing()">Edit Entry</button>
+    <button class="btn btn-danger form-button">Delete Entry</button>
+  </div>
+</form>
