@@ -34,7 +34,9 @@ export class SmackboardComponent implements OnInit {
 
   getEntries(): void {
     this.entryService.getAllEntries().subscribe(res => {
-      this.entries = res.reverse();
+      this.entries = res.sort((a,b) =>
+        (a['id'] < b['id']) ? 1 : ((b['id'] < a['id']) ? -1 : 0));
+      console.log(this.entries);
     })
   }
 

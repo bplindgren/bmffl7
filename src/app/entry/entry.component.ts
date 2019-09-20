@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Entry } from '../entry';
 import { EntryService } from '../entry/entry-service/entry.service';
+import { User } from '../user';
 
 @Component({
   selector: 'entry',
@@ -8,11 +9,11 @@ import { EntryService } from '../entry/entry-service/entry.service';
   styleUrls: ['./entry.component.css']
 })
 export class EntryComponent implements OnInit {
-  @Input() title: String;
-  @Input() content: String;
-  @Input() ownerId: number;
+  @Input() entry: Entry;
   public loggedIn: number;
   public editing: boolean;
+  public active: boolean = true;
+  @ViewChild('entryForm') entryForm: ElementRef;
 
   constructor(private entryService: EntryService) { }
 
@@ -23,11 +24,25 @@ export class EntryComponent implements OnInit {
       let idEndIdx = userInfo.indexOf(",", idStartIdx);
       this.loggedIn = userInfo.substring(idStartIdx, idEndIdx);
     }
-    console.log(this.title, this.content, this.ownerId, this.loggedIn);
   }
 
   toggleEditing(): void {
     this.editing = !this.editing;
+  }
+
+  saveEdits(): void {
+    this.toggleEditing();
+  }
+
+  deleteEntry(): void {
+    console.log(this.entry.id);
+    this.entryService.deleteEntry(this.entry.id).subscribe(res => {
+      console.log(res);
+      console.log(this.entryForm.nativeElement)
+      this.active = false;
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

@@ -26,4 +26,11 @@ export class EntryService {
     );
   }
 
+  deleteEntry(id: number): Observable<any> {
+    const url = `${this.baseURL}` + '/entry/delete/' + id;
+    return this.http.delete(url,
+      { headers: {"Content-Type": "application/json; charset=UTF-8"}}
+    );
+  }
+
 }
