@@ -1,7 +1,9 @@
+import { User } from './user';
+
 export class Entry {
   id: number;
   content: String;
-  createdById: number;
+  createdBy: User;
   createdAt: Date;
   modifiedAt: Date;
 }

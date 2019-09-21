@@ -42,7 +42,7 @@ export class SmackboardComponent implements OnInit {
 
   onSubmit(): void {
     this.newEntry['userId'] = +this.loggedIn;
-    this.entryService.createEntry(this.newEntry).subscribe(res => {
+    this.entryService.postEntry(this.newEntry).subscribe(res => {
       this.inputTitle.nativeElement.value = '';
       this.inputContent.nativeElement.value = '';
       this.getEntries();

@@ -18,7 +18,7 @@ export class EntryService {
     )
   }
 
-  createEntry(newEntry: Entry): Observable<any> {
+  postEntry(newEntry: Entry): Observable<any> {
     return this.http.post(
       this.baseURL + '/entry/create',
       JSON.stringify(newEntry),

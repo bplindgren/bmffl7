@@ -3,28 +3,34 @@
   <div *ngIf="loggedIn; else suggestLogin">
     <h5>Keep it clean...</h5>
 
-    <form class="form-container" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <input matInput #inputTitle name="title" type="text" placeholder="Title" maxlength="128" [(ngModel)]="newEntry.title" required>
-      </mat-form-field>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Create New Entry</mat-card-title>
+      </mat-card-header>
 
-      <mat-form-field>
-        <textarea matInput #inputContent name="content" placeholder="Talk Smack Here!" maxlength="1024" [(ngModel)]="newEntry.content" required></textarea>
-      </mat-form-field>
+      <form class="form-container" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput #inputTitle name="title" type="text" placeholder="Title" maxlength="128" [(ngModel)]="newEntry.title" required>
+        </mat-form-field>
 
-      <p>{{ 1024 - inputContent.value.length }} of 1024 characters remaining</p>
+        <mat-form-field>
+          <textarea matInput #inputContent name="content" placeholder="Talk Smack Here!" maxlength="1024" [(ngModel)]="newEntry.content" required></textarea>
+        </mat-form-field>
 
-      <button type="submit" class="btn btn-primary form-button">Create Post</button>
-    </form>
+        <p>{{ 1024 - inputContent.value.length }} of 1024 characters remaining</p>
+
+        <button type="submit" class="btn btn-primary form-button">Create Post</button>
+      </form>
+    </mat-card>
   </div>
 
   <ng-template #suggestLogin>
     <button class="btn btn-primary" name="login-button" routerLink="/user/login">Login to talk smack!</button>
   </ng-template>
 
-  <div *ngIf="entries">
+  <div id="entries-list" *ngIf="entries">
     <ul *ngFor="let e of entries">
-      <entry [entry]="e"></entry>
+      <li><entry [entry]="e"></entry></li>
     </ul>
   </div>
 </div>

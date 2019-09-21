@@ -1,19 +1,25 @@
 <div *ngIf="active">
   <form #entryForm class="form-container">
-    <mat-form-field>
-      <input matInput #inputTitle name="title" type="text" maxlength="128" [(ngModel)]="entry.title" required>
-    </mat-form-field>
-
-    <mat-form-field>
-      <textarea matInput #inputContent name="content" maxlength="1024" [(ngModel)]="entry.content" required></textarea>
-    </mat-form-field>
-
-    <div>
-      <p>Created By {{ entry.createdBy.username }} at {{ entry.createdAt | date:'MMMM d, y, h:mm:ss a' }}</p>
+    <div *ngIf="entry">
+      <p>Created by: {{ entry.createdBy.username }}</p>
+      <p>{{ entry.createdAt | date:'MMMM d, y, h:mm:ss a' }}</p>
     </div>
 
-    <div *ngIf="loggedIn == entry.createdBy.id">
-      <button type="submit" *ngIf="editing" class="btn btn-success form-button" (click)="toggleEditing()">Save Edits</button>
+    <mat-form-field>
+      <input matInput #inputTitle name="title" [readonly]="!editing" type="text" maxlength="128" [(ngModel)]="entry.title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="20"
+        #inputContent name="content" [readonly]="!editing" type="text" maxlength="1024" [(ngModel)]="entry.content" required>
+      </textarea>
+    </mat-form-field>
+
+    <div *ngIf="showButtons">
+      <button type="submit" *ngIf="editing" class="btn btn-success form-button" (click)="editEntry()">Save Edits</button>
       <button *ngIf="!editing" class="btn btn-primary form-button" (click)="toggleEditing()">Edit Entry</button>
       <button class="btn btn-danger form-button" (click)="deleteEntry()">Delete Entry</button>
     </div>
