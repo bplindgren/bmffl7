@@ -49,7 +49,7 @@ export const routes: Routes = [
 ]
 
 @NgModule({
-  // declarations: [ HomeComponent ],
+  declarations: [ HomeComponent ],
   imports: [ OwnerModule, MatMenuModule, RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
   providers: []
