@@ -60,4 +60,5 @@ textarea {
 ul {
   margin: 15px 0px;
   padding: 0px;
+  list-style-type: none;
 }

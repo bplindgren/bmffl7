@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { RouterModule } from '@angular/router';
-import { Game } from '../../game';
+import { TeamGame } from '../../teamGame';
 import { DataSource } from '@angular/cdk/table';
 
 @Component({
@@ -10,7 +10,7 @@ import { DataSource } from '@angular/cdk/table';
   styleUrls: ['./games-table.component.css']
 })
 export class GamesTableComponent implements OnInit, OnChanges {
-  @Input() games: Game[];
+  @Input() games: TeamGame[];
   dataSource: any;
   displayedColumns: string[] = ['week', 'gameType', 'home', 'opponent', 'division', 'result', 'pts', 'opp', 'w', 'l', 't', 'streak'];
 
@@ -21,13 +21,14 @@ export class GamesTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.dataSource = new MatTableDataSource<Game>(this.sortGames(changes['games']['currentValue']));
+    this.dataSource = new MatTableDataSource<TeamGame>(this.sortGames(changes['games']['currentValue']));
     this.dataSource.paginator = this.paginator;
   }
 
-  sortGames(games: Game[]): Game[] {
+  sortGames(games: TeamGame[]): TeamGame[] {
     if (games !== undefined) {
-      return games.sort((a: Game, b: Game) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+      let sortedGames: TeamGame[] = games.sort((a: TeamGame, b: TeamGame) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+      return sortedGames;
     }
   }
 

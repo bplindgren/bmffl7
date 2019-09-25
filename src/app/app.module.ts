@@ -27,7 +27,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { HomeComponent } from './home/home.component'
-import { RankingsComponent } from './rankings/rankings.component';
 import { SmackboardComponent } from './smackboard/smackboard.component';
 import { EntryComponent } from './entry/entry.component';
 
@@ -37,7 +36,6 @@ import { EntryComponent } from './entry/entry.component';
     MenuComponent,
     HomeComponent,
     StandingsComponent,
-    RankingsComponent,
     SmackboardComponent,
     EntryComponent
   ],
@@ -52,7 +50,6 @@ import { EntryComponent } from './entry/entry.component';
     MenuComponent,
     HomeComponent,
     StandingsComponent,
-    RankingsComponent,
     SmackboardComponent,
     EntryComponent
   ],

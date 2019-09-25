@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 import { Entry } from '../entry';
 import { EntryService } from '../entry/entry-service/entry.service';
 import { User } from '../user';
@@ -8,13 +8,14 @@ import { User } from '../user';
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css']
 })
-export class EntryComponent implements OnInit {
+export class EntryComponent implements OnInit, AfterViewInit {
   @Input() entry: Entry;
   public loggedIn: number;
   public active: boolean = true;
   public editing: boolean = false;
   public showButtons: boolean = null;
   @ViewChild('entryForm') entryForm: ElementRef;
+  @ViewChildren('mat-form-field-underline') underlines: ElementRef;
 
   constructor(private entryService: EntryService) { }
 
@@ -28,6 +29,10 @@ export class EntryComponent implements OnInit {
       // Show Buttons
       this.showButtons = (this.loggedIn == this.entry.createdBy.id) ? true : false;
     }
+  }
+
+  ngAfterViewInit() {
+    console.log(this.underlines);
   }
 
   toggleEditing(): void {

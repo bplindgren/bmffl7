@@ -1,4 +1,5 @@
 export class TeamGame {
+  id: number;
   week: number;
   team: string;
   owner: string;
