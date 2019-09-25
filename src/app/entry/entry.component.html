@@ -1,0 +1,27 @@
+<div *ngIf="active">
+  <form #entryForm class="form-container">
+    <div *ngIf="entry">
+      <p>Created by: {{ entry.createdBy.username }}</p>
+      <p>{{ entry.createdAt | date:'MMMM d, y, h:mm:ss a' }}</p>
+    </div>
+
+    <mat-form-field id="input-title">
+      <input matInput #inputTitle name="title" [readonly]="!editing" type="text" maxlength="128" [(ngModel)]="entry.title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="3"
+        cdkAutosizeMaxRows="50"
+        #inputContent name="content" [readonly]="!editing" type="text" maxlength="1024" [(ngModel)]="entry.content" required>
+      </textarea>
+    </mat-form-field>
+
+    <div *ngIf="showButtons" id="buttons-div">
+      <button type="submit" *ngIf="editing" class="btn btn-success form-button" (click)="editEntry()">Save Edits</button>
+      <button *ngIf="!editing" class="btn btn-primary form-button" (click)="toggleEditing()">Edit</button>
+      <button class="btn btn-danger form-button" (click)="deleteEntry()">Delete</button>
+    </div>
+  </form>
+</div>

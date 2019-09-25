@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ViewChild, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { SeasonStats } from '../../seasonStats';
@@ -9,7 +9,7 @@ import { DataSource } from '@angular/cdk/table';
   templateUrl: './teams-table.component.html',
   styleUrls: ['./teams-table.component.css']
 })
-export class TeamsTableComponent implements OnChanges {
+export class TeamsTableComponent implements OnInit, OnChanges {
   @Input() teams: SeasonStats[];
   public dataSource: any;
   displayedColumns: string[] = ['year', 'name', 'standing', 'divisionwinner', 'gamesplayed', 'wins', 'losses', 'ties', 'winningpct', 'pointsfor', 'pointsagainst', 'pfpg', 'papg', 'ppgdiff'];
@@ -18,6 +18,10 @@ export class TeamsTableComponent implements OnChanges {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngOnInit() {
+    this.sortTeams(this.stat);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     this.dataSource = new MatTableDataSource<SeasonStats>(changes['teams']['currentValue'].sort((a: SeasonStats, b: SeasonStats) => (a[this.stat] > b[this.stat]) ? 1 : ((b[this.stat] > a[this.stat]) ? -1 : 0)));
@@ -29,5 +33,9 @@ export class TeamsTableComponent implements OnChanges {
 
   setTenTeams(): boolean {
     return this.dataSource.data.length > 10;
+  }
+
+  sortTeams(stat: string): void {
+    this.teams.sort((a: SeasonStats, b: SeasonStats) => (a[stat] > b[stat]) ? 1 : ((b[stat] > a[stat]) ? -1 : 0));
   }
 }

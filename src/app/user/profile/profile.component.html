@@ -1,6 +1,4 @@
-<h1>MORE COOL USER FEATURES TO COME SOON</h1>
-
-<div *ngIf="user">
+<div id="profile-div" *ngIf="user">
   <form name="form-user" (ngSubmit)="updateUser()">
 
     <mat-card id="form-user">
@@ -21,7 +19,7 @@
           <input matInput name="email" type="email" placeholder="email" [disabled]="!editing" [(ngModel)]="user.email" required>
         </mat-form-field>
 
-        <h5>favorite BMFFL team</h5>
+        <label>favorite BMFFL team</label>
         <mat-form-field>
           <mat-select [disabled]="!editing" [(ngModel)]="user.favbmfflteam" name="favbmfflteam">
             <mat-option *ngFor="let team of teams" [value]="team.name">

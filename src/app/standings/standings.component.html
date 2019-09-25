@@ -34,12 +34,12 @@
 
     <ng-container cdkColumnDef="pointsfor">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>PF</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.pointsfor }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointsfor | number: '1.1-1' }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="pointsagainst">
       <mat-header-cell *cdkHeaderCellDef mat-sort-header>PA</mat-header-cell>
-      <mat-cell *cdkCellDef="let element">{{ element.pointsagainst }}</mat-cell>
+      <mat-cell *cdkCellDef="let element">{{ element.pointsagainst | number: '1.1-1' }}</mat-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="pointdifferential">

@@ -28,7 +28,7 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit() {
     this.teamService.getAllTeamsStatsView().subscribe(teams => {
-      this.allTeams = teams;
+      this.allTeams = this.sortTeams(teams, 'id');
       this.displayedTeams = this.allTeams;
     })
     this.ownerService.getAllOwners().subscribe(owners => {
@@ -46,7 +46,6 @@ export class TeamsComponent implements OnInit {
   }
 
   getTeamsByOwner(e: Object): void {
-    console.log(e);
     this.teamService.getOwnerTeamsStatsView(e["value"]).subscribe(teams => {
       this.displayedTeams = teams;
     })
