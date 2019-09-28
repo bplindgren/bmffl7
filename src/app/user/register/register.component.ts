@@ -13,13 +13,12 @@ export class RegisterComponent {
   private errorMessage: String;
 
   constructor(
-    private userService: UserService,
-    private router: Router
+    public userService: UserService,
+    public router: Router
   ) { }
 
   register(): void {
     this.userService.register(this.user).subscribe(response => {
-      console.log(response);
       this.router.navigate(['/user/login']);
     }, err => {
       this.errorMessage = "Username already exists";

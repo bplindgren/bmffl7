@@ -13,7 +13,7 @@
         <input matInput name="password" type="password" placeholder="password" [(ngModel)]="user.password" required>
       </mat-form-field>
 
-      <button type="submit" id="submit-button">Sign In</button>
+      <button type="submit" id="submit-button" class="btn btn-primary">Sign In</button>
     </div>
   </mat-card>
 </form>
@@ -22,4 +22,4 @@
   <p>{{ errorMessage }}</p>
 </div>
 
-<button id="register-button"><a [routerLink]="['/user/register']" class="btn btn-link">Don't have an account? Create a new Account!</a></button>
+<button id="register-button" class="btn btn-primary" [routerLink]="['/user/register']">Don't have an account? Create a new Account!</button>
