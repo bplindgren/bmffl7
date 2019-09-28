@@ -5,3 +5,7 @@ h4 {
 ul {
   list-style-type: disc;
 }
+
+li {
+  margin-left: 30px;
+}
